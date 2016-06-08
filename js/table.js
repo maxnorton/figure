@@ -670,7 +670,7 @@ function the_table_and_figure(discount, cost0, cost1, cost2, cost3, pc, price, y
 
 	var formatDate = d3.time.format("%d-%b-%y");
 
-	var x = d3.time.scale()
+	var x = d3.scale.linear()
 	    .range([0, width]);
 
 	var y = d3.scale.linear()
