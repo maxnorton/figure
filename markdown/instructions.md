@@ -1,0 +1,13 @@
+## Introduction
+
+Trunk (or wood-canker) diseases are widespread throughout California. These diseases significantly reduce annual yield in mature vineyards, limiting their profitable lifespan. Estimates suggest annual losses in California vineyards from Eutypa dieback, a widespread wood-canker disease, reduce annual gross producer value by as much as 14%. Yield losses accumulate each year, as there are no effective methods to eradicate the wood infections. Diseased vineyards must be replanted on a truncated cycle, and the high start-up costs are not repaid, or preventative practices can be adopted in young vineyards reducing the negative effects of trunk diseases. On this page we provide results from our economic analysis that demonstrate the effectiveness of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant). This page also provides growers an opportunity to enter economic and yield data for their operation to see how trunk diseases and these preventative practices might affect production in their winegrape vineyard. 
+
+### Instructions
+
+In the following section of this page, you are prompted to select a winegrape growing region, figures of annual and cumulative net returns and yields, and tables containing annual average and cumulative indicators taken from our economic analysis. You will also be asked to select the preventative practices, disease control efficacy rates, and vineyard age when a preventative practice is first adopted. Links on the page provide descriptions of the preventative practices and disease control efficacy rates as well as definitions of the variables displayed in the figures and tables. All figure and table results also list the underlying region-specific parameter values used in the economic analysis.
+
+You will also find [the link to an input form](custom-parameters.html) where you will be prompted to enter yield, price, cultural cost, and preventative practice cost information, and then select figures and tables similar to the regional figures and tables generated on this page to display the results.
+
+For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact [kaplanj@csus.edu](mailto:kaplanj@csus.edu).  
+
+*Partial support for this site is provided through grants from [the California Sustainable Winegrowing Alliance](http://sustainablewinegrowing.org) and the Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture. [For more information on trunk disease research, please visit the SCRI Trunk Disease Project Page](http://treeandvinetrunkdiseases.org).*

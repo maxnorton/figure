@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trunk disease management options decision tool</title>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+<script type="text/javascript" src = "js/interface.js"></script>
+<script type="text/javascript" src = "js/analysis.js"></script>
+<link rel="stylesheet" href="css/swipebox.css">
+</head>
+
+<body id="page">
+
+<!-- @import header -->
+
+<section class="content-wrap">
+
+<fieldset class="instructions">
+<!-- @import ../markdown/compiled/instructions.html -->
+</fieldset>
+
+<form id="theform">
+
+	<label><strong>Vineyard region: </strong><select name="region">
+		<option value="nsj">Northern San Joaquin</option>
+		<option value="napa">Napa</option>
+		<option value="lake">Lake</option>
+		<option value="sonoma">Sonoma</option>
+		<option value="cc">Central Coast</option>
+	</select></label>
+
+	<h3 id="figureparameters">Figure parameters</h3>
+	<label><input type="checkbox" name="figuregen" id="figuregen" checked="checked" />Generate figure</label>
+
+	<fieldset class="figure">
+
+		<!--<h4>Specify figure options</h4>-->
+
+		<h4>Display output as:</h4>
+			<ul>
+				<li>
+					<label><input type="radio" name="figuredisplay" value="netreturns" checked />Cumulative discounted net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
+					<label><input type="radio" name="figuredisplay" value="yield" />Annual yield <span class="show-for-medium-up">(tons per acre)</span></label>
+				</li>
+				<li class="glossary-link"><a href="variable-definitions.html">Variable definitions</a></li>
+			</ul>
+
+		<!--<h4>Aggregate output:</h4>
+			<label><input type="radio" name="aggregatefig" value="cumulatively" checked="checked" />Cumulatively</label>
+			<label><input type="radio" name="aggregatefig" value="annually" />Annually</label>-->
+		
+		<!--<h4>Specify management scenario</h4>-->
+
+		<h4>Select the management practices to consider:</h4>
+			<ul>
+				<li>
+					<label><input type="checkbox" name="practicefig" value="dp" />Delayed pruning</label>
+					<label><input type="checkbox" name="practicefig" value="hp" />Hand-painted TopsinM</label>
+					<label><input type="checkbox" name="practicefig" value="dbp" />Double pruning</label>
+				</li>
+				<li class="glossary-link"><a href="practice-definitions.html">Practice definitions</a></li>
+			</ul>
+
+		<h4>Select (a) or (b).</h4>
+
+		<section class="efficacyfig-wrap">
+			<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="efficacy" /> (a) Indicate anticipated disease control efficacy:</label></h4>
+			<ul>
+				<li>
+					<label><input type="checkbox" name="efficacyfig" value="25" />25%</label>
+					<label><input type="checkbox" name="efficacyfig" value="50" />50%</label>
+					<label><input type="checkbox" name="efficacyfig" value="75" />75%</label>
+				</li>
+				<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></li>
+			</ul>
+		</section>
+
+		<section class="yearfig-wrap">
+		<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="year" /> (b) Indicate year of practice adoption:</label></h4>
+		<ul>
+			<li>
+				<label><input type="checkbox" name="yearfig" value="Year3" />Year 3</label>
+				<label><input type="checkbox" name="yearfig" value="Year5" />Year 5</label>
+				<label><input type="checkbox" name="yearfig" value="Year10" />Year 10</label>
+			</li>
+			<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisors to reflect key stages in a vineyard&#8217;s lifespan.</span></li>
+		</ul>
+		</section>
+
+	</fieldset>
+
+	<h3 id="tableparameters">Table parameters</h3>
+	<label><input type="checkbox" name="tablegen" id="tablegen" checked="checked" />Generate table</label>
+
+	<fieldset class="table management">
+		
+		<p><a href="custom-parameters.html">Customize parameters</a></p>
+
+		<h4>Select the management practices to consider:</h4>
+			<ul>
+				<li>
+					<label><input type="checkbox" name="practicetable" value="dp" checked="checked" />Delayed pruning</label>
+					<label><input type="checkbox" name="practicetable" value="hp" />Hand-painted TopsinM</label>
+					<label><input type="checkbox" name="practicetable" value="dbp" />Double pruning</label>
+				</li>
+				<li class="glossary-link"><a href="practice-definitions.html">Practice definitions</a></li>
+			</ul>
+
+		<h4>Select anticipated disease control efficacy:</h4>
+			<ul>
+				<li>
+					<label><input type="checkbox" name="efficacytable" value="25" checked="checked" />25%</label>
+					<label><input type="checkbox" name="efficacytable" value="50" />50%</label>
+					<label><input type="checkbox" name="efficacytable" value="75" />75%</label>
+				<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></li>
+			</ul>
+
+		<h4>Select year of practice adoption:</h4>
+			<ul>
+				<li>
+					<label><input type="checkbox" name="adoptiontable" value="3" />Year 3</label>
+					<label><input type="checkbox" name="adoptiontable" value="5" />Year 5</label>
+					<label><input type="checkbox" name="adoptiontable" value="10" />Year 10</label>
+				</li>
+				<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisors to reflect key stages in a vineyard&#8217;s lifespan.</span></li>
+			</ul>
+
+		<h4>Select output parameters:</h4>
+			<ul>
+				<li>
+					<label><input type="checkbox" name="outputtable" value="acdnb" />Additional cumulative discounted net benefits (ACDNB)</label>
+					<label><input type="checkbox" name="outputtable" value="lpy" />Last profitable year</label>
+					<label><input type="checkbox" name="outputtable" value="aapo" />Age adoption pays off</label>
+					<label><input type="checkbox" name="outputtable" value="bep" />Breakeven probability</label>
+				</li>
+				<li class="glossary-link"><a href="variable-definitions.html#tablevars">Variable definitions</a></li>
+			</ul>
+
+
+	</fieldset>
+
+	<input type="submit" value="Display returns to this practice" />
+
+</form>
+
+<section id="results" class="results"></section>
+
+<hr />
+
+<p class="top-link"><a href="#page" onclick="$('body,html').stop(true,true).animate({scrollTop: $('#page').offset().top - $('header').height()}, '500', 'swing');">&#8593; Top</a></p>
+
+</section>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	styleGlossaryLinks();
+	toggleFormOptions();
+	applySubmitFunction( getGenstates() );
+	$( '.swipebox' ).swipebox();
+});
+</script>
+
+</body>
+</html>

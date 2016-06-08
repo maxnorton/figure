@@ -1,0 +1,352 @@
+@charset "UTF-8"; /* only necessary if doc contains unicode chars */
+/* stylesheet information for kaplan-tool
+File created date: 11.02.2015
+Last modified date: 11.02.2015
+By: Max Norton maxbnorton@csus.edu
+*/
+
+/* Table of Contents
+FONT AND COLOR PALETTE
+RESETS AND OVERRIDES
+LINKS AND TYPE
+MAIN LAYOUT
+$logo
+$top-nav
+$nav-bar
+$etc
+SECONDARY LAYOUT
+$etc
+FORM ELEMENTS
+MISCELLANEOUS
+*/
+
+/* FONT AND COLOR PALETTE: 
+------------------------------ */
+	$sans-stack: Arial,Helvetica,sans-serif;
+	$color: #hexcode;
+
+	.alert {
+		color: red;
+	}
+
+
+/* RESETS AND OVERRIDES
+------------------------------ */
+/*@import ();*/
+
+body {
+	margin: 0;
+}
+
+h1 {
+	font-size: .75em;
+}
+
+h1.images img:nth-of-type(1) {
+	display: none;
+}
+
+
+/* Smartphones (landscape) and up ----------- */
+@media only screen and (min-width : 321px) {
+	h1.images img:nth-of-type(1) {
+		display: inline;
+	}
+}
+
+/* Tablets (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+	h1 {
+		font-size: 1.5em;
+	}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+	h1 {
+		font-size: 2em;
+	}
+}
+
+
+/* LINKS AND TYPE
+------------------------------ */
+
+a i {
+	color: black;
+}
+
+a:hover i,
+a:hover {
+	color: green;
+}
+
+h1, h2, h3 {
+	font-family: sans-serif;
+}
+
+h1.title a {
+	color: white;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.glossary-inline,
+.glossary-link {
+	color: black;
+	display: block;
+	padding: 0;
+
+	i {
+		padding-right: 1em;
+	}
+}
+
+.glossary-link a {
+	color: black;
+	cursor: pointer;
+}
+
+.glossary-inline {
+	display: none;
+	padding-left: 2em;
+}
+
+.glossary-link:hover,
+.glossary-link a:hover {
+	color: green;
+}
+
+.table-style {
+	font-family: sans-serif;
+	font-size: 0.85em;
+}
+
+/* MAIN LAYOUT
+------------------------------ */
+
+header {
+	background-color: white;
+	border-bottom: 1px solid #bbb;
+	display: block;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	.header-wrap {
+		margin: .25em 0 ;
+		max-height: 60px;
+		overflow: hidden;
+	}
+
+	h1.title {
+		color: white;
+		background-color: #555;
+		display: inline-block;
+		font-family: 'Arial Black', san-serif;
+		height: 4.5em;
+		margin: 0;
+		max-width: 12em;
+		padding: .25em 1% .5em 1%;
+		vertical-align: top;
+	}
+
+	h1.images {
+		background-color: white;
+		display: inline;
+		height: 60px;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+
+		img {
+			height: 60px;
+		}
+
+	}
+
+}
+
+/* Tablets and up ----------- */
+@media only screen and (min-width: 768px) {
+	header .header-wrap {
+		max-height: 112px;
+
+		h1.images img {
+				height: 112px;
+		}
+	}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+	header .header-wrap {
+		max-height: 148px;
+
+		h1.images img {
+				height: 148px;
+		}
+	}
+}
+
+.content-wrap {
+	padding-top: 80px;
+	margin: 0 8px;
+	max-width: 910px;
+}
+
+/* Tablets and up ----------- */
+@media only screen and (min-width: 768px) {
+	.content-wrap {
+		padding-top: 124px;
+	}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+	.content-wrap {
+		padding-top: 150px;		
+	}
+}
+
+fieldset, .results {
+	display: block;
+	margin: 1em 0;
+	max-width: 90%;
+
+	img {
+		max-width: 100%;
+	}
+
+}
+
+.results {
+	margin-left: 8px;
+}
+
+fieldset ul {
+	list-style-type: none;
+	margin-bottom: 3em;
+
+	li {
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+}
+
+/* Smartphones (landscape) and down ----------- */
+@media only screen and (max-width : 767px) {
+	.results img {
+		width: 100% !important;
+	}
+}
+
+/* Tablets and down ----------- */
+@media only screen and (max-width : 1023px) {
+	.results img {
+		min-width: 50% !important;
+	}
+}
+
+
+/* SECONDARY LAYOUT
+------------------------------ */
+
+.results table,
+table.form {
+	border: 1px solid #ccc;
+	border-spacing: 0;
+	margin-bottom: 10px;
+
+	td {
+		height: 1.5em;
+		padding: .5em;
+		text-align: center;
+	}
+
+	th:first-of-type,
+	td:first-of-type {
+		text-align: left;
+	}
+
+	th {
+		border-bottom: 1px solid #ccc;
+		background-color: #eee;
+	}
+
+	tr:nth-of-type(even) {
+		background-color: #eee;
+	}
+}
+
+.assumptionstable {
+	tr td:first-of-type {
+		font-weight: bold;
+		border-right: 1px solid #ccc;
+	}
+}
+
+.efficacy-info,
+.variable-definitions {
+	table {
+		border-bottom: 2px solid #000;
+		border-collapse: collapse;
+		border-top: 2px solid #000;
+		font-family: sans-serif;
+		font-size: 0.85em;
+		max-width: 100%;
+
+		th {
+			font-weight: normal;
+			min-width: 12rem;
+		}
+
+		td:first-of-type {
+			min-width: 16rem;
+		}
+	}
+}
+
+.variable-definitions {
+	table:not(:nth-of-type(2)) {
+		th:not(:first-of-type) {
+			border-bottom: 1px solid #999;
+		}
+		tr:first-of-type td {
+			border-bottom: 1px solid #000;
+		}
+	}
+
+	table:nth-of-type(2) th {
+		border-bottom: 1px solid #000;
+	}
+}
+
+.efficacy-info table {
+	thead tr:first-of-type th:nth-of-type(2) {
+		border-bottom: 1px solid #999;
+	}
+	thead tr:nth-of-type(3) th:nth-of-type(2) {
+		border-top: 1px solid #000;
+	}
+}
+
+
+/* FORM ELEMENTS
+------------------------------ */
+
+label {
+	display: block;
+}
+
+label[for=efficacyOrYearfig] {
+	color: #000000;
+}
+
+
+/* MISCELLANEOUS
+------------------------------ */
