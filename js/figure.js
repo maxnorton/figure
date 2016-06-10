@@ -25,6 +25,7 @@ function the_figure(healthyYields) {
 
 	var xAxis = d3.svg.axis()
 	    .scale(x)
+	    .ticks(5)
 	    .orient("bottom");
 
 	var yAxis = d3.svg.axis()
