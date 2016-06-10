@@ -97,7 +97,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#submit').click(function() {
-			the_table(	$('input#discount').val(),
+			var healthyYields = the_table(	$('input#discount').val(),
 						$('input#cost0').val(),
 						$('input#cost1').val(),
 						$('input#cost2').val(),
@@ -111,6 +111,7 @@
 						$('input#yield4').val(),
 						$('input#yield5').val()
 				);
+			the_figure(healthyYields);
 		});
 
 		mobileSubstitutions();

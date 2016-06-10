@@ -336,5 +336,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 
+		return healthyYields;
+
 	});
 };
