@@ -62,7 +62,7 @@ function the_figure(healthyYields) {
 	      .style("text-anchor", "end")
 	      .text("Yield (Tons/Acre)");
 
-	  svg.append("path")
+	  svg.append("polyline")
 	      .attr("d", line(lineData))
 	      .attr("class", "line")
 	      .attr("stroke", "blue")
