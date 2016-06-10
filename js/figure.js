@@ -39,35 +39,43 @@ function the_figure(healthyYields) {
 	console.log(line(lineData));
 
 	var svg = d3.select(".results").append("svg")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
-	  .append("g")
-	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	  x.domain(d3.extent(lineData, function(d) { return d.x; }));
-	  y.domain(d3.extent(lineData, function(d) { return d.y; }));
+	x.domain(d3.extent(lineData, function(d) { return d.x; }));
+	y.domain(d3.extent(lineData, function(d) { return d.y; }));
 
-	  svg.append("g")
-	      .attr("class", "x axis")
-	      .attr("transform", "translate(0," + height + ")")
-	      .call(xAxis);
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
 
-	  svg.append("g")
-	      .attr("class", "y axis")
-	      .call(yAxis)
-	    .append("text")
-	      .attr("transform", "rotate(-90)")
-	      .attr("y", 6)
-	      .attr("dy", ".71em")
-	      .style("text-anchor", "end")
-	      .text("Yield (Tons/Acre)");
+	svg.append("g")
+		.attr("class", "y axis")
+		.call(yAxis)
+		.append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", 6)
+		.attr("dy", ".71em")
+		.style("text-anchor", "end")
+		.text("Yield (Tons/Acre)");
 
-	  svg.append("polyline")
-	      .attr("d", line(lineData))
-	      .attr("class", "line")
-	      .attr("stroke", "blue")
-		  .attr("stroke-width", 2)
-		  .attr("fill", "none");
+	svg.append("path")
+		.attr("d", line(lineData))
+		.attr("class", "line")
+		.attr("stroke", "blue")
+		.attr("stroke-width", 2)
+		.attr("fill", "none");
+
+	svg.selectAll("dot")
+		.data(lineData)
+		.enter().append("circle")
+		.attr("r", 3.5)
+		.attr("fill","blue")
+		.attr("cx", function(d) { return x(d.x); })
+		.attr("cy", function(d) { return y(d.y); });
 
 	$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 
