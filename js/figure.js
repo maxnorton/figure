@@ -44,7 +44,7 @@ function the_figure(healthyYields) {
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	x.domain(d3.extent(lineData, function(d) { return d.x; }));
+	x.domain(d3.extent(years));
 	y.domain(d3.extent(lineData, function(d) { return d.y; }));
 
 	svg.append("g")
