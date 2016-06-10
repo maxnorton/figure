@@ -192,7 +192,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 	 		untreatedLPY = untreatedLPY - 1;
 	 	}
 
- 		var the_table_html = '<hr /><h2>Results</h2><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Breakeven age</h4></th><th><h4>Last profitable year</h4></th><th><h4>Breakeven probability</h4></th></thead><tbody>';
+ 		var the_table_html = '<hr /><h2>Results</h2><section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Breakeven age</h4></th><th><h4>Last profitable year</h4></th><th><h4>Breakeven probability</h4></th></thead><tbody>';
 		the_table_html += '<tr><td>' + scenarios['healthy'] + '</td><td>' + healthyACDNBnaDisplay + '</td><td>' + healthyBEAnaDisplay + '</td><td>' + healthyLPY + '</td><td>' + 0 + '</td></tr>';
 		the_table_html += '<tr><td>' + scenarios['untreated'] + '</td><td>' + '-' + '</td><td>' + '-' + '</td><td>' + untreatedLPY + '</td><td>' + 1 + '</td></tr>';
 

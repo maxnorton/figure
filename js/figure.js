@@ -38,7 +38,7 @@ function the_figure(healthyYields) {
 
 	console.log(line(lineData));
 
-	var svg = d3.select(".results").append("svg")
+	var svg = d3.select(".figure-area").append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
@@ -76,8 +76,6 @@ function the_figure(healthyYields) {
 		.attr("fill","blue")
 		.attr("cx", function(d) { return x(d.x); })
 		.attr("cy", function(d) { return y(d.y); });
-
-	$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 
 }
 
