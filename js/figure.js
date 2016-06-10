@@ -1,9 +1,5 @@
-var t, a, eff, discount; // indices
-var cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4; // user-set parameters
-var treatedCDNR, treatedDNR, treatedNR, treatedYields = new Array(); // outcomes
-var costs, pcFtnOfT, isProfitable = new Array(); // collation arrays
 
-function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4) {
+function the_table_and_figure(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4) {
 	d3.tsv("yield-rates.tsv", function(data) {
 
 		var healthyACDNBna, acdnb25y3, acdnb25y5, acdnb25y10, acdnb50y3, acdnb50y5, acdnb50y10, acdnb75y3, acdnb75y5, acdnb75y10, treatedYields, treatedNR, treatedDNR, treatedCDNR, ccthv = new Array();
@@ -68,32 +64,32 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		var discountFactor = 1/(1+discount/100);
 
 		healthyYields = [
-			yield0,
-			yield1,
-			yield2,
-			yield3,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,
-			yield4,		
-			yield4		
+			parseInt(yield0),
+			parseInt(yield1),
+			parseInt(yield2),
+			parseInt(yield3),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),
+			parseInt(yield4),		
+			parseInt(yield4)		
 		];
 
 		untreatedYields = [];
@@ -326,9 +322,76 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 	 	};
 
 		the_table_html += '</tbody></table>' + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#form" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#form\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
+
 		$('.results').html(the_table_html);
 
-		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 
+	var years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+	console.log(years);
+	console.log(healthyYields);
+
+	var margin = {top: 20, right: 20, bottom: 30, left: 50},
+	    width = 960 - margin.left - margin.right,
+	    height = 500 - margin.top - margin.bottom;
+
+	var formatDate = d3.time.format("%d-%b-%y");
+
+	var x = d3.scale.linear()
+	    .range([0, width]);
+
+	var y = d3.scale.linear()
+	    .range([height, 0]);
+
+	var xAxis = d3.svg.axis()
+	    .scale(x)
+	    .orient("bottom");
+
+	var yAxis = d3.svg.axis()
+	    .scale(y)
+	    .orient("left");
+
+	var line = d3.svg.line()
+	    .x(years)
+	    .y(healthyYields);
+
+	console.log(line);
+
+	var svg = d3.select(".results").append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	  x.domain(d3.extent(years));
+	  y.domain(d3.extent(healthyYields));
+
+	  svg.append("g")
+	      .attr("class", "x axis")
+	      .attr("transform", "translate(0," + height + ")")
+	      .call(xAxis);
+
+	  svg.append("g")
+	      .attr("class", "y axis")
+	      .call(yAxis)
+	    .append("text")
+	      .attr("transform", "rotate(-90)")
+	      .attr("y", 6)
+	      .attr("dy", ".71em")
+	      .style("text-anchor", "end")
+	      .text("Yield (Tons/Acre)");
+
+	  svg.append("path")
+	      .datum(data)
+	      .attr("class", "line")
+	      .attr("d", line);
 	});
+
+	$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
+
 }
+
+function type(d) {
+	  d.years = +d.years;
+	  d.healthyYields = +d.healthyYields;
+	  return d;
+	}
