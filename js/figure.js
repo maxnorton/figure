@@ -13,9 +13,15 @@ function the_figure(healthyYields) {
 
 	console.log(lineData);
 
-	var margin = {top: 20, right: 20, bottom: 30, left: 50},
-	    width = 960 - margin.left - margin.right,
-	    height = 500 - margin.top - margin.bottom;
+	var margin = {top: 20, right: 35, bottom: 30, left: 35},
+	    width = ($('body').width() < 960) ? $('body').width() - margin.left - margin.right : 960 - margin.left - margin.right,
+	    height = width*.506;
+
+	    console.log($('body').width());
+	    console.log(width);
+	    console.log($('body').width() < 960 );
+	    console.log($('body').width() - margin.left - margin.right);
+	    console.log(960 - margin.left - margin.right);
 
 	var x = d3.scale.linear()
 	    .range([0, width]);
