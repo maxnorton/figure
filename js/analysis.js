@@ -65,7 +65,7 @@ function applySubmitFunction(genstates) {
 				inputs[inputkeys[inputindex]] = false;
 			};
 			var outputkeys = [];
-			outputkeys = ['acdnb', 'lpy', 'aapo', 'bep'];
+			outputkeys = ['acdnb', 'aapo', 'lpy', 'bep'];
 			for (var outputindex in outputkeys) {
 				outputs[outputkeys[outputindex]] = false;
 			};
@@ -142,18 +142,18 @@ function applySubmitFunction(genstates) {
 			/***** Generate assumptions table
 			------------------------------------ */
 
-			var assumptionsHeaders = ['Region', 'Price', 'Discount Rate', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ Established Vineyard'];
-			var assumptionsNapa = ['Napa', '$5,192', '3%', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784'];
-			var assumptionsNSJ = ['Northern San Joaquin', '$650', '3%', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505'];
-			var assumptionsCC = ['Central Coast', '$1,262', '3%', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625'];
-			var assumptionsLake = ['Lake', '$1,623', '3%', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404'];
-			var assumptionsSonoma = ['Sonoma', '$2,355', '3%', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280'];		
-			var assumptionsArray = [{sonoma: assumptionsSonoma, nsj: assumptionsNSJ, cc: assumptionsCC, lake: assumptionsLake, napa: assumptionsNapa}];
-			var assumptionstable = '<section class="assumptions-wrap"><h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
-			for (var i=0; i<assumptionsHeaders.length; i++) {
-				assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + assumptionsArray[0][$('select[name=region]').val()][i] + '</td></tr>';
-			};
-			assumptionstable += '</table></section>';
+			var assumptionsHeaders = ['Region', 'Price per ton ($)', 'Discount Rate', 'Cultivar', 'Additional Annual Cost per acre from Double Pruning', 'Additional Annual Cost per acre from Handpainting TopsinM', 'Annual Cultural Cost per acre &#8211; Year 0 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 1 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 2 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 3+ Established Vineyard', 'Annual yield per acre (Tons) &#8211; Year 0', 'Annual yield per acre (Tons) &#8211; Year 1', 'Annual yield per acre (Tons) &#8211; Year 2', 'Annual yield per acre (Tons) &#8211; Year 3', 'Annual yield per acre (Tons) &#8211; Year 4', 'Annual yield per acre (Tons) &#8211; Year 5+'];
+            var assumptionsNapa = ['Napa', '$5,192', '3%', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784','0','0','1','4.5','4.5','4.5'];
+            var assumptionsNSJ = ['Northern San Joaquin', '$650', '3%', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505','0','0','5','10','10','10'];
+            var assumptionsCC = ['Central Coast', '$1,262', '3%', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625','0','0','2.5','5','7.5','7.5'];
+            var assumptionsLake = ['Lake', '$1,623', '3%', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404','0','0','0.75','1.5','3.5','5.75'];
+            var assumptionsSonoma = ['Sonoma', '$2,355', '3%', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280','0','0','1.5','3.5','5','5'];
+            var assumptionsArray = [{sonoma: assumptionsSonoma, nsj: assumptionsNSJ, cc: assumptionsCC, lake: assumptionsLake, napa: assumptionsNapa}];
+            var assumptionstable = '<section class="assumptions-wrap"><h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
+            for (var i=0; i<assumptionsHeaders.length; i++) {
+                    assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + assumptionsArray[0][$('select[name=region]').val()][i] + '</td></tr>';
+            };
+            assumptionstable += '</table></section>';
 
 			/***** Collate results
 			------------------------------------ */

@@ -290,6 +290,7 @@ table.form {
 	}
 }
 
+.custom-instructions,
 .efficacy-info,
 .variable-definitions {
 	table {
@@ -311,6 +312,21 @@ table.form {
 	}
 }
 
+.custom-instructions {
+	th {
+		border-bottom: 1px solid #999;
+	}
+}
+
+.efficacy-info table {
+	thead tr:first-of-type th:nth-of-type(2) {
+		border-bottom: 1px solid #999;
+	}
+	thead tr:nth-of-type(3) th:nth-of-type(2) {
+		border-top: 1px solid #000;
+	}
+}
+
 .variable-definitions {
 	table:not(:nth-of-type(2)) {
 		th:not(:first-of-type) {
@@ -323,15 +339,6 @@ table.form {
 
 	table:nth-of-type(2) th {
 		border-bottom: 1px solid #000;
-	}
-}
-
-.efficacy-info table {
-	thead tr:first-of-type th:nth-of-type(2) {
-		border-bottom: 1px solid #999;
-	}
-	thead tr:nth-of-type(3) th:nth-of-type(2) {
-		border-top: 1px solid #000;
 	}
 }
 
