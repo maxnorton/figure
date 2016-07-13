@@ -1,9 +1,23 @@
 
 function the_figure(healthyYields) {
+
+	var efficacyOrYearchoice = $('input[name=efficacyOrYearfig]:checked').val() + 'fig';
+	var yieldParamaterValue = $('input[name=' + efficacyOrYearchoice + ']:checked').val();
+	var scenarios = [],
+		healthyData = [],
+		infectedData = [];
+
+	switch (yieldParamaterValue) {
+		case '25':
+			var data25y3 = [],
+				data25y5 = [],
+				data25y10 = [];
+			scenarios = [healthyData, data25y3, data25y5, data25y10, infectedData];
+			break;
+	}
 	
 	var years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
-	var healthyData = new Array();
 	for (var i in healthyYields) {
 		healthyData[i] = { "x" : i, "y" : healthyYields[i] };
 	}
@@ -70,11 +84,6 @@ function the_figure(healthyYields) {
 		.attr("fill","blue")
 		.attr("cx", function(d) { return x(d.x); })
 		.attr("cy", function(d) { return y(d.y); });
-
-	var infectedData = [],
-		data25y3 = [],
-		data25y5 = [],
-		data25y10 = [];
 
 	d3.tsv("yield-rates.tsv", function(data) {
 		for (var i in healthyYields) {
