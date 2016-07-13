@@ -75,7 +75,7 @@ function the_figure(healthyYields) {
 		data25y3 = [],
 		data25y5 = [],
 		data25y10 = [];
-		
+
 	d3.tsv("yield-rates.tsv", function(data) {
 		for (var i in healthyYields) {
 			infectedData[i] = { "x" : i, "y" : healthyYields[i]*data[i]['noAction']/100 };
@@ -103,12 +103,50 @@ function the_figure(healthyYields) {
 		svg.append("path")
 			.attr("d", line(data25y3))
 			.attr("class", "line")
-			.attr("stroke", "lightskyblue")
+			.attr("stroke", "yellowgreen")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 
 		svg.selectAll("dot")
 			.data(data25y3)
+			.enter().append("circle")
+			.attr("r", 3.5)
+			.attr("fill","yellowgreen")
+			.attr("cx", function(d) { return x(d.x); })
+			.attr("cy", function(d) { return y(d.y); });
+
+		for (var i in healthyYields) {
+			data25y5[i] = { "x" : i, "y" : healthyYields[i]*data[i]['25y5']/100 };
+		}
+
+		svg.append("path")
+			.attr("d", line(data25y5))
+			.attr("class", "line")
+			.attr("stroke", "darkorchid")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+
+		svg.selectAll("dot")
+			.data(data25y5)
+			.enter().append("circle")
+			.attr("r", 3.5)
+			.attr("fill","darkorchid")
+			.attr("cx", function(d) { return x(d.x); })
+			.attr("cy", function(d) { return y(d.y); });
+
+		for (var i in healthyYields) {
+			data25y10[i] = { "x" : i, "y" : healthyYields[i]*data[i]['25y10']/100 };
+		}
+
+		svg.append("path")
+			.attr("d", line(data25y10))
+			.attr("class", "line")
+			.attr("stroke", "lightskyblue")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+
+		svg.selectAll("dot")
+			.data(data25y10)
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","lightskyblue")
