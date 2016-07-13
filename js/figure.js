@@ -15,7 +15,7 @@ function the_figure(healthyYields) {
 		for (var i in healthyYields) {
 			infectedData[i] = { "x" : i, "y" : healthyYields[i]*data[i]['noAction']/100 };
 		}
-	}
+	});
 
 	console.log(healthyData);
 
