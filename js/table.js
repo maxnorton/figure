@@ -65,6 +65,9 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 
 		var scenarioKeys = Object.keys(scenarios);
 
+		var scenarioYieldObject = new Object();
+		var scenarioCDNRObject = new Object();
+
 		var discountFactor = 1/(1+discount/100);
 
 		healthyYields = [
@@ -96,10 +99,14 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			parseInt(yield5)		
 		];
 
+		scenarioYieldObject[0] = { "healthyYields" : healthyYields };
+
 		untreatedYields = [];
 		for (var i in healthyYields) {
 			untreatedYields[i] = healthyYields[i]*data[i]['noAction']/100;
 		}
+
+		scenarioYieldObject[1] = { "untreatedYields" : untreatedYields };
 
 		costs = [
 			cost0,
@@ -145,6 +152,8 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		for (var i=1; i<untreatedDNR.length; i++) {
 			untreatedCDNR[i] = untreatedDNR[i] + untreatedCDNR[i-1];
 		};
+
+		scenarioCDNRObject[1] = { "untreatedCDNR" : untreatedCDNR };
 
  		var healthyCDNRna = [ price*healthyYields[0] - costs[0] ];
  		var healthyLPY = '-';
@@ -226,10 +235,15 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 				healthyCDNR[i] = healthyDNR[i] + healthyCDNR[i-1];
 			};
 
+			scenarioCDNRObject[0] = { "healthyCDNR" : healthyCDNR };
+
 			treatedYields = [];
 			for (var i in healthyYields) {
 				treatedYields[i] = healthyYields[i]*data[i][selectCol]/100;
 			};
+
+			var thisKey = scenarioKeys[a];
+			scenarioYieldObject[a] = { thisKey : treatedYields };
 
 			treatedNR = [];
 			for (var i in treatedYields) {
@@ -246,6 +260,8 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			for (var i=1; i<treatedDNR.length; i++) {
 				treatedCDNR[i] = treatedDNR[i] + treatedCDNR[i-1];
 			};
+
+			scenarioCDNRObject[a] = { thisKey : treatedCDNR };
 
 			ccthv = [ parseInt(pcFtnOfT[0]) ];
 			for (var i=1; i<healthyDNR.length; i++) {
@@ -328,7 +344,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		the_table_html += '</tbody></table>' + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#form" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#form\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 		$('.results').html(the_table_html);
 
-		the_figure(healthyYields);
+		the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject);
 
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 

@@ -1,5 +1,5 @@
 
-function the_figure(healthyYields) {
+function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 
 	var efficacyOrYearchoice = $('input[name=efficacyOrYearfig]:checked').val() + 'fig';
 	var yieldParameterValue = $('input[name=' + efficacyOrYearchoice + ']:checked').val();
