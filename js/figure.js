@@ -2,32 +2,15 @@
 function the_figure(healthyYields) {
 	
 	var years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
-	console.log(years);
-	console.log(healthyYields);
 
 	var healthyData = new Array();
 	for (var i in healthyYields) {
 		healthyData[i] = { "x" : i, "y" : healthyYields[i] };
 	}
 
-	var infectedData = new Array();
-	d3.tsv("yield-rates.tsv", function(data) {
-		for (var i in healthyYields) {
-			infectedData[i] = { "x" : i, "y" : healthyYields[i]*data[i]['noAction']/100 };
-		}
-	});
-
-	console.log(healthyData);
-
 	var margin = {top: 20, right: 35, bottom: 30, left: 35},
 	    width = ($('body').width() < 960) ? $('body').width() - margin.left - margin.right : 960 - margin.left - margin.right,
 	    height = width*.506;
-
-	    console.log($('body').width());
-	    console.log(width);
-	    console.log($('body').width() < 960 );
-	    console.log($('body').width() - margin.left - margin.right);
-	    console.log(960 - margin.left - margin.right);
 
 	var x = d3.scale.linear()
 	    .range([0, width]);
@@ -48,8 +31,6 @@ function the_figure(healthyYields) {
 	    .x(function(d) { return x(d.x); })
  		.y(function(d) { return y(d.y); })
  		.interpolate("linear");
-
-	console.log(line(healthyData));
 
 	var svg = d3.select(".figure-area").append("svg")
 		.attr("width", width + margin.left + margin.right)
@@ -86,24 +67,32 @@ function the_figure(healthyYields) {
 		.data(healthyData)
 		.enter().append("circle")
 		.attr("r", 3.5)
-		.attr("fill","red")
+		.attr("fill","blue")
 		.attr("cx", function(d) { return x(d.x); })
 		.attr("cy", function(d) { return y(d.y); });
 
-	svg.append("path")
-		.attr("d", line(infectedData))
-		.attr("class", "line")
-		.attr("stroke", "blue")
-		.attr("stroke-width", 2)
-		.attr("fill", "none");
+	var infectedData = new Array();
+	d3.tsv("yield-rates.tsv", function(data) {
+		for (var i in healthyYields) {
+			infectedData[i] = { "x" : i, "y" : healthyYields[i]*data[i]['noAction']/100 };
+		}
+		
+		svg.append("path")
+			.attr("d", line(infectedData))
+			.attr("class", "line")
+			.attr("stroke", "red")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
 
-	svg.selectAll("dot")
-		.data(infectedData)
-		.enter().append("circle")
-		.attr("r", 3.5)
-		.attr("fill","red")
-		.attr("cx", function(d) { return x(d.x); })
-		.attr("cy", function(d) { return y(d.y); });
+		svg.selectAll("dot")
+			.data(infectedData)
+			.enter().append("circle")
+			.attr("r", 3.5)
+			.attr("fill","red")
+			.attr("cx", function(d) { return x(d.x); })
+			.attr("cy", function(d) { return y(d.y); });
+
+	});
 
 }
 
