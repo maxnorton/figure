@@ -2,17 +2,54 @@
 function the_figure(healthyYields) {
 
 	var efficacyOrYearchoice = $('input[name=efficacyOrYearfig]:checked').val() + 'fig';
-	var yieldParamaterValue = $('input[name=' + efficacyOrYearchoice + ']:checked').val();
+	var yieldParameterValue = $('input[name=' + efficacyOrYearchoice + ']:checked').val();
 	var scenarios = [],
+		scenarioColName = [],
 		healthyData = [],
 		infectedData = [];
 
-	switch (yieldParamaterValue) {
+	switch (yieldParameterValue) {
 		case '25':
 			var data25y3 = [],
 				data25y5 = [],
 				data25y10 = [];
 			scenarios = [healthyData, data25y3, data25y5, data25y10, infectedData];
+			scenarioColName = [null, '25y3', '25y5', '25y10', 'noAction'];
+			break;
+		case '50':
+			var data50y3 = [],
+				data50y5 = [],
+				data50y10 = [];
+			scenarios = [healthyData, data50y3, data50y5, data50y10, infectedData];
+			scenarioColName = [null, '50y3', '50y5', '50y10', 'noAction'];
+			break;
+		case '75':
+			var data75y3 = [],
+				data75y5 = [],
+				data75y10 = [];
+			scenarios = [healthyData, data75y3, data75y5, data75y10, infectedData];
+			scenarioColName = [null, '75y3', '75y5', '75y10', 'noAction'];
+			break;
+		case 'Year3':
+			var data25y3 = [],
+				data50y3 = [],
+				data75y3 = [];
+			scenarios = [healthyData, data25y3, data50y3, data75y3, infectedData];
+			scenarioColName = [null, '25y3', '50y3', '75y3', 'noAction'];
+			break;
+		case 'Year5':
+			var data25y5 = [],
+				data50y5 = [],
+				data75y5 = [];
+			scenarios = [healthyData, data25y5, data50y5, data75y5, infectedData];
+			scenarioColName = [null, '25y5', '50y5', '75y5', 'noAction'];
+			break;
+		case 'Year10':
+			var data25y10 = [],
+				data50y10 = [],
+				data75y10 = [];
+			scenarios = [healthyData, data25y10, data50y10, data75y10, infectedData];
+			scenarioColName = [null, '25y10', '50y10', '75y10', 'noAction'];
 			break;
 	}
 	
@@ -87,18 +124,18 @@ function the_figure(healthyYields) {
 
 	d3.tsv("yield-rates.tsv", function(data) {
 		for (var i in healthyYields) {
-			infectedData[i] = { "x" : i, "y" : healthyYields[i]*data[i]['noAction']/100 };
+			scenarios[4][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[4]]/100 };
 		}
 		
 		svg.append("path")
-			.attr("d", line(infectedData))
+			.attr("d", line(scenarios[4]))
 			.attr("class", "line")
 			.attr("stroke", "red")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 
 		svg.selectAll("dot")
-			.data(infectedData)
+			.data(scenarios[4])
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","red")
@@ -106,18 +143,18 @@ function the_figure(healthyYields) {
 			.attr("cy", function(d) { return y(d.y); });
 
 		for (var i in healthyYields) {
-			data25y3[i] = { "x" : i, "y" : healthyYields[i]*data[i]['25y3']/100 };
+			scenarios[1][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[1]]/100 };
 		}
 
 		svg.append("path")
-			.attr("d", line(data25y3))
+			.attr("d", line(scenarios[1]))
 			.attr("class", "line")
 			.attr("stroke", "yellowgreen")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 
 		svg.selectAll("dot")
-			.data(data25y3)
+			.data(scenarios[1])
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","yellowgreen")
@@ -125,18 +162,18 @@ function the_figure(healthyYields) {
 			.attr("cy", function(d) { return y(d.y); });
 
 		for (var i in healthyYields) {
-			data25y5[i] = { "x" : i, "y" : healthyYields[i]*data[i]['25y5']/100 };
+			scenarios[2][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[2]]/100 };
 		}
 
 		svg.append("path")
-			.attr("d", line(data25y5))
+			.attr("d", line(scenarios[2]))
 			.attr("class", "line")
 			.attr("stroke", "darkorchid")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 
 		svg.selectAll("dot")
-			.data(data25y5)
+			.data(scenarios[2])
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","darkorchid")
@@ -144,18 +181,18 @@ function the_figure(healthyYields) {
 			.attr("cy", function(d) { return y(d.y); });
 
 		for (var i in healthyYields) {
-			data25y10[i] = { "x" : i, "y" : healthyYields[i]*data[i]['25y10']/100 };
+			scenarios[3][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[3]]/100 };
 		}
 
 		svg.append("path")
-			.attr("d", line(data25y10))
+			.attr("d", line(scenarios[3]))
 			.attr("class", "line")
 			.attr("stroke", "lightskyblue")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 
 		svg.selectAll("dot")
-			.data(data25y10)
+			.data(scenarios[3])
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","lightskyblue")
