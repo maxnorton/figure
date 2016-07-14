@@ -276,6 +276,46 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("fill","blue")
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
+
+		var untreatedData = [];
+
+		for (var i in healthyYields) {
+			untreatedData[i] = { "x" : i, "y" : scenarioCDNRObject.untreated[i] };
+		}
+
+		x.domain(d3.extent(years));
+		y.domain(d3.extent(untreatedData, function(d) { return d.y; }));
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
+
+		svg.append("g")
+			.attr("class", "y axis")
+			.call(yAxis)
+			.append("text")
+			.attr("transform", "rotate(-90)")
+			.attr("y", 6)
+			.attr("dy", ".71em")
+			.style("text-anchor", "end")
+			.text("Yield (Tons/Acre)");
+
+		console.log(untreatedData);
+		svg.append("path")
+			.attr("d", line(untreatedData))
+			.attr("class", "line")
+			.attr("stroke", "red")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+
+		svg.selectAll("dot")
+			.data(untreatedData)
+			.enter().append("circle")
+			.attr("r", 3.5)
+			.attr("fill","red")
+			.attr("cx", function(d) { return x(d.x); })
+			.attr("cy", function(d) { return y(d.y); });
 	}
 
 }
