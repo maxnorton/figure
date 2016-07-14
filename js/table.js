@@ -99,14 +99,14 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			parseInt(yield5)		
 		];
 
-		scenarioYieldObject[0] = { "healthyYields" : healthyYields };
+		scenarioYieldObject.healthy = healthyYields;
 
 		untreatedYields = [];
 		for (var i in healthyYields) {
 			untreatedYields[i] = healthyYields[i]*data[i]['noAction']/100;
 		}
 
-		scenarioYieldObject[1] = { "untreatedYields" : untreatedYields };
+		scenarioYieldObject.untreated = untreatedYields;
 
 		costs = [
 			cost0,
@@ -153,7 +153,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			untreatedCDNR[i] = untreatedDNR[i] + untreatedCDNR[i-1];
 		};
 
-		scenarioCDNRObject[1] = { "untreatedCDNR" : untreatedCDNR };
+		scenarioCDNRObject.untreated = untreatedCDNR;
 
  		var healthyCDNRna = [ price*healthyYields[0] - costs[0] ];
  		var healthyLPY = '-';
@@ -235,7 +235,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 				healthyCDNR[i] = healthyDNR[i] + healthyCDNR[i-1];
 			};
 
-			scenarioCDNRObject[0] = { "healthyCDNR" : healthyCDNR };
+			scenarioCDNRObject.healthy = healthyCDNR;
 
 			treatedYields = [];
 			for (var i in healthyYields) {
@@ -243,7 +243,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			};
 
 			var thisKey = scenarioKeys[a];
-			scenarioYieldObject[a] = { thisKey : treatedYields };
+			scenarioYieldObject[thisKey] = treatedYields;
 
 			treatedNR = [];
 			for (var i in treatedYields) {
@@ -261,7 +261,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 				treatedCDNR[i] = treatedDNR[i] + treatedCDNR[i-1];
 			};
 
-			scenarioCDNRObject[a] = { thisKey : treatedCDNR };
+			scenarioCDNRObject[thisKey] = treatedCDNR;
 
 			ccthv = [ parseInt(pcFtnOfT[0]) ];
 			for (var i=1; i<healthyDNR.length; i++) {
