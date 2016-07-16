@@ -206,6 +206,58 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 
 	} else if ( $('input[name=figuredisplay]:checked').val() == 'netreturns' ) {
 
+		var efficacyOrYearchoice = $('input[name=efficacyOrYearfig]:checked').val() + 'fig';
+		var parameterValue = $('input[name=' + efficacyOrYearchoice + ']:checked').val();
+		var scenarios = [],
+			scenarioColName = [],
+			healthyData = [],
+			untreatedData = [];
+
+		switch (parameterValue) {
+			case '25':
+				var data25y3 = [],
+					data25y5 = [],
+					data25y10 = [];
+				scenarios = [healthyData, data25y3, data25y5, data25y10, untreatedData];
+				scenarioColName = [null, '25y3', '25y5', '25y10', 'noAction'];
+				break;
+			case '50':
+				var data50y3 = [],
+					data50y5 = [],
+					data50y10 = [];
+				scenarios = [healthyData, data50y3, data50y5, data50y10, untreatedData];
+				scenarioColName = [null, '50y3', '50y5', '50y10', 'noAction'];
+				break;
+			case '75':
+				var data75y3 = [],
+					data75y5 = [],
+					data75y10 = [];
+				scenarios = [healthyData, data75y3, data75y5, data75y10, untreatedData];
+				scenarioColName = [null, '75y3', '75y5', '75y10', 'noAction'];
+				break;
+			case 'Year3':
+				var data25y3 = [],
+					data50y3 = [],
+					data75y3 = [];
+				scenarios = [healthyData, data25y3, data50y3, data75y3, untreatedData];
+				scenarioColName = [null, '25y3', '50y3', '75y3', 'noAction'];
+				break;
+			case 'Year5':
+				var data25y5 = [],
+					data50y5 = [],
+					data75y5 = [];
+				scenarios = [healthyData, data25y5, data50y5, data75y5, untreatedData];
+				scenarioColName = [null, '25y5', '50y5', '75y5', 'noAction'];
+				break;
+			case 'Year10':
+				var data25y10 = [],
+					data50y10 = [],
+					data75y10 = [];
+				scenarios = [healthyData, data25y10, data50y10, data75y10, untreatedData];
+				scenarioColName = [null, '25y10', '50y10', '75y10', 'noAction'];
+				break;
+		}
+
 		var years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
 		var margin = {top: 20, right: 35, bottom: 30, left: 35},
@@ -239,8 +291,6 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.append("g")
 			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
-		var healthyData = [];
-
 		for (var i in healthyYields) {
 			healthyData[i] = { "x" : i, "y" : scenarioCDNRObject.healthy[i] };
 		}
@@ -261,7 +311,7 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("y", 6)
 			.attr("dy", ".71em")
 			.style("text-anchor", "end")
-			.text("Cumulative Discount Net Returns (2013 dollars)");
+			.text("Cumulative Discounted Net Returns (2013 dollars)");
 
 		console.log(healthyData);
 		svg.append("path")
@@ -278,8 +328,6 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("fill","blue")
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
-
-		var untreatedData = [];
 
 		for (var i in healthyYields) {
 			untreatedData[i] = { "x" : i, "y" : scenarioCDNRObject.untreated[i] };
@@ -298,6 +346,72 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","red")
+			.attr("cx", function(d) { return x(d.x); })
+			.attr("cy", function(d) { return y(d.y); });
+
+		//for (var i in healthyYields) {
+		//		scenarios[1][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[1][i]] };
+		//	}
+
+		/*console.log(scenarioCDNRObject);
+		console.log(scenarioCDNRObject[scenarioColName[1]]);
+		console.log(scenarios);
+		console.log(scenarios[1]);
+		console.log(scenarioCDNRObject[scenarioColName[1]]);
+		for (var i in healthyYields) {
+			scenarios[1][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[1]] };
+		}*/
+
+		svg.append("path")
+			.attr("d", line(scenarioCDNRObject[scenarioColName[1]]))
+			.attr("class", "line")
+			.attr("stroke", "yellowgreen")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+
+		svg.selectAll("dot")
+			.data(scenarioCDNRObject[scenarioColName[1]])
+			.enter().append("circle")
+			.attr("r", 3.5)
+			.attr("fill","yellowgreen")
+			.attr("cx", function(d) { return x(d.x); })
+			.attr("cy", function(d) { return y(d.y); });
+
+		/*for (var i in healthyYields) {
+			scenarios[2][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[2]] };
+		}*/
+
+		svg.append("path")
+			.attr("d", line(scenarioCDNRObject[scenarioColName[2]]))
+			.attr("class", "line")
+			.attr("stroke", "darkorchid")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+
+		svg.selectAll("dot")
+			.data(scenarioCDNRObject[scenarioColName[2]])
+			.enter().append("circle")
+			.attr("r", 3.5)
+			.attr("fill","darkorchid")
+			.attr("cx", function(d) { return x(d.x); })
+			.attr("cy", function(d) { return y(d.y); });
+
+		/*for (var i in healthyYields) {
+			scenarios[3][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[3]] };
+		}*/
+
+		svg.append("path")
+			.attr("d", line(scenarioCDNRObject[scenarioColName[3]]))
+			.attr("class", "line")
+			.attr("stroke", "lightskyblue")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+
+		svg.selectAll("dot")
+			.data(scenarioCDNRObject[scenarioColName[3]])
+			.enter().append("circle")
+			.attr("r", 3.5)
+			.attr("fill","lightskyblue")
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
 	}

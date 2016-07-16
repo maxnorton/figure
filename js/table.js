@@ -261,7 +261,10 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 				treatedCDNR[i] = treatedDNR[i] + treatedCDNR[i-1];
 			};
 
-			scenarioCDNRObject[thisKey] = treatedCDNR;
+			scenarioCDNRObject[thisKey] = [];
+			for (var i in healthyYields) {
+				scenarioCDNRObject[thisKey][i] = {"x" : i, "y" : treatedCDNR[i]};
+			}
 
 			ccthv = [ parseInt(pcFtnOfT[0]) ];
 			for (var i=1; i<healthyDNR.length; i++) {
