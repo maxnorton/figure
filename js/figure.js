@@ -61,7 +61,8 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 		}
 
 		var margin = {top: 20, right: 35, bottom: 30, left: 35},
-		    width = ($('body').width() < 960) ? $('body').width() - margin.left - margin.right : 960 - margin.left - margin.right,
+			padding = { left: 20 },
+		    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
 		    height = width*.506;
 
 		var x = d3.scale.linear()
@@ -85,10 +86,10 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 	 		.interpolate("linear");
 
 		var svg = d3.select(".figure-area").append("svg")
-			.attr("width", width + margin.left + margin.right)
+			.attr("width", width + margin.left + padding.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 			.append("g")
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
 		x.domain(d3.extent(years));
 		y.domain(d3.extent(healthyData, function(d) { return d.y; }));
@@ -208,7 +209,8 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 		var years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
 		var margin = {top: 20, right: 35, bottom: 30, left: 35},
-		    width = ($('body').width() < 960) ? $('body').width() - margin.left - margin.right : 960 - margin.left - margin.right,
+			padding = {left: 20}
+		    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
 		    height = width*.506;
 
 		var x = d3.scale.linear()
@@ -232,10 +234,10 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 	 		.interpolate("linear");
 
 		var svg = d3.select(".figure-area").append("svg")
-			.attr("width", width + margin.left + margin.right)
+			.attr("width", width + margin.left + padding.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 			.append("g")
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
 		var healthyData = [];
 
