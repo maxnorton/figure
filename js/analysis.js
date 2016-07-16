@@ -8,12 +8,12 @@ function applySubmitFunction(genstates) {
 		------------------------------------ */
 		var fullfig = '';
 		var efficacyOrYearlength;
-		efficacyOrYearchoice = $('input[name=efficacyOrYearfig]').val() + 'fig';
+		efficacyOrYearchoice = $('input[name=efficacyOrYearfig]:checked').val() + 'fig';
 		switch (efficacyOrYearchoice) {
 			case 'efficacyfig':
 				efficacyOrYearlength=$('input[name=efficacyfig]:checked').length;
 				break;
-			default:
+			case 'yearfig':
 				efficacyOrYearlength=$('input[name=yearfig]:checked').length;
 				break;			
 		};
@@ -29,6 +29,8 @@ function applySubmitFunction(genstates) {
 					var fig = [];
 					for (var j=0; j<efficacyOrYearlength; j++) {
 						efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
+						console.log('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')');
+						console.log($('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val());
 						fig[j] =  '<a href="img/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" class="swipebox"><img src="img/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" /></a>'
 						fullfig += fig[j];
 					}
