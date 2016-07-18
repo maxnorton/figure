@@ -243,7 +243,10 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			};
 
 			var thisKey = scenarioKeys[a];
-			scenarioYieldObject[thisKey] = treatedYields;
+			scenarioYieldObject[thisKey] = [];
+			for (var i in healthyYields) {
+				scenarioYieldObject[thisKey][i] = {"x" : i, "y" : treatedYields[i]};
+			}
 
 			treatedNR = [];
 			for (var i in treatedYields) {

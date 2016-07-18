@@ -1,8 +1,15 @@
 
 function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 
+	var scenarioObject = false;
+
 	if ( $('input[name=figuredisplay]:checked').val() == 'yield' ) {
-		var yieldParameterValue = $('input[name=yearfig]:checked').val();
+		scenarioObject = scenarioYieldObject;
+	} else if ( $('input[name=figuredisplay]:checked').val() == 'netreturns' ) {
+		scenarioObject = scenarioCDNRObject;
+	}
+
+	/*	var yieldParameterValue = $('input[name=yearfig]:checked').val();
 		var scenarios = [],
 			scenarioColName = [],
 			healthyData = [],
@@ -184,7 +191,9 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			});
 		}
 
-	} else if ( $('input[name=figuredisplay]:checked').val() == 'netreturns' ) {
+	} */
+
+	if (scenarioObject) {
 		var parameterValue = $('input[name=yearfig]:checked').val();
 		var scenarios = [],
 			scenarioColName = [],
@@ -249,7 +258,7 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
 		for (var i in healthyYields) {
-			healthyData[i] = { "x" : i, "y" : scenarioCDNRObject.healthy[i] };
+			healthyData[i] = { "x" : i, "y" : scenarioObject.healthy[i] };
 		}
 
 		x.domain(d3.extent(years));
@@ -286,7 +295,7 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("cy", function(d) { return y(d.y); });
 
 		for (var i in healthyYields) {
-			untreatedData[i] = { "x" : i, "y" : scenarioCDNRObject.untreated[i] };
+			untreatedData[i] = { "x" : i, "y" : scenarioObject.untreated[i] };
 		}
 
 		svg.append("path")
@@ -306,14 +315,14 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 
 		if (scenarioColName[1]) {
 			svg.append("path")
-				.attr("d", line(scenarioCDNRObject[scenarioColName[1]]))
+				.attr("d", line(scenarioObject[scenarioColName[1]]))
 				.attr("class", "line")
 				.attr("stroke", "yellowgreen")
 				.attr("stroke-width", 2)
 				.attr("fill", "none");
 
 			svg.selectAll("dot")
-				.data(scenarioCDNRObject[scenarioColName[1]])
+				.data(scenarioObject[scenarioColName[1]])
 				.enter().append("circle")
 				.attr("r", 3.5)
 				.attr("fill","yellowgreen")
@@ -321,14 +330,14 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 				.attr("cy", function(d) { return y(d.y); });
 
 			svg.append("path")
-				.attr("d", line(scenarioCDNRObject[scenarioColName[2]]))
+				.attr("d", line(scenarioObject[scenarioColName[2]]))
 				.attr("class", "line")
 				.attr("stroke", "darkorchid")
 				.attr("stroke-width", 2)
 				.attr("fill", "none");
 
 			svg.selectAll("dot")
-				.data(scenarioCDNRObject[scenarioColName[2]])
+				.data(scenarioObject[scenarioColName[2]])
 				.enter().append("circle")
 				.attr("r", 3.5)
 				.attr("fill","darkorchid")
@@ -336,14 +345,14 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 				.attr("cy", function(d) { return y(d.y); });
 
 			svg.append("path")
-				.attr("d", line(scenarioCDNRObject[scenarioColName[3]]))
+				.attr("d", line(scenarioObject[scenarioColName[3]]))
 				.attr("class", "line")
 				.attr("stroke", "lightskyblue")
 				.attr("stroke-width", 2)
 				.attr("fill", "none");
 
 			svg.selectAll("dot")
-				.data(scenarioCDNRObject[scenarioColName[3]])
+				.data(scenarioObject[scenarioColName[3]])
 				.enter().append("circle")
 				.attr("r", 3.5)
 				.attr("fill","lightskyblue")
