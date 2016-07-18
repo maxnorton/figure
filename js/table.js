@@ -349,8 +349,6 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 
 		the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject);
 
-		console.log('ready to scroll');
-
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 
 	});

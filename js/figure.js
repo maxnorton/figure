@@ -103,84 +103,86 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
 
-		d3.tsv("yield-rates.tsv", function(data) {
-			for (var i in healthyYields) {
-				scenarios[4][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[4]]/100 };
-			}
-			
-			svg.append("path")
-				.attr("d", line(scenarios[4]))
-				.attr("class", "line")
-				.attr("stroke", "red")
-				.attr("stroke-width", 2)
-				.attr("fill", "none");
+		if (scenarioColName[1]) {
+			d3.tsv("yield-rates.tsv", function(data) {
+				for (var i in healthyYields) {
+					scenarios[4][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[4]]/100 };
+				}
+				
+				svg.append("path")
+					.attr("d", line(scenarios[4]))
+					.attr("class", "line")
+					.attr("stroke", "red")
+					.attr("stroke-width", 2)
+					.attr("fill", "none");
 
-			svg.selectAll("dot")
-				.data(scenarios[4])
-				.enter().append("circle")
-				.attr("r", 3.5)
-				.attr("fill","red")
-				.attr("cx", function(d) { return x(d.x); })
-				.attr("cy", function(d) { return y(d.y); });
+				svg.selectAll("dot")
+					.data(scenarios[4])
+					.enter().append("circle")
+					.attr("r", 3.5)
+					.attr("fill","red")
+					.attr("cx", function(d) { return x(d.x); })
+					.attr("cy", function(d) { return y(d.y); });
 
-			for (var i in healthyYields) {
-				scenarios[1][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[1]]/100 };
-			}
+				for (var i in healthyYields) {
+					scenarios[1][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[1]]/100 };
+				}
 
-			svg.append("path")
-				.attr("d", line(scenarios[1]))
-				.attr("class", "line")
-				.attr("stroke", "yellowgreen")
-				.attr("stroke-width", 2)
-				.attr("fill", "none");
+				svg.append("path")
+					.attr("d", line(scenarios[1]))
+					.attr("class", "line")
+					.attr("stroke", "yellowgreen")
+					.attr("stroke-width", 2)
+					.attr("fill", "none");
 
-			svg.selectAll("dot")
-				.data(scenarios[1])
-				.enter().append("circle")
-				.attr("r", 3.5)
-				.attr("fill","yellowgreen")
-				.attr("cx", function(d) { return x(d.x); })
-				.attr("cy", function(d) { return y(d.y); });
+				svg.selectAll("dot")
+					.data(scenarios[1])
+					.enter().append("circle")
+					.attr("r", 3.5)
+					.attr("fill","yellowgreen")
+					.attr("cx", function(d) { return x(d.x); })
+					.attr("cy", function(d) { return y(d.y); });
 
-			for (var i in healthyYields) {
-				scenarios[2][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[2]]/100 };
-			}
+				for (var i in healthyYields) {
+					scenarios[2][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[2]]/100 };
+				}
 
-			svg.append("path")
-				.attr("d", line(scenarios[2]))
-				.attr("class", "line")
-				.attr("stroke", "darkorchid")
-				.attr("stroke-width", 2)
-				.attr("fill", "none");
+				svg.append("path")
+					.attr("d", line(scenarios[2]))
+					.attr("class", "line")
+					.attr("stroke", "darkorchid")
+					.attr("stroke-width", 2)
+					.attr("fill", "none");
 
-			svg.selectAll("dot")
-				.data(scenarios[2])
-				.enter().append("circle")
-				.attr("r", 3.5)
-				.attr("fill","darkorchid")
-				.attr("cx", function(d) { return x(d.x); })
-				.attr("cy", function(d) { return y(d.y); });
+				svg.selectAll("dot")
+					.data(scenarios[2])
+					.enter().append("circle")
+					.attr("r", 3.5)
+					.attr("fill","darkorchid")
+					.attr("cx", function(d) { return x(d.x); })
+					.attr("cy", function(d) { return y(d.y); });
 
-			for (var i in healthyYields) {
-				scenarios[3][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[3]]/100 };
-			}
+				for (var i in healthyYields) {
+					scenarios[3][i] = { "x" : i, "y" : healthyYields[i]*data[i][scenarioColName[3]]/100 };
+				}
 
-			svg.append("path")
-				.attr("d", line(scenarios[3]))
-				.attr("class", "line")
-				.attr("stroke", "lightskyblue")
-				.attr("stroke-width", 2)
-				.attr("fill", "none");
+				svg.append("path")
+					.attr("d", line(scenarios[3]))
+					.attr("class", "line")
+					.attr("stroke", "lightskyblue")
+					.attr("stroke-width", 2)
+					.attr("fill", "none");
 
-			svg.selectAll("dot")
-				.data(scenarios[3])
-				.enter().append("circle")
-				.attr("r", 3.5)
-				.attr("fill","lightskyblue")
-				.attr("cx", function(d) { return x(d.x); })
-				.attr("cy", function(d) { return y(d.y); });
+				svg.selectAll("dot")
+					.data(scenarios[3])
+					.enter().append("circle")
+					.attr("r", 3.5)
+					.attr("fill","lightskyblue")
+					.attr("cx", function(d) { return x(d.x); })
+					.attr("cy", function(d) { return y(d.y); });
 
-		});
+			});
+		}
 
 	} else if ( $('input[name=figuredisplay]:checked').val() == 'netreturns' ) {
 		var parameterValue = $('input[name=yearfig]:checked').val();
@@ -302,52 +304,52 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
 
-console.log(scenarioCDNRObject);
+		if (scenarioColName[1]) {
+			svg.append("path")
+				.attr("d", line(scenarioCDNRObject[scenarioColName[1]]))
+				.attr("class", "line")
+				.attr("stroke", "yellowgreen")
+				.attr("stroke-width", 2)
+				.attr("fill", "none");
 
-		svg.append("path")
-			.attr("d", line(scenarioCDNRObject[scenarioColName[1]]))
-			.attr("class", "line")
-			.attr("stroke", "yellowgreen")
-			.attr("stroke-width", 2)
-			.attr("fill", "none");
+			svg.selectAll("dot")
+				.data(scenarioCDNRObject[scenarioColName[1]])
+				.enter().append("circle")
+				.attr("r", 3.5)
+				.attr("fill","yellowgreen")
+				.attr("cx", function(d) { return x(d.x); })
+				.attr("cy", function(d) { return y(d.y); });
 
-		svg.selectAll("dot")
-			.data(scenarioCDNRObject[scenarioColName[1]])
-			.enter().append("circle")
-			.attr("r", 3.5)
-			.attr("fill","yellowgreen")
-			.attr("cx", function(d) { return x(d.x); })
-			.attr("cy", function(d) { return y(d.y); });
+			svg.append("path")
+				.attr("d", line(scenarioCDNRObject[scenarioColName[2]]))
+				.attr("class", "line")
+				.attr("stroke", "darkorchid")
+				.attr("stroke-width", 2)
+				.attr("fill", "none");
 
-		svg.append("path")
-			.attr("d", line(scenarioCDNRObject[scenarioColName[2]]))
-			.attr("class", "line")
-			.attr("stroke", "darkorchid")
-			.attr("stroke-width", 2)
-			.attr("fill", "none");
+			svg.selectAll("dot")
+				.data(scenarioCDNRObject[scenarioColName[2]])
+				.enter().append("circle")
+				.attr("r", 3.5)
+				.attr("fill","darkorchid")
+				.attr("cx", function(d) { return x(d.x); })
+				.attr("cy", function(d) { return y(d.y); });
 
-		svg.selectAll("dot")
-			.data(scenarioCDNRObject[scenarioColName[2]])
-			.enter().append("circle")
-			.attr("r", 3.5)
-			.attr("fill","darkorchid")
-			.attr("cx", function(d) { return x(d.x); })
-			.attr("cy", function(d) { return y(d.y); });
+			svg.append("path")
+				.attr("d", line(scenarioCDNRObject[scenarioColName[3]]))
+				.attr("class", "line")
+				.attr("stroke", "lightskyblue")
+				.attr("stroke-width", 2)
+				.attr("fill", "none");
 
-		svg.append("path")
-			.attr("d", line(scenarioCDNRObject[scenarioColName[3]]))
-			.attr("class", "line")
-			.attr("stroke", "lightskyblue")
-			.attr("stroke-width", 2)
-			.attr("fill", "none");
-
-		svg.selectAll("dot")
-			.data(scenarioCDNRObject[scenarioColName[3]])
-			.enter().append("circle")
-			.attr("r", 3.5)
-			.attr("fill","lightskyblue")
-			.attr("cx", function(d) { return x(d.x); })
-			.attr("cy", function(d) { return y(d.y); });
+			svg.selectAll("dot")
+				.data(scenarioCDNRObject[scenarioColName[3]])
+				.enter().append("circle")
+				.attr("r", 3.5)
+				.attr("fill","lightskyblue")
+				.attr("cx", function(d) { return x(d.x); })
+				.attr("cy", function(d) { return y(d.y); });
+		}
 	}
 
 }
