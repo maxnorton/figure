@@ -1,9 +1,12 @@
 
 function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
-	var dependentVariable,
+	var baseColors = {'untreated' : 'red',
+					'healthy' : 'blue' },
+		dependentVariable,
 		margin = {top: 20, right: 35, bottom: 30, left: 35},
 		padding = {left: 20},
+		scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue'],
 		scenarioObject = false,
 	    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
 			height = width*.506,
@@ -19,19 +22,17 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
 	if (scenarioObject) {
 		var parameterValue = $('input[name=yearfig]:checked').val();
-		var healthyData = [],
-			scenarioName = [],
-			untreatedData = [];
+		var scenarioName = [];
 
 		switch (parameterValue) {
 			case 'Year3':
-				scenarioName = ['healthy', 'untreated', '25y3', '50y3', '75y3'];
+				scenarioName = ['25y3', '50y3', '75y3'];
 				break;
 			case 'Year5':
-				scenarioName = ['healthy', 'untreated', '25y5', '50y5', '75y5'];
+				scenarioName = ['25y5', '50y5', '75y5'];
 				break;
 			case 'Year10':
-				scenarioName = ['healthy', 'untreated', '25y10', '50y10', '75y10'];
+				scenarioName = ['25y10', '50y10', '75y10'];
 				break;
 		}
 
@@ -61,12 +62,6 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.append("g")
 			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
-		console.log(scenarioObject.healthy);
-		console.log(scenarioObject);
-		/*for (var i in healthyYields) {
-			healthyData[i] = { "x" : i, "y" : scenarioObject.healthy[i] };
-		}*/
-
 		x.domain(d3.extent(years));
 		y.domain(d3.extent(scenarioObject.healthy, function(d) { return d.y; }));
 
@@ -85,68 +80,38 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.style("text-anchor", "end")
 			.text(dependentVariable);
 
-		/*for (var i in healthyYields) {
-			untreatedData[i] = { "x" : i, "y" : scenarioObject.untreated[i] };
-		}*/
-
 		if (parameterValue) {
-			var scenarioColors = ["yellowgreen", "darkorchid", "lightskyblue"];
-
-			for (var i in scenarioColors) {
-				svg.append("path")
-					.attr("d", line(scenarioObject[scenarioName[parseInt(i)+2]]))
-					.attr("class", "line")
-					.attr("stroke", scenarioColors[i])
-					.attr("stroke-width", 2)
-					.attr("fill", "none");
-
-				svg.selectAll("dot")
-					.data(scenarioObject[scenarioName[parseInt(i)+2]])
-					.enter().append("circle")
-					.attr("r", 3.5)
-					.attr("fill",scenarioColors[i])
-					.attr("cx", function(d) { return x(d.x); })
-					.attr("cy", function(d) { return y(d.y); });
+			for (var i=0; i<3; i++) {
+				drawLine(scenarioObject[scenarioNames[i]], scenarioColors[i]);
 			}
 		}
 
-		svg.append("path")
-			.attr("d", line(scenarioObject.untreated))
-			.attr("class", "line")
-			.attr("stroke", "red")
-			.attr("stroke-width", 2)
-			.attr("fill", "none");
-
-		svg.selectAll("dot")
-			.data(scenarioObject.untreated)
-			.enter().append("circle")
-			.attr("r", 3.5)
-			.attr("fill","red")
-			.attr("cx", function(d) { return x(d.x); })
-			.attr("cy", function(d) { return y(d.y); });
-
-		svg.append("path")
-			.attr("d", line(scenarioObject.healthy))
-			.attr("class", "line")
-			.attr("stroke", "blue")
-			.attr("stroke-width", 2)
-			.attr("fill", "none");
-
-		svg.selectAll("dot")
-			.data(scenarioObject.healthy)
-			.enter().append("circle")
-			.attr("r", 3.5)
-			.attr("fill","blue")
-			.attr("cx", function(d) { return x(d.x); })
-			.attr("cy", function(d) { return y(d.y); });
+		drawLine(svg, line, scenarioObject.untreated, baseColors.untreated);
+		drawline(svg, line, scenarioObject.healthy, baseColors.healthy);
 
 	}
 
 }
 
+function drawLine(svg, line, data, color) {
+	svg.append("path")
+		.attr("d", line(data))
+		.attr("class", "line")
+		.attr("stroke", color)
+		.attr("stroke-width", 2)
+		.attr("fill", "none");
+
+	svg.selectAll("dot")
+		.data(data)
+		.enter().append("circle")
+		.attr("r", 3.5)
+		.attr("fill", color)
+		.attr("cx", function(d) { return x(d.x); })
+		.attr("cy", function(d) { return y(d.y); });
+}
+
 function type(d) {
 	  d.x = +d.x;
 	  d.y = +d.y;
-	  //d.healthyYields = +d.healthyYields;
 	  return d;
-	}
+}
