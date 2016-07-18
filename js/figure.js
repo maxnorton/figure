@@ -1,12 +1,11 @@
 
 function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
-	var baseColors = {'untreated' : 'red',
-					'healthy' : 'blue' },
-		dependentVariable,
+	var dependentVariable,
 		margin = {top: 20, right: 35, bottom: 30, left: 35},
 		padding = {left: 20},
-		scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue'],
+		scenarioColors = ['red', 'blue'],
+		scenarioNames = ['untreated', 'healthy'],
 		scenarioObject = false,
 	    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
 			height = width*.506,
@@ -21,18 +20,18 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 	}
 
 	if (scenarioObject) {
+		var scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
 		var parameterValue = $('input[name=yearfig]:checked').val();
-		var scenarioName = [];
 
 		switch (parameterValue) {
 			case 'Year3':
-				scenarioName = ['25y3', '50y3', '75y3'];
+				scenarioNames = ['25y3', '50y3', '75y3', 'untreated', 'healthy'];
 				break;
 			case 'Year5':
-				scenarioName = ['25y5', '50y5', '75y5'];
+				scenarioNames = ['25y5', '50y5', '75y5', 'untreated', 'healthy'];
 				break;
 			case 'Year10':
-				scenarioName = ['25y10', '50y10', '75y10'];
+				scenarioNames = ['25y10', '50y10', '75y10', 'untreated', 'healthy'];
 				break;
 		}
 
@@ -80,14 +79,9 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.style("text-anchor", "end")
 			.text(dependentVariable);
 
-		if (parameterValue) {
-			for (var i=0; i<3; i++) {
-				drawLine(scenarioObject[scenarioNames[i]], scenarioColors[i]);
-			}
+		for (var i in scenarioNames) {
+			drawLine(svg, line, scenarioObject[scenarioNames[i]], scenarioColors[i]);
 		}
-
-		drawLine(svg, line, scenarioObject.untreated, baseColors.untreated);
-		drawline(svg, line, scenarioObject.healthy, baseColors.healthy);
 
 	}
 
