@@ -114,9 +114,10 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		for (var i in healthyYields) {
 			untreatedYields[i] = healthyYields[i]*data[i].noAction/100;
 			scenarioYieldObject.healthy[i] = {"x": i, "y": healthyYields[i]};
+			console.log(untreatedYields[i]);
 			scenarioYieldObject.untreated[i] = {"x": i, "y": untreatedYields[i]};
 		}
-		
+
 		costs = [
 			cost0,
 			cost1,
