@@ -1,8 +1,13 @@
 
 function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
-	var scenarioObject = false,
-		dependentVariable;
+	var dependentVariable,
+		margin = {top: 20, right: 35, bottom: 30, left: 35},
+		padding = {left: 20},
+		scenarioObject = false,
+	    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
+			height = width*.506,
+		years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
 	if ( $('input[name=figuredisplay]:checked').val() == 'yield' ) {
 		scenarioObject = scenarioYieldObject;
@@ -14,8 +19,8 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
 	if (scenarioObject) {
 		var parameterValue = $('input[name=yearfig]:checked').val();
-		var scenarioName = [],
-			healthyData = [],
+		var healthyData = [],
+			scenarioName = [],
 			untreatedData = [];
 
 		switch (parameterValue) {
@@ -29,13 +34,6 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 				scenarioName = ['healthy', 'untreated', '25y10', '50y10', '75y10'];
 				break;
 		}
-
-		var years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
-
-		var margin = {top: 20, right: 35, bottom: 30, left: 35},
-			padding = {left: 20}
-		    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
-		    height = width*.506;
 
 		var x = d3.scale.linear()
 		    .range([0, width]);
@@ -63,6 +61,7 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.append("g")
 			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
+		console.log(scenarioObject.healthy);
 		for (var i in healthyYields) {
 			healthyData[i] = { "x" : i, "y" : scenarioObject.healthy[i] };
 		}
