@@ -11,6 +11,8 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			acdnb75y5 = [],
 			acdnb75y10 = [],
 			ccthv = [],
+			costs = [],
+			discountFactor = 1/(1+discount/100),
 			healthyACDNBna = [],
 			scenarioCDNRObject = {},
 			scenarioYieldObject = {},
@@ -18,8 +20,6 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			treatedNR = [],
 			treatedDNR = [],
 			treatedCDNR = [];
-
-		console.log(scenarioYieldObject);
 
 		var bea = {
 				'healthy' : null,
@@ -79,10 +79,6 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		scenarioYieldObject.untreated = [];
 		scenarioCDNRObject.healthy = [];
 		scenarioCDNRObject.untreated = [];
-
-		console.log(scenarioYieldObject);
-
-		var discountFactor = 1/(1+discount/100);
 
 		var healthyYields = [
 				parseInt(yield0),
@@ -151,24 +147,24 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		];
 
 		var untreatedNR = [];
-		for (var i in untreatedYields) {
+		for (i in untreatedYields) {
 			untreatedNR[i] = price*untreatedYields[i]-costs[i];
 		};	
 
 		var untreatedDNR = [];
-		for (var i in untreatedNR) {
+		for (i in untreatedNR) {
 			var compoundDiscount = Math.pow(discountFactor, i);
 			untreatedDNR[i] = untreatedNR[i]*compoundDiscount;
 		};	
 
 		var untreatedCDNR = [ untreatedDNR[0] ];
-		for (var i=1; i<untreatedDNR.length; i++) {
+		for (i=1; i<untreatedDNR.length; i++) {
 			untreatedCDNR[i] = untreatedDNR[i] + untreatedCDNR[i-1];
 		};
 
  		var healthyCDNRna = [ price*healthyYields[0] - costs[0] ];
  		var healthyLPY = '-';
- 		for (var i=1; i<healthyYields.length; i++) {
+ 		for (i=1; i<healthyYields.length; i++) {
  			var compoundDiscount = Math.pow(discountFactor, i);
  			healthyCDNRna[i] = (price*healthyYields[i] - costs[i])*compoundDiscount + healthyCDNRna[parseInt(i-1)];
  			if (healthyCDNRna[i] > healthyCDNRna[parseInt(i-1)]) {
@@ -183,7 +179,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
  		}
 
  		var healthyBEAnaDisplay = -1;
- 		for (var i in healthyCDNRna) {
+ 		for (i in healthyCDNRna) {
  			if (healthyCDNRna[i+1] > 0) {
  				healthyBEAnaDisplay = i;
  				break;
@@ -195,7 +191,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
  		}
 
  		healthyACDNBna = [];
- 		for (var i in healthyCDNRna) {
+ 		for (i in healthyCDNRna) {
  			healthyACDNBna[i] = healthyCDNRna[i] - untreatedCDNR[i];
  		};
 
@@ -231,65 +227,65 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			};
 
 			var healthyNR = [];
-			for (var i in healthyYields) {
+			for (i in healthyYields) {
 				healthyNR[i] = price*healthyYields[i]-costs[i]-pcFtnOfT[i];
 			};
 
 			var healthyDNR = [];
-			for (var i in healthyNR) {
+			for (i in healthyNR) {
 				var compoundDiscount = Math.pow(discountFactor, i);
 				healthyDNR[i] = healthyNR[i]*compoundDiscount;
 			};
 
 			var healthyCDNR = [ healthyDNR[0] ];
-			for (var i=1; i<healthyDNR.length; i++) {
+			for (i=1; i<healthyDNR.length; i++) {
 				healthyCDNR[i] = healthyDNR[i] + healthyCDNR[i-1];
 			};
 
-			for (var i in healthyCDNR) {
+			for (i in healthyCDNR) {
 				scenarioCDNRObject.healthy[i] = {"x": i, "y": healthyCDNR[i]};
 				scenarioCDNRObject.untreated[i] = {"x": i, "y": untreatedCDNR[i]};
 			}
 
 			treatedYields = [];
-			for (var i in healthyYields) {
+			for (i in healthyYields) {
 				treatedYields[i] = healthyYields[i]*data[i][selectCol]/100;
 			};
 
 			var thisKey = scenarioKeys[a];
 			scenarioYieldObject[thisKey] = [];
-			for (var i in healthyYields) {
+			for (i in healthyYields) {
 				scenarioYieldObject[thisKey][i] = {"x" : i, "y" : treatedYields[i]};
 			}
 
 			treatedNR = [];
-			for (var i in treatedYields) {
+			for (i in treatedYields) {
 				treatedNR[i] = price*treatedYields[i]-costs[i]-pcFtnOfT[i];
 			};
 
 			treatedDNR = [];
-			for (var i in treatedNR) {
+			for (i in treatedNR) {
 				var compoundDiscount = Math.pow(discountFactor, i);
 				treatedDNR[i] = treatedNR[i]*compoundDiscount;
 			};
 
 			treatedCDNR = [ treatedDNR[0] ];
-			for (var i=1; i<treatedDNR.length; i++) {
+			for (i=1; i<treatedDNR.length; i++) {
 				treatedCDNR[i] = treatedDNR[i] + treatedCDNR[i-1];
 			};
 
 			scenarioCDNRObject[thisKey] = [];
-			for (var i in healthyYields) {
+			for (i in healthyYields) {
 				scenarioCDNRObject[thisKey][i] = {"x" : i, "y" : treatedCDNR[i]};
 			}
 
 			ccthv = [ parseInt(pcFtnOfT[0]) ];
-			for (var i=1; i<healthyDNR.length; i++) {
+			for (i=1; i<healthyDNR.length; i++) {
 				ccthv[i] = parseInt(pcFtnOfT[i]) + parseInt(ccthv[i-1]);
 			};
 
 			var acdnb = [];
-			for (var i in treatedCDNR) {
+			for (i in treatedCDNR) {
 				acdnb[i] = treatedCDNR[i] - untreatedCDNR[i];
 	 		};
 
@@ -323,7 +319,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 	 				break;
 	 		}
 
-	 		for (var i in treatedCDNR) {
+	 		for (i in treatedCDNR) {
 	 			if (treatedCDNR[i] > untreatedCDNR[i]) {
 	 				bea[selectCol] = i;
 	 				break;
