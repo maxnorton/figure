@@ -2,35 +2,13 @@
 function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 
 	if ( $('input[name=figuredisplay]:checked').val() == 'yield' ) {
-		var efficacyOrYearchoice = $('input[name=efficacyOrYearfig]:checked').val() + 'fig';
-		var yieldParameterValue = $('input[name=' + efficacyOrYearchoice + ']:checked').val();
+		var yieldParameterValue = $('input[name=yearfig]:checked').val();
 		var scenarios = [],
 			scenarioColName = [],
 			healthyData = [],
 			infectedData = [];
 
 		switch (yieldParameterValue) {
-			case '25':
-				var data25y3 = [],
-					data25y5 = [],
-					data25y10 = [];
-				scenarios = [healthyData, data25y3, data25y5, data25y10, infectedData];
-				scenarioColName = [null, '25y3', '25y5', '25y10', 'noAction'];
-				break;
-			case '50':
-				var data50y3 = [],
-					data50y5 = [],
-					data50y10 = [];
-				scenarios = [healthyData, data50y3, data50y5, data50y10, infectedData];
-				scenarioColName = [null, '50y3', '50y5', '50y10', 'noAction'];
-				break;
-			case '75':
-				var data75y3 = [],
-					data75y5 = [],
-					data75y10 = [];
-				scenarios = [healthyData, data75y3, data75y5, data75y10, infectedData];
-				scenarioColName = [null, '75y3', '75y5', '75y10', 'noAction'];
-				break;
 			case 'Year3':
 				var data25y3 = [],
 					data50y3 = [],
@@ -205,36 +183,13 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 		});
 
 	} else if ( $('input[name=figuredisplay]:checked').val() == 'netreturns' ) {
-
-		var efficacyOrYearchoice = $('input[name=efficacyOrYearfig]:checked').val() + 'fig';
-		var parameterValue = $('input[name=' + efficacyOrYearchoice + ']:checked').val();
+		var parameterValue = $('input[name=yearfig]:checked').val();
 		var scenarios = [],
 			scenarioColName = [],
 			healthyData = [],
 			untreatedData = [];
 
 		switch (parameterValue) {
-			case '25':
-				var data25y3 = [],
-					data25y5 = [],
-					data25y10 = [];
-				scenarios = [healthyData, data25y3, data25y5, data25y10, untreatedData];
-				scenarioColName = [null, '25y3', '25y5', '25y10', 'noAction'];
-				break;
-			case '50':
-				var data50y3 = [],
-					data50y5 = [],
-					data50y10 = [];
-				scenarios = [healthyData, data50y3, data50y5, data50y10, untreatedData];
-				scenarioColName = [null, '50y3', '50y5', '50y10', 'noAction'];
-				break;
-			case '75':
-				var data75y3 = [],
-					data75y5 = [],
-					data75y10 = [];
-				scenarios = [healthyData, data75y3, data75y5, data75y10, untreatedData];
-				scenarioColName = [null, '75y3', '75y5', '75y10', 'noAction'];
-				break;
 			case 'Year3':
 				var data25y3 = [],
 					data50y3 = [],
@@ -313,7 +268,6 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.style("text-anchor", "end")
 			.text("Cumulative Discounted Net Returns (2013 dollars)");
 
-		console.log(healthyData);
 		svg.append("path")
 			.attr("d", line(healthyData))
 			.attr("class", "line")
@@ -333,7 +287,6 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			untreatedData[i] = { "x" : i, "y" : scenarioCDNRObject.untreated[i] };
 		}
 
-		console.log(untreatedData);
 		svg.append("path")
 			.attr("d", line(untreatedData))
 			.attr("class", "line")
@@ -349,18 +302,7 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
 
-		//for (var i in healthyYields) {
-		//		scenarios[1][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[1][i]] };
-		//	}
-
-		/*console.log(scenarioCDNRObject);
-		console.log(scenarioCDNRObject[scenarioColName[1]]);
-		console.log(scenarios);
-		console.log(scenarios[1]);
-		console.log(scenarioCDNRObject[scenarioColName[1]]);
-		for (var i in healthyYields) {
-			scenarios[1][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[1]] };
-		}*/
+console.log(scenarioCDNRObject);
 
 		svg.append("path")
 			.attr("d", line(scenarioCDNRObject[scenarioColName[1]]))
@@ -377,10 +319,6 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
 
-		/*for (var i in healthyYields) {
-			scenarios[2][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[2]] };
-		}*/
-
 		svg.append("path")
 			.attr("d", line(scenarioCDNRObject[scenarioColName[2]]))
 			.attr("class", "line")
@@ -395,10 +333,6 @@ function the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject) {
 			.attr("fill","darkorchid")
 			.attr("cx", function(d) { return x(d.x); })
 			.attr("cy", function(d) { return y(d.y); });
-
-		/*for (var i in healthyYields) {
-			scenarios[3][i] = { "x" : i, "y" : scenarioCDNRObject[scenarioColName[3]] };
-		}*/
 
 		svg.append("path")
 			.attr("d", line(scenarioCDNRObject[scenarioColName[3]]))
