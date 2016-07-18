@@ -114,7 +114,6 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		for (var i in healthyYields) {
 			untreatedYields[i] = healthyYields[i]*data[i].noAction/100;
 			scenarioYieldObject.healthy[i] = {"x": i, "y": healthyYields[i]};
-			console.log(untreatedYields[i]);
 			scenarioYieldObject.untreated[i] = {"x": i, "y": untreatedYields[i]};
 		}
 
@@ -161,6 +160,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		var untreatedCDNR = [ untreatedDNR[0] ];
 		for (i=1; i<untreatedDNR.length; i++) {
 			untreatedCDNR[i] = untreatedDNR[i] + untreatedCDNR[i-1];
+		}
 		
 
  		var healthyCDNRna = [ price*healthyYields[0] - costs[0] ];
@@ -365,8 +365,6 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		the_figure(scenarioYieldObject, scenarioCDNRObject);
 
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
-
-		} //?
 
 	});
 
