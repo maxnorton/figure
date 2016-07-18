@@ -62,6 +62,7 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
 		console.log(scenarioObject.healthy);
+		console.log(scenarioObject);
 		for (var i in healthyYields) {
 			healthyData[i] = { "x" : i, "y" : scenarioObject.healthy[i] };
 		}
