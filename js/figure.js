@@ -63,12 +63,12 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
 		console.log(scenarioObject.healthy);
 		console.log(scenarioObject);
-		for (var i in healthyYields) {
+		/*for (var i in healthyYields) {
 			healthyData[i] = { "x" : i, "y" : scenarioObject.healthy[i] };
-		}
+		}*/
 
 		x.domain(d3.extent(years));
-		y.domain(d3.extent(healthyData, function(d) { return d.y; }));
+		y.domain(d3.extent(scenarioObject.healthy, function(d) { return d.y; }));
 
 		svg.append("g")
 			.attr("class", "x axis")
@@ -85,9 +85,9 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.style("text-anchor", "end")
 			.text(dependentVariable);
 
-		for (var i in healthyYields) {
+		/*for (var i in healthyYields) {
 			untreatedData[i] = { "x" : i, "y" : scenarioObject.untreated[i] };
-		}
+		}*/
 
 		if (parameterValue) {
 			var scenarioColors = ["yellowgreen", "darkorchid", "lightskyblue"];
@@ -111,14 +111,14 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		}
 
 		svg.append("path")
-			.attr("d", line(untreatedData))
+			.attr("d", line(scenarioObject.untreated))
 			.attr("class", "line")
 			.attr("stroke", "red")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 
 		svg.selectAll("dot")
-			.data(untreatedData)
+			.data(scenarioObject.untreated)
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","red")
@@ -126,14 +126,14 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.attr("cy", function(d) { return y(d.y); });
 
 		svg.append("path")
-			.attr("d", line(healthyData))
+			.attr("d", line(scenarioObject.healthy))
 			.attr("class", "line")
 			.attr("stroke", "blue")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 
 		svg.selectAll("dot")
-			.data(healthyData)
+			.data(scenarioObject.healthy)
 			.enter().append("circle")
 			.attr("r", 3.5)
 			.attr("fill","blue")

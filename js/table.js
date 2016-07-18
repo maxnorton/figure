@@ -67,10 +67,10 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 
 		var scenarioYieldObject = new Object();
 		var scenarioCDNRObject = new Object();
-		scenarioYieldObject.healthy = new Object;
-		scenarioYieldObject.untreated = new Object;
-		scenarioCDNRObject.healthy = new Object;
-		scenarioCDNRObject.untreated = new Object;
+		scenarioYieldObject.healthy = [],
+			scenarioYieldObject.untreated = [],
+			scenarioCDNRObject.healthy = [],
+			scenarioCDNRObject.untreated = [];
 
 		var discountFactor = 1/(1+discount/100);
 
