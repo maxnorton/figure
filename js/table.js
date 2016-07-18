@@ -67,6 +67,10 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 
 		var scenarioYieldObject = new Object();
 		var scenarioCDNRObject = new Object();
+		scenarioYieldObject.healthy = new Object;
+		scenarioYieldObject.untreated = new Object;
+		scenarioCDNRObject.healthy = new Object;
+		scenarioCDNRObject.untreated = new Object;
 
 		var discountFactor = 1/(1+discount/100);
 
@@ -99,14 +103,15 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			parseInt(yield5)		
 		];
 
-		scenarioYieldObject.healthy = healthyYields;
-
 		untreatedYields = [];
 		for (var i in healthyYields) {
 			untreatedYields[i] = healthyYields[i]*data[i]['noAction']/100;
 		}
 
-		scenarioYieldObject.untreated = untreatedYields;
+		for (var i in healthyYields) {
+			scenarioYieldObject.healthy[i] = {"x": i, "y": healthyYields[i]};
+			scenarioYieldObject.untreated[i] = {"x": i, "y": untreatedYields[i]};
+		}
 
 		costs = [
 			cost0,
@@ -152,8 +157,6 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		for (var i=1; i<untreatedDNR.length; i++) {
 			untreatedCDNR[i] = untreatedDNR[i] + untreatedCDNR[i-1];
 		};
-
-		scenarioCDNRObject.untreated = untreatedCDNR;
 
  		var healthyCDNRna = [ price*healthyYields[0] - costs[0] ];
  		var healthyLPY = '-';
@@ -235,7 +238,10 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 				healthyCDNR[i] = healthyDNR[i] + healthyCDNR[i-1];
 			};
 
-			scenarioCDNRObject.healthy = healthyCDNR;
+			for (var i in healthyCDNR) {
+				scenarioCDNRObject.healthy[i] = {"x": i, "y": healthyCDNR[i]};
+				scenarioCDNRObject.untreated[i] = {"x": i, "y": untreatedCDNR[i]};
+			}
 
 			treatedYields = [];
 			for (var i in healthyYields) {
