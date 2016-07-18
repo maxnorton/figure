@@ -1,7 +1,7 @@
-var t, a, eff, discount; // indices
+/*var t, a, eff, discount; // indices
 var cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4; // user-set parameters
 var treatedCDNR, treatedDNR, treatedNR, treatedYields = new Array(); // outcomes
-var costs, pcFtnOfT, isProfitable = new Array(); // collation arrays
+var costs, pcFtnOfT, isProfitable = new Array(); // collation arrays*/
 
 function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
 	d3.tsv("yield-rates.tsv", function(data) {
