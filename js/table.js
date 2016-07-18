@@ -1,117 +1,125 @@
-/*var t, a, eff, discount; // indices
-var cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4; // user-set parameters
-var treatedCDNR, treatedDNR, treatedNR, treatedYields = new Array(); // outcomes
-var costs, pcFtnOfT, isProfitable = new Array(); // collation arrays*/
-
 function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
 	d3.tsv("yield-rates.tsv", function(data) {
 
-		var healthyACDNBna, acdnb25y3, acdnb25y5, acdnb25y10, acdnb50y3, acdnb50y5, acdnb50y10, acdnb75y3, acdnb75y5, acdnb75y10, treatedYields, treatedNR, treatedDNR, treatedCDNR, ccthv = new Array();
+		var acdnb25y3 = [],
+			acdnb25y5 = [],
+			acdnb25y10 = [],
+			acdnb50y3 = [],
+			acdnb50y5 = [],
+			acdnb50y10 = [],
+			acdnb75y3 = [],
+			acdnb75y5 = [],
+			acdnb75y10 = [],
+			ccthv = [],
+			healthyACDNBna = [],
+			scenarioCDNRObject = {},
+			scenarioYieldObject = {},
+			treatedYields = [],
+			treatedNR = [],
+			treatedDNR = [],
+			treatedCDNR = [];
+
+		console.log(scenarioYieldObject);
+
 		var bea = {
-			'healthy' : null,
-			'untreated' : null,
-			'25y3' : 0,
-			'50y3' : 0,
-			'75y3' : 0,
-			'25y5' : 0,
-			'50y5' : 0,
-			'75y5' : 0,
-			'25y10' : 0,
-			'50y10' : 0,
-			'75y10' : 0			
-		};
+				'healthy' : null,
+				'untreated' : null,
+				'25y3' : 0,
+				'50y3' : 0,
+				'75y3' : 0,
+				'25y5' : 0,
+				'50y5' : 0,
+				'75y5' : 0,
+				'25y10' : 0,
+				'50y10' : 0,
+				'75y10' : 0			
+			},
+			lpy = {
+				'healthy' : null,
+				'untreated' : null,
+				'25y3' : 0,
+				'50y3' : 0,
+				'75y3' : 0,
+				'25y5' : 0,
+				'50y5' : 0,
+				'75y5' : 0,
+				'25y10' : 0,
+				'50y10' : 0,
+				'75y10' : 0			
+			},
+			bep = {
+				'healthy' : 0,
+				'untreated' : 1,
+				'25y3' : 0,
+				'50y3' : 0,
+				'75y3' : 0,
+				'25y5' : 0,
+				'50y5' : 0,
+				'75y5' : 0,
+				'25y10' : 0,
+				'50y10' : 0,
+				'75y10' : 0			
+			},
+			scenarios = {
+				'healthy' : 'Healthy, untreated',
+				'untreated' : 'Infected, untreated',
+				'25y3' : '25% DCE treatment adopted year 3',
+				'25y5' : '25% DCE treatment adopted year 5',
+				'25y10' : '25% DCE treatment adopted year 10',
+				'50y3' : '50% DCE treatment adopted year 3',
+				'50y5' : '50% DCE treatment adopted year 5',
+				'50y10' : '50% DCE treatment adopted year 10',
+				'75y3' : '75% DCE treatment adopted year 3',
+				'75y5' : '75% DCE treatment adopted year 5',
+				'75y10' : '75% DCE treatment adopted year 10'
+			},
+			scenarioKeys = Object.keys(scenarios);
 
-		var lpy = {
-			'healthy' : null,
-			'untreated' : null,
-			'25y3' : 0,
-			'50y3' : 0,
-			'75y3' : 0,
-			'25y5' : 0,
-			'50y5' : 0,
-			'75y5' : 0,
-			'25y10' : 0,
-			'50y10' : 0,
-			'75y10' : 0			
-		};
+		scenarioYieldObject.healthy = [];
+		scenarioYieldObject.untreated = [];
+		scenarioCDNRObject.healthy = [];
+		scenarioCDNRObject.untreated = [];
 
-		var bep = {
-			'healthy' : 0,
-			'untreated' : 1,
-			'25y3' : 0,
-			'50y3' : 0,
-			'75y3' : 0,
-			'25y5' : 0,
-			'50y5' : 0,
-			'75y5' : 0,
-			'25y10' : 0,
-			'50y10' : 0,
-			'75y10' : 0			
-		};
-
-		var scenarios = {
-			'healthy' : 'Healthy, untreated',
-			'untreated' : 'Infected, untreated',
-			'25y3' : '25% DCE treatment adopted year 3',
-			'25y5' : '25% DCE treatment adopted year 5',
-			'25y10' : '25% DCE treatment adopted year 10',
-			'50y3' : '50% DCE treatment adopted year 3',
-			'50y5' : '50% DCE treatment adopted year 5',
-			'50y10' : '50% DCE treatment adopted year 10',
-			'75y3' : '75% DCE treatment adopted year 3',
-			'75y5' : '75% DCE treatment adopted year 5',
-			'75y10' : '75% DCE treatment adopted year 10'
-		};
-
-		var scenarioKeys = Object.keys(scenarios);
-
-		var scenarioYieldObject = new Object();
-		var scenarioCDNRObject = new Object();
-		scenarioYieldObject.healthy = [],
-			scenarioYieldObject.untreated = [],
-			scenarioCDNRObject.healthy = [],
-			scenarioCDNRObject.untreated = [];
+		console.log(scenarioYieldObject);
 
 		var discountFactor = 1/(1+discount/100);
 
-		healthyYields = [
-			parseInt(yield0),
-			parseInt(yield1),
-			parseInt(yield2),
-			parseInt(yield3),
-			parseInt(yield4),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5),
-			parseInt(yield5)		
-		];
-
-		untreatedYields = [];
-		for (var i in healthyYields) {
-			untreatedYields[i] = healthyYields[i]*data[i]['noAction']/100;
-		}
+		var healthyYields = [
+				parseInt(yield0),
+				parseInt(yield1),
+				parseInt(yield2),
+				parseInt(yield3),
+				parseInt(yield4),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5),
+				parseInt(yield5)		
+			],
+			untreatedYields = [];
 
 		for (var i in healthyYields) {
+			untreatedYields[i] = healthyYields[i]*data[i].noAction/100;
 			scenarioYieldObject.healthy[i] = {"x": i, "y": healthyYields[i]};
 			scenarioYieldObject.untreated[i] = {"x": i, "y": untreatedYields[i]};
 		}
+
 
 		costs = [
 			cost0,
