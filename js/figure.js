@@ -20,8 +20,11 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 	}
 
 	if (scenarioObject) {
-		var scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
 		var parameterValue = $('input[name=yearfig]:checked').val();
+		
+		if (parameterValue) {
+			var scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
+		}
 
 		switch (parameterValue) {
 			case 'Year3':
