@@ -8,13 +8,13 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		scenarioNames = ['untreated', 'healthy'],
 		scenarioObject = false,
 	    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
-			height = width*.506,
+			height = width*0.506,
 		years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
-	if ( $('input[name=figuredisplay]:checked').val() == 'yield' ) {
+	if ( $('input[name=figuredisplay]:checked').val() === 'yield' ) {
 		scenarioObject = scenarioYieldObject;
 		dependentVariable = 'Yield (Tons / Acre)';
-	} else if ( $('input[name=figuredisplay]:checked').val() == 'netreturns' ) {
+	} else if ( $('input[name=figuredisplay]:checked').val() === 'netreturns' ) {
 		scenarioObject = scenarioCDNRObject;
 		dependentVariable = 'Cumulative Discounted Net Returns (2013 dollars)';
 	}
@@ -23,7 +23,7 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		var parameterValue = $('input[name=yearfig]:checked').val();
 		
 		if (parameterValue) {
-			var scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
+			scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
 		}
 
 		switch (parameterValue) {
