@@ -80,28 +80,24 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 			.text(dependentVariable);
 
 		for (var i in scenarioNames) {
-			drawLine(svg, line, scenarioObject[scenarioNames[i]], scenarioColors[i]);
+			svg.append("path")
+				.attr("d", line(scenarioObject[scenarioNames[i]]))
+				.attr("class", "line")
+				.attr("stroke", scenarioColors[i])
+				.attr("stroke-width", 2)
+				.attr("fill", "none");
+
+			svg.selectAll("dot")
+				.data(scenarioObject[scenarioNames[i]])
+				.enter().append("circle")
+				.attr("r", 3.5)
+				.attr("fill", scenarioColors[i])
+				.attr("cx", function(d) { return x(d.x); })
+				.attr("cy", function(d) { return y(d.y); });
 		}
 
 	}
 
-}
-
-function drawLine(svg, line, data, color) {
-	svg.append("path")
-		.attr("d", line(data))
-		.attr("class", "line")
-		.attr("stroke", color)
-		.attr("stroke-width", 2)
-		.attr("fill", "none");
-
-	svg.selectAll("dot")
-		.data(data)
-		.enter().append("circle")
-		.attr("r", 3.5)
-		.attr("fill", color)
-		.attr("cx", function(d) { return x(d.x); })
-		.attr("cy", function(d) { return y(d.y); });
 }
 
 function type(d) {
