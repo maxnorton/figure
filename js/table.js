@@ -350,7 +350,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		the_table_html += '</tbody></table>' + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#form" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#form\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 		$('.results').html(the_table_html);
 
-		the_figure(healthyYields, scenarioYieldObject, scenarioCDNRObject);
+		the_figure(scenarioYieldObject, scenarioCDNRObject);
 
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 
