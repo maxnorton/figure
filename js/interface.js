@@ -1,3 +1,20 @@
+function focusCustomParameters() {
+	$('table.form tr').each(function() {
+		$(this).click(function() {
+			$(this).find('input').focus();
+		});
+	});
+	$('table.form input').each(function() {
+		$(this).focus(function() {
+			$(this).select();
+			$(this).parents('tr').addClass('focused');
+		});
+		$(this).focusout(function() {
+			$(this).parents('tr').removeClass('focused');
+		});
+	});
+}
+
 function getGenstates() {
 	var genstates = { 
 		'figurestate' : document.getElementById('figuregen').checked,

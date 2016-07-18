@@ -258,27 +258,50 @@ fieldset ul {
 
 .results table,
 table.form {
-	border: 1px solid #ccc;
 	border-spacing: 0;
 	margin-bottom: 10px;
 
 	td {
 		height: 1.5em;
-		padding: .5em;
 		text-align: center;
 	}
-
-	th:first-of-type,
-	td:first-of-type {
+	td:first-of-type,
+	th:first-of-type {
 		text-align: left;
 	}
-
 	th {
 		border-bottom: 1px solid #ccc;
 		background-color: #eee;
 	}
+}
 
+.results table {
+	border: 1px solid #ccc;
+	
+	td {
+		padding: .5em;
+	}
 	tr:nth-of-type(even) {
+		background-color: #eee;
+	}
+}
+
+table.form {
+	border: 0 none;
+	cursor: pointer;
+	margin-left: 40px;
+
+	input {
+		cursor: text;
+	}
+	label {
+		cursor: pointer;
+	}
+	td {
+		padding: .5em 1em;
+	}
+	tr.focused,
+	tr:hover {
 		background-color: #eee;
 	}
 }

@@ -178,25 +178,41 @@ fieldset ul {
 ------------------------------ */
 .results table,
 table.form {
-  border: 1px solid #ccc;
   border-spacing: 0;
   margin-bottom: 10px; }
   .results table td,
   table.form td {
     height: 1.5em;
-    padding: .5em;
     text-align: center; }
-  .results table th:first-of-type,
   .results table td:first-of-type,
-  table.form th:first-of-type,
-  table.form td:first-of-type {
+  .results table th:first-of-type,
+  table.form td:first-of-type,
+  table.form th:first-of-type {
     text-align: left; }
   .results table th,
   table.form th {
     border-bottom: 1px solid #ccc;
     background-color: #eee; }
-  .results table tr:nth-of-type(even),
-  table.form tr:nth-of-type(even) {
+
+.results table {
+  border: 1px solid #ccc; }
+  .results table td {
+    padding: .5em; }
+  .results table tr:nth-of-type(even) {
+    background-color: #eee; }
+
+table.form {
+  border: 0 none;
+  cursor: pointer;
+  margin-left: 40px; }
+  table.form input {
+    cursor: text; }
+  table.form label {
+    cursor: pointer; }
+  table.form td {
+    padding: .5em 1em; }
+  table.form tr.focused,
+  table.form tr:hover {
     background-color: #eee; }
 
 .assumptionstable tr td:first-of-type {

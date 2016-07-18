@@ -26,63 +26,12 @@
 <!-- @import ../markdown/compiled/custom-instructions.html -->
 </fieldset>
 
-<table class="form" id="form">
-	<thead><th colspan="2"><h3>Set parameters</h3></th></thead>
-	<tr>
-		<td><label for="price">Price per ton ($)</label></td>
-		<td><input type="text" name="price" id="price" value="650" /></td>
-	</tr>
-	<tr>
-		<td><label for="discount">Discount rate (%)</label></td>
-		<td><input type="text" name="discount" id="discount" value="3" /></td>
-	</tr>
-	<tr>
-		<td><label for="pc">Additional annual cost per acre of preventative practice ($)</label></td>
-		<td><input type="text" name="pc" id="pc" value="175" /></td>
-	</tr>
-	<tr>
-		<td><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></td>
-		<td><input type="text" name="cost0" id="cost0" value="12213" /></td>
-	</tr>
-	<tr>
-		<td><label for="cost1">Annual cultural cost per acre &#8211; Year 1 &#8211; Establishing Vineyard ($)</label></td>
-		<td><input type="text" name="cost1" id="cost1" value="3370" /></td>
-	</tr>
-	<tr>
-		<td><label for="cost2">Annual cultural cost per acre &#8211; Year 2 &#8211; Establishing Vineyard ($)</label></td>
-		<td><input type="text" name="cost2" id="cost2" value="1004" /></td>
-	</tr>
-	<tr>
-		<td><label for="cost3">Annual cultural cost per acre &#8211; Year 3+ &#8211; Established Vineyard ($)</label></td>
-		<td><input type="text" name="cost3" id="cost3" value="3505" /></td>
-	</tr>
-	<tr>
-		<td><label for="yield0">Annual yield per acre (Tons) &#8211; Year 0</label></td>
-		<td><input type="text" name="yield0" id="yield0" value="0" /></td>
-	</tr>
-	<tr>
-		<td><label for="yield1">Annual yield per acre (Tons) &#8211; Year 1</label></td>
-		<td><input type="text" name="yield1" id="yield1" value="0" /></td>
-	</tr>
-	<tr>
-		<td><label for="yield2">Annual yield per acre (Tons) &#8211; Year 2</label></td>
-		<td><input type="text" name="yield2" id="yield2" value="5" /></td>
-	</tr>
-	<tr>
-		<td><label for="yield3">Annual yield per acre (Tons) &#8211; Year 3</label></td>
-		<td><input type="text" name="yield3" id="yield3" value="10" /></td>
-	</tr>
-	<tr>
-		<td><label for="yield4">Annual yield per acre (Tons) &#8211; Year 4</label></td>
-		<td><input type="text" name="yield4" id="yield4" value="10" /></td>
-	</tr>
-	<tr>
-		<td><label for="yield5">Annual yield per acre (Tons) &#8211; Year 5+</label></td>
-		<td><input type="text" name="yield5" id="yield5" value="10" /></td>
-	</tr>
-</table>
+<h3 id="figureparameters">Figure parameters</h3>
+<label><input type="checkbox" name="figuregen" id="figuregen" checked="checked" />Generate figure</label>
 
-<h4>Display output as:</h4>
+<fieldset class="figure">
+
+	<h4>Display output as:</h4>
 			<ul>
 				<li>
 					<label><input type="radio" name="figuredisplay" value="netreturns" checked />Cumulative discounted net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
@@ -91,31 +40,76 @@
 				<li class="glossary-link"><a href="variable-definitions.html">Variable definitions</a></li>
 			</ul>
 
-<h4>Select (a) or (b).</h4>
-
-<section class="efficacyfig-wrap">
-	<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="efficacy" /> (a) Indicate anticipated disease control efficacy:</label></h4>
+	<section class="yearfig-wrap">
+	<h4>Indicate year of practice adoption:</h4>
 	<ul>
 		<li>
-			<label><input type="radio" name="efficacyfig" value="25" />25%</label>
-			<label><input type="radio" name="efficacyfig" value="50" />50%</label>
-			<label><input type="radio" name="efficacyfig" value="75" />75%</label>
+			<label><input type="radio" name="yearfig" value="Year3" />Year 3</label>
+			<label><input type="radio" name="yearfig" value="Year5" />Year 5</label>
+			<label><input type="radio" name="yearfig" value="Year10" />Year 10</label>
 		</li>
-		<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></li>
+		<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisors to reflect key stages in a vineyard&#8217;s lifespan.</span></li>
 	</ul>
-</section>
+	</section>
 
-<section class="yearfig-wrap">
-<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="year" /> (b) Indicate year of practice adoption:</label></h4>
-<ul>
-	<li>
-		<label><input type="radio" name="yearfig" value="Year3" />Year 3</label>
-		<label><input type="radio" name="yearfig" value="Year5" />Year 5</label>
-		<label><input type="radio" name="yearfig" value="Year10" />Year 10</label>
-	</li>
-	<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisors to reflect key stages in a vineyard&#8217;s lifespan.</span></li>
-</ul>
-</section>
+	<h4>Customize parameter values:</h4>
+
+	<table class="form" id="form">
+		<tr>
+			<td><label for="price">Price per ton ($)</label></td>
+			<td><input type="text" name="price" id="price" value="650" /></td>
+		</tr>
+		<tr>
+			<td><label for="discount">Discount rate (%)</label></td>
+			<td><input type="text" name="discount" id="discount" value="3" /></td>
+		</tr>
+		<tr>
+			<td><label for="pc">Additional annual cost per acre of preventative practice ($)</label></td>
+			<td><input type="text" name="pc" id="pc" value="175" /></td>
+		</tr>
+		<tr>
+			<td><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></td>
+			<td><input type="text" name="cost0" id="cost0" value="12213" /></td>
+		</tr>
+		<tr>
+			<td><label for="cost1">Annual cultural cost per acre &#8211; Year 1 &#8211; Establishing Vineyard ($)</label></td>
+			<td><input type="text" name="cost1" id="cost1" value="3370" /></td>
+		</tr>
+		<tr>
+			<td><label for="cost2">Annual cultural cost per acre &#8211; Year 2 &#8211; Establishing Vineyard ($)</label></td>
+			<td><input type="text" name="cost2" id="cost2" value="1004" /></td>
+		</tr>
+		<tr>
+			<td><label for="cost3">Annual cultural cost per acre &#8211; Year 3+ &#8211; Established Vineyard ($)</label></td>
+			<td><input type="text" name="cost3" id="cost3" value="3505" /></td>
+		</tr>
+		<tr>
+			<td><label for="yield0">Annual yield per acre (Tons) &#8211; Year 0</label></td>
+			<td><input type="text" name="yield0" id="yield0" value="0" /></td>
+		</tr>
+		<tr>
+			<td><label for="yield1">Annual yield per acre (Tons) &#8211; Year 1</label></td>
+			<td><input type="text" name="yield1" id="yield1" value="0" /></td>
+		</tr>
+		<tr>
+			<td><label for="yield2">Annual yield per acre (Tons) &#8211; Year 2</label></td>
+			<td><input type="text" name="yield2" id="yield2" value="5" /></td>
+		</tr>
+		<tr>
+			<td><label for="yield3">Annual yield per acre (Tons) &#8211; Year 3</label></td>
+			<td><input type="text" name="yield3" id="yield3" value="10" /></td>
+		</tr>
+		<tr>
+			<td><label for="yield4">Annual yield per acre (Tons) &#8211; Year 4</label></td>
+			<td><input type="text" name="yield4" id="yield4" value="10" /></td>
+		</tr>
+		<tr>
+			<td><label for="yield5">Annual yield per acre (Tons) &#8211; Year 5+</label></td>
+			<td><input type="text" name="yield5" id="yield5" value="10" /></td>
+		</tr>
+	</table>
+
+</fieldset>
 
 <button id="submit">Display returns to this scenario</button>
 
@@ -149,6 +143,7 @@
 			);
 		});
 
+		focusCustomParameters();
 		mobileSubstitutions();
 		$( '.swipebox' ).swipebox();
 	
