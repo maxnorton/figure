@@ -225,3 +225,40 @@ function setPracticeSelect(region, pc) {
 		});
 	}
 }
+
+function setRegionSelect(region, discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
+	d3.tsv("regional-assumptions.tsv", function(data) {
+		console.log('checking');
+		var regionKey = -1;
+		for (var regionIndex = 0; regionIndex<5; regionIndex++) {
+			if (discount==data[regionIndex]['discount'] && cost0==data[regionIndex]['cost0'] && cost1==data[regionIndex]['cost1'] && cost2==data[regionIndex]['cost2'] && cost3==data[regionIndex]['cost3'] && (pc==data[regionIndex]['pchp'] || pc==data[regionIndex]['pcdbp'] || pc==0 ) && price==data[regionIndex]['price'] && yield0==data[regionIndex]['yield0'] && yield1==data[regionIndex]['yield1'] && yield2==data[regionIndex]['yield2'] && yield3==data[regionIndex]['yield3'] && yield4==data[regionIndex]['yield4'] && yield5==data[regionIndex]['yield5']) {
+				regionKey = regionIndex;
+			}
+		}
+		console.log(regionKey);
+		var lookupRegion;
+		switch (regionIndex) {
+			case -1:
+				lookupRegion = 'custom';
+				break;
+			case 0:
+				lookupRegion = 'napa';
+				break;
+			case 1:
+				lookupRegion = 'nsj';
+				break;
+			case 2:
+				lookupRegion = 'cc';
+				break;
+			case 3:
+				lookupRegion = 'lake';
+				break;
+			case 4:
+				lookupRegion = 'sonoma';
+				break;
+		}
+		if (region != lookupRegion) {
+			$('select[name=region]').val(lookupRegion);
+		}
+	});
+} 

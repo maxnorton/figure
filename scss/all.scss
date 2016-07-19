@@ -126,6 +126,10 @@ h1.title a {
 	padding-left: 2em;
 }
 
+.regionName {
+	font-weight: bold;
+}
+
 .table-style {
 	font-family: sans-serif;
 	font-size: 0.85em;
@@ -311,8 +315,12 @@ table.form {
 		background-color: #eee;
 	}
 	tr.hover-info:hover,
-	tr.subselect:hover {
+	tr.subselect:hover,
+	tr.regionalDefaultSelector:hover {
 		background-color: #fff;
+	}
+	tr.regionalDefaultSelector td {
+		line-height: 2em;
 	}
 }
 

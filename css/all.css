@@ -92,6 +92,9 @@ h1.title a {
 .hover-info i {
   padding-left: 2em; }
 
+.regionName {
+  font-weight: bold; }
+
 .table-style {
   font-family: sans-serif;
   font-size: 0.85em; }
@@ -221,8 +224,11 @@ table.form {
   table.form tr:hover {
     background-color: #eee; }
   table.form tr.hover-info:hover,
-  table.form tr.subselect:hover {
+  table.form tr.subselect:hover,
+  table.form tr.regionalDefaultSelector:hover {
     background-color: #fff; }
+  table.form tr.regionalDefaultSelector td {
+    line-height: 2em; }
 
 .assumptionstable tr td:first-of-type {
   font-weight: bold;

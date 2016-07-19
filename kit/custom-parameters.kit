@@ -26,14 +26,6 @@
 <!-- @import ../markdown/compiled/custom-instructions.html -->
 </fieldset>
 
-<label for="region" id="regionSelect"><strong>Vineyard region: </strong><select name="region">
-	<option value="nsj">Northern San Joaquin</option>
-	<option value="napa">Napa</option>
-	<option value="lake">Lake</option>
-	<option value="sonoma">Sonoma</option>
-	<option value="cc">Central Coast</option>
-</select></label>
-
 <h3 id="figureparameters">Figure parameters</h3>
 <label><input type="checkbox" name="figuregen" id="figuregen" checked="checked" />Generate figure</label>
 
@@ -63,6 +55,18 @@
 	<h4>Customize parameter values:</h4>
 
 	<table class="form" id="form">
+		<tr class="regionalDefaultSelector">
+			<td>
+				<label for="region">Displaying <span class="currentRegion"><span class="regionName">Northern San Joaquin</span> default values.</span><br />
+				Reset to <select name="region">
+					<option value="nsj">Northern San Joaquin</option>
+					<option value="napa">Napa</option>
+					<option value="lake">Lake</option>
+					<option value="sonoma">Sonoma</option>
+					<option value="cc">Central Coast</option>
+				</select> defaults: <button id="regionalDefaults">Reset</button></label>	
+			</td>
+		</tr>
 		<tr>
 			<td><label for="price">Price per ton ($)</label></td>
 			<td><input type="text" name="price" id="price" value="650" tabindex="1" /></td>
@@ -77,7 +81,7 @@
 			<td><input type="text" name="pc" id="pc" value="175" tabindex="3" /></td>
 		</tr>
 		<tr class="subselect"><td>
-			<em>Using default annual cost per acre for</em> <select tabindex="14" id="practice" name="practice"><option value="dp">Double pruning (zero cost)</option><option value="hp">Hand-painted TopsinM</option><option value="dbp" selected="selected">Double pruning</option><option value="custom">Custom value</option></select>
+			<em>Using default annual cost per acre for</em> <select tabindex="14" id="practice" name="practice"><option value="dp">Double pruning (zero cost)</option><option value="hp">Hand-painted TopsinM</option><option value="dbp" selected="selected">Double pruning</option><option value="custom">Custom practice</option></select>
 		</td></tr>
 		<tr class="hover-info"><td><span class="info">Explanation for preventative cost goes here.</span></td></tr>
 		<tr>
@@ -164,6 +168,24 @@
 		});
 		$('input[name=pc]').change(function() {
 			setPracticeSelect( $('select[name=region]').val(), $(this).val() );
+		});
+
+		$('#form input[type=text]').change(function() {
+			setRegionSelect(	$('select[name=region]').val(),
+				$('input#discount').val(),
+				$('input#cost0').val(),
+				$('input#cost1').val(),
+				$('input#cost2').val(),
+				$('input#cost3').val(),
+				$('input#pc').val(),
+				$('input#price').val(),
+				$('input#yield0').val(),
+				$('input#yield1').val(),
+				$('input#yield2').val(),
+				$('input#yield3').val(),
+				$('input#yield4').val(),
+				$('input#yield5').val()
+			);
 		});
 
 		styleHoverInfo();
