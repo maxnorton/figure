@@ -27,13 +27,14 @@ function mobileSubstitutions() {
 	if ($(window).width() < 1023) {
 		$('.efficacy-info .table-style').html('<a href="img/efficacy-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table');
 		$('.variable-definitions table:nth-of-type(3)').html('<a href="img/variable-table03.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
-		$('.hide-for-tablets').css('display', 'none');
+		$('.hide-for-tablets').css('display', 'none').removeClass('swipebox');
 	}
 	if ($(window).width() < 768) {
 		$('.variable-definitions table:nth-of-type(1)').html('<a href="img/variable-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
 		$('.variable-definitions table:nth-of-type(2)').html('<a href="img/variable-table02.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
 		$('.custom-instructions table:nth-of-type(1)').html('<a href="img/custom-instructions-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
- 		$('.custom-instructions table:nth-of-type(2)').html('<a href="img/custom-instructions-table02.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');		$('.hide-for-phones').css('display', 'none');
+ 		$('.custom-instructions table:nth-of-type(2)').html('<a href="img/custom-instructions-table02.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
+		$('.hide-for-phones').css('display', 'none').removeClass('swipebox');
 	}
 }
 
