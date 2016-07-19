@@ -236,29 +236,36 @@ function setRegionSelect(region, discount, cost0, cost1, cost2, cost3, pc, price
 			}
 		}
 		console.log(regionKey);
-		var lookupRegion;
+		var lookupRegion,
+			regionLabel;
 		switch (regionIndex) {
 			case -1:
 				lookupRegion = 'custom';
+				regionLabel = 'custom values.'
 				break;
 			case 0:
 				lookupRegion = 'napa';
+				regionLabel = '<span class="regionName">Napa</span> default values.'
 				break;
 			case 1:
 				lookupRegion = 'nsj';
+				regionLabel = '<span class="regionName">Northern San Joaquin</span> default values.'
 				break;
 			case 2:
 				lookupRegion = 'cc';
+				regionLabel = '<span class="regionName">Central Coast</span> default values.'
 				break;
 			case 3:
 				lookupRegion = 'lake';
+				regionLabel = '<span class="regionName">Lake</span> default values.'
 				break;
 			case 4:
 				lookupRegion = 'sonoma';
+				regionLabel = '<span class="regionName">Sonoma</span> default values.'
 				break;
 		}
 		if (region != lookupRegion) {
-			$('select[name=region]').val(lookupRegion);
+			$('.currentRegion').html(regionLabel);
 		}
 	});
 } 
