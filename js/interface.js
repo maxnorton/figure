@@ -127,20 +127,36 @@ function toggleFormOptions() {
 
 function setRegionalDefaults(region) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
-		console.log(region);
-		console.log(data);
-		$('input[name=price]').val(data[region]['price']);
-		$('input[name=price]').val(data[region]['discount']);
-		$('input[name=price]').val(data[region]['pc']);
-		$('input[name=price]').val(data[region]['cost0']);
-		$('input[name=price]').val(data[region]['cost1']);
-		$('input[name=price]').val(data[region]['cost2']);
-		$('input[name=price]').val(data[region]['cost3']);
-		$('input[name=price]').val(data[region]['yield0']);
-		$('input[name=price]').val(data[region]['yield1']);
-		$('input[name=price]').val(data[region]['yield2']);
-		$('input[name=price]').val(data[region]['yield3']);
-		$('input[name=price]').val(data[region]['yield4']);
-		$('input[name=price]').val(data[region]['yield5']);
+		var regionIndex;
+		switch (region) {
+			case 'napa':
+				regionIndex = 0;
+				break;
+			case 'nsj':
+				regionIndex = 1;
+				break;
+			case 'cc':
+				regionIndex = 2;
+				break;
+			case 'lake':
+				regionIndex = 3;
+				break;
+			case 'sonoma':
+				regionIndex = 4;
+				break;
+		}
+		$('input[name=price]').val(data[regionIndex]['price']);
+		$('input[name=discount]').val(data[regionIndex]['discount']);
+		$('input[name=pc]').val(data[regionIndex]['pc']);
+		$('input[name=cost0]').val(data[regionIndex]['cost0']);
+		$('input[name=cost1]').val(data[regionIndex]['cost1']);
+		$('input[name=cost2]').val(data[regionIndex]['cost2']);
+		$('input[name=cost3]').val(data[regionIndex]['cost3']);
+		$('input[name=yield0]').val(data[regionIndex]['yield0']);
+		$('input[name=yield1]').val(data[regionIndex]['yield1']);
+		$('input[name=yield2]').val(data[regionIndex]['yield2']);
+		$('input[name=yield3]').val(data[regionIndex]['yield3']);
+		$('input[name=yield4]').val(data[regionIndex]['yield4']);
+		$('input[name=yield5]').val(data[regionIndex]['yield5']);
 	});
 }
