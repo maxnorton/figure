@@ -19,7 +19,7 @@ function getGenstates() {
 	var genstates = { 
 		'figurestate' : document.getElementById('figuregen').checked,
 		'tablestate' : document.getElementById('tablegen').checked
-	}
+	};
 	return genstates;
 }
 
@@ -42,7 +42,7 @@ function scrollToHash() {
 	if (window.location.hash) {
 		var hash = window.location.hash;
 		$('body,html').stop(true,true).animate({scrollTop: $(hash).offset().top - $('header').height()}, '500', 'swing');
-	};
+	}
 }
 
 function styleGlossaryLinks() {
@@ -128,7 +128,7 @@ function toggleFormOptions() {
 function setRegionalDefaults(region) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
 		var regionIndex;
-		var defaultPractice = $('select[name=practice]').val());
+		var defaultPractice = $('select[name=practice]').val();
 		switch (region) {
 			case 'napa':
 				regionIndex = 0;
@@ -159,8 +159,9 @@ function setRegionalDefaults(region) {
 		$('input[name=yield4]').val(data[regionIndex]['yield4']);
 		$('input[name=yield5]').val(data[regionIndex]['yield5']);
 
-		if (defaultPractice === 'hp' || defaultPractice === 'dbp')
+		if (defaultPractice === 'hp' || defaultPractice === 'dbp') {
 			$('input[name=pc]').val(data[regionIndex]['pc' + defaultPractice]);
+		}
 	});
 }
 
@@ -238,34 +239,34 @@ function setRegionSelect(region, discount, cost0, cost1, cost2, cost3, pc, price
 		console.log(regionKey);
 		var lookupRegion,
 			regionLabel;
-		switch (regionIndex) {
+		switch (regionKey) {
 			case -1:
 				lookupRegion = 'custom';
-				regionLabel = 'custom values.'
+				regionLabel = 'custom values.';
 				break;
 			case 0:
 				lookupRegion = 'napa';
-				regionLabel = '<span class="regionName">Napa</span> default values.'
+				regionLabel = '<span class="regionName">Napa</span> default values.';
 				break;
 			case 1:
 				lookupRegion = 'nsj';
-				regionLabel = '<span class="regionName">Northern San Joaquin</span> default values.'
+				regionLabel = '<span class="regionName">Northern San Joaquin</span> default values.';
 				break;
 			case 2:
 				lookupRegion = 'cc';
-				regionLabel = '<span class="regionName">Central Coast</span> default values.'
+				regionLabel = '<span class="regionName">Central Coast</span> default values.';
 				break;
 			case 3:
 				lookupRegion = 'lake';
-				regionLabel = '<span class="regionName">Lake</span> default values.'
+				regionLabel = '<span class="regionName">Lake</span> default values.';
 				break;
 			case 4:
 				lookupRegion = 'sonoma';
-				regionLabel = '<span class="regionName">Sonoma</span> default values.'
+				regionLabel = '<span class="regionName">Sonoma</span> default values.';
 				break;
 		}
-		if (region != lookupRegion) {
-			$('.currentRegion').html(regionLabel);
-		}
+		console.log(lookupRegion);
+		console.log(regionLabel);
+		$('.currentRegion').html(regionLabel);
 	});
 } 
