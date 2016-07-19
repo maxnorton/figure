@@ -259,8 +259,8 @@
 			);
 		});
 
-		$('select[name=region]').change(function() {
-			setRegionalDefaults( $(this).val() );
+		$('#regionalDefaults').click(function() {
+			setRegionalDefaults( $('select[name=region]').val() );
 		});
 		$('select[name=practice]').change(function() {
 			setPracticeCost( $('select[name=region]').val(), $(this).val() );

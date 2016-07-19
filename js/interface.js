@@ -128,7 +128,7 @@ function toggleFormOptions() {
 function setRegionalDefaults(region) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
 		var regionIndex;
-		var defaultPractice = $('select[name=practice]'.val());
+		var defaultPractice = $('select[name=practice]').val());
 		switch (region) {
 			case 'napa':
 				regionIndex = 0;
