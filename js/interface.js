@@ -125,46 +125,6 @@ function toggleFormOptions() {
 		});	
 }
 
-function setRegionalDefaults(region) {
-	d3.tsv("regional-assumptions.tsv", function(data) {
-		var regionIndex;
-		var defaultPractice = $('select[name=practice]').val();
-		switch (region) {
-			case 'napa':
-				regionIndex = 0;
-				break;
-			case 'nsj':
-				regionIndex = 1;
-				break;
-			case 'cc':
-				regionIndex = 2;
-				break;
-			case 'lake':
-				regionIndex = 3;
-				break;
-			case 'sonoma':
-				regionIndex = 4;
-				break;
-		}
-		$('input[name=price]').val(data[regionIndex]['price']);
-		$('input[name=discount]').val(data[regionIndex]['discount']);
-		$('input[name=cost0]').val(data[regionIndex]['cost0']);
-		$('input[name=cost1]').val(data[regionIndex]['cost1']);
-		$('input[name=cost2]').val(data[regionIndex]['cost2']);
-		$('input[name=cost3]').val(data[regionIndex]['cost3']);
-		$('input[name=yield0]').val(data[regionIndex]['yield0']);
-		$('input[name=yield1]').val(data[regionIndex]['yield1']);
-		$('input[name=yield2]').val(data[regionIndex]['yield2']);
-		$('input[name=yield3]').val(data[regionIndex]['yield3']);
-		$('input[name=yield4]').val(data[regionIndex]['yield4']);
-		$('input[name=yield5]').val(data[regionIndex]['yield5']);
-
-		if (defaultPractice === 'hp' || defaultPractice === 'dbp') {
-			$('input[name=pc]').val(data[regionIndex]['pc' + defaultPractice]);
-		}
-	});
-}
-
 function setPracticeCost(region, practice) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
 		if (practice==='dp') {
@@ -227,46 +187,83 @@ function setPracticeSelect(region, pc) {
 	}
 }
 
-function setRegionSelect(region, discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
+function checkRegionDisplay(region, discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
-		console.log('checking');
 		var regionKey = -1;
 		for (var regionIndex = 0; regionIndex<5; regionIndex++) {
 			if (discount==data[regionIndex]['discount'] && cost0==data[regionIndex]['cost0'] && cost1==data[regionIndex]['cost1'] && cost2==data[regionIndex]['cost2'] && cost3==data[regionIndex]['cost3'] && (pc==data[regionIndex]['pchp'] || pc==data[regionIndex]['pcdbp'] || pc==0 ) && price==data[regionIndex]['price'] && yield0==data[regionIndex]['yield0'] && yield1==data[regionIndex]['yield1'] && yield2==data[regionIndex]['yield2'] && yield3==data[regionIndex]['yield3'] && yield4==data[regionIndex]['yield4'] && yield5==data[regionIndex]['yield5']) {
 				regionKey = regionIndex;
 			}
 		}
-		console.log(regionKey);
-		var lookupRegion,
-			regionLabel;
-		switch (regionKey) {
-			case -1:
-				lookupRegion = 'custom';
-				regionLabel = 'custom values.';
-				break;
-			case 0:
-				lookupRegion = 'napa';
-				regionLabel = '<span class="regionName">Napa</span> default values.';
-				break;
-			case 1:
-				lookupRegion = 'nsj';
-				regionLabel = '<span class="regionName">Northern San Joaquin</span> default values.';
-				break;
-			case 2:
-				lookupRegion = 'cc';
-				regionLabel = '<span class="regionName">Central Coast</span> default values.';
-				break;
-			case 3:
-				lookupRegion = 'lake';
-				regionLabel = '<span class="regionName">Lake</span> default values.';
-				break;
-			case 4:
-				lookupRegion = 'sonoma';
-				regionLabel = '<span class="regionName">Sonoma</span> default values.';
-				break;
-		}
-		console.log(lookupRegion);
-		console.log(regionLabel);
-		$('.currentRegion').html(regionLabel);
+		var regionLabel;
+		setRegionDisplay(regionKey);
 	});
 } 
+
+function setRegionDisplay(regionKey) {
+	var regionLabel;
+	switch (regionKey) {
+		case -1:
+			regionLabel = 'custom values.';
+			break;
+		case 0:
+			regionLabel = '<span class="regionName">Napa</span> default values.';
+			break;
+		case 1:
+			regionLabel = '<span class="regionName">Northern San Joaquin</span> default values.';
+			break;
+		case 2:
+			regionLabel = '<span class="regionName">Central Coast</span> default values.';
+			break;
+		case 3:
+			regionLabel = '<span class="regionName">Lake</span> default values.';
+			break;
+		case 4:
+			regionLabel = '<span class="regionName">Sonoma</span> default values.';
+			break;
+	}
+	$('.currentRegion').html(regionLabel);
+}
+
+function setRegionalDefaults(region) {
+	d3.tsv("regional-assumptions.tsv", function(data) {
+		var regionIndex;
+		var defaultPractice = $('select[name=practice]').val();
+		switch (region) {
+			case 'napa':
+				regionIndex = 0;
+				break;
+			case 'nsj':
+				regionIndex = 1;
+				break;
+			case 'cc':
+				regionIndex = 2;
+				break;
+			case 'lake':
+				regionIndex = 3;
+				break;
+			case 'sonoma':
+				regionIndex = 4;
+				break;
+		}
+		$('input[name=price]').val(data[regionIndex]['price']);
+		$('input[name=discount]').val(data[regionIndex]['discount']);
+		$('input[name=cost0]').val(data[regionIndex]['cost0']);
+		$('input[name=cost1]').val(data[regionIndex]['cost1']);
+		$('input[name=cost2]').val(data[regionIndex]['cost2']);
+		$('input[name=cost3]').val(data[regionIndex]['cost3']);
+		$('input[name=yield0]').val(data[regionIndex]['yield0']);
+		$('input[name=yield1]').val(data[regionIndex]['yield1']);
+		$('input[name=yield2]').val(data[regionIndex]['yield2']);
+		$('input[name=yield3]').val(data[regionIndex]['yield3']);
+		$('input[name=yield4]').val(data[regionIndex]['yield4']);
+		$('input[name=yield5]').val(data[regionIndex]['yield5']);
+
+		if (defaultPractice === 'hp' || defaultPractice === 'dbp') {
+			$('input[name=pc]').val(data[regionIndex]['pc' + defaultPractice]);
+		}
+
+		setRegionDisplay(regionIndex);
+
+	});
+}
