@@ -22,6 +22,8 @@ The input form below shows the settings for the price per ton for Cabernet Sauvi
   Lake (2)                           |   $279  |
   Sonoma (3)                         |   $335  |
 
+<a href="img/custom-instructions-table02.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>
+
 Change to another regions to see the default settings from the economic analysis here or enter your own numbers in the table below and hit submit to generate results based on our economic analysis of early adoption of trunk disease preventative practices in winegrape vineyards.  
 
 <a href="index.html">Return to front page</a>  
