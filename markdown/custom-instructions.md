@@ -1,4 +1,4 @@
-##Intructions
+##Instructions
 
 The table below shows the default settings for the price per ton for Cabernet Sauvignon grapes, annual additional cost of double pruning per acre, annual cultural cost per acre for selected vineyard ages, and yield per acre for a Northern San Joaquin vineyard, unless another region was selected above. All regions depict Cabernet Sauvignon production and double pruning following from our economic analysis of trunk disease.
 
