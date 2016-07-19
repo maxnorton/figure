@@ -2,7 +2,7 @@
 function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
 	var dependentVariable,
-		margin = {top: 20, right: 35, bottom: 30, left: 35},
+		margin = {top: 90, right: 35, bottom: 30, left: 35},
 		padding = {left: 20},
 		scenarioColors = ['red', 'blue'],
 		scenarioNames = ['untreated', 'healthy'],
@@ -94,9 +94,9 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
 			svg.append("text")
 		        .attr("x", (width / 2))             
-		        .attr("y", 0 - (margin.top / 2))
+		        .attr("y", 0 - (margin.top / 3))
 		        .attr("text-anchor", "middle")  
-		        .style("font-size", "1.5em") 
+		        .style("font-size", "1.1em") 
 		        .text(figureTitle);
 
 		}
