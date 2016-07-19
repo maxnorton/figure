@@ -52,6 +52,7 @@ function applySubmitFunction(genstates) {
 			var outputs = [];
 			var inputkeys = [];
 			inputkeys = ['dbp', 'hp', 'dp', '25', '50', '75', '3', '5', '10'];
+			var efficacykeys = ['25', '50', '75'];
 			for (var inputindex in inputkeys) {
 				inputs[inputkeys[inputindex]] = false;
 			};
@@ -68,8 +69,8 @@ function applySubmitFunction(genstates) {
 
 			$('input[name=practicetable]:checked').each(function() {
 				var thisPractice = $(this).val().toUpperCase();
-				$('input[name=efficacytable]:checked').each(function() {
-					var thisEfficacy = $(this).val();
+				for (var efficacyindex in efficacykeys) {
+					var thisEfficacy = efficacykeys[efficacyindex];
 					$('input[name=adoptiontable]:checked').each(function() {
 						var thisYear = 'y' + $(this).val();
 						var theFormDrivenOutputVarName = $('select[name=region]').val() + thisPractice + thisEfficacy + thisYear;
@@ -81,7 +82,7 @@ function applySubmitFunction(genstates) {
 						theFormDrivenOutputVarsArray[a] = $.map(data[thisIndex], function(val, key) { return val; }).slice(1);
 						a++;
 					});
-				});
+				}
 			});
 
 			var table = '';
