@@ -6,9 +6,9 @@ The table below shows the default settings for the price per ton for Cabernet Sa
   :--------------------------------- |   :-:   |
 |                                             ||
   Napa (4)                           |   $71   |
-  Northern San Joaquin (11)          |   $45   |
-  Central Coast (8)                  |   $90   |
-  Lake (2)                           |   $117  |
+  Northern San Joaquin (11)          |   $90   |
+  Central Coast (8)                  |   $117  |
+  Lake (2)                           |   $90   |
   Sonoma (3)                         |   $74   |
 
 <a href="img/custom-instructions-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> 
