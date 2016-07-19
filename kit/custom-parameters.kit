@@ -26,6 +26,14 @@
 <!-- @import ../markdown/compiled/custom-instructions.html -->
 </fieldset>
 
+<label id="regionSelect"><strong>Vineyard region: </strong><select name="region">
+	<option value="nsj">Northern San Joaquin</option>
+	<option value="napa">Napa</option>
+	<option value="lake">Lake</option>
+	<option value="sonoma">Sonoma</option>
+	<option value="cc">Central Coast</option>
+</select></label>
+
 <h3 id="figureparameters">Figure parameters</h3>
 <label><input type="checkbox" name="figuregen" id="figuregen" checked="checked" />Generate figure</label>
 
@@ -144,6 +152,10 @@
 				$('input#yield5').val()
 			);
 		});
+
+		$('#regionSelect').change(function() {
+			setRegionalDefaults($(this).val());
+		})
 
 		styleHoverInfo();
 		styleGlossaryLinks();

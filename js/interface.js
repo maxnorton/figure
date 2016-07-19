@@ -124,3 +124,21 @@ function toggleFormOptions() {
 			}
 		});	
 }
+
+function setRegionalDefaults(region) {
+	d3.tsv("regional-assumptions.tsv", function(data) {
+		$('input[name=price]').val(data[region]['price']);
+		$('input[name=price]').val(data[region]['discount']);
+		$('input[name=price]').val(data[region]['pc']);
+		$('input[name=price]').val(data[region]['cost0']);
+		$('input[name=price]').val(data[region]['cost1']);
+		$('input[name=price]').val(data[region]['cost2']);
+		$('input[name=price]').val(data[region]['cost3']);
+		$('input[name=price]').val(data[region]['yield0']);
+		$('input[name=price]').val(data[region]['yield1']);
+		$('input[name=price]').val(data[region]['yield2']);
+		$('input[name=price]').val(data[region]['yield3']);
+		$('input[name=price]').val(data[region]['yield4']);
+		$('input[name=price]').val(data[region]['yield5']);
+	});
+}
