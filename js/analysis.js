@@ -153,7 +153,7 @@ function applySubmitFunction(genstates) {
 			var results = '<hr /><h2>Results</h2><p class="landscape-alert" style="font-style: italic;">Tap or click figures to view full-screen. On mobile devices, we recommend viewing your results in landscape mode.</p><p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="figure-wrap">';
 			if (genstates['figurestate'] == true)
 				results += fullfig;
-			if (genstates['tablestate'] == true)
+			if (genstates['tablestate'] == true && $('input[name=tablegen]:checked').length != 0)
 				results += table;
 			results += assumptionstable + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#page" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 			$('.results').html(results); // Write results to page
