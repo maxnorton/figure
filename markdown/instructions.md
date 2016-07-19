@@ -1,17 +1,10 @@
 ## Introduction
 
-The grapevine trunk diseases (aka wood-canker diseases) are widespread throughout all of California’s grape-growing regions. This disease complex includes:  
+The grapevine trunk diseases (aka wood-canker diseases) are widespread throughout all of California’s grape-growing regions. This disease complex includes: Botryosphaeria dieback (aka Bot canker), Eutypa dieback, Phomopsis dieback, and Esca (aka Measles, Young vine decline, Petri disease).  
 
-Botryosphaeria dieback (aka Bot canker)  
-Eutypa dieback  
-Phomopsis dieback  
-Esca (aka Measles, Young vine decline, Petri disease)  
- 
-Every California vineyard is eventually infected by one predominant trunk disease or a combination. These diseases significantly reduce yields in mature vineyards by either killing fruiting positions (main impact of the dieback-type diseases) or decreasing vine vigor (main impact of Esca). These impacts accumulate each year, as there are no effective methods to eradicate the wood infections. Diseased vineyards must be replanted prematurely, and the high start-up costs are not repaid.
+Every California vineyard is eventually infected by one predominant trunk disease or a combination. These diseases significantly reduce yields in mature vineyards by either killing fruiting positions (main impact of the dieback-type diseases) or decreasing vine vigor (main impact of Esca). These impacts accumulate each year, as there are no effective methods to eradicate the wood infections. Diseased vineyards must be replanted prematurely, and the high start-up costs are not repaid. If adopted in young vineyards, preventative practices can reduce the negative effects of trunk diseases.  
 
- If adopted in young vineyards, preventative practices can reduce the negative effects of trunk diseases. On this site you will find the results from an economic analysis of early adoption of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant). This research is part of a [trunk disease project](http://treeandvinetrunkdiseases.org) funded by a Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture grant. 
-
- This site also provides growers an opportunity to enter economic and yield data for their operation to see how trunk diseases and these preventative practices might affect production in their winegrape vineyard.
+ On this site you will find the results from an economic analysis of early adoption of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant). This research is part of a [trunk disease project](http://treeandvinetrunkdiseases.org) funded by a Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture grant. This site also provides growers an opportunity to enter economic and yield data for their operation to see how trunk diseases and these preventative practices might affect production in their winegrape vineyard.  
 
 ### Instructions
 
