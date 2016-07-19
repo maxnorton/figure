@@ -310,7 +310,8 @@ table.form {
 	tr:hover {
 		background-color: #eee;
 	}
-	tr.hover-info:hover {
+	tr.hover-info:hover,
+	tr.subselect:hover {
 		background-color: #fff;
 	}
 }
@@ -386,6 +387,30 @@ label[for=efficacyOrYearfig] {
 	color: #000000;
 }
 
+.selectlist {
+	margin: 0;
+	padding: 0;
+
+	li {
+		border: 1px solid #ccc;
+		display: inline-block;
+		padding: .5em;
+
+		&.selected {
+			background-color: #333;
+			color: #fff;
+		}
+
+		&:hover:not(.selected) {
+			background-color: #ccc;
+		}
+	}
+
+}
+
+table.form .subselect td {
+	padding-left: 40px;
+}
 
 /* MISCELLANEOUS
 ------------------------------ */

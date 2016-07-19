@@ -175,6 +175,9 @@
 			<td><label for="pc">Additional annual cost per acre of preventative practice ($)</label></td>
 			<td><input type="text" name="pc" id="pc" value="175" /></td>
 		</tr>
+		<tr class="subselect"><td>
+			<em>Using default annual cost per acre for</em> <select id="practice" name="practice"><option value="dp">Double pruning (zero cost)</option><option value="hp">Hand-painted TopsinM</option><option value="dbp" selected="selected">Double pruning</option><option value="custom">Custom value</option></select>
+		</td></tr>
 		<tr class="hover-info"><td><span class="info">Explanation for preventative cost goes here.</span></td></tr>
 		<tr>
 			<td><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></td>
@@ -253,8 +256,14 @@
 		});
 
 		$('select[name=region]').change(function() {
-			setRegionalDefaults($(this).val());
-		})
+			setRegionalDefaults( $(this).val() );
+		});
+		$('select[name=practice]').change(function() {
+			setPracticeCost( $('select[name=region]').val(), $(this).val() );
+		});
+		$('input[name=pc]').change(function() {
+			setPracticeSelect( $('select[name=region]').val(), $(this).val() );
+		});
 
 		styleHoverInfo();
 		styleGlossaryLinks();

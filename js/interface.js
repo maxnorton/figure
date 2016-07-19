@@ -128,6 +128,7 @@ function toggleFormOptions() {
 function setRegionalDefaults(region) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
 		var regionIndex;
+		var defaultPractice = $('select[name=practice]'.val());
 		switch (region) {
 			case 'napa':
 				regionIndex = 0;
@@ -147,7 +148,6 @@ function setRegionalDefaults(region) {
 		}
 		$('input[name=price]').val(data[regionIndex]['price']);
 		$('input[name=discount]').val(data[regionIndex]['discount']);
-		$('input[name=pc]').val(data[regionIndex]['pc']);
 		$('input[name=cost0]').val(data[regionIndex]['cost0']);
 		$('input[name=cost1]').val(data[regionIndex]['cost1']);
 		$('input[name=cost2]').val(data[regionIndex]['cost2']);
@@ -158,5 +158,70 @@ function setRegionalDefaults(region) {
 		$('input[name=yield3]').val(data[regionIndex]['yield3']);
 		$('input[name=yield4]').val(data[regionIndex]['yield4']);
 		$('input[name=yield5]').val(data[regionIndex]['yield5']);
+
+		if (defaultPractice === 'hp' || defaultPractice === 'dbp')
+			$('input[name=pc]').val(data[regionIndex]['pc' + defaultPractice]);
 	});
+}
+
+function setPracticeCost(region, practice) {
+	d3.tsv("regional-assumptions.tsv", function(data) {
+		if (practice==='dp') {
+			$('input[name=pc]').val('0');
+		} else if (practice==='hp' || practice==='dbp') {
+			var regionIndex;
+			switch (region) {
+				case 'napa':
+					regionIndex = 0;
+					break;
+				case 'nsj':
+					regionIndex = 1;
+					break;
+				case 'cc':
+					regionIndex = 2;
+					break;
+				case 'lake':
+					regionIndex = 3;
+					break;
+				case 'sonoma':
+					regionIndex = 4;
+					break;
+			} 
+			$('input[name=pc]').val(data[regionIndex]['pc' + practice]);
+		}
+	});
+}
+
+function setPracticeSelect(region, pc) {
+	if (pc==0) {
+		$('select[name=practice]').val('dp');
+	} else {
+		d3.tsv("regional-assumptions.tsv", function(data) {
+			var regionIndex;
+			switch (region) {
+				case 'napa':
+					regionIndex = 0;
+					break;
+				case 'nsj':
+					regionIndex = 1;
+					break;
+				case 'cc':
+					regionIndex = 2;
+					break;
+				case 'lake':
+					regionIndex = 3;
+					break;
+				case 'sonoma':
+					regionIndex = 4;
+					break;
+			} 
+			if (pc==data[regionIndex]['pchp']) {
+				$('select[name=practice]').val('hp');
+			} else if (pc==data[regionIndex]['pcdbp']) {
+				$('select[name=practice]').val('dbp');
+			} else {
+				$('select[name=practice]').val('custom');
+			}
+		});
+	}
 }

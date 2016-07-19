@@ -220,7 +220,8 @@ table.form {
   table.form tr.focused,
   table.form tr:hover {
     background-color: #eee; }
-  table.form tr.hover-info:hover {
+  table.form tr.hover-info:hover,
+  table.form tr.subselect:hover {
     background-color: #fff; }
 
 .assumptionstable tr td:first-of-type {
@@ -268,6 +269,22 @@ label {
 
 label[for=efficacyOrYearfig] {
   color: #000000; }
+
+.selectlist {
+  margin: 0;
+  padding: 0; }
+  .selectlist li {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: .5em; }
+    .selectlist li.selected {
+      background-color: #333;
+      color: #fff; }
+    .selectlist li:hover:not(.selected) {
+      background-color: #ccc; }
+
+table.form .subselect td {
+  padding-left: 40px; }
 
 /* MISCELLANEOUS
 ------------------------------ */
