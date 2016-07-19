@@ -22,22 +22,13 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 	var figureCount = $( 'input[name=yearfig]:checked' ).length;
 	for (var k=0; k<figureCount; k++) {
 		if (scenarioObject) {
-			var parameterValue = $('input[name=yearfig]:checked:eq(' + k + ')').val();
+			var parameterValue = $('input[name=yearfig]:checked:eq(' + k + ')').val().substr(4),
+				figureTitle = 'Year ' + parameterValue + ' Adoption of $' + $('input[name=pc]').val() + ' per Acre per Year Preventative Practice at Different Disease Control Efficacy Rates';
+			console.log(figureTitle);
 			
 			if (parameterValue) {
 				scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
-			}
-
-			switch (parameterValue) {
-				case 'Year3':
-					scenarioNames = ['25y3', '50y3', '75y3', 'untreated', 'healthy'];
-					break;
-				case 'Year5':
-					scenarioNames = ['25y5', '50y5', '75y5', 'untreated', 'healthy'];
-					break;
-				case 'Year10':
-					scenarioNames = ['25y10', '50y10', '75y10', 'untreated', 'healthy'];
-					break;
+				scenarioNames = ['25y' + parameterValue, '50y' + parameterValue, '75y' + parameterValue, 'untreated', 'healthy'];
 			}
 
 			var x = d3.scale.linear()
