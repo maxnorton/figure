@@ -19,86 +19,89 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		dependentVariable = 'Cumulative Discounted Net Returns (2013 dollars)';
 	}
 
-	if (scenarioObject) {
-		var parameterValue = $('input[name=yearfig]:checked').val();
-		
-		if (parameterValue) {
-			scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
+	var figureCount = $( 'input[name=yearfig]:checked' ).length;
+	for (var k=0; k<figureCount; k++) {
+		if (scenarioObject) {
+			var parameterValue = $('input[name=yearfig]:checked:eq(' + k + ')').val();
+			
+			if (parameterValue) {
+				scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
+			}
+
+			switch (parameterValue) {
+				case 'Year3':
+					scenarioNames = ['25y3', '50y3', '75y3', 'untreated', 'healthy'];
+					break;
+				case 'Year5':
+					scenarioNames = ['25y5', '50y5', '75y5', 'untreated', 'healthy'];
+					break;
+				case 'Year10':
+					scenarioNames = ['25y10', '50y10', '75y10', 'untreated', 'healthy'];
+					break;
+			}
+
+			var x = d3.scale.linear()
+			    .range([0, width]);
+
+			var y = d3.scale.linear()
+			    .range([height, 0]);
+
+			var xAxis = d3.svg.axis()
+			    .scale(x)
+			    .ticks(5)
+			    .orient("bottom");
+
+			var yAxis = d3.svg.axis()
+			    .scale(y)
+			    .orient("left");
+
+			var line = d3.svg.line()
+			    .x(function(d) { return x(d.x); })
+		 		.y(function(d) { return y(d.y); })
+		 		.interpolate("linear");
+
+			var svg = d3.select(".figure-area").append("svg")
+				.attr("width", width + margin.left + padding.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+				.append("g")
+				.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
+
+			x.domain(d3.extent(years));
+			y.domain(d3.extent(scenarioObject.healthy, function(d) { return d.y; }));
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+				.append("text")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", ".71em")
+				.style("text-anchor", "end")
+				.text(dependentVariable);
+
+			for (var i in scenarioNames) {
+				svg.append("path")
+					.attr("d", line(scenarioObject[scenarioNames[i]]))
+					.attr("class", "line")
+					.attr("stroke", scenarioColors[i])
+					.attr("stroke-width", 2)
+					.attr("fill", "none");
+
+				svg.selectAll("dot")
+					.data(scenarioObject[scenarioNames[i]])
+					.enter().append("circle")
+					.attr("r", 3.5)
+					.attr("fill", scenarioColors[i])
+					.attr("cx", function(d) { return x(d.x); })
+					.attr("cy", function(d) { return y(d.y); });
+			}
+
 		}
-
-		switch (parameterValue) {
-			case 'Year3':
-				scenarioNames = ['25y3', '50y3', '75y3', 'untreated', 'healthy'];
-				break;
-			case 'Year5':
-				scenarioNames = ['25y5', '50y5', '75y5', 'untreated', 'healthy'];
-				break;
-			case 'Year10':
-				scenarioNames = ['25y10', '50y10', '75y10', 'untreated', 'healthy'];
-				break;
-		}
-
-		var x = d3.scale.linear()
-		    .range([0, width]);
-
-		var y = d3.scale.linear()
-		    .range([height, 0]);
-
-		var xAxis = d3.svg.axis()
-		    .scale(x)
-		    .ticks(5)
-		    .orient("bottom");
-
-		var yAxis = d3.svg.axis()
-		    .scale(y)
-		    .orient("left");
-
-		var line = d3.svg.line()
-		    .x(function(d) { return x(d.x); })
-	 		.y(function(d) { return y(d.y); })
-	 		.interpolate("linear");
-
-		var svg = d3.select(".figure-area").append("svg")
-			.attr("width", width + margin.left + padding.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom)
-			.append("g")
-			.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
-
-		x.domain(d3.extent(years));
-		y.domain(d3.extent(scenarioObject.healthy, function(d) { return d.y; }));
-
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + height + ")")
-			.call(xAxis);
-
-		svg.append("g")
-			.attr("class", "y axis")
-			.call(yAxis)
-			.append("text")
-			.attr("transform", "rotate(-90)")
-			.attr("y", 6)
-			.attr("dy", ".71em")
-			.style("text-anchor", "end")
-			.text(dependentVariable);
-
-		for (var i in scenarioNames) {
-			svg.append("path")
-				.attr("d", line(scenarioObject[scenarioNames[i]]))
-				.attr("class", "line")
-				.attr("stroke", scenarioColors[i])
-				.attr("stroke-width", 2)
-				.attr("fill", "none");
-
-			svg.selectAll("dot")
-				.data(scenarioObject[scenarioNames[i]])
-				.enter().append("circle")
-				.attr("r", 3.5)
-				.attr("fill", scenarioColors[i])
-				.attr("cx", function(d) { return x(d.x); })
-				.attr("cy", function(d) { return y(d.y); });
-		}
-
 	}
 
 }
