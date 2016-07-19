@@ -9,8 +9,8 @@ Esca (aka Measles, Young vine decline, Petri disease)
  
 Every California vineyard is eventually infected by one predominant trunk disease or a combination. These diseases significantly reduce yields in mature vineyards by either killing fruiting positions (main impact of the dieback-type diseases) or decreasing vine vigor (main impact of Esca). These impacts accumulate each year, as there are no effective methods to eradicate the wood infections. Diseased vineyards must be replanted prematurely, and the high start-up costs are not repaid.
 
-If adopted in young vineyards, preventative practices can reduce the negative effects of trunk diseases. On this site you will find the results from an economic analysis of early adoption of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant). This research is part of a trunk disease project funded by a Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture grant. [For more information on the trunk disease research, please visit the SCRI Trunk Disease Project Page.](http://treeandvinetrunkdiseases.org)
- 
+ If adopted in young vineyards, preventative practices can reduce the negative effects of trunk diseases. On this site you will find the results from an economic analysis of early adoption of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant). This research is part of a [trunk disease project](http://treeandvinetrunkdiseases.org) funded by a Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture grant. 
+
  This site also provides growers an opportunity to enter economic and yield data for their operation to see how trunk diseases and these preventative practices might affect production in their winegrape vineyard.
 
 ### Instructions
