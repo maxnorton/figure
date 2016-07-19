@@ -128,6 +128,7 @@ function toggleFormOptions() {
 function setRegionalDefaults(region) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
 		console.log(region);
+		console.log(data);
 		$('input[name=price]').val(data[region]['price']);
 		$('input[name=price]').val(data[region]['discount']);
 		$('input[name=price]').val(data[region]['pc']);

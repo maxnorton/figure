@@ -125,7 +125,7 @@
 <p><a href="index.html">Return to front page</a> </p>
 </fieldset>
 
-<label id="regionSelect"><strong>Vineyard region: </strong><select name="region">
+<label for="region" id="regionSelect"><strong>Vineyard region: </strong><select name="region">
 	<option value="nsj">Northern San Joaquin</option>
 	<option value="napa">Napa</option>
 	<option value="lake">Lake</option>
@@ -252,7 +252,7 @@
 			);
 		});
 
-		$('#regionSelect').change(function() {
+		$('select[name=region]').change(function() {
 			setRegionalDefaults($(this).val());
 		})
 
