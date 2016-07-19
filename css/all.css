@@ -66,25 +66,31 @@ h1.title a {
     text-decoration: underline; }
 
 .glossary-inline,
-.glossary-link {
+.glossary-link,
+.hover-info .info {
   color: black;
   display: block;
   padding: 0; }
   .glossary-inline i,
-  .glossary-link i {
+  .glossary-link i,
+  .hover-info .info i {
     padding-right: 1em; }
 
 .glossary-link a {
   color: black;
   cursor: pointer; }
 
-.glossary-inline {
+.glossary-inline,
+.hover-info .info {
   display: none;
   padding-left: 2em; }
 
 .glossary-link:hover,
 .glossary-link a:hover {
   color: green; }
+
+.hover-info i {
+  padding-left: 2em; }
 
 .table-style {
   font-family: sans-serif;
@@ -214,6 +220,8 @@ table.form {
   table.form tr.focused,
   table.form tr:hover {
     background-color: #eee; }
+  table.form tr.hover-info:hover {
+    background-color: #fff; }
 
 .assumptionstable tr td:first-of-type {
   font-weight: bold;

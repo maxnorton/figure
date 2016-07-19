@@ -63,10 +63,12 @@
 			<td><label for="discount">Discount rate (%)</label></td>
 			<td><input type="text" name="discount" id="discount" value="3" /></td>
 		</tr>
+		<tr class="hover-info"><td><span class="info">Explanation for discount rate goes here.</span></td></tr>
 		<tr>
 			<td><label for="pc">Additional annual cost per acre of preventative practice ($)</label></td>
 			<td><input type="text" name="pc" id="pc" value="175" /></td>
 		</tr>
+		<tr class="hover-info"><td><span class="info">Explanation for preventative cost goes here.</span></td></tr>
 		<tr>
 			<td><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></td>
 			<td><input type="text" name="cost0" id="cost0" value="12213" /></td>
@@ -143,6 +145,7 @@
 			);
 		});
 
+		styleHoverInfo();
 		styleGlossaryLinks();
 		focusCustomParameters();
 		mobileSubstitutions();

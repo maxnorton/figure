@@ -95,7 +95,8 @@ h1.title a {
 }
 
 .glossary-inline,
-.glossary-link {
+.glossary-link,
+.hover-info .info {
 	color: black;
 	display: block;
 	padding: 0;
@@ -110,7 +111,8 @@ h1.title a {
 	cursor: pointer;
 }
 
-.glossary-inline {
+.glossary-inline,
+.hover-info .info {
 	display: none;
 	padding-left: 2em;
 }
@@ -118,6 +120,10 @@ h1.title a {
 .glossary-link:hover,
 .glossary-link a:hover {
 	color: green;
+}
+
+.hover-info i {
+	padding-left: 2em;
 }
 
 .table-style {
@@ -277,7 +283,7 @@ table.form {
 
 .results table {
 	border: 1px solid #ccc;
-	
+
 	td {
 		padding: .5em;
 	}
@@ -303,6 +309,9 @@ table.form {
 	tr.focused,
 	tr:hover {
 		background-color: #eee;
+	}
+	tr.hover-info:hover {
+		background-color: #fff;
 	}
 }
 

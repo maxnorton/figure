@@ -52,6 +52,17 @@ function styleGlossaryLinks() {
 	});
 }
 
+function styleHoverInfo() {
+	$('.hover-info td').prepend('<i class="fa fa-question-circle"></i>');
+	$('.hover-info').hover( 
+		function(event) {
+			$(this).stop().find('.info').fadeToggle('fast');
+		}, function(event) {
+			$(this).stop().find('.info').fadeToggle('fast');
+		}
+	);
+}
+
 function toggleFormOptions() {
 	/***** Toggle input options when gentable, genfigure are switched on/off
 		------------------------------------ */
