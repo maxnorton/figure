@@ -101,6 +101,10 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		}
 	}
 
+	$('.figure-area svg').each(function() {
+		$(this).after('<div class="legend"><img src="img/figures/legend.png" /></div>');
+	})
+
 	if (figureCount===0) {
 		$('.figure-area').prepend('<p class="alert">To generate a figure, return to the <a href="#" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#figureparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">figure parameters form</a> and select at least one year of practice adoption.</p>');
 	}
