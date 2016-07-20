@@ -285,6 +285,11 @@ table.form .preventative-slideout th {
 .variable-definitions table:nth-of-type(2) th {
   border-bottom: 1px solid #000; }
 
+.figure-area .legend {
+  text-align: center;
+  width: 960px;
+  max-width: 100%; }
+
 /* FORM ELEMENTS
 ------------------------------ */
 label {
