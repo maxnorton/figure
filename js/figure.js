@@ -24,7 +24,6 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		if (scenarioObject) {
 			var parameterValue = $('input[name=yearfig]:checked:eq(' + k + ')').val().substr(4),
 				figureTitle = 'Year ' + parameterValue + ' Adoption of $' + $('input[name=pc]').val() + ' per Acre per Year Preventative Practice at Different Disease Control Efficacy Rates';
-			console.log(figureTitle);
 			
 			if (parameterValue) {
 				scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
@@ -100,6 +99,10 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		        .text(figureTitle);
 
 		}
+	}
+
+	if (figureCount===0) {
+		$('.figure-area').prepend('<p class="alert">To generate a figure, return to the <a href="#" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#figureparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">figure parameters form</a> and select at least one year of practice adoption.</p>');
 	}
 
 }
