@@ -102,7 +102,7 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 	}
 
 	$('.figure-area svg').each(function() {
-		$(this).after('<div class="legend"><img src="img/figures/legend.png" /><br /><span class="glossary-link"><a href="efficacy-information.html"><i class="fa fa-question-circle"></i> Disease control efficacy rate information</a></span></div>');
+		$(this).after('<div class="legend"><img src="img/figures/legend.png" /><br /><span class="glossary-link hide-on-print"><a href="efficacy-information.html"><i class="fa fa-question-circle"></i> Disease control efficacy rate information</a></span></div>');
 	})
 
 	if (figureCount===0) {
