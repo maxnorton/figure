@@ -34,3 +34,15 @@ header {
 .table-wrap {
 	page-break-inside: avoid;
 }
+
+.figure-wrap img {
+	width: 100% !important;
+}
+
+.figure-wrap a {
+	display: block;
+}
+
+.varDefs-printable {
+	display: block;
+}
