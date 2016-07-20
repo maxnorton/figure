@@ -1,6 +1,69 @@
 function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
-	d3.tsv("yield-rates.tsv", function(data) {
+	d3.tsv("regional-assumptions.tsv", function(data) {
+		var region = $('select[name=region]').val(),
+			regionIndex;
+		switch (region) {
+			case 'napa':
+				regionIndex = 0;
+				break;
+			case 'nsj':
+				regionIndex = 1;
+				break;
+			case 'cc':
+				regionIndex = 2;
+				break;
+			case 'lake':
+				regionIndex = 3;
+				break;
+			case 'sonoma':
+				regionIndex = 4;
+				break;
+			case 'custom':
+				regionIndex = 1;
+		}
 
+		if (discount=='') {
+			discount = '3';
+		}
+		if (cost0=='') {
+			cost0 = data[regionIndex]['cost0'];
+		}
+		if (cost1=='') {
+			cost1 = data[regionIndex]['cost1'];
+		}
+		if (cost2=='') {
+			cost2 = data[regionIndex]['cost2'];
+		}
+		if (cost3=='') {
+			cost3 = data[regionIndex]['cost3'];
+		}
+		if (pc=='') {
+			pc = data[regionIndex]['pcdbp'];
+		}
+		if (price=='') {
+			price = data[regionIndex]['price'];
+		}
+		if (yield0=='') {
+			yield0 = data[regionIndex]['yield0'];
+		}
+		if (yield1=='') {
+			yield1 = data[regionIndex]['yield1'];
+		}
+		if (yield2=='') {
+			yield2 = data[regionIndex]['yield2'];
+		}
+		if (yield3=='') {
+			yield3 = data[regionIndex]['yield3'];
+		}
+		if (yield4=='') {
+			yield4 = data[regionIndex]['yield4'];
+		}
+		if (yield5=='') {
+			yield5 = data[regionIndex]['yield5'];
+		}
+	});
+
+	d3.tsv("yield-rates.tsv", function(data) {
 		var acdnb25y3 = [],
 			acdnb25y5 = [],
 			acdnb25y10 = [],
