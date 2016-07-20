@@ -291,6 +291,10 @@ table.form {
 	td {
 		padding: .5em;
 	}
+	th:not(:first-of-type) h4 {
+		margin: auto;
+		width: 75%;
+	}
 	tr:nth-of-type(even) {
 		background-color: #eee;
 	}

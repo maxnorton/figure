@@ -207,6 +207,9 @@ table.form {
   border: 1px solid #ccc; }
   .results table td {
     padding: .5em; }
+  .results table th:not(:first-of-type) h4 {
+    margin: auto;
+    width: 75%; }
   .results table tr:nth-of-type(even) {
     background-color: #eee; }
 
