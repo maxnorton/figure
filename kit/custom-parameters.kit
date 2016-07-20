@@ -76,7 +76,7 @@
 			<td><input type="text" name="discount" id="discount" value="3" tabindex="2" /></td>
 		</tr>
 		<tr class="subselect">
-			<td><p class="glossary-link"><a href="#" class="glossary-inline-link">Discount rate definition</a><br /><span class="glossary-inline">Discount rate: rate at which the current value of future returns diminishes for each year that separates the present and the date of the anticipated earnings. Under a discount rate of 3%, anticipated earnings of $100 next year have a value approximately equivalent to immediately receiving $97.</span></p></td>
+			<td><div class="glossary-link"><a href="#" class="glossary-inline-link">Discount rate definition</a><br /><span class="glossary-inline">Discount rate: rate at which the current value of future returns diminishes for each year that separates the present and the date of the anticipated earnings. Under a discount rate of 3%, anticipated earnings of $100 next year have a value approximately equivalent to immediately receiving $97.</span></div></td>
 			<td></td>
 		</tr>
 		<tr>
@@ -86,7 +86,86 @@
 		<tr class="subselect"><td>
 			<em>Using default annual cost per acre for</em> <select tabindex="14" id="practice" name="practice"><option value="dp">Double pruning (zero cost)</option><option value="hp">Hand-painted TopsinM</option><option value="dbp" selected="selected">Double pruning</option><option value="custom">Custom practice</option></select>
 		</td></tr>
-		<tr class="hover-info"><td><span class="info">Explanation for preventative cost goes here.</span></td></tr>
+		<tr class="subselect preventative-slideout">
+			<td><div class="glossary-link"><a href="#" class="glossary-inline-link">Preventative practice cost information</a><br /><section class="glossary-inline">
+
+			<p>The additional cost of delayed pruning is assumed to be zero as it does not cost more to shift when this practice is performed. The additional cost per acre for hand-painting TopsinM and double pruning are shown in the tables below. </p>
+
+			<table>
+			<colgroup>
+			<col style="text-align:left;"/>
+			<col style="text-align:center;"/>
+			</colgroup>
+
+			<thead>
+			<tr>
+				<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Handpainting TopsinM</strong></th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<tr>
+				<td style="text-align:left;">Napa (4)</td>
+				<td style="text-align:center;">$71</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Northern San Joaquin (11)</td>
+				<td style="text-align:center;">$90</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Central Coast (8)</td>
+				<td style="text-align:center;">$117</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Lake (2)</td>
+				<td style="text-align:center;">$90</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Sonoma (3)</td>
+				<td style="text-align:center;">$74</td>
+			</tr>
+			</tbody>
+			</table>
+
+			<table>
+			<colgroup>
+			<col style="text-align:left;"/>
+			<col style="text-align:center;"/>
+			</colgroup>
+
+			<thead>
+			<tr>
+				<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Double Pruning</strong></th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<tr>
+				<td style="text-align:left;">Napa (4)</td>
+				<td style="text-align:center;">$478</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Northern San Joaquin (11)</td>
+				<td style="text-align:center;">$243</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Central Coast (8)</td>
+				<td style="text-align:center;">$268</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Lake (2)</td>
+				<td style="text-align:center;">$279</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;">Sonoma (3)</td>
+				<td style="text-align:center;">$335</td>
+			</tr>
+			</tbody>
+			</table>
+
+			</section></div></td>
+			<td></td>
+		</tr>
 		<tr>
 			<td><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></td>
 			<td><input type="text" name="cost0" id="cost0" value="12213" tabindex="4" /></td>

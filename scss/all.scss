@@ -337,13 +337,15 @@ table.form {
 
 .custom-instructions,
 .efficacy-info,
-.variable-definitions {
+.variable-definitions,
+table.form .preventative-slideout {
 	table {
 		border-bottom: 2px solid #000;
 		border-collapse: collapse;
 		border-top: 2px solid #000;
 		font-family: sans-serif;
 		font-size: 0.85em;
+		margin: 1em 0;
 		max-width: 100%;
 
 		th {
@@ -357,9 +359,21 @@ table.form {
 	}
 }
 
-.custom-instructions {
+table.form .preventative-slideout table {
+	td {
+		padding: 0;
+	}
+
+	tr:hover {
+		background-color: #fff;
+	}
+}
+
+.custom-instructions,
+table.form .preventative-slideout {
 	th {
 		border-bottom: 1px solid #999;
+		background-color: #fff;
 	}
 }
 
@@ -420,8 +434,8 @@ label[for=efficacyOrYearfig] {
 
 }
 
-table.form .subselect td {
-	max-width: 428px;
+table.form .subselect > td {
+	max-width: 420px;
 	padding-left: 30px;
 }
 

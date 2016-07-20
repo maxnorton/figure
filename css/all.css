@@ -239,25 +239,36 @@ table.form {
 
 .custom-instructions table,
 .efficacy-info table,
-.variable-definitions table {
+.variable-definitions table,
+table.form .preventative-slideout table {
   border-bottom: 2px solid #000;
   border-collapse: collapse;
   border-top: 2px solid #000;
   font-family: sans-serif;
   font-size: 0.85em;
+  margin: 1em 0;
   max-width: 100%; }
   .custom-instructions table th,
   .efficacy-info table th,
-  .variable-definitions table th {
+  .variable-definitions table th,
+  table.form .preventative-slideout table th {
     font-weight: normal;
     min-width: 12rem; }
   .custom-instructions table td:first-of-type,
   .efficacy-info table td:first-of-type,
-  .variable-definitions table td:first-of-type {
+  .variable-definitions table td:first-of-type,
+  table.form .preventative-slideout table td:first-of-type {
     min-width: 16rem; }
 
-.custom-instructions th {
-  border-bottom: 1px solid #999; }
+table.form .preventative-slideout table td {
+  padding: 0; }
+table.form .preventative-slideout table tr:hover {
+  background-color: #fff; }
+
+.custom-instructions th,
+table.form .preventative-slideout th {
+  border-bottom: 1px solid #999;
+  background-color: #fff; }
 
 .efficacy-info table thead tr:first-of-type th:nth-of-type(2) {
   border-bottom: 1px solid #999; }
@@ -292,8 +303,8 @@ label[for=efficacyOrYearfig] {
     .selectlist li:hover:not(.selected) {
       background-color: #ccc; }
 
-table.form .subselect td {
-  max-width: 428px;
+table.form .subselect > td {
+  max-width: 420px;
   padding-left: 30px; }
 
 /* MISCELLANEOUS
