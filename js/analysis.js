@@ -146,7 +146,7 @@ function applySubmitFunction(genstates) {
             var assumptionsLake = ['Lake', '$1,623', '3%', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404','0','0','0.75','1.5','3.5','5.75'];
             var assumptionsSonoma = ['Sonoma', '$2,355', '3%', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280','0','0','1.5','3.5','5','5'];
             var assumptionsArray = [{sonoma: assumptionsSonoma, nsj: assumptionsNSJ, cc: assumptionsCC, lake: assumptionsLake, napa: assumptionsNapa}];
-            var assumptionstable = '<section class="assumptions-wrap"><h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
+            var assumptionstable = '<section class="assumptions-wrap"><h3>Parameter Values Used in Calculations</h3><p class="hide-for-print"><a href="custom-parameters.html">Customize these values</a></p><table class="assumptionstable">';
             for (var i=0; i<assumptionsHeaders.length; i++) {
                     assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + assumptionsArray[0][$('select[name=region]').val()][i] + '</td></tr>';
             };
