@@ -51,9 +51,12 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		 		.y(function(d) { return y(d.y); })
 		 		.interpolate("linear");
 
-			var svg = d3.select(".figure-area").append("svg")
+			$('.figure-area').append('<section class="figure-wrapper" id="figure' + parameterValue + '"></section><p><a class="swipebox" href="#figure' + parameterValue + '">Zoom</a></p>');
+
+			var svg = d3.select("#figure" + parameterValue).append("svg")
 				.attr("width", width + margin.left + padding.left + margin.right)
 				.attr("height", height + margin.top + margin.bottom)
+				.attr("id", "figure" + parameterValue)
 				.append("g")
 				.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 
