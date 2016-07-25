@@ -292,7 +292,8 @@ table.form .preventative-slideout th {
 .variable-definitions table:nth-of-type(2) th {
   border-bottom: 1px solid #000; }
 
-.figure-area .legend {
+.figure-area .legend,
+.figure-area p {
   text-align: center;
   width: 960px;
   max-width: 100%; }
@@ -325,7 +326,8 @@ table.form .subselect > td {
 /* MISCELLANEOUS
 ------------------------------ */
 .figure-wrapper {
-  background-color: #fff; }
+  background-color: #fff;
+  padding-left: 1em; }
 
 .swipebox-inline-container .hide-on-print {
   visibility: hidden; }

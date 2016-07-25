@@ -413,7 +413,8 @@ table.form .preventative-slideout {
 	}
 }
 
-.figure-area .legend {
+.figure-area .legend,
+.figure-area p {
 	text-align: center;
 	width: 960px;
 	max-width: 100%;
@@ -462,6 +463,7 @@ table.form .subselect > td {
 
 .figure-wrapper {
 	background-color: #fff;
+	padding-left: 1em;
 }
 
 .swipebox-inline-container .hide-on-print {
