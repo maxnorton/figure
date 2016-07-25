@@ -46,10 +46,10 @@ function scrollToHash() {
 }
 
 function styleGlossaryLinks() {
-	$('.glossary-link').prepend('<i class="fa fa-question-circle"></i>');
-	$('.glossary-inline-link').click( function(event) {
+	$('.glossary-link').add('.glossary-link-inline-child').prepend('<i class="fa fa-question-circle"></i>');
+	$('.glossary-link-inline-child').click( function(event) {
 		event.preventDefault();
-		$(this).stop().siblings('.glossary-inline').toggle('fast');
+		$(this).stop().children('.glossary-inline').toggle('fast');
 	});
 }
 
