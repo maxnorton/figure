@@ -2,7 +2,7 @@
 function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
 	var dependentVariable,
-		margin = {top: 90, right: 35, bottom: 30, left: 35},
+		margin = {top: 90, right: 35, bottom: 30, left: 50},
 		padding = {left: 20},
 		scenarioColors = ['red', 'blue'],
 		scenarioNames = ['untreated', 'healthy'],
