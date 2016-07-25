@@ -1,9 +1,9 @@
 function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
-	var missingVals = [];
+	var missingVals = [],
+		region = $('select[name=region]').val();
 
 	d3.tsv("regional-assumptions.tsv", function(data) {
-		var region = $('select[name=region]').val(),
-			regionIndex;
+		var regionIndex;
 		switch (region) {
 			case 'napa':
 				regionIndex = 0;
@@ -289,11 +289,31 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 
  		var missingValsAlert = '';
  		if (missingVals.length > 0) {
+ 			var regionName;
+	 		switch (region) {
+				case 'napa':
+					regionName = 'Napa';
+					break;
+				case 'nsj':
+					regionName = 'Northern San Joaquin';
+					break;
+				case 'cc':
+					regionName = 'Central Coast';
+					break;
+				case 'lake':
+					regionName = 'Lake';
+					break;
+				case 'sonoma':
+					regionName = 'Sonoma';
+					break;
+				case 'custom':
+					regionName = 'Northern San Joaquin';
+			}
  			missingValsAlert = '<p class="alert">No values specified for: <br /> ';
  			for (i=0; i<missingVals.length - 1; i++) {
  				missingValsAlert += missingVals[i] + ', ';
  			}
- 			missingValsAlert += missingVals[i] + '.</p><p class="alert">Calculations are performed using default values for the selected region (Northern San Joaquin if custom values selected, delayed pruning if practice cost is unselected).</p>';
+ 			missingValsAlert += missingVals[i] + '</p><p class="alert">Calculations below have been performed using default values for the ' + regionName + ' region.</p>';
  		}
  		var the_table_html = '<hr /><h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Age adoption pays off</h4></th><th><h4>Last profitable year</h4></th><th><h4>Infection probability threshold</h4></th></thead><tbody>';
 		the_table_html += '<tr><td>' + scenarios.healthy + '</td><td>' + healthyACDNBnaDisplay + '</td><td>' + healthyBEAnaDisplay + '</td><td>' + healthyLPY + '</td><td>' + 0 + '</td></tr>';
