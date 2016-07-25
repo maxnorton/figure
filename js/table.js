@@ -310,7 +310,7 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 					regionName = 'Northern San Joaquin';
 			}
  			missingValsAlert = '<p class="alert">No values specified for: ';
- 			for (i=0; i<missingVals.length - 1; i++) {
+ 			for (i=0; i<missingVals.length; i++) {
  				var missingValFriendlyName;
  				switch (missingVals[i]) {
  					case 'price':
@@ -353,11 +353,15 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
  						missingValFriendlyName = 'year 5+ yield';
  						break;
  				}
- 				missingValsAlert += missingValFriendlyName + ', ';
+ 				missingValsAlert += missingValFriendlyName;
+ 				if (i!==missingVals.length-1) {
+ 					missingValsAlert += ', ';
+ 				} else if (i===missingVals.length-1) {
+ 					missingValsAlert += '.';
+ 				}
  			}
- 			console.log($.inArray('pc', missingVals));
- 			var missingValsAlertTag = ($.inArray('pc', missingVals) >= 0) ? 'with an preventative practice cost of zero, as with delayed pruning.</p>' : '.</p>';
- 			missingValsAlert += missingVals[i] + '</p><p class="alert">Calculations below have been performed using default values for the ' + regionName + ' region' + missingValsAlertTag;
+ 			var missingValsAlertTag = ($.inArray('pc', missingVals) >= 0) ? ' with a preventative practice cost of zero, as with delayed pruning.</p>' : '.</p>';
+ 			missingValsAlert += '</p><p class="alert">Calculations below have been performed using default values for the <strong>' + regionName + '</strong> region' + missingValsAlertTag;
  		}
  		var the_table_html = '<hr /><h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Age adoption pays off</h4></th><th><h4>Last profitable year</h4></th><th><h4>Infection probability threshold</h4></th></thead><tbody>';
 		the_table_html += '<tr><td>' + scenarios.healthy + '</td><td>' + healthyACDNBnaDisplay + '</td><td>' + healthyBEAnaDisplay + '</td><td>' + healthyLPY + '</td><td>' + 0 + '</td></tr>';
