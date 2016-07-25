@@ -23,11 +23,12 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			case 'custom':
 				regionIndex = 1;
 		}
-		
+
 		if (price=='') {
 			price = data[regionIndex]['price'];
 			missingVals.push('price');
 		}
+		console.log(parseInt(discount));
 		if (discount=='') {
 			discount = '3';
 			missingVals.push('discount');
