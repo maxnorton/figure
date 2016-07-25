@@ -24,6 +24,7 @@ function getGenstates() {
 }
 
 function goBack(e) {
+	console.log('trying to go back');
     var defaultLocation = "http://maxnorton.github.io/figure";
     var oldHash = window.location.hash;
 
