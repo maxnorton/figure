@@ -314,43 +314,43 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
  				var missingValFriendlyName;
  				switch (missingVals[i]) {
  					case 'price':
- 						missingValFriendlyName = 'price per ton';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-price">price per ton</a>';
  						break;
  					case 'discount':
- 						missingValFriendlyName = 'discount rate';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-discount">discount rate</a>';
  						break;
  					case 'pc':
- 						missingValFriendlyName = 'preventative practice cost';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-pc">preventative practice cost</a>';
  						break;
  					case 'cost0':
- 						missingValFriendlyName = 'year 0 cultural cost';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost0">year 0 cultural cost</a>';
  						break;
  					case 'cost1':
- 						missingValFriendlyName = 'year 1 cultural cost';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost1">year 1 cultural cost</a>';
  						break;
  					case 'cost2':
- 						missingValFriendlyName = 'year 2 cultural cost';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost2">year 2 cultural cost</a>';
  						break;
  					case 'cost3':
- 						missingValFriendlyName = 'year 3 cultural cost';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost3">year 3 cultural cost</a>';
  						break;
  					case 'yield0':
- 						missingValFriendlyName = 'year 0 yield';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield0">year 0 yield</a>';
  						break;
  					case 'yield1':
- 						missingValFriendlyName = 'year 1 yield';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield1">year 1 yield</a>';
  						break;
  					case 'yield2':
- 						missingValFriendlyName = 'year 2 yield';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield2">year 2 yield</a>';
  						break;
  					case 'yield3':
- 						missingValFriendlyName = 'year 3 yield';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield3">year 3 yield</a>';
  						break;
  					case 'yield4':
- 						missingValFriendlyName = 'year 4 yield';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield4">year 4 yield</a>';
  						break;
  					case 'yield5':
- 						missingValFriendlyName = 'year 5+ yield';
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield5">year 5+ yield</a>';
  						break;
  				}
  				missingValsAlert += missingValFriendlyName;
@@ -524,6 +524,8 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		the_figure(scenarioYieldObject, scenarioCDNRObject);
 
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
+
+		activateScrollToLinks();
 
 	});
 

@@ -1,3 +1,12 @@
+function activateScrollToLinks() {
+	$('[class^=scroll-to-]').each(function() {
+		$(this).click(function() {
+			console.log( 'input[name=' + $(this).attr('class').substr(10) + ']' );
+			$('body,html').stop(true,true).animate({scrollTop: $( 'input[name=' + $(this).attr('class').substr(10) + ']' ).offset().top - $('header').height()}, '500', 'swing');
+		});
+	});
+}
+
 function focusCustomParameters() {
 	$('table.form tr').each(function() {
 		$(this).click(function() {
