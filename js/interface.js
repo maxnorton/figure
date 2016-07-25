@@ -19,6 +19,7 @@ function focusCustomParameters() {
 			$(this).parents('tr').addClass('focused');
 		});
 		$(this).focusout(function() {
+			$(this).val($(this).val().replace(/[^0-9.]/g,''));
 			$(this).parents('tr').removeClass('focused');
 		});
 	});

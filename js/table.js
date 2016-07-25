@@ -24,56 +24,55 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 				regionIndex = 1;
 		}
 
-		if (price=='') {
+		if (isNaN(price)) {
 			price = data[regionIndex]['price'];
 			missingVals.push('price');
 		}
-		console.log(parseInt(discount));
-		if (discount=='') {
+		if (isNaN(discount)) {
 			discount = '3';
 			missingVals.push('discount');
 		}
-		if (pc=='') {
+		if (isNaN(pc)) {
 			pc = 0;
 			missingVals.push('pc');
 		}
-		if (cost0=='') {
+		if (isNaN(cost0)) {
 			cost0 = data[regionIndex]['cost0'];
 			missingVals.push('cost0');
 		}
-		if (cost1=='') {
+		if (isNaN(cost1)) {
 			cost1 = data[regionIndex]['cost1'];
 			missingVals.push('cost1');
 		}
-		if (cost2=='') {
+		if (isNaN(cost2)) {
 			cost2 = data[regionIndex]['cost2'];
 			missingVals.push('cost2');
 		}
-		if (cost3=='') {
+		if (isNaN(cost3)) {
 			cost3 = data[regionIndex]['cost3'];
 			missingVals.push('cost3');
 		}
-		if (yield0=='') {
+		if (isNaN(yield0)) {
 			yield0 = data[regionIndex]['yield0'];
 			missingVals.push('yield0');
 		}
-		if (yield1=='') {
+		if (isNaN(yield1)) {
 			yield1 = data[regionIndex]['yield1'];
 			missingVals.push('yield1');
 		}
-		if (yield2=='') {
+		if (isNaN(yield2)) {
 			yield2 = data[regionIndex]['yield2'];
 			missingVals.push('yield2');
 		}
-		if (yield3=='') {
+		if (isNaN(yield3)) {
 			yield3 = data[regionIndex]['yield3'];
 			missingVals.push('yield3');
 		}
-		if (yield4=='') {
+		if (isNaN(yield4)) {
 			yield4 = data[regionIndex]['yield4'];
 			missingVals.push('yield4');
 		}
-		if (yield5=='') {
+		if (isNaN(yield5)) {
 			yield5 = data[regionIndex]['yield5'];
 			missingVals.push('yield5');
 		}
