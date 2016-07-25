@@ -311,7 +311,49 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			}
  			missingValsAlert = '<p class="alert">No values specified for: ';
  			for (i=0; i<missingVals.length - 1; i++) {
- 				missingValsAlert += missingVals[i] + ', ';
+ 				var missingValFriendlyName;
+ 				switch (missingVals[i]) {
+ 					case 'price':
+ 						missingValFriendlyName = 'price per ton';
+ 						break;
+ 					case 'discount':
+ 						missingValFriendlyName = 'discount rate';
+ 						break;
+ 					case 'pc':
+ 						missingValFriendlyName = 'preventative practice cost';
+ 						break;
+ 					case 'cost0':
+ 						missingValFriendlyName = 'year 0 cultural cost';
+ 						break;
+ 					case 'cost1':
+ 						missingValFriendlyName = 'year 1 cultural cost';
+ 						break;
+ 					case 'cost2':
+ 						missingValFriendlyName = 'year 2 cultural cost';
+ 						break;
+ 					case 'cost3':
+ 						missingValFriendlyName = 'year 3 cultural cost';
+ 						break;
+ 					case 'yield0':
+ 						missingValFriendlyName = 'year 0 yield';
+ 						break;
+ 					case 'yield1':
+ 						missingValFriendlyName = 'year 1 yield';
+ 						break;
+ 					case 'yield2':
+ 						missingValFriendlyName = 'year 2 yield';
+ 						break;
+ 					case 'yield3':
+ 						missingValFriendlyName = 'year 3 yield';
+ 						break;
+ 					case 'yield4':
+ 						missingValFriendlyName = 'year 4 yield';
+ 						break;
+ 					case 'yield5':
+ 						missingValFriendlyName = 'year 5+ yield';
+ 						break;
+ 				}
+ 				missingValsAlert += missingValFriendlyName + ', ';
  			}
  			console.log('pc' in missingVals);
  			var missingValsAlertTag = ('pc' in missingVals) ? 'with an preventative practice cost of zero, as with delayed pruning.</p>' : '.</p>';
