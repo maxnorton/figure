@@ -29,7 +29,7 @@
 	<!-- @import ../markdown/compiled/references.html -->
 	</section>
 
-	<p><a href="index.html">Back to decision tool</a></p>
+	<p><a href="index.html" class="backlink">Back to decision tool</a></p>
 
 </section>
 
@@ -38,6 +38,9 @@
 $(document).ready(function() {
 	mobileSubstitutions();
 	$( '.swipebox' ).swipebox();
+	$('.backlink').click(function(e) {
+		goBack(e);
+	});
 });
 </script>
 </body>

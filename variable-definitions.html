@@ -264,7 +264,7 @@
 
 <p><a href="img/variable-table03.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
 
-	<p><a href="index.html">Back to decision tool</a></p>
+	<p><a href="index.html" class="backlink">Back to decision tool</a></p>
 
 </section>
 
@@ -273,6 +273,9 @@ $(document).ready(function() {
 	mobileSubstitutions();
 	scrollToHash();
 	$( '.swipebox' ).swipebox();
+	$('.backlink').click(function(e) {
+		goBack(e);
+	});
 });
 </script>
 
