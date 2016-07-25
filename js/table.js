@@ -23,10 +23,18 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 			case 'custom':
 				regionIndex = 1;
 		}
-
+		
+		if (price=='') {
+			price = data[regionIndex]['price'];
+			missingVals.push('price');
+		}
 		if (discount=='') {
 			discount = '3';
 			missingVals.push('discount');
+		}
+		if (pc=='') {
+			pc = 0;
+			missingVals.push('pc');
 		}
 		if (cost0=='') {
 			cost0 = data[regionIndex]['cost0'];
@@ -43,14 +51,6 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		if (cost3=='') {
 			cost3 = data[regionIndex]['cost3'];
 			missingVals.push('cost3');
-		}
-		if (pc=='') {
-			pc = 0;
-			missingVals.push('pc');
-		}
-		if (price=='') {
-			price = data[regionIndex]['price'];
-			missingVals.push('price');
 		}
 		if (yield0=='') {
 			yield0 = data[regionIndex]['yield0'];
