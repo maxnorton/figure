@@ -23,7 +23,8 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 	for (var k=0; k<figureCount; k++) {
 		if (scenarioObject) {
 			var parameterValue = $('input[name=yearfig]:checked:eq(' + k + ')').val().substr(4),
-				figureTitle = 'Year ' + parameterValue + ' Adoption of $' + $('input[name=pc]').val() + ' per Acre per Year Preventative Practice at Different Disease Control Efficacy Rates';
+				friendlyPCValue = ( $('input[name=pc]').val() !== '' ) ? $('input[name=pc]').val() : '0',
+				figureTitle = 'Year ' + parameterValue + ' Adoption of $' + friendlyPCValue + ' per Acre per Year Preventative Practice at Different Disease Control Efficacy Rates';
 			
 			if (parameterValue) {
 				scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
