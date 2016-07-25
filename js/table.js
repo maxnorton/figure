@@ -1,4 +1,6 @@
 function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
+	var missingVals = [];
+
 	d3.tsv("regional-assumptions.tsv", function(data) {
 		var region = $('select[name=region]').val(),
 			regionIndex;
@@ -24,42 +26,55 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 
 		if (discount=='') {
 			discount = '3';
+			missingVals.push('discount');
 		}
 		if (cost0=='') {
 			cost0 = data[regionIndex]['cost0'];
+			missingVals.push('cost0');
 		}
 		if (cost1=='') {
 			cost1 = data[regionIndex]['cost1'];
+			missingVals.push('cost1');
 		}
 		if (cost2=='') {
 			cost2 = data[regionIndex]['cost2'];
+			missingVals.push('cost2');
 		}
 		if (cost3=='') {
 			cost3 = data[regionIndex]['cost3'];
+			missingVals.push('cost3');
 		}
 		if (pc=='') {
-			pc = data[regionIndex]['pcdbp'];
+			pc = 0;
+			missingVals.push('pc');
 		}
 		if (price=='') {
 			price = data[regionIndex]['price'];
+			missingVals.push('price');
 		}
 		if (yield0=='') {
 			yield0 = data[regionIndex]['yield0'];
+			missingVals.push('yield0');
 		}
 		if (yield1=='') {
 			yield1 = data[regionIndex]['yield1'];
+			missingVals.push('yield1');
 		}
 		if (yield2=='') {
 			yield2 = data[regionIndex]['yield2'];
+			missingVals.push('yield2');
 		}
 		if (yield3=='') {
 			yield3 = data[regionIndex]['yield3'];
+			missingVals.push('yield3');
 		}
 		if (yield4=='') {
 			yield4 = data[regionIndex]['yield4'];
+			missingVals.push('yield4');
 		}
 		if (yield5=='') {
 			yield5 = data[regionIndex]['yield5'];
+			missingVals.push('yield5');
 		}
 	});
 
@@ -272,7 +287,15 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 	 		untreatedLPY = untreatedLPY - 1;
 	 	}
 
- 		var the_table_html = '<hr /><h2>Results</h2><section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Age adoption pays off</h4></th><th><h4>Last profitable year</h4></th><th><h4>Infection probability threshold</h4></th></thead><tbody>';
+ 		var missingValsAlert = '';
+ 		if (missingVals.length > 0) {
+ 			missingValsAlert = '<p class="alert">No values specified for: <br /> ';
+ 			for (i=0; i<missingVals.length - 1; i++) {
+ 				missingValsAlert += missingVals[i] + ', ';
+ 			}
+ 			missingValsAlert += missingVals[i] + '.</p><p class="alert">Calculations are performed using default values for the selected region (Northern San Joaquin if custom values selected, delayed pruning if practice cost is unselected).</p>';
+ 		}
+ 		var the_table_html = '<hr /><h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Age adoption pays off</h4></th><th><h4>Last profitable year</h4></th><th><h4>Infection probability threshold</h4></th></thead><tbody>';
 		the_table_html += '<tr><td>' + scenarios.healthy + '</td><td>' + healthyACDNBnaDisplay + '</td><td>' + healthyBEAnaDisplay + '</td><td>' + healthyLPY + '</td><td>' + 0 + '</td></tr>';
 		the_table_html += '<tr><td>' + scenarios.untreated + '</td><td>' + '-' + '</td><td>' + '-' + '</td><td>' + untreatedLPY + '</td><td>' + 1 + '</td></tr>';
 
