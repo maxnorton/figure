@@ -175,7 +175,7 @@
 			<td><label for="discount">Discount rate (%)</label></td>
 			<td><input type="text" name="discount" id="discount" value="3" tabindex="2" /></td>
 		</tr>
-		<tr class="subselect">
+		<tr class="subselect discount">
 			<td><div class="glossary-link glossary-link-inline-child"><a href="#" class="glossary-inline-link">Discount rate definition</a><br /><span class="glossary-inline">Discount rate: rate at which the current value of future returns diminishes for each year that separates the present and the date of the anticipated earnings. Under a discount rate of 3%, anticipated earnings of $100 next year have a value approximately equivalent to immediately receiving $97.</span></div></td>
 			<td></td>
 		</tr>
@@ -183,10 +183,10 @@
 			<td><label for="pc">Additional annual cost per acre of preventative practice ($)</label></td>
 			<td><input type="text" name="pc" id="pc" value="175" tabindex="3" /></td>
 		</tr>
-		<tr class="subselect"><td>
+		<tr class="subselect pc"><td>
 			<em>Using default annual cost per acre for</em> <select tabindex="14" id="practice" name="practice"><option value="dp">Delayed pruning (zero cost)</option><option value="hp">Hand-painted TopsinM</option><option value="dbp" selected="selected">Double pruning</option><option value="custom">Custom practice</option></select>
 		</td></tr>
-		<tr class="subselect preventative-slideout">
+		<tr class="subselect pc preventative-slideout">
 			<td><div class="glossary-link glossary-link-inline-child"><a href="#" class="glossary-inline-link">Preventative practice cost information</a><br /><section class="glossary-inline">
 
 			<p>The additional cost of delayed pruning is assumed to be zero as it does not cost more to shift when this practice is performed. The additional cost per acre for hand-painting TopsinM and double pruning are shown in the tables below. </p>
@@ -374,6 +374,7 @@
 		styleGlossaryLinks();
 		focusCustomParameters();
 		mobileSubstitutions();
+		toggleFormOptions();
 		$( '.swipebox' ).swipebox();
 	
 	});

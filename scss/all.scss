@@ -461,6 +461,15 @@ table.form .subselect > td {
 /* MISCELLANEOUS
 ------------------------------ */
 
+.disable-on-yield-alert {
+	display: none;
+	font-style: italic;
+
+	a {
+		color: black;
+	}
+}
+
 .figure-wrapper {
 	background-color: #fff;
 	padding-left: 1em;
