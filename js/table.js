@@ -1,6 +1,84 @@
 function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
-	d3.tsv("yield-rates.tsv", function(data) {
+	var missingVals = [],
+		region = $('select[name=region]').val();
 
+	d3.tsv("regional-assumptions.tsv", function(data) {
+		var regionIndex;
+		switch (region) {
+			case 'napa':
+				regionIndex = 0;
+				break;
+			case 'nsj':
+				regionIndex = 1;
+				break;
+			case 'cc':
+				regionIndex = 2;
+				break;
+			case 'lake':
+				regionIndex = 3;
+				break;
+			case 'sonoma':
+				regionIndex = 4;
+				break;
+			case 'custom':
+				regionIndex = 1;
+		}
+
+		if (isNaN(price)) {
+			price = data[regionIndex]['price'];
+			missingVals.push('price');
+		}
+		if (isNaN(discount)) {
+			discount = '3';
+			missingVals.push('discount');
+		}
+		if (isNaN(pc)) {
+			pc = 0;
+			missingVals.push('pc');
+		}
+		if (isNaN(cost0)) {
+			cost0 = data[regionIndex]['cost0'];
+			missingVals.push('cost0');
+		}
+		if (isNaN(cost1)) {
+			cost1 = data[regionIndex]['cost1'];
+			missingVals.push('cost1');
+		}
+		if (isNaN(cost2)) {
+			cost2 = data[regionIndex]['cost2'];
+			missingVals.push('cost2');
+		}
+		if (isNaN(cost3)) {
+			cost3 = data[regionIndex]['cost3'];
+			missingVals.push('cost3');
+		}
+		if (isNaN(yield0)) {
+			yield0 = data[regionIndex]['yield0'];
+			missingVals.push('yield0');
+		}
+		if (isNaN(yield1)) {
+			yield1 = data[regionIndex]['yield1'];
+			missingVals.push('yield1');
+		}
+		if (isNaN(yield2)) {
+			yield2 = data[regionIndex]['yield2'];
+			missingVals.push('yield2');
+		}
+		if (isNaN(yield3)) {
+			yield3 = data[regionIndex]['yield3'];
+			missingVals.push('yield3');
+		}
+		if (isNaN(yield4)) {
+			yield4 = data[regionIndex]['yield4'];
+			missingVals.push('yield4');
+		}
+		if (isNaN(yield5)) {
+			yield5 = data[regionIndex]['yield5'];
+			missingVals.push('yield5');
+		}
+	});
+
+	d3.tsv("yield-rates.tsv", function(data) {
 		var acdnb25y3 = [],
 			acdnb25y5 = [],
 			acdnb25y10 = [],
@@ -209,7 +287,83 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 	 		untreatedLPY = untreatedLPY - 1;
 	 	}
 
- 		var the_table_html = '<hr /><h2>Results</h2><section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Age adoption pays off</h4></th><th><h4>Last profitable year</h4></th><th><h4>Infection probability threshold</h4></th></thead><tbody>';
+ 		var missingValsAlert = '';
+ 		if (missingVals.length > 0) {
+ 			var regionName;
+	 		switch (region) {
+				case 'napa':
+					regionName = 'Napa';
+					break;
+				case 'nsj':
+					regionName = 'Northern San Joaquin';
+					break;
+				case 'cc':
+					regionName = 'Central Coast';
+					break;
+				case 'lake':
+					regionName = 'Lake';
+					break;
+				case 'sonoma':
+					regionName = 'Sonoma';
+					break;
+				case 'custom':
+					regionName = 'Northern San Joaquin';
+			}
+ 			missingValsAlert = '<p class="alert">No values specified for: ';
+ 			for (i=0; i<missingVals.length; i++) {
+ 				var missingValFriendlyName;
+ 				switch (missingVals[i]) {
+ 					case 'price':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-price">price per ton</a>';
+ 						break;
+ 					case 'discount':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-discount">discount rate</a>';
+ 						break;
+ 					case 'pc':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-pc">preventative practice cost</a>';
+ 						break;
+ 					case 'cost0':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost0">year 0 cultural cost</a>';
+ 						break;
+ 					case 'cost1':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost1">year 1 cultural cost</a>';
+ 						break;
+ 					case 'cost2':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost2">year 2 cultural cost</a>';
+ 						break;
+ 					case 'cost3':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-cost3">year 3 cultural cost</a>';
+ 						break;
+ 					case 'yield0':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield0">year 0 yield</a>';
+ 						break;
+ 					case 'yield1':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield1">year 1 yield</a>';
+ 						break;
+ 					case 'yield2':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield2">year 2 yield</a>';
+ 						break;
+ 					case 'yield3':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield3">year 3 yield</a>';
+ 						break;
+ 					case 'yield4':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield4">year 4 yield</a>';
+ 						break;
+ 					case 'yield5':
+ 						missingValFriendlyName = '<a href="#" class="scroll-to-yield5">year 5+ yield</a>';
+ 						break;
+ 				}
+ 				missingValsAlert += missingValFriendlyName;
+ 				if (i!==missingVals.length-1) {
+ 					missingValsAlert += ', ';
+ 				} else if (i===missingVals.length-1) {
+ 					missingValsAlert += '.';
+ 				}
+ 			}
+ 			var missingValsAlertTag = ($.inArray('pc', missingVals) >= 0) ? ' with a preventative practice cost of zero, as with delayed pruning.</p>' : '.</p>';
+ 			missingValsAlert += '</p><p class="alert">Calculations below have been performed using default values for the <strong>' + regionName + '</strong> region' + missingValsAlertTag;
+ 		}
+ 		var the_table_html = '<hr /><h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Age adoption pays off</h4></th><th><h4>Last profitable year</h4></th><th><h4>Infection probability threshold</h4></th></thead><tbody>';
 		the_table_html += '<tr><td>' + scenarios.healthy + '</td><td>' + healthyACDNBnaDisplay + '</td><td>' + healthyBEAnaDisplay + '</td><td>' + healthyLPY + '</td><td>' + 0 + '</td></tr>';
 		the_table_html += '<tr><td>' + scenarios.untreated + '</td><td>' + '-' + '</td><td>' + '-' + '</td><td>' + untreatedLPY + '</td><td>' + 1 + '</td></tr>';
 
@@ -370,6 +524,8 @@ function the_table(discount, cost0, cost1, cost2, cost3, pc, price, yield0, yiel
 		the_figure(scenarioYieldObject, scenarioCDNRObject);
 
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
+
+		activateScrollToLinks();
 
 	});
 

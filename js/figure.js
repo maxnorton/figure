@@ -2,7 +2,7 @@
 function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 
 	var dependentVariable,
-		margin = {top: 90, right: 35, bottom: 30, left: 35},
+		margin = {top: 90, right: 35, bottom: 30, left: 50},
 		padding = {left: 20},
 		scenarioColors = ['red', 'blue'],
 		scenarioNames = ['untreated', 'healthy'],
@@ -23,7 +23,8 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 	for (var k=0; k<figureCount; k++) {
 		if (scenarioObject) {
 			var parameterValue = $('input[name=yearfig]:checked:eq(' + k + ')').val().substr(4),
-				figureTitle = 'Year ' + parameterValue + ' Adoption of $' + $('input[name=pc]').val() + ' per Acre per Year Preventative Practice at Different Disease Control Efficacy Rates';
+				friendlyPCValue = ( $('input[name=pc]').val() !== '' ) ? $('input[name=pc]').val() : '0',
+				figureTitle = 'Year ' + parameterValue + ' Adoption of $' + friendlyPCValue + ' per Acre per Year Preventative Practice at Different Disease Control Efficacy Rates';
 			
 			if (parameterValue) {
 				scenarioColors = ['yellowgreen', 'darkorchid', 'lightskyblue', 'red', 'blue'];
@@ -50,9 +51,12 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		 		.y(function(d) { return y(d.y); })
 		 		.interpolate("linear");
 
-			var svg = d3.select(".figure-area").append("svg")
+			$('.figure-area').append('<section class="figure-wrapper" id="figure' + parameterValue + '"></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
+
+			var svg = d3.select("#figure" + parameterValue).append("svg")
 				.attr("width", width + margin.left + padding.left + margin.right)
 				.attr("height", height + margin.top + margin.bottom)
+				.attr("id", "figure" + parameterValue)
 				.append("g")
 				.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
 

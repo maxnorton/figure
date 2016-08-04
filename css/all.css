@@ -89,10 +89,17 @@ h1.title a {
   padding-left: 2em; }
 
 .glossary-link:hover,
-.glossary-link a:hover {
-  color: green; }
+.glossary-link:hover a {
+  color: green;
+  cursor: pointer; }
 
-.hover-info i {
+.inline-def,
+.glossary-link:hover .inline-def {
+  color: black;
+  font-style: italic; }
+
+.hover-info i,
+.indent {
   padding-left: 2em; }
 
 .regionName {
@@ -285,7 +292,8 @@ table.form .preventative-slideout th {
 .variable-definitions table:nth-of-type(2) th {
   border-bottom: 1px solid #000; }
 
-.figure-area .legend {
+.figure-area .legend,
+.figure-area p {
   text-align: center;
   width: 960px;
   max-width: 100%; }
@@ -317,3 +325,15 @@ table.form .subselect > td {
 
 /* MISCELLANEOUS
 ------------------------------ */
+.disable-on-yield-alert {
+  display: none;
+  font-style: italic; }
+  .disable-on-yield-alert a {
+    color: black; }
+
+.figure-wrapper {
+  background-color: #fff;
+  padding-left: 1em; }
+
+.swipebox-inline-container .hide-on-print {
+  visibility: hidden; }

@@ -1,3 +1,12 @@
+function activateScrollToLinks() {
+	$('[class^=scroll-to-]').each(function() {
+		$(this).click(function() {
+			$('body,html').stop(true,true).animate({scrollTop: $( 'input[name=' + $(this).attr('class').substr(10) + ']' ).offset().top - $('header').height()}, '500', 'swing');
+			$( 'input[name=' + $(this).attr('class').substr(10) + ']' ).focus();
+		});
+	});
+}
+
 function focusCustomParameters() {
 	$('table.form tr').each(function() {
 		$(this).click(function() {
@@ -10,17 +19,54 @@ function focusCustomParameters() {
 			$(this).parents('tr').addClass('focused');
 		});
 		$(this).focusout(function() {
+			$(this).val($(this).val().replace(/[^0-9.]/g,''));
 			$(this).parents('tr').removeClass('focused');
 		});
 	});
 }
 
 function getGenstates() {
-	var genstates = { 
-		'figurestate' : document.getElementById('figuregen').checked,
-		'tablestate' : document.getElementById('tablegen').checked
-	};
+	var genstates;
+	if (document.getElementById('tablegen')) {
+		genstates = { 
+			'figurestate' : document.getElementById('figuregen').checked,
+			'tablestate' : document.getElementById('tablegen').checked
+		};
+	} else {
+		genstates = { 
+			'figurestate' : document.getElementById('figuregen').checked
+		};
+	}
 	return genstates;
+}
+
+function goBack(e) {
+	console.log('trying to go back');
+    var defaultLocation = "http://maxnorton.github.io/figure";
+    var oldHash = window.location.hash;
+
+    history.back(); // Try to go back
+
+    var newHash = window.location.hash;
+
+    if(
+        newHash === oldHash &&
+        (typeof(document.referrer) !== "string" || document.referrer  === "")
+    ){
+        window.setTimeout(function(){
+            // redirect to default location
+            window.location.href = defaultLocation;
+        },1000); // set timeout in ms
+    }
+    if(e){
+        if(e.preventDefault) {
+            e.preventDefault();
+        }
+        if(e.preventPropagation) {
+            e.preventPropagation();
+        }
+    }
+    return false; // stop event propagation and browser default event
 }
 
 function mobileSubstitutions() {
@@ -47,9 +93,9 @@ function scrollToHash() {
 
 function styleGlossaryLinks() {
 	$('.glossary-link').prepend('<i class="fa fa-question-circle"></i>');
-	$('.glossary-inline-link').click( function(event) {
+	$('.glossary-link-inline-child').click( function(event) {
 		event.preventDefault();
-		$(this).stop().siblings('.glossary-inline').toggle('fast');
+		$(this).stop().find('.glossary-inline').toggle('fast');
 	});
 }
 
@@ -87,8 +133,42 @@ function toggleFormOptions() {
 			});
 		});
 
-		/***** Toggle input options when choosing between efficacy and year vars for figure
+		/***** Toggle practice options when choosing CDNR and yield for figure
 		------------------------------------ */
+
+		// first check status on page load, in case returning from another page and already set to yield
+		if ( $('input[name=figuredisplay]:checked').val()==='yield' ) {
+				$('.disable-on-yield-alert').slideDown('fast');
+				$('input[name=pc]').add('input[name^=cost]').add('input[name=price]').add('input[name=discount]').each(function() {
+				$(this).prop('disabled', true);
+				$(this).parents('tr').css('background-color','#ffffff');
+			});
+			$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount td').add('.subselect.pc td').css('color', '#999999');
+			$('.subselect.pc select').prop('disabled', true);
+		} 
+
+		$('input[name=figuredisplay]').change(function() {
+			if ( $('input[name=figuredisplay]:checked').val()==='yield' ) {
+				$('.disable-on-yield-alert').slideDown('fast');
+				$('input[name=pc]').add('input[name^=cost]').add('input[name=price]').add('input[name=discount]').each(function() {
+					$(this).prop('disabled', true);
+					$(this).parents('tr').css('background-color','#ffffff');
+				});
+				$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount td').add('.subselect.pc td').css('color', '#999999');
+				$('.subselect.pc select').prop('disabled', true);
+			} else {
+				$('.disable-on-yield-alert').slideUp('fast');
+				$('input[name=pc]').add('input[name^=cost]').add('input[name=price]').add('input[name=discount]').each(function() {
+					$(this).prop('disabled', false);
+					$(this).parents('tr').css('background-color','auto');
+				});
+				$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount td').add('.subselect.pc td').css('color', '');
+				$('.subselect.pc select').prop('disabled', false);
+			}
+		});
+
+		/***** Toggle input options when choosing between efficacy and year vars for figure
+		------------------------------------ 
 
 		var efficacyOrYearchoice = '';
 		$('input[name=efficacyOrYearfig]').change(function() {
@@ -122,7 +202,7 @@ function toggleFormOptions() {
 				efficacyOrYearselected = true;
 				$('input[name=efficacyOrYearfig][value=year]').attr('checked', true).change();
 			}
-		});	
+		});	*/
 }
 
 function setPracticeCost(region, practice) {

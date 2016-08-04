@@ -19,7 +19,7 @@
 <section class="content-wrap variable-definitions">
 	<!-- @import ../markdown/compiled/variable-definitions.html -->
 
-	<p><a href="index.html">Back to decision tool</a></p>
+	<p><a href="index.html" class="backlink">Back to decision tool</a></p>
 
 </section>
 
@@ -28,6 +28,9 @@ $(document).ready(function() {
 	mobileSubstitutions();
 	scrollToHash();
 	$( '.swipebox' ).swipebox();
+	$('.backlink').click(function(e) {
+		goBack(e);
+	});
 });
 </script>
 

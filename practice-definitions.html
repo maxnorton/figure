@@ -6,6 +6,7 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/all.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src = "js/interface.js"></script>
 </head>
 
 <body>
@@ -36,9 +37,17 @@
 
 <p><sup>1</sup>Protectants registered for hand application during the dormant season in California are Thiophanate-methyl (Topsin M WSB; United Phosphorus, Inc., King of Prussia, Pennsylvania), Boric acid (Tech-Gro B-Lock; Nutrient Technologies, Inc., Dinuba, California), and VitiSeal (VitiSeal International LLC, San Diego, California). Topsin is also registered for spray application.</p>
 
-	<p><a href="index.html">Back to decision tool</a></p>
+	<p><a href="index.html" class="backlink">Back to decision tool</a></p>
 
 </section>
 
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$('.backlink').click(function(e) {
+		goBack(e);
+	});
+});
+</script>
 </body>
 </html>

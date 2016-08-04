@@ -122,11 +122,19 @@ h1.title a {
 }
 
 .glossary-link:hover,
-.glossary-link a:hover {
+.glossary-link:hover a {
 	color: green;
+	cursor: pointer;
 }
 
-.hover-info i {
+.inline-def,
+.glossary-link:hover .inline-def {
+	color: black;
+	font-style: italic;
+}
+
+.hover-info i,
+.indent {
 	padding-left: 2em;
 }
 
@@ -405,7 +413,8 @@ table.form .preventative-slideout {
 	}
 }
 
-.figure-area .legend {
+.figure-area .legend,
+.figure-area p {
 	text-align: center;
 	width: 960px;
 	max-width: 100%;
@@ -451,3 +460,21 @@ table.form .subselect > td {
 
 /* MISCELLANEOUS
 ------------------------------ */
+
+.disable-on-yield-alert {
+	display: none;
+	font-style: italic;
+
+	a {
+		color: black;
+	}
+}
+
+.figure-wrapper {
+	background-color: #fff;
+	padding-left: 1em;
+}
+
+.swipebox-inline-container .hide-on-print {
+	visibility: hidden;
+}

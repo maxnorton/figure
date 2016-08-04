@@ -57,7 +57,7 @@ function applySubmitFunction(genstates) {
 				inputs[inputkeys[inputindex]] = false;
 			};
 			var outputkeys = [];
-			outputkeys = ['acdnb', 'aapo', 'lpy', 'bep'];
+			outputkeys = ['acdnb', 'aapo', 'lpy', 'ipt'];
 			for (var outputindex in outputkeys) {
 				outputs[outputkeys[outputindex]] = false;
 			};
