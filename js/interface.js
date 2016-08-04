@@ -7,17 +7,29 @@ function activateScrollToLinks() {
 	});
 }
 
-function addEvent(obj, evType, fn, useCapture){
-  if (obj.addEventListener){
-    obj.addEventListener(evType, fn, useCapture);
-    return true;
-  } else if (obj.attachEvent){
-    var r = obj.attachEvent("on"+evType, fn);
-    return r;
+/*var addEvent = (function () {
+  if (document.addEventListener) {
+    return function (el, type, fn) {
+      if (el && el.nodeName || el === window) {
+        el.addEventListener(type, fn, false);
+      } else if (el && el.length) {
+        for (var i = 0; i < el.length; i++) {
+          addEvent(el[i], type, fn);
+        }
+      }
+    };
   } else {
-    console.log("Handler could not be attached");
+    return function (el, type, fn) {
+      if (el && el.nodeName || el === window) {
+        el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
+      } else if (el && el.length) {
+        for (var i = 0; i < el.length; i++) {
+          addEvent(el[i], type, fn);
+        }
+      }
+    };
   }
-}
+})();*/
 
 function focusCustomParameters() {
 	$('table.form tr').each(function() {
