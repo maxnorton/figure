@@ -531,7 +531,8 @@ function the_table(inputObject) {
 		console.log(whichYears);
 
 		var moreParameters = {
-			'pc' : inputObject.pc
+			'pc' : inputObject.pc,
+			'region' : inputObject.region
 		}
 
 		the_figure(whichYears, moreParameters, inputObject.figuredisplay, scenarioYieldObject, scenarioCDNRObject);
