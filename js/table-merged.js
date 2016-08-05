@@ -520,7 +520,21 @@ function the_table(inputObject) {
 
 		$('.results').html(the_table_html);
 
-		the_figure(scenarioYieldObject, scenarioCDNRObject);
+		var whichYears = [];
+
+		if (inputObject.year3)
+			whichYears.push('year3');
+		if (inputObject.year5)
+			whichYears.push('year5');
+		if (inputObject.year10)
+			whichYears.push('year10');
+		console.log(whichYears);
+
+		var moreParameters = {
+			'pc' : inputObject.pc
+		}
+
+		the_figure(whichYears, moreParameters, inputObject.figuredisplay, scenarioYieldObject, scenarioCDNRObject);
 
 		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 

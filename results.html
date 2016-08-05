@@ -13,7 +13,7 @@
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="js/interface.js" type="text/javascript"></script>
 <script src="js/table-merged.js" type="text/javascript"></script>
-<script src="js/figure.js" type="text/javascript"></script>
+<script src="js/figure-merged.js" type="text/javascript"></script>
 <script src="js/min/jquery.storageapi.min.js" type="text/javascript"></script>
 </head>
 
@@ -48,7 +48,6 @@
 		var storage = $.localStorage;
 		if (storage.isSet('run-model')) {
 			var theTableInputObject = storage.get('run-model');
-			console.log(theTableInputObject);
 			the_table(theTableInputObject);
 		}
 
