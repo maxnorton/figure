@@ -128,7 +128,7 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 	})
 
 	if (figureCount===0) {
-		$('.figure-area').prepend('<p class="alert">To generate a figure, return to the <a href="#" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#figureparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">figure parameters form</a> and select at least one year of practice adoption.</p>');
+		$('.figure-area').prepend('<p class="alert">To generate a figure, <a href="#" class="close-tab">close this tab</a> or return to the figure parameters form tab and select at least one year of practice adoption.</p>');
 	}
 
 }
