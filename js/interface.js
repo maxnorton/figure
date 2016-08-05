@@ -7,6 +7,15 @@ function activateScrollToLinks() {
 	});
 }
 
+function activateCloseTabLinks() {
+	$('.close-tab').each(function() {
+		$(this).click(function() {
+			if(confirm("Close tab? You will return to the paramter settings page. Alternatively, to preserve your results and re-run the model with a different set of parameters, click Cancel, switch to the parameter settings tab, update your inputs, and re-submit the form. Your updated results will open in a new tab."))
+				close();
+		})
+	})
+}
+
 function focusCustomParameters() {
 	$('table.form tr').each(function() {
 		$(this).click(function() {
