@@ -195,21 +195,52 @@ fieldset ul {
     min-width: 50% !important; } }
 /* SECONDARY LAYOUT
 ------------------------------ */
+.param-table {
+  display: table; }
+
+.param-row {
+  display: table-row; }
+
+.param-deadcell,
+.param-label,
+.param-input {
+  display: table-cell; }
+
 .results table,
-table.form {
+table.form,
+.param-table {
   border-spacing: 0;
   margin-bottom: 10px; }
   .results table td,
-  table.form td {
+  .results table .param-deadcell,
+  .results table .param-label,
+  .results table .param-input,
+  table.form td,
+  table.form .param-deadcell,
+  table.form .param-label,
+  table.form .param-input,
+  .param-table td,
+  .param-table .param-deadcell,
+  .param-table .param-label,
+  .param-table .param-input {
     height: 1.5em;
     text-align: center; }
+  .results table .param-deadcell,
+  .results table .param-label,
   .results table td:first-of-type,
   .results table th:first-of-type,
+  table.form .param-deadcell,
+  table.form .param-label,
   table.form td:first-of-type,
-  table.form th:first-of-type {
+  table.form th:first-of-type,
+  .param-table .param-deadcell,
+  .param-table .param-label,
+  .param-table td:first-of-type,
+  .param-table th:first-of-type {
     text-align: left; }
   .results table th,
-  table.form th {
+  table.form th,
+  .param-table th {
     border-bottom: 1px solid #ccc;
     background-color: #eee; }
 
@@ -223,24 +254,50 @@ table.form {
   .results table tr:nth-of-type(even) {
     background-color: #eee; }
 
-table.form {
+table.form,
+.param-table {
   border: 0 none;
   cursor: pointer;
   margin-left: 40px; }
-  table.form input {
+  table.form input,
+  .param-table input {
     cursor: text; }
-  table.form label {
+  table.form label,
+  .param-table label {
     cursor: pointer; }
-  table.form td {
+  table.form .param-deadcell,
+  table.form .param-label,
+  table.form .param-input,
+  table.form td,
+  .param-table .param-deadcell,
+  .param-table .param-label,
+  .param-table .param-input,
+  .param-table td {
     padding: .5em 1em; }
+  table.form .param-row.focused,
+  table.form .param-row:hover,
   table.form tr.focused,
-  table.form tr:hover {
+  table.form tr:hover,
+  .param-table .param-row.focused,
+  .param-table .param-row:hover,
+  .param-table tr.focused,
+  .param-table tr:hover {
     background-color: #eee; }
+  table.form .param-row.subselect,
+  table.form .param-row.regionalDefaultSelector:hover,
   table.form tr.hover-info:hover,
   table.form tr.subselect:hover,
-  table.form tr.regionalDefaultSelector:hover {
+  table.form tr.regionalDefaultSelector:hover,
+  .param-table .param-row.subselect,
+  .param-table .param-row.regionalDefaultSelector:hover,
+  .param-table tr.hover-info:hover,
+  .param-table tr.subselect:hover,
+  .param-table tr.regionalDefaultSelector:hover {
     background-color: #fff; }
-  table.form tr.regionalDefaultSelector td {
+  table.form .param-row.regionalDefaultSelector .param-deadcell,
+  table.form tr.regionalDefaultSelector td,
+  .param-table .param-row.regionalDefaultSelector .param-deadcell,
+  .param-table tr.regionalDefaultSelector td {
     line-height: 2em; }
 
 .assumptionstable tr td:first-of-type {
@@ -250,6 +307,7 @@ table.form {
 .custom-instructions table,
 .efficacy-info table,
 .variable-definitions table,
+.param-table .preventative-slideout
 table.form .preventative-slideout table {
   border-bottom: 2px solid #000;
   border-collapse: collapse;
@@ -261,22 +319,27 @@ table.form .preventative-slideout table {
   .custom-instructions table th,
   .efficacy-info table th,
   .variable-definitions table th,
+  .param-table .preventative-slideout
   table.form .preventative-slideout table th {
     font-weight: normal;
     min-width: 12rem; }
   .custom-instructions table td:first-of-type,
   .efficacy-info table td:first-of-type,
   .variable-definitions table td:first-of-type,
+  .param-table .preventative-slideout
   table.form .preventative-slideout table td:first-of-type {
     min-width: 16rem; }
 
-table.form .preventative-slideout table td {
+table.form .preventative-slideout table td,
+.param-table .preventative-slideout table td {
   padding: 0; }
-table.form .preventative-slideout table tr:hover {
+table.form .preventative-slideout table tr:hover,
+.param-table .preventative-slideout table tr:hover {
   background-color: #fff; }
 
 .custom-instructions th,
-table.form .preventative-slideout th {
+table.form .preventative-slideout th,
+.param-table .preventative-slideout th {
   border-bottom: 1px solid #999;
   background-color: #fff; }
 
@@ -319,7 +382,8 @@ label[for=efficacyOrYearfig] {
     .selectlist li:hover:not(.selected) {
       background-color: #ccc; }
 
-table.form .subselect > td {
+table.form .subselect > td,
+.param-table .subselect > .param-deadcell {
   max-width: 420px;
   padding-left: 30px; }
 

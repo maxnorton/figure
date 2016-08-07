@@ -278,15 +278,35 @@ fieldset ul {
 /* SECONDARY LAYOUT
 ------------------------------ */
 
+.param-table {
+	display: table;
+}
+
+.param-row {
+	display: table-row;
+}
+
+.param-deadcell,
+.param-label,
+.param-input {
+	display: table-cell;
+}
+
 .results table,
-table.form {
+table.form,
+.param-table {
 	border-spacing: 0;
 	margin-bottom: 10px;
 
-	td {
+	td,
+	.param-deadcell,
+	.param-label,
+	.param-input {
 		height: 1.5em;
 		text-align: center;
 	}
+	.param-deadcell,
+	.param-label,
 	td:first-of-type,
 	th:first-of-type {
 		text-align: left;
@@ -312,7 +332,8 @@ table.form {
 	}
 }
 
-table.form {
+table.form,
+.param-table {
 	border: 0 none;
 	cursor: pointer;
 	margin-left: 40px;
@@ -323,18 +344,26 @@ table.form {
 	label {
 		cursor: pointer;
 	}
+	.param-deadcell,
+	.param-label,
+	.param-input,
 	td {
 		padding: .5em 1em;
 	}
+	.param-row.focused,
+	.param-row:hover,
 	tr.focused,
 	tr:hover {
 		background-color: #eee;
 	}
+	.param-row.subselect,
+	.param-row.regionalDefaultSelector:hover,
 	tr.hover-info:hover,
 	tr.subselect:hover,
 	tr.regionalDefaultSelector:hover {
 		background-color: #fff;
 	}
+	.param-row.regionalDefaultSelector .param-deadcell,
 	tr.regionalDefaultSelector td {
 		line-height: 2em;
 	}
@@ -350,6 +379,7 @@ table.form {
 .custom-instructions,
 .efficacy-info,
 .variable-definitions,
+.param-table .preventative-slideout
 table.form .preventative-slideout {
 	table {
 		border-bottom: 2px solid #000;
@@ -371,7 +401,8 @@ table.form .preventative-slideout {
 	}
 }
 
-table.form .preventative-slideout table {
+table.form .preventative-slideout table,
+.param-table .preventative-slideout table {
 	td {
 		padding: 0;
 	}
@@ -382,7 +413,8 @@ table.form .preventative-slideout table {
 }
 
 .custom-instructions,
-table.form .preventative-slideout {
+table.form .preventative-slideout,
+.param-table .preventative-slideout {
 	th {
 		border-bottom: 1px solid #999;
 		background-color: #fff;
@@ -453,7 +485,8 @@ label[for=efficacyOrYearfig] {
 
 }
 
-table.form .subselect > td {
+table.form .subselect > td,
+.param-table .subselect > .param-deadcell {
 	max-width: 420px;
 	padding-left: 30px;
 }

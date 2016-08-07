@@ -17,19 +17,19 @@ function activateCloseTabLinks() {
 }
 
 function focusCustomParameters() {
-	$('table.form tr').each(function() {
+	$('.param-row').each(function() {
 		$(this).click(function() {
 			$(this).find('input').focus();
 		});
 	});
-	$('table.form input').each(function() {
+	$('.param-row input').each(function() {
 		$(this).focus(function() {
 			$(this).select();
-			$(this).parents('tr').addClass('focused');
+			$(this).parents('.param-row').addClass('focused');
 		});
 		$(this).focusout(function() {
 			$(this).val($(this).val().replace(/[^0-9.]/g,''));
-			$(this).parents('tr').removeClass('focused');
+			$(this).parents('.param-row').removeClass('focused');
 		});
 	});
 }
