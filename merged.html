@@ -364,6 +364,8 @@
 		});
 		$('select[name=practice]').change(function() {
 			setPracticeCost( $('select[name=region]').val(), $(this).val() );
+			if ($(this).val()==='custom')
+				$('input[name=pc]').focus();
 		});
 		$('input[name=pc]').change(function() {
 			setPracticeSelect( $('select[name=region]').val(), $(this).val() );
