@@ -17,6 +17,7 @@ $etc
 SECONDARY LAYOUT
 $etc
 FORM ELEMENTS
+$.param-table
 MISCELLANEOUS
 */
 
@@ -278,35 +279,15 @@ fieldset ul {
 /* SECONDARY LAYOUT
 ------------------------------ */
 
-.param-table {
-	display: table;
-}
-
-.param-row {
-	display: table-row;
-}
-
-.param-deadcell,
-.param-label,
-.param-input {
-	display: table-cell;
-}
-
 .results table,
-table.form,
-.param-table {
+table.form {
 	border-spacing: 0;
 	margin-bottom: 10px;
 
-	td,
-	.param-deadcell,
-	.param-label,
-	.param-input {
+	td {
 		height: 1.5em;
 		text-align: center;
 	}
-	.param-deadcell,
-	.param-label,
 	td:first-of-type,
 	th:first-of-type {
 		text-align: left;
@@ -332,8 +313,7 @@ table.form,
 	}
 }
 
-table.form,
-.param-table {
+table.form {
 	border: 0 none;
 	cursor: pointer;
 	margin-left: 40px;
@@ -344,26 +324,18 @@ table.form,
 	label {
 		cursor: pointer;
 	}
-	.param-deadcell,
-	.param-label,
-	.param-input,
 	td {
 		padding: .5em 1em;
 	}
-	.param-row.focused,
-	.param-row:hover,
 	tr.focused,
 	tr:hover {
 		background-color: #eee;
 	}
-	.param-row.subselect,
-	.param-row.regionalDefaultSelector:hover,
 	tr.hover-info:hover,
 	tr.subselect:hover,
 	tr.regionalDefaultSelector:hover {
 		background-color: #fff;
 	}
-	.param-row.regionalDefaultSelector .param-deadcell,
 	tr.regionalDefaultSelector td {
 		line-height: 2em;
 	}
@@ -379,7 +351,7 @@ table.form,
 .custom-instructions,
 .efficacy-info,
 .variable-definitions,
-.param-table .preventative-slideout
+.param-table .preventative-slideout,
 table.form .preventative-slideout {
 	table {
 		border-bottom: 2px solid #000;
@@ -485,8 +457,132 @@ label[for=efficacyOrYearfig] {
 
 }
 
-table.form .subselect > td,
-.param-table .subselect > .param-deadcell {
+	/* .param-table ---------- */
+
+		/* Landscape smartphones and up ----------- */
+		@media only screen and (min-width : 431px) { // what's the right value?
+			.param-table {
+				border: 0 none;
+				border-spacing: 0;
+				display: table;
+				margin-bottom: 10px;
+				margin-left: 40px;
+				
+				.subselect > .param-deadcell {
+					max-width: 420px;
+					padding-left: 30px;
+				}
+			}
+			
+			.param-row {
+				display: table-row;
+			}
+			
+			param-deadcell,
+			.param-label,
+			.param-input {
+				height: 1.5em;
+				padding: .5em 1em;
+				text-align: center;
+			}
+			
+			.param-deadcell,
+			.param-label {
+				text-align: left;
+			}
+
+		}
+
+		/* All devices ------- */
+		.param-deadcell,
+		.param-label,
+		.param-input {
+			display: table-cell;
+		}
+
+		.param-deadcell {
+			padding-left: 1em;
+		}
+
+		.param-input {
+			width: 20%;
+		}
+
+		.param-label {
+			width: 80%;
+		}
+
+		.param-table {
+			cursor: pointer;
+
+			input {
+				cursor: text;
+			}
+			
+			label {
+				cursor: pointer;
+			}
+
+			.param-input {
+				
+
+				input {
+					text-align: right;
+					width: 6em;
+				}
+			}
+
+			.param-row {
+				border-top: 1px solid #eee;
+				height: auto;
+				padding: .5em 0;
+				width: 100%;
+
+				&:first-of-type,
+				&:first-of-type:hover,
+				&.regionalDefaultSelector:first-of-type:hover {
+					border-top: 0 none;
+					position: static;
+				}
+
+				&.regionalDefaultSelector .param-deadcell {
+					padding-left: 0;
+				}
+			}
+			
+			.param-row.focused,
+			.param-row:hover {
+				background-color: #eee;
+			}
+			
+			.param-row.subselect,
+			.param-row.regionalDefaultSelector:hover {
+				background-color: #fff;
+				border-bottom: 0 none;
+				border-top: 0 none;
+				position: relative;
+				top: -2px;
+			}
+
+			.param-row.regionalDefaultSelector .param-deadcell {
+				line-height: 2em;
+			}
+
+			.param-row.subselect.discount .glossary-link {
+				margin-bottom: 1em;
+			}
+
+		}
+
+		/* Portrait smartphones and down ----- */
+		@media only screen and (max-width : 430px) {
+			.param-deadcell .glossary-inline {
+				padding-left: 0;
+			} 
+		}
+
+
+table.form .subselect > td {
 	max-width: 420px;
 	padding-left: 30px;
 }
