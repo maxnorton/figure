@@ -396,6 +396,9 @@
 		mobileSubstitutions();
 		toggleFormOptions();
 		$( '.swipebox' ).swipebox();
+
+		$("input, select").focus(zoomDisable).focusout(zoomEnable);
+
 	
 	});
 </script>
