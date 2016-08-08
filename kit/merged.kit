@@ -298,7 +298,7 @@
 		toggleFormOptions();
 		$( '.swipebox' ).swipebox();
 
-		$("input, select").focus(zoomDisable).focusout(zoomEnable);
+		$("input, select").mouseover(zoomDisable).mousedown(zoomEnable);
 
 	
 	});
