@@ -395,7 +395,8 @@ label[for=efficacyOrYearfig] {
     border-bottom: 0 none;
     border-top: 0 none;
     position: relative;
-    top: -2px; }
+    top: -2px;
+    z-index: -9; }
   .param-table .param-row.regionalDefaultSelector .param-deadcell {
     line-height: 2em; }
   .param-table .param-row.subselect.discount .glossary-link {
