@@ -162,6 +162,9 @@ header {
   margin: 0 8px;
   max-width: 910px; }
 
+@media only screen and (max-width: 431px) {
+  .merged .content-wrap {
+    margin: 0; } }
 /* Tablets and up ----------- */
 @media only screen and (min-width: 768px) {
   .content-wrap {
@@ -177,6 +180,9 @@ fieldset, .results {
   fieldset img, .results img {
     max-width: 100%; }
 
+@media only screen and (max-width: 431px) {
+  .merged fieldset {
+    max-width: 100%; } }
 .results {
   margin-left: 8px; }
 
