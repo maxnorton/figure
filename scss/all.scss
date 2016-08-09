@@ -159,6 +159,7 @@ header {
 	position: fixed;
 	top: 0;
 	width: 100%;
+	z-index: 9;
 
 	.header-wrap {
 		margin: .25em 0 ;
@@ -478,9 +479,10 @@ label[for=efficacyOrYearfig] {
 				display: table-row;
 			}
 			
-			param-deadcell,
+			.param-deadcell,
 			.param-label,
 			.param-input {
+				display: table-cell;
 				height: 1.5em;
 				padding: .5em 1em;
 				text-align: center;
@@ -494,12 +496,6 @@ label[for=efficacyOrYearfig] {
 		}
 
 		/* All devices ------- */
-		.param-deadcell,
-		.param-label,
-		.param-input {
-			display: table-cell;
-		}
-
 		.param-deadcell {
 			padding-left: 1em;
 		}
@@ -517,23 +513,58 @@ label[for=efficacyOrYearfig] {
 
 			input {
 				cursor: text;
+				x-font-size: 1em;
+			}
+
+			/*.param-input.dollar:before {
+				color: #666;
+				content: '$';
+				font-family: sans-serif;
+				font-size: 1em;
+				position: relative;
+				left: 1em;
+				z-index: 5;
 			}
 			
+			.param-input.percentage:after {
+				color: #666;
+				content: '%';
+				font-family: sans-serif;
+				font-size: 1em;
+				position: relative;
+				right: 1em;
+				z-index: 5;
+			}
+
+			.param-input.tons {
+				input {
+					x-padding: 0 3em 0 0;
+				}
+			}
+			.param-input.tons:after {
+				color: #666;
+				content: 'Tons';
+				font-family: sans-serif;
+				font-size: 1em;
+				position: relative;
+				right: 3em;
+				z-index: 5;
+			}*/
+
 			label {
 				cursor: pointer;
 			}
 
 			.param-input {
-				
-
 				input {
 					text-align: right;
 					width: 6em;
+					x-padding: 0 1.5em;
 				}
 			}
 
 			.param-row {
-				border-top: 1px solid #eee;
+				border-top: 1px solid #ccc;
 				height: auto;
 				padding: .5em 0;
 				width: 100%;
@@ -562,7 +593,6 @@ label[for=efficacyOrYearfig] {
 				border-top: 0 none;
 				position: relative;
 				top: -2px;
-				z-index: -9;
 			}
 
 			.param-row.regionalDefaultSelector .param-deadcell {
@@ -577,9 +607,29 @@ label[for=efficacyOrYearfig] {
 
 		/* Portrait smartphones and down ----- */
 		@media only screen and (max-width : 430px) {
-			.param-deadcell .glossary-inline {
-				padding-left: 0;
-			} 
+			.param-table {
+				.param-label,
+				.param-input {
+					text-align: center;
+					width: 100%;
+				}
+
+				.param-input input {
+					border: 0;
+					margin: 1em auto;
+					padding: 0.5em;
+					text-align: center;
+					width: 15em;
+
+					&:focus {
+						outline: 0;
+					}
+				}
+
+				.param-deadcell .glossary-inline {
+					padding-left: 0;
+				} 
+			}
 		}
 
 
@@ -603,6 +653,31 @@ table.form .subselect > td {
 .figure-wrapper {
 	background-color: #fff;
 	padding-left: 1em;
+}
+
+a#submit {
+	text-decoration: none;
+
+	button {
+		background: #06c;
+		border: 2px solid #ccc;
+		color: #fff;
+		cursor: pointer;
+		display: block;
+		margin: 1em auto;
+		width: 200px;
+		text-decoration: none;
+	}
+}
+
+#regionalDefaults {
+	background: #d00;
+	border: 2px solid #ccc;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	margin: 1em auto;
+	width: 80%;
 }
 
 .swipebox-inline-container .hide-on-print {

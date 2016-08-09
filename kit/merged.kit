@@ -59,23 +59,23 @@
 		<div class="param-row regionalDefaultSelector">
 			<div class="param-deadcell">
 				<label for="region">Displaying <span class="currentRegion"><span class="regionName">Northern San Joaquin</span> default values.</span><br />
-				For missing values, perform calculations with <select name="region">
+				<em>For missing values, perform calculations with </em><select name="region">
 					<option value="nsj">Northern San Joaquin</option>
 					<option value="napa">Napa</option>
 					<option value="lake">Lake</option>
 					<option value="sonoma">Sonoma</option>
 					<option value="cc">Central Coast</option>
-				</select> default values.<br />
+				</select><em> default values.</em><br />
 				<button id="regionalDefaults">Reset all values to this region's defaults</button></label>	
 			</div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="price">Price per ton ($)</label></div>
-			<div class="param-input"><input type="text" name="price" id="price" value="650" tabindex="1" /></div>
+			<div class="param-input dollar"><input type="text" name="price" id="price" value="650" tabindex="1" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="discount">Discount rate (%)</label></div>
-			<div class="param-input"><input type="text" name="discount" id="discount" value="3" tabindex="2" /></div>
+			<div class="param-input percentage"><input type="text" name="discount" id="discount" value="3" tabindex="2" /></div>
 		</div>
 		<div class="param-row subselect discount">
 			<div class="param-deadcell"><div class="glossary-link glossary-link-inline-child"><a href="#" class="glossary-inline-link">Discount rate definition</a>
@@ -85,7 +85,7 @@
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="pc">Additional annual cost per acre of preventative practice ($)</label></div>
-			<div class="param-input"><input type="text" name="pc" id="pc" value="175" tabindex="3" /></div>
+			<div class="param-input dollar"><input type="text" name="pc" id="pc" value="175" tabindex="3" /></div>
 		</div>
 		<div class="param-row subselect pc">
 			<div  class="param-deadcell">
@@ -179,49 +179,49 @@
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></div>
-			<div class="param-input"><input type="text" name="cost0" id="cost0" value="12213" tabindex="4" /></div>
+			<div class="param-input dollar"><input type="text" name="cost0" id="cost0" value="12213" tabindex="4" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="cost1">Annual cultural cost per acre &#8211; Year 1 &#8211; Establishing Vineyard ($)</label></div>
-			<div class="param-input"><input type="text" name="cost1" id="cost1" value="3370" tabindex="5" /></div>
+			<div class="param-input dollar"><input type="text" name="cost1" id="cost1" value="3370" tabindex="5" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="cost2">Annual cultural cost per acre &#8211; Year 2 &#8211; Establishing Vineyard ($)</label></div>
-			<div class="param-input"><input type="text" name="cost2" id="cost2" value="1004" tabindex="6" /></div>
+			<div class="param-input dollar"><input type="text" name="cost2" id="cost2" value="1004" tabindex="6" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="cost3">Annual cultural cost per acre &#8211; Year 3+ &#8211; Established Vineyard ($)</label></div>
-			<div class="param-input"><input type="text" name="cost3" id="cost3" value="3505" tabindex="7" /></div>
+			<div class="param-input dollar"><input type="text" name="cost3" id="cost3" value="3505" tabindex="7" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="yield0">Annual yield per acre (Tons) &#8211; Year 0</label></div>
-			<div class="param-input"><input type="text" name="yield0" id="yield0" value="0" tabindex="8" /></div>
+			<div class="param-input tons"><input type="text" name="yield0" id="yield0" value="0" tabindex="8" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="yield1">Annual yield per acre (Tons) &#8211; Year 1</label></div>
-			<div class="param-input"><input type="text" name="yield1" id="yield1" value="0" tabindex="9" /></div>
+			<div class="param-input tons"><input type="text" name="yield1" id="yield1" value="0" tabindex="9" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="yield2">Annual yield per acre (Tons) &#8211; Year 2</label></div>
-			<div class="param-input"><input type="text" name="yield2" id="yield2" value="5" tabindex="10" /></div>
+			<div class="param-input tons"><input type="text" name="yield2" id="yield2" value="5" tabindex="10" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="yield3">Annual yield per acre (Tons) &#8211; Year 3</label></div>
-			<div class="param-input"><input type="text" name="yield3" id="yield3" value="10" tabindex="11" /></div>
+			<div class="param-input tons"><input type="text" name="yield3" id="yield3" value="10" tabindex="11" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="yield4">Annual yield per acre (Tons) &#8211; Year 4</label></div>
-			<div class="param-input"><input type="text" name="yield4" id="yield4" value="10" tabindex="12" /></div>
+			<div class="param-input tons"><input type="text" name="yield4" id="yield4" value="10" tabindex="12" /></div>
 		</div>
 		<div class="param-row">
 			<div class="param-label"><label for="yield5">Annual yield per acre (Tons) &#8211; Year 5+</label></div>
-			<div class="param-input"><input type="text" name="yield5" id="yield5" value="10" tabindex="13" /></div>
+			<div class="param-input tons"><input type="text" name="yield5" id="yield5" value="10" tabindex="13" /></div>
 		</div>
 	</div>
 
 </fieldset>
 
-<a href="results.html" target="_blank" id="submit">Display returns to this scenario</a>
+<a href="results.html" target="_blank" id="submit"><button>Display returns to this scenario</button></a>
 
 </section>
 
@@ -298,7 +298,7 @@
 		toggleFormOptions();
 		$( '.swipebox' ).swipebox();
 
-		$("input, select").mouseover(zoomDisable).mousedown(zoomEnable);
+		//$("input, select").mouseover(zoomDisable).mousedown(zoomEnable); 
 
 	
 	});
