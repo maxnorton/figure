@@ -15,6 +15,7 @@ $top-nav
 $nav-bar
 $etc
 SECONDARY LAYOUT
+$sidebar
 $etc
 FORM ELEMENTS
 $.param-table
@@ -293,6 +294,23 @@ fieldset ul {
 /* SECONDARY LAYOUT
 ------------------------------ */
 
+/* Sidebar ---------- */
+.sidebar {
+	display: none;
+}
+@media only screen and (min-width : 1320px) {
+	.sidebar {
+		background: #eee;
+		display: block;
+		padding: 1em 2em 1em 1em;
+		position: fixed;
+		right: 0;
+		top: 150px;
+		width: 350px;
+	}
+}
+
+
 .results table,
 table.form {
 	border-spacing: 0;
@@ -364,6 +382,7 @@ table.form {
 
 .custom-instructions,
 .efficacy-info,
+.sidebar,
 .variable-definitions,
 .param-table .preventative-slideout,
 table.form .preventative-slideout {

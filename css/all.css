@@ -14,6 +14,7 @@ $top-nav
 $nav-bar
 $etc
 SECONDARY LAYOUT
+$sidebar
 $etc
 FORM ELEMENTS
 $.param-table
@@ -203,6 +204,19 @@ fieldset ul {
     min-width: 50% !important; } }
 /* SECONDARY LAYOUT
 ------------------------------ */
+/* Sidebar ---------- */
+.sidebar {
+  display: none; }
+
+@media only screen and (min-width: 1320px) {
+  .sidebar {
+    background: #eee;
+    display: block;
+    padding: 1em 2em 1em 1em;
+    position: fixed;
+    right: 0;
+    top: 150px;
+    width: 350px; } }
 .results table,
 table.form {
   border-spacing: 0;
@@ -257,6 +271,7 @@ table.form {
 
 .custom-instructions table,
 .efficacy-info table,
+.sidebar table,
 .variable-definitions table,
 .param-table .preventative-slideout table,
 table.form .preventative-slideout table {
@@ -269,6 +284,7 @@ table.form .preventative-slideout table {
   max-width: 100%; }
   .custom-instructions table th,
   .efficacy-info table th,
+  .sidebar table th,
   .variable-definitions table th,
   .param-table .preventative-slideout table th,
   table.form .preventative-slideout table th {
@@ -276,6 +292,7 @@ table.form .preventative-slideout table {
     min-width: 12rem; }
   .custom-instructions table td:first-of-type,
   .efficacy-info table td:first-of-type,
+  .sidebar table td:first-of-type,
   .variable-definitions table td:first-of-type,
   .param-table .preventative-slideout table td:first-of-type,
   table.form .preventative-slideout table td:first-of-type {

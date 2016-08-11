@@ -5,6 +5,7 @@
 <title>Practice definitions | Canker disease management options decision tool</title>
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/all.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src = "js/interface.js"></script>
 </head>
@@ -12,6 +13,8 @@
 <body>
 
 <!-- @import header -->
+
+<!-- @import sidebar -->
 
 <section class="content-wrap">
 	<!-- @import ../markdown/compiled/practice-definitions.html -->
@@ -23,6 +26,7 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+	styleGlossaryLinks();
 	$('.backlink').click(function(e) {
 		goBack(e);
 	});
