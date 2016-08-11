@@ -696,3 +696,11 @@ a#submit {
 .swipebox-inline-container .hide-on-print {
 	visibility: hidden;
 }
+
+.merged {
+	button,
+	input,
+	select {
+		font-size: 16px;
+	}
+}
