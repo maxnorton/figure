@@ -1,22 +1,43 @@
 
+function addThousandsComma(d) {
+	return d.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function currencyFormat(d) {
+	var currencyVal;
+	if (d>0) 
+		currencyVal = '$' + addThousandsComma(d);
+	else if (d<0)
+		currencyVal = '-$' + addThousandsComma(parseInt(-1*d));
+	else if (d==0)
+		currencyVal = '0';
+	return currencyVal;
+}
+
 function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObject, scenarioCDNRObject) {
 
 	var dependentVariable,
-		margin = {top: 60, right: 35, bottom: 30, left: 50},
-		padding = {left: 20},
+		dotSize = ( $(window).width() > 768) ? 3.5 : 2,
+		margin = {top: 10, right: 35, bottom: 30, left: 50},
+		padding = {left: ($(window).width() > 768) ? 40 : 15, right: 0, bottom: 20, top: 0},
 		scenarioColors = ['red', 'blue'],
 		scenarioNames = ['untreated', 'healthy'],
 		scenarioObject = false,
-	    width = ($('body').width() < 960) ? $('body').width() - margin.left - padding.left - margin.right : 960 - margin.left - padding.left - margin.right,
+		widescreen = ($(window).width() > 1024) ? true : false,
+	    width = ($(window).width() < 960) ? $('body').width() - margin.left - margin.right - padding.left - padding.right : 960 - margin.left - margin.right- padding.left - padding.right,
 			height = width*0.506,
-		years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+			svgWidth = parseInt(width + margin.left + padding.left + margin.right),
+			svgHeight = parseInt(height + margin.top + padding.top + margin.bottom + padding.bottom),
+		years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+		yTicks = (svgHeight/50 > 4) ? parseInt(svgHeight/50) : 5;
 
+	
 	if ( figuredisplay === 'yield' ) {
 		scenarioObject = scenarioYieldObject;
-		dependentVariable = 'Yield (Tons / Acre)';
+		dependentVariable = (widescreen) ? 'Yield (Tons / Acre)' : 'Yield';
 	} else if ( figuredisplay === 'netreturns' ) {
 		scenarioObject = scenarioCDNRObject;
-		dependentVariable = 'Cumulative Discounted Net Returns (2013 dollars)';
+		dependentVariable = (widescreen) ? 'Cumulative Discounted Net Returns (2013 dollars)' : 'CDNR (2013 $)';
 	}
 
 	var figureCount = whichYears.length;
@@ -25,7 +46,7 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 			var parameterValue = whichYears[k].substr(4),
 				friendlyPCValue = ( moreParameters.pc !== '' ) ? moreParameters.pc : '0',
 				figureSubhead = 'Year ' + parameterValue,
-				figureTitle = (figuredisplay === 'yield') ? 'Vineyard Yield (Tons per Acre) at Various Disease Control Efficacy Rates' : 'Cumulative Discounted Net Returns per Acre at Various Disease Control Efficacy Rates';
+				figureTitle = (figuredisplay === 'yield') ? 'Figure ' + parseInt(k+1) + '&#8212;Vineyard Yield (Tons per Acre) at Various Disease Control Efficacy Rates' : 'Figure ' + parseInt(k+1) + '&#8212;Cumulative Discounted Net Returns per Acre at Various Disease Control Efficacy Rates';
 
 			if (figuredisplay === 'netreturns') {
 				figureSubhead += ' Adoption of $' + friendlyPCValue + ' per Acre-Year Preventative Practice';
@@ -56,6 +77,8 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 
 			var yAxis = d3.svg.axis()
 			    .scale(y)
+			    .ticks(yTicks)
+			    .tickFormat(function(d) { return currencyFormat(d); })
 			    .orient("left");
 
 			var line = d3.svg.line()
@@ -63,11 +86,11 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 		 		.y(function(d) { return y(d.y); })
 		 		.interpolate("linear");
 
-			$('.figure-area').append('<section class="figure-wrapper" id="figure' + parameterValue + '"></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
+			$('.figure-area').append('<section class="figure-wrapper" id="figure' + parameterValue + '"><h4 class="figTitle">' + figureTitle + '</h4><h4 class="figSubhead">' + figureSubhead + '</h4></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
 
 			var svg = d3.select("#figure" + parameterValue).append("svg")
-				.attr("width", width + margin.left + padding.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom)
+				.attr("width", svgWidth)
+				.attr("height", svgHeight)
 				.attr("id", "figure" + parameterValue)
 				.append("g")
 				.attr("transform", "translate(" + parseInt(margin.left + padding.left) + "," + margin.top + ")");
@@ -78,7 +101,12 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 			svg.append("g")
 				.attr("class", "x axis")
 				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
+				.call(xAxis)
+				.append("text")
+				.attr("x", "50%")
+				.attr("y", "3em")
+				.style("text-anchor", "end")
+				.text("Vineyard Age (Years)");
 
 			svg.append("g")
 				.attr("class", "y axis")
@@ -101,30 +129,16 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 				svg.selectAll("dot")
 					.data(scenarioObject[scenarioNames[i]])
 					.enter().append("circle")
-					.attr("r", 3.5)
+					.attr("r", dotSize)
 					.attr("fill", scenarioColors[i])
 					.attr("cx", function(d) { return x(d.x); })
 					.attr("cy", function(d) { return y(d.y); });
 			}
-
-			svg.append("text")
-		        .attr("x", (width / 2))             
-		        .attr("y", 0 - (3 * margin.top / 4))
-		        .attr("text-anchor", "middle")  
-		        .style("font-size", "1.1em") 
-		        .text(figureTitle);
-		      svg.append("text")
-		        .attr("x", (width / 2))             
-		        .attr("y", 0 - (3 * margin.top / 8))
-		        .attr("text-anchor", "middle")  
-		        .style("font-size", "1em") 
-		        .text(figureSubhead);
-
 		}
 	}
 
 	$('.figure-area svg').each(function() {
-		$(this).after('<div class="legend"><img src="img/figures/legend.png" /><br /><span class="glossary-link hide-on-print"><a href="efficacy-information.html"><i class="fa fa-question-circle"></i> Disease control efficacy rate information</a></span></div>');
+		$(this).after('<div class="legend"><img src="img/figures/legend.png" /><br /><span class="glossary-link hide-on-print"><a href="efficacy-information.html">Disease control efficacy rate information</a></span></div>');
 	})
 
 	if (figureCount===0) {

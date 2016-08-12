@@ -100,12 +100,47 @@ h1.title a {
   color: black;
   font-style: italic; }
 
+.figSubhead,
+.figTitle {
+  font-family: sans-serif;
+  margin: 0;
+  padding-left: 84px; }
+  .figSubhead a,
+  .figTitle a {
+    color: black;
+    cursor: pointer; }
+    .figSubhead a:hover,
+    .figTitle a:hover {
+      color: green; }
+
+.figSubhead {
+  font-weight: normal; }
+
+.figTitle {
+  padding-top: 1em; }
+
+#swipebox-slider .slide .figSubhead,
+#swipebox-slider .slide .figTitle {
+  line-height: 1em;
+  text-align: left;
+  white-space: normal; }
+
+@media only screen and (max-width: 768px) {
+  .figSubhead,
+  .figTitle {
+    font-size: .9em;
+    margin-bottom: 0.5em;
+    padding-left: 0; } }
 .hover-info i,
 .indent {
   padding-left: 2em; }
 
 .regionName {
   font-weight: bold; }
+
+svg {
+  font-family: sans-serif;
+  font-size: .9em; }
 
 .table-style {
   font-family: sans-serif;
@@ -180,6 +215,9 @@ fieldset, .results {
   max-width: 90%; }
   fieldset img, .results img {
     max-width: 100%; }
+
+.mergedresults .results {
+  max-width: 100%; }
 
 @media only screen and (max-width: 431px) {
   .merged fieldset {
@@ -487,7 +525,7 @@ table.form .subselect > td {
 
 .figure-wrapper {
   background-color: #fff;
-  padding-left: 1em; }
+  x-padding-left: 1em; }
 
 a#submit {
   text-decoration: none; }
