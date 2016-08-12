@@ -480,11 +480,6 @@ table.form {
   position: absolute;
   right: 0; }
 
-.paramGroup {
-  top: 0;
-  bottom: 0;
-  padding: 1em .5em; }
-
 table.form {
   border: 0 none;
   cursor: pointer;
@@ -634,8 +629,10 @@ label[for=actualRegion] {
   .param-input {
     display: table-cell;
     height: 1.5em;
-    padding: .5em 1em;
-    text-align: center; }
+    padding: .5em 1em; }
+
+  .param-input {
+    text-align: right; }
 
   .param-deadcell,
   .param-label {
@@ -828,7 +825,11 @@ a.submit {
     border-top: 1px solid #ccc;
     top: 0; }
   .param-table .param-row.subselect:hover {
-    position: relative; } }
+    position: relative; }
+  .param-table .paramGroup {
+    top: 0;
+    bottom: 0;
+    padding: 1em .5em; } }
 @media only screen and (min-width: 421px) {
   .only-portrait-phone {
     display: none; } }
