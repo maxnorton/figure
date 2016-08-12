@@ -284,15 +284,15 @@ function the_table(inputObject) {
 	 			missingValsAlertTag += '.</p><p class="alert hide-on-print">[Switch to the previous tab or <a href="#" class="close-tab">close this tab</a> to update these parameters and re-run your calculations.]</p>'
 	 			missingValsAlert += '</p><p class="alert">Calculations below have been performed using default values for the <strong>' + regionName + '</strong> region' + missingValsAlertTag;
 	 		}
-	 		var the_table_html = '<h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><table class="outputTable"><thead><th>Scenario</th><th>ACDNB</th><th>Age adoption pays off</th><th>Last profitable year</th><th>Infection probability threshold</th></thead><tbody>';
-			the_table_html += '<tr><td colspan="5" class="untreated scenarioGroup">Untreated vineyard</td></tr>';
-			the_table_html += '<tr><td>' + scenarios.healthy + '</td><td>' + healthyACDNBnaDisplay + '</td><td>' + healthyBEAnaDisplay + '</td><td>' + healthyLPY + '</td><td>' + 0 + '</td></tr>';
-			the_table_html += '<tr><td>' + scenarios.untreated + '</td><td>' + '-' + '</td><td>' + '-' + '</td><td>' + untreatedLPY + '</td><td>' + 1 + '</td></tr>';
+	 		var the_table_html = '<h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><div class="output-table"><div class="output-thead"><div class="output-th">Scenario</div><div class="output-th">ACDNB</div><div class="output-th">Age adoption pays off</div><div class="output-th">Last profitable year</div><div class="output-th">Infection probability threshold</div></div><tbody>';
+			the_table_html += '<div class="output-tr"><div class="untreated scenarioGroupShadow">&nbsp;</div><div class="untreated scenarioGroup">Untreated vineyard</div></div>';
+			the_table_html += '<div class="output-tr"><div class="output-td">' + scenarios.healthy + '</div><div class="output-td">' + healthyACDNBnaDisplay + '</div><div class="output-td">' + healthyBEAnaDisplay + '</div><div class="output-td">' + healthyLPY + '</div><div class="output-td">' + 0 + '</div></div>';
+			the_table_html += '<div class="output-tr"><div class="output-td">' + scenarios.untreated + '</div><div class="output-td">' + '-' + '</div><div class="output-td">' + '-' + '</div><div class="output-td">' + untreatedLPY + '</div><div class="output-td">' + 1 + '</div></div>';
 
 	 		for (var a=2; a<scenarioKeys.length; a++) {
 
 	 			if (a===2 || a===5 || a===8) {
-	 				the_table_html += '<tr><td colspan="5" class="scenarioGroup dce' + scenarioKeys[a].substr(0,2) + '">Preventative management results in ' + scenarioKeys[a].substr(0,2) + '% disease control efficacy</td></tr>';
+	 				the_table_html += '<div class="output-tr"><div class="scenarioGroupShadow dce' + scenarioKeys[a].substr(0,2) + '">&nbsp;</div><div class="scenarioGroup dce' + scenarioKeys[a].substr(0,2) + '">Preventative management with ' + scenarioKeys[a].substr(0,2) + '% DCE</div></div>';
 	 			}
 
 	 			var selectCol = scenarioKeys[a];
@@ -439,7 +439,7 @@ function the_table(inputObject) {
 	 				acdnbDisplay = '$' + parseFloat(acdnbDisplay).toFixed(2);
 	 			}*/
 
-				the_table_html += '<tr><td>' + scenarios[selectCol] + '</td><td>' + acdnbDisplay + '</td><td>' + bea[selectCol] + '</td><td>' + lpy[selectCol] + '</td><td>' + bep[selectCol] + '</td></tr>';
+				the_table_html += '<div class="output-tr"><div class="output-td">' + scenarios[selectCol] + '</div><div class="output-td">' + acdnbDisplay + '</div><div class="output-td">' + bea[selectCol] + '</div><div class="output-td">' + lpy[selectCol] + '</div><div class="output-td">' + bep[selectCol] + '</div></div>';
 
 		 	}
 
@@ -471,24 +471,24 @@ function the_table(inputObject) {
 	            		assumptionstable += '<p class="parameterSetDescription">The default preventative practice cost is zero, as with delayed pruning.</p>';
 	            	}
 				}
-	            assumptionstable += '<table class="assumptionstable">';
+	            assumptionstable += '<div class="assumptions-table">';
 	            for (var i=0; i<assumptionsHeaders.length; i++) {
 	            		var friendlyAssumptionsContent = (i===0 || i===2 || i===3 || i===4 || i===5 || i===6) ? currencyFormat(assumptionsContent[i]) : assumptionsContent[i];
 	            		if (i===3) {
-	            			assumptionstable += '<tr><td colspan="2" class="variableGroup">Annual cultural cost per acre</td></tr>';
+	            			assumptionstable += '<div class="assumptions-tr"><div class="variableGroupShadow">&nbsp;</div><div class="variableGroup">Annual cultural cost per acre</div></div>';
 	            		}
 	            		if (i===7) {
-	            			assumptionstable += '<tr><td colspan="2" class="variableGroup">Annual yield per acre in tons</td></tr>';
+	            			assumptionstable += '<div class="assumptions-tr"><div class="variableGroupShadow">&nbsp;</div><div class="variableGroup">Annual yield per acre in tons</div></div>';
 	            		}
-	                    assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + friendlyAssumptionsContent + '</td></tr>';
+	                    assumptionstable += '<div class="assumptions-tr"><div class="assumptions-td">' + assumptionsHeaders[i] + '</div><div class="assumptions-td">' + friendlyAssumptionsContent + '</div></div>';
 	            };
-	            assumptionstable += '</table></section>';
+	            assumptionstable += '</div></section>';
 
 			/***** Add variable definitions section
 			---------------------------------------- */
 			var varDefs = '<p class="glossary-link hide-on-print"><a href="variable-definitions.html">Variable definitions</a></p><section class="varDefs-printable"><h3 id="variabledefinitions">Variable definitions</h3><p><strong>Cumulative discounted net returns:</strong> The cumulative net returns (returns &minus; costs) per acre over 25 years for a healthy vineyard, an untreated infected vineyard, and infected vineyards where action is taken. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. </p><p><a id="tablevars"></a></p><p><strong>Additional cumulative discounted net benefits (ACDNB):</strong> The difference in cumulative net returns (returns - costs) per acre over 25 years between an infected vineyard where action is taken and an untreated infected vineyard. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. </p><p><strong>Last profitable year:</strong> The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns. </p><p><strong>Age adoption pays off:</strong> The age when cumulative discounted net returns (returns – costs) for a treated infected vineyard exceed those from an untreated infected vineyard. </p><p><strong>Infection probability threshold:</strong> The probability of infection where expected cumulative discounted net returns from treating a vineyard equals the expected cumulative discounted net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater cumulative discounted net returns than a treated vineyard, and vice versa. </p></section>';
 
-			the_table_html += '</tbody></table>' + assumptionstable + varDefs + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="hide-on-print"><a href="#" class="close-tab">Close results tab</a></p>';
+			the_table_html += '</tbody></div>' + assumptionstable + varDefs + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="hide-on-print"><a href="#" class="close-tab">Close results tab</a></p>';
 
 			$('.results').html(the_table_html);
 

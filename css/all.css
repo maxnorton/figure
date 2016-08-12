@@ -256,34 +256,85 @@ fieldset ul {
     top: 150px;
     width: 350px; } }
 .results table,
+.assumptions-table
+.output-table
 table.form {
   border-spacing: 0;
   margin-bottom: 10px; }
   .results table td,
-  table.form td {
+  .results table .assumptions-td,
+  .results table .output-td,
+  .assumptions-table
+  .output-table
+  table.form td,
+  .assumptions-table
+  .output-table
+  table.form .assumptions-td,
+  .assumptions-table
+  .output-table
+  table.form .output-td {
     height: 1.5em;
     text-align: center; }
+  .results table .assumptions-td:first-of-type,
+  .results table .output-td:first-of-type,
+  .results table .output-th:first-of-type,
   .results table td:first-of-type,
   .results table th:first-of-type,
+  .assumptions-table
+  .output-table
+  table.form .assumptions-td:first-of-type,
+  .assumptions-table
+  .output-table
+  table.form .output-td:first-of-type,
+  .assumptions-table
+  .output-table
+  table.form .output-th:first-of-type,
+  .assumptions-table
+  .output-table
   table.form td:first-of-type,
+  .assumptions-table
+  .output-table
   table.form th:first-of-type {
     text-align: left; }
 
-.results table {
+.results table,
+.assumptions-table,
+.output-table {
   border: 1px solid #ccc;
   font-family: sans-serif; }
+  .results table .assumptions-td,
+  .results table .output-td,
+  .results table .output-th,
   .results table td,
-  .results table th {
+  .results table th,
+  .assumptions-table .assumptions-td,
+  .assumptions-table .output-td,
+  .assumptions-table .output-th,
+  .assumptions-table td,
+  .assumptions-table th,
+  .output-table .assumptions-td,
+  .output-table .output-td,
+  .output-table .output-th,
+  .output-table td,
+  .output-table th {
     padding: .5em; }
-  .results table tr:nth-of-type(even) {
+  .results table .assumptions-tr:nth-of-type(even),
+  .results table .output-tr:nth-of-type(even),
+  .results table tr:nth-of-type(even),
+  .assumptions-table .assumptions-tr:nth-of-type(even),
+  .assumptions-table .output-tr:nth-of-type(even),
+  .assumptions-table tr:nth-of-type(even),
+  .output-table .assumptions-tr:nth-of-type(even),
+  .output-table .output-tr:nth-of-type(even),
+  .output-table tr:nth-of-type(even) {
     background-color: #eee; }
 
-.results .outputTable th {
+.results .output-table .output-th {
   vertical-align: bottom; }
-.results .outputTable th:not(:first-of-type) {
+.results .output-table .output-th:not(:first-of-type) {
   width: 18%; }
-.results .outputTable th:not(:first-of-type),
-.results .outputTable td:not(:first-of-type) {
+.results .output-table .output-th:not(:first-of-type),
+.results .output-table .output-td:not(:first-of-type) {
   border-left: 1px dashed #ccc; }
 
 .parameterSetDescription {
@@ -292,7 +343,12 @@ table.form {
 .scenarioGroup {
   border-top: 1px solid #999;
   color: white;
-  font-weight: bold; }
+  colspan: 5;
+  font-weight: bold;
+  left: 0;
+  padding: .5em;
+  position: absolute;
+  right: 0; }
   .scenarioGroup.untreated {
     background-color: blue; }
   .scenarioGroup.dce75 {
@@ -302,11 +358,24 @@ table.form {
   .scenarioGroup.dce25 {
     background-color: yellowgreen; }
 
+.scenarioGroupShadow,
+.variableGroupShadow {
+  display: table-cell;
+  color: white;
+  background-color: white;
+  padding: .5em;
+  position: relative;
+  z-index: -9; }
+
 .variableGroup {
   background-color: #666;
   border-top: 1px solid #999;
   color: white;
-  font-weight: bold; }
+  font-weight: bold;
+  left: 0;
+  padding: .5em;
+  position: absolute;
+  right: 0; }
 
 table.form {
   border: 0 none;
@@ -328,7 +397,7 @@ table.form {
   table.form tr.regionalDefaultSelector td {
     line-height: 2em; }
 
-.assumptionstable tr td:not(:first-of-type) {
+.assumptions-table .assumptions-tr .assumptions-td:not(:first-of-type) {
   x-font-weight: bold;
   border-left: 1px dashed #ccc; }
 
@@ -412,6 +481,23 @@ label[for=efficacyOrYearfig] {
       color: #fff; }
     .selectlist li:hover:not(.selected) {
       background-color: #ccc; }
+
+.assumptions-table,
+.output-table {
+  display: table;
+  position: relative; }
+
+.output-thead {
+  display: table-header-group; }
+
+.assumptions-tr,
+.output-tr {
+  display: table-row; }
+
+.assumptions-td,
+.output-td,
+.output-th {
+  display: table-cell; }
 
 /* .param-table ---------- */
 /* Landscape smartphones and up ----------- */

@@ -363,45 +363,59 @@ fieldset ul {
 
 
 .results table,
+.assumptions-table
+.output-table
 table.form {
 	border-spacing: 0;
 	margin-bottom: 10px;
 
-	td {
+	td,
+	.assumptions-td,
+	.output-td {
 		height: 1.5em;
 		text-align: center;
 	}
+	.assumptions-td:first-of-type,
+	.output-td:first-of-type,
+	.output-th:first-of-type,
 	td:first-of-type,
 	th:first-of-type {
 		text-align: left;
 	}
+	.output-th,
 	th {
 	}
 }
 
-.results table {
+.results table,
+.assumptions-table,
+.output-table {
 	border: 1px solid #ccc;
 	font-family: sans-serif;
 
+	.assumptions-td,
+	.output-td,
+	.output-th,
 	td,
 	th {
 		padding: .5em;
 	}
-	th {}
+	.assumptions-tr:nth-of-type(even),
+	.output-tr:nth-of-type(even),
 	tr:nth-of-type(even) {
 		background-color: #eee;
 	}
 }
 
-.results .outputTable {
-	th {
+.results .output-table {
+	.output-th {
 		vertical-align: bottom;
 	}
-	th:not(:first-of-type) {
+	.output-th:not(:first-of-type) {
 		width: 18%;
 	}
-	th:not(:first-of-type),
-	td:not(:first-of-type) {
+	.output-th:not(:first-of-type),
+	.output-td:not(:first-of-type) {
 		border-left: 1px dashed #ccc;
 	}
 }
@@ -413,7 +427,12 @@ table.form {
 .scenarioGroup {
 	border-top: 1px solid #999;
 	color: white;
+	colspan: 5;
 	font-weight: bold;
+	left: 0;
+	padding: .5em;
+	position: absolute;
+	right: 0;
 
 	&.untreated {
 		background-color: blue;
@@ -432,11 +451,25 @@ table.form {
 	}
 }
 
+.scenarioGroupShadow,
+.variableGroupShadow {
+	display: table-cell;
+	color: white;
+	background-color: white;
+	padding: .5em;
+	position: relative;
+	z-index: -9;
+}
+
 .variableGroup {
 	background-color: #666;
 	border-top: 1px solid #999;
 	color: white;
 	font-weight: bold;
+	left: 0;
+	padding: .5em;
+	position: absolute;
+	right: 0;
 }
 table.form {
 	border: 0 none;
@@ -466,8 +499,8 @@ table.form {
 	}
 }
 
-.assumptionstable {
-	tr td:not(:first-of-type) {
+.assumptions-table {
+	.assumptions-tr .assumptions-td:not(:first-of-type) {
 		x-font-weight: bold;
 		border-left: 1px dashed #ccc;
 	}
@@ -582,6 +615,28 @@ label[for=efficacyOrYearfig] {
 	}
 
 }
+
+.assumptions-table,
+.output-table {
+	display: table;
+	position: relative;
+}
+
+.output-thead {
+	display: table-header-group;
+}
+
+.assumptions-tr,
+.output-tr {
+	display: table-row;
+}
+
+.assumptions-td,
+.output-td,
+.output-th {
+	display: table-cell;
+}
+
 
 	/* .param-table ---------- */
 
