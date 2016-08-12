@@ -465,6 +465,9 @@ table.form {
   position: relative;
   z-index: -9; }
 
+.paramGroupShadow {
+  line-height: 1em; }
+
 .paramGroup,
 .variableGroup {
   background-color: #666;
@@ -476,6 +479,11 @@ table.form {
   padding: .5em;
   position: absolute;
   right: 0; }
+
+.paramGroup {
+  top: 0;
+  bottom: 0;
+  padding: 1em .5em; }
 
 table.form {
   border: 0 none;
@@ -716,6 +724,11 @@ label[for=actualRegion] {
 
 /* Portrait smartphones and down ----- */
 @media only screen and (max-width: 430px) {
+  select#actualRegion {
+    display: block;
+    margin: 1em auto;
+    width: 50%; }
+
   .param-table .param-label,
   .param-table .param-input {
     text-align: center;
@@ -725,11 +738,18 @@ label[for=actualRegion] {
     margin: 1em auto;
     padding: 0.5em;
     text-align: center;
-    width: 100%; }
+    x-width: 100%; }
     .param-table .param-input input:focus {
       outline: 0; }
+  .param-table #regionalDefaults {
+    margin: 1.5em auto; }
   .param-table .param-deadcell .glossary-inline {
-    padding-left: 0; } }
+    padding-left: 0; }
+  .param-table .param-row {
+    position: relative; }
+  .param-table .param-table .param-row.subselect,
+  .param-table .param-table .param-row.regionalDefaultSelector:hover {
+    top: 0; } }
 table.form .subselect > td {
   max-width: 420px;
   padding-left: 30px; }
@@ -763,15 +783,25 @@ a.submit {
     text-decoration: none; }
   a.submit button:hover {
     background: #05b; }
+  a.submit button:active {
+    background: #05b;
+    box-shadow: inset -2px -1px 10px 3px rgba(235, 235, 235, 0.5), -1px -1px 3px 1px rgba(0, 0, 0, 0.2); }
 
-.endsubmit {
-  float: right; }
+.endsubmit-wrapper {
+  margin: 0 auto;
+  width: 200px; }
 
+@media only screen and (min-width: 768px) {
+  .endsubmit-wrapper {
+    float: right;
+    margin-right: 0; } }
 #regionalDefaults {
   background: #ff2f00;
   color: #fff; }
   #regionalDefaults:hover {
     background: #dd2000; }
+  #regionalDefaults:active {
+    box-shadow: inset -2px -1px 10px 3px rgba(235, 235, 235, 0.5), -1px -1px 3px 1px rgba(0, 0, 0, 0.2); }
 
 .swipebox-inline-container .hide-on-print {
   visibility: hidden; }
@@ -794,9 +824,11 @@ a.submit {
     margin: .5em auto;
     text-align: center; }
 
-  .param-table .param-row.regionalDefaultSelector,
-  .param-table .param-row.subselect {
-    top: 0; } }
+  .param-table .param-row.regionalDefaultSelector:hover {
+    border-top: 1px solid #ccc;
+    top: 0; }
+  .param-table .param-row.subselect:hover {
+    position: relative; } }
 @media only screen and (min-width: 421px) {
   .only-portrait-phone {
     display: none; } }

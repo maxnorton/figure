@@ -583,6 +583,10 @@ table.form {
 	z-index: -9;
 }
 
+.paramGroupShadow {
+	line-height: 1em;
+}
+
 .paramGroup,
 .variableGroup {
 	background-color: #666;
@@ -595,6 +599,13 @@ table.form {
 	position: absolute;
 	right: 0;
 }
+
+.paramGroup {
+	top: 0;
+	bottom: 0;
+	padding: 1em .5em;
+}
+
 table.form {
 	border: 0 none;
 	cursor: pointer;
@@ -924,6 +935,11 @@ label[for=actualRegion] {
 
 		/* Portrait smartphones and down ----- */
 		@media only screen and (max-width : 430px) {
+			select#actualRegion {
+				display: block;
+				margin: 1em auto;
+				width: 50%;
+			}
 			.param-table {
 				.param-label,
 				.param-input {
@@ -936,16 +952,29 @@ label[for=actualRegion] {
 					margin: 1em auto;
 					padding: 0.5em;
 					text-align: center;
-					width: 100%;
+					x-width: 100%;
 
 					&:focus {
 						outline: 0;
 					}
 				}
 
+				#regionalDefaults {
+					margin: 1.5em auto;
+				}
+
 				.param-deadcell .glossary-inline {
 					padding-left: 0;
 				} 
+
+				.param-row {
+					position: relative;
+				}
+
+				.param-table .param-row.subselect,
+				.param-table .param-row.regionalDefaultSelector:hover {
+					top: 0;
+				}
 			}
 		}
 
@@ -993,10 +1022,22 @@ a.submit {
 	button:hover {
 		background: #05b;
 	}
+	button:active {
+		background: #05b;
+		box-shadow: inset -2px -1px 10px 3px rgba(235,235,235,.5), -1px -1px 3px 1px rgba(0,0,0,.2);	
+	}
 }
 
-.endsubmit {
-	float: right;
+.endsubmit-wrapper {
+	margin: 0 auto;
+	width: 200px;
+}
+
+@media only screen and (min-width : 768px) {
+	.endsubmit-wrapper {
+		float: right;
+		margin-right: 0;
+	}
 }
 
 #regionalDefaults {
@@ -1005,6 +1046,10 @@ a.submit {
 
 	&:hover {
 		background: #dd2000;
+	}
+
+	&:active {
+		box-shadow: inset -2px -1px 10px 3px rgba(235,235,235,.5), -1px -1px 3px 1px rgba(0,0,0,.2);	
 	}
 }
 
@@ -1035,9 +1080,12 @@ a.submit {
 		text-align: center;
 	}
 	.param-table {
-		.param-row.regionalDefaultSelector,
-		.param-row.subselect {
+		.param-row.regionalDefaultSelector:hover {
+			border-top: 1px solid #ccc;		
 			top: 0;
+		}
+		.param-row.subselect:hover {
+			position: relative;
 		}
 	}
 }

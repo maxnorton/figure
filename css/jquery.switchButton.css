@@ -57,3 +57,9 @@
     padding-left: 40px;
     text-align: center;
 }
+
+@media only screen and (max-width : 768px) {
+    .switch-wrapper {
+        padding-left: 0;
+    }
+}
