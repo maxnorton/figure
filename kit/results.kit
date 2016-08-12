@@ -40,6 +40,21 @@
 			the_table(theTableInputObject);
 		}
 
+		var resizeTimer;
+		$(window).resize(function() {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function() {
+				console.log('resize');
+				if (storage.isSet('the-figure-parameters')) {
+					var theFigureParameters = storage.get('the-figure-parameters');
+					$('.figure-area').html('');
+					the_figure(theFigureParameters[0], theFigureParameters[1], theFigureParameters[2], theFigureParameters[3], theFigureParameters[4]);
+					styleGlossaryLinks();
+					mobileSubstitutions();
+				}
+			}, 250);
+		});
+
 		styleGlossaryLinks();
 		mobileSubstitutions();
 		$( '.swipebox' ).swipebox();

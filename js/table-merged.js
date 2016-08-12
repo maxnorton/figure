@@ -1,27 +1,46 @@
+function regionSwitch(region, returnType) {
+	var regionIndex,
+		regionFriendly;
+
+	switch (region) {
+		case 'napa':
+				regionFriendly = 'Napa';
+				regionIndex = 0;
+				break;
+		case 'nsj':
+			regionFriendly = 'Northern San Joaquin';
+			regionIndex = 1;
+			break;
+		case 'cc':
+			regionFriendly = 'Central Coast';
+			regionIndex = 2;
+			break;
+		case 'lake':
+			regionFriendly = 'Lake';
+			regionIndex = 3;
+			break;
+		case 'sonoma':
+			regionFriendly = 'Sonoma';
+			regionIndex = 4;
+			break;
+		case 'custom':
+			regionFriendly = 'Custom';
+			regionIndex = 1;
+			break;
+	}
+
+	if (returnType==='friendly') {
+		return regionFriendly;
+	} else if (returnType==='index') {
+		return regionIndex;
+	}
+}
+
 function the_table(inputObject) {
 	var missingVals = [];
 
 	d3.tsv("regional-assumptions.tsv", function(assumptions) {
-		var regionIndex;
-		switch (inputObject.region) {
-			case 'napa':
-				regionIndex = 0;
-				break;
-			case 'nsj':
-				regionIndex = 1;
-				break;
-			case 'cc':
-				regionIndex = 2;
-				break;
-			case 'lake':
-				regionIndex = 3;
-				break;
-			case 'sonoma':
-				regionIndex = 4;
-				break;
-			case 'custom':
-				regionIndex = 1;
-		}
+		var regionIndex = regionSwitch(inputObject.region, 'index');
 
 		if (inputObject.price==='') {
 			inputObject.price = assumptions[regionIndex]['price'];
@@ -287,26 +306,9 @@ function the_table(inputObject) {
 
 	 		var missingValsAlert = '';
 	 		if (missingVals.length > 0) {
-	 			var regionName;
-		 		switch (inputObject.region) {
-					case 'napa':
-						regionName = 'Napa';
-						break;
-					case 'nsj':
-						regionName = 'Northern San Joaquin';
-						break;
-					case 'cc':
-						regionName = 'Central Coast';
-						break;
-					case 'lake':
-						regionName = 'Lake';
-						break;
-					case 'sonoma':
-						regionName = 'Sonoma';
-						break;
-					case 'custom':
-						regionName = 'Northern San Joaquin';
-				}
+	 			var regionName = regionSwitch(inputObject.region, 'friendly');
+	 			if (regionName = 'Custom')
+	 				regionName = 'Northern San Joaquin';
 	 			missingValsAlert = '<p class="alert">No values specified for: ';
 	 			for (i=0; i<missingVals.length; i++) {
 	 				var missingValFriendlyName;
@@ -542,10 +544,14 @@ function the_table(inputObject) {
 
 			var moreParameters = {
 				'pc' : inputObject.pc,
-				'region' : inputObject.region
+				'region' : inputObject.region,
+				'friendlyRegion' : regionSwitch(inputObject.region, 'friendly')
 			}
 
-			the_figure(whichYears, moreParameters, inputObject.figuredisplay, scenarioYieldObject, scenarioCDNRObject);
+			var storage = $.localStorage,
+				theFigureParameters = [whichYears, moreParameters, inputObject.figuredisplay, scenarioYieldObject, scenarioCDNRObject];
+			storage.set('the-figure-parameters', theFigureParameters);
+			the_figure(theFigureParameters[0], theFigureParameters[1], theFigureParameters[2], theFigureParameters[3], theFigureParameters[4]);
 
 			$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 

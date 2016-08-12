@@ -54,8 +54,8 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 				figureSubhead += ' Preventative Practice Adoption';
 			}
 
-			if (moreParameters.region !== 'custom')
-				figureSubhead += ', ' + moreParameters.region + ' Region';
+			if (moreParameters.friendlyRegion !== 'Custom')
+				figureSubhead += ', ' + moreParameters.friendlyRegion + ' Region';
 
 				 
 			
