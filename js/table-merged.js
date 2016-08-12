@@ -1,46 +1,8 @@
-function regionSwitch(region, returnType) {
-	var regionIndex,
-		regionFriendly;
-
-	switch (region) {
-		case 'napa':
-				regionFriendly = 'Napa';
-				regionIndex = 0;
-				break;
-		case 'nsj':
-			regionFriendly = 'Northern San Joaquin';
-			regionIndex = 1;
-			break;
-		case 'cc':
-			regionFriendly = 'Central Coast';
-			regionIndex = 2;
-			break;
-		case 'lake':
-			regionFriendly = 'Lake';
-			regionIndex = 3;
-			break;
-		case 'sonoma':
-			regionFriendly = 'Sonoma';
-			regionIndex = 4;
-			break;
-		case 'custom':
-			regionFriendly = 'Custom';
-			regionIndex = 1;
-			break;
-	}
-
-	if (returnType==='friendly') {
-		return regionFriendly;
-	} else if (returnType==='index') {
-		return regionIndex;
-	}
-}
-
 function the_table(inputObject) {
 	var missingVals = [];
 
 	d3.tsv("regional-assumptions.tsv", function(assumptions) {
-		var regionIndex = regionSwitch(inputObject.region, 'index');
+		var regionIndex = regionSwitch(inputObject.regionAssumed, 'index');
 
 		if (inputObject.price==='') {
 			inputObject.price = assumptions[regionIndex]['price'];
@@ -306,8 +268,8 @@ function the_table(inputObject) {
 
 	 		var missingValsAlert = '';
 	 		if (missingVals.length > 0) {
-	 			var regionName = regionSwitch(inputObject.region, 'friendly');
-	 			if (regionName = 'Custom')
+	 			var regionName = regionSwitch(inputObject.regionAssumed, 'friendly');
+	 			if (regionName === 'Custom')
 	 				regionName = 'Northern San Joaquin';
 	 			missingValsAlert = '<p class="alert">No values specified for: ';
 	 			for (i=0; i<missingVals.length; i++) {
@@ -518,7 +480,7 @@ function the_table(inputObject) {
 				------------------------------------ */
 
 				var assumptionsHeaders = ['Region', 'Price per ton ($)', 'Discount Rate', 'Additional Annual Cost per acre from Preventative Practice', 'Annual Cultural Cost per acre &#8211; Year 0 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 1 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 2 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 3+ Established Vineyard', 'Annual yield per acre (Tons) &#8211; Year 0', 'Annual yield per acre (Tons) &#8211; Year 1', 'Annual yield per acre (Tons) &#8211; Year 2', 'Annual yield per acre (Tons) &#8211; Year 3', 'Annual yield per acre (Tons) &#8211; Year 4', 'Annual yield per acre (Tons) &#8211; Year 5+'];
-	            var assumptionsContent = [regionName, inputObject.price, inputObject.discount + '%', inputObject.pc, inputObject.cost0, inputObject.cost1, inputObject.cost2, inputObject.cost3, inputObject.yield0, inputObject.yield1, inputObject.yield2, inputObject.yield3, inputObject.yield4, inputObject.yield5];
+	            var assumptionsContent = [regionSwitch(inputObject.regionBasis, 'friendly'), inputObject.price, inputObject.discount + '%', inputObject.pc, inputObject.cost0, inputObject.cost1, inputObject.cost2, inputObject.cost3, inputObject.yield0, inputObject.yield1, inputObject.yield2, inputObject.yield3, inputObject.yield4, inputObject.yield5];
 	            var assumptionstable = '<section class="assumptions-wrap"><h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
 	            for (var i=0; i<assumptionsHeaders.length; i++) {
 	                    assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + assumptionsContent[i] + '</td></tr>';
@@ -544,8 +506,7 @@ function the_table(inputObject) {
 
 			var moreParameters = {
 				'pc' : inputObject.pc,
-				'region' : inputObject.region,
-				'friendlyRegion' : regionSwitch(inputObject.region, 'friendly')
+				'friendlyRegion' : regionSwitch(inputObject.regionBasis, 'friendly')
 			}
 
 			var storage = $.localStorage,

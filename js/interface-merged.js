@@ -197,63 +197,63 @@ function setPracticeSelect(region, pc) {
 
 function checkRegionDisplay(region, discount, cost0, cost1, cost2, cost3, pc, price, yield0, yield1, yield2, yield3, yield4, yield5) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
-		var regionKey = -1;
+		var regionKey = 'custom';
 		for (var regionIndex = 0; regionIndex<5; regionIndex++) {
 			if (discount==data[regionIndex]['discount'] && cost0==data[regionIndex]['cost0'] && cost1==data[regionIndex]['cost1'] && cost2==data[regionIndex]['cost2'] && cost3==data[regionIndex]['cost3'] && (pc==data[regionIndex]['pchp'] || pc==data[regionIndex]['pcdbp'] || pc==0 ) && price==data[regionIndex]['price'] && yield0==data[regionIndex]['yield0'] && yield1==data[regionIndex]['yield1'] && yield2==data[regionIndex]['yield2'] && yield3==data[regionIndex]['yield3'] && yield4==data[regionIndex]['yield4'] && yield5==data[regionIndex]['yield5']) {
-				regionKey = regionIndex;
+				regionKey = data[regionIndex]['region'];
 			}
 		}
-		var regionLabel;
 		setRegionDisplay(regionKey);
 	});
 } 
 
-function setRegionDisplay(regionKey) {
-	var regionLabel;
-	switch (regionKey) {
-		case -1:
-			regionLabel = 'custom values.';
+function regionSwitch(region, returnType) {
+	var regionIndex,
+		regionFriendly;
+
+	switch (region) {
+		case 'napa':
+				regionFriendly = 'Napa';
+				regionIndex = 0;
+				break;
+		case 'nsj':
+			regionFriendly = 'Northern San Joaquin';
+			regionIndex = 1;
 			break;
-		case 0:
-			regionLabel = '<span class="regionName">Napa</span> default values.';
+		case 'cc':
+			regionFriendly = 'Central Coast';
+			regionIndex = 2;
 			break;
-		case 1:
-			regionLabel = '<span class="regionName">Northern San Joaquin</span> default values.';
+		case 'lake':
+			regionFriendly = 'Lake';
+			regionIndex = 3;
 			break;
-		case 2:
-			regionLabel = '<span class="regionName">Central Coast</span> default values.';
+		case 'sonoma':
+			regionFriendly = 'Sonoma';
+			regionIndex = 4;
 			break;
-		case 3:
-			regionLabel = '<span class="regionName">Lake</span> default values.';
-			break;
-		case 4:
-			regionLabel = '<span class="regionName">Sonoma</span> default values.';
+		case 'custom':
+			regionFriendly = 'Custom';
+			regionIndex = 1;
 			break;
 	}
-	$('.currentRegion').html(regionLabel);
+
+	if (returnType==='friendly') {
+		return regionFriendly;
+	} else if (returnType==='index') {
+		return regionIndex;
+	}
+}
+
+function setRegionDisplay(regionKey) {
+	var regionLabel = (regionKey==='custom') ? 'custom values.' : '<span class="regionName">' + regionSwitch(regionKey, 'friendly') + '</span> default values.';
+	$('.currentRegion').html(regionLabel + '<input type="hidden" id="region-basis" name="region-basis" value="' + regionKey + '">');
 }
 
 function setRegionalDefaults(region) {
 	d3.tsv("regional-assumptions.tsv", function(data) {
-		var regionIndex;
-		var defaultPractice = $('select[name=practice]').val();
-		switch (region) {
-			case 'napa':
-				regionIndex = 0;
-				break;
-			case 'nsj':
-				regionIndex = 1;
-				break;
-			case 'cc':
-				regionIndex = 2;
-				break;
-			case 'lake':
-				regionIndex = 3;
-				break;
-			case 'sonoma':
-				regionIndex = 4;
-				break;
-		}
+		var defaultPractice = $('select[name=practice]').val(),
+			regionIndex = regionSwitch(region, 'index');
 		$('input[name=price]').val(data[regionIndex]['price']);
 		$('input[name=discount]').val(data[regionIndex]['discount']);
 		$('input[name=cost0]').val(data[regionIndex]['cost0']);
@@ -271,7 +271,7 @@ function setRegionalDefaults(region) {
 			$('input[name=pc]').val(data[regionIndex]['pc' + defaultPractice]);
 		}
 
-		setRegionDisplay(regionIndex);
+		setRegionDisplay(region);
 
 	});
 }

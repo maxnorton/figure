@@ -61,8 +61,8 @@
 	<div class="param-table form" id="form">
 		<div class="param-row regionalDefaultSelector">
 			<div class="param-deadcell">
-				<label for="region">Displaying <span class="currentRegion"><span class="regionName">Northern San Joaquin</span> default values.</span><br />
-				<em>For missing values, perform calculations with </em><select name="region">
+				<label for="region">Displaying <span class="currentRegion"><span class="regionName">Northern San Joaquin</span> default values.</span><input type="hidden" id="region-basis" name="region-basis" value="nsj"><br />
+				<em>For missing values, perform calculations with </em><select name="region" id="region">
 					<option value="nsj">Northern San Joaquin</option>
 					<option value="napa">Napa</option>
 					<option value="lake">Lake</option>
@@ -241,13 +241,18 @@
 		
 		var storage = $.localStorage;
 
+		$('select#region').change(function() {
+			console.log($(this).val());
+		})
+
 		$('#submit').click(function() {
 			var theTableInputObject = { 
 				'figuredisplay' : $('input[name=figuredisplay]:checked').val(),
 				'year3' : $('input[value="Year3"]').is(':checked'),
 				'year5' : $('input[value="Year5"]').is(':checked'),
 				'year10' : $('input[value="Year10"]').is(':checked'),
-				'region' : $('select[name=region]').val(),
+				'regionAssumed' : $('select#region').val(),
+				'regionBasis' : $('input#region-basis').val(),
 				'discount' : $('input#discount').val(),
 				'cost0' : $('input#cost0').val(),
 				'cost1' : $('input#cost1').val(),
@@ -266,19 +271,19 @@
 		});
 
 		$('#regionalDefaults').click(function() {
-			setRegionalDefaults( $('select[name=region]').val() );
+			setRegionalDefaults( $('select#region').val() );
 		});
 		$('select[name=practice]').change(function() {
-			setPracticeCost( $('select[name=region]').val(), $(this).val() );
+			setPracticeCost( $('select#region').val(), $(this).val() );
 			if ($(this).val()==='custom')
 				$('input[name=pc]').focus();
 		});
 		$('input[name=pc]').change(function() {
-			setPracticeSelect( $('select[name=region]').val(), $(this).val() );
+			setPracticeSelect( $('select#region').val(), $(this).val() );
 		});
 
 		$('#form input[type=text]').change(function() {
-			checkRegionDisplay(	$('select[name=region]').val(),
+			checkRegionDisplay(	$('select#region').val(),
 				$('input#discount').val(),
 				$('input#cost0').val(),
 				$('input#cost1').val(),
