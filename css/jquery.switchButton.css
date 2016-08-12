@@ -1,0 +1,59 @@
+.switch-button-label {
+    display: inline-block;
+    cursor: pointer;
+    width: 30%;
+    font-family: sans-serif;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.switch-button-label:nth-of-type(1) {
+    padding-right: 1.5em;
+}
+.switch-button-label:nth-of-type(2) {
+    text-align: right;
+    padding-left: 1.5em;
+}
+
+.switch-button-label.off {
+    color: #666;
+}
+
+.switch-button-label.on {
+    color: #08c;
+}
+
+.switch-button-background {
+    display: inline-block;
+    position: relative;
+
+    background: #ccc;
+    border: 1px solid #aaa;
+
+    margin: 1px 10px;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.switch-button-button {
+    position: absolute;
+
+    left: -1px;
+    top : -1px;
+
+    background: #FAFAFA;
+    border: 1px solid #aaa;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.switch-wrapper {
+    padding-left: 40px;
+    text-align: center;
+}

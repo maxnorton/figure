@@ -161,6 +161,30 @@ h1.title a {
 	padding-top: 1em;
 }
 
+.mission-samples {
+	text-align: center;
+
+	img:first-of-type {
+		padding: 0 15px 0 0;
+	}
+}
+
+.mission-statement {
+	font-family: sans-serif;
+	font-weight: bold;
+	margin: 1em auto;
+	width: 85%;
+}
+
+.mission-rule {
+	border-top: 1px solid #ccc;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+	width: 320px;
+	margin: 1em auto;
+}
+
 #swipebox-slider .slide {
 	.figSubhead,
 	.figTitle {
@@ -269,7 +293,7 @@ header {
 
 .content-wrap {
 	padding-top: 80px;
-	margin: 0 8px;
+	margin: 0 auto;
 	max-width: 910px;
 }
 
@@ -303,6 +327,11 @@ fieldset, .results {
 		max-width: 100%;
 	}
 
+}
+
+.merged fieldset,
+.mergedresults fieldset {
+	border: 0 none;
 }
 
 .mergedresults .results {
@@ -346,6 +375,15 @@ fieldset ul {
 
 /* SECONDARY LAYOUT
 ------------------------------ */
+
+.sectionBanner {
+	padding: .5em;
+	width: 100%;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	background-color: darkorchid;
+}
 
 /* Sidebar ---------- */
 .sidebar {
@@ -596,6 +634,12 @@ label {
 
 label[for=efficacyOrYearfig] {
 	color: #000000;
+}
+
+label[for=actualRegion] {
+	display: inline-block;
+	font-weight: bold;
+	padding-right: 1em;
 }
 
 .selectlist {
