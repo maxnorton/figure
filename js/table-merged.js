@@ -119,7 +119,7 @@ function the_table(inputObject) {
 					'75y10' : 0			
 				},
 				scenarios = {
-					'healthy' : 'Healthy<br /><em>Purely hypothetical scenario. All California vineyards eventually become infected.</em>',
+					'healthy' : 'Healthy<br /><em>Hypothetical scenario, as all California vineyards are highly susceptible to infection.</em>',
 					'untreated' : 'Expected effects of typical infection',
 					'25y3' : 'Adopted year 3',
 					'25y5' : 'Adopted year 5',
