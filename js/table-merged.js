@@ -119,17 +119,17 @@ function the_table(inputObject) {
 					'75y10' : 0			
 				},
 				scenarios = {
-					'healthy' : 'Healthy, untreated',
-					'untreated' : 'Infected, untreated',
-					'25y3' : '25% DCE treatment adopted year 3',
-					'25y5' : '25% DCE treatment adopted year 5',
-					'25y10' : '25% DCE treatment adopted year 10',
-					'50y3' : '50% DCE treatment adopted year 3',
-					'50y5' : '50% DCE treatment adopted year 5',
-					'50y10' : '50% DCE treatment adopted year 10',
-					'75y3' : '75% DCE treatment adopted year 3',
-					'75y5' : '75% DCE treatment adopted year 5',
-					'75y10' : '75% DCE treatment adopted year 10'
+					'healthy' : 'Healthy<br /><em>Purely hypothetical scenario. All California vineyards eventually become infected.</em>',
+					'untreated' : 'Expected effects of typical infection',
+					'25y3' : 'Adopted year 3',
+					'25y5' : 'Adopted year 5',
+					'25y10' : 'Adopted year 10',
+					'50y3' : 'Adopted year 3',
+					'50y5' : 'Adopted year 5',
+					'50y10' : 'Adopted year 10',
+					'75y3' : 'Adopted year 3',
+					'75y5' : 'Adopted year 5',
+					'75y10' : 'Adopted year 10'
 				},
 				scenarioKeys = Object.keys(scenarios);
 
@@ -229,12 +229,12 @@ function the_table(inputObject) {
 	 				healthyLPY = i;
 	 			}
 	 		}
-	 		var healthyACDNBnaDisplay = healthyCDNRna[25] - untreatedCDNR[25];
-	 		if (healthyACDNBnaDisplay < 0) {
+	 		var healthyACDNBnaDisplay = currencyFormat(parseFloat(healthyCDNRna[25] - untreatedCDNR[25]).toFixed(2));
+	 		/*if (healthyACDNBnaDisplay < 0) {
 	 			healthyACDNBnaDisplay = '-$' + parseFloat(-1*healthyACDNBnaDisplay).toFixed(2);
 	 		} else {
 	 			healthyACDNBnaDisplay = '$' + parseFloat(healthyACDNBnaDisplay).toFixed(2);
-	 		}
+	 		}*/
 
 	 		var healthyBEAnaDisplay = -1;
 	 		for (i in healthyCDNRna) {
@@ -272,50 +272,8 @@ function the_table(inputObject) {
 	 			if (regionName === 'Custom')
 	 				regionName = 'Northern San Joaquin';
 	 			missingValsAlert = '<p class="alert">No values specified for: ';
-	 			for (i=0; i<missingVals.length; i++) {
-	 				var missingValFriendlyName;
-	 				switch (missingVals[i]) {
-	 					case 'price':
-	 						missingValFriendlyName = 'price per ton';
-	 						break;
-	 					case 'discount':
-	 						missingValFriendlyName = 'discount rate';
-	 						break;
-	 					case 'pc':
-	 						missingValFriendlyName = 'preventative practice cost';
-	 						break;
-	 					case 'cost0':
-	 						missingValFriendlyName = 'year 0 cultural cost';
-	 						break;
-	 					case 'cost1':
-	 						missingValFriendlyName = 'year 1 cultural cost';
-	 						break;
-	 					case 'cost2':
-	 						missingValFriendlyName = 'year 2 cultural cost';
-	 						break;
-	 					case 'cost3':
-	 						missingValFriendlyName = 'year 3 cultural cost';
-	 						break;
-	 					case 'yield0':
-	 						missingValFriendlyName = 'year 0 yield';
-	 						break;
-	 					case 'yield1':
-	 						missingValFriendlyName = 'year 1 yield';
-	 						break;
-	 					case 'yield2':
-	 						missingValFriendlyName = 'year 2 yield';
-	 						break;
-	 					case 'yield3':
-	 						missingValFriendlyName = 'year 3 yield';
-	 						break;
-	 					case 'yield4':
-	 						missingValFriendlyName = 'year 4 yield';
-	 						break;
-	 					case 'yield5':
-	 						missingValFriendlyName = 'year 5+ yield';
-	 						break;
-	 				}
-	 				missingValsAlert += missingValFriendlyName;
+	 			for (i=0; i<missingVals.length; i++) {	 				
+	 				missingValsAlert += valueSwitch(missingVals[i]);
 	 				if (i!==missingVals.length-1) {
 	 					missingValsAlert += ', ';
 	 				} else if (i===missingVals.length-1) {
@@ -326,11 +284,16 @@ function the_table(inputObject) {
 	 			missingValsAlertTag += '.</p><p class="alert hide-on-print">[Switch to the previous tab or <a href="#" class="close-tab">close this tab</a> to update these parameters and re-run your calculations.]</p>'
 	 			missingValsAlert += '</p><p class="alert">Calculations below have been performed using default values for the <strong>' + regionName + '</strong> region' + missingValsAlertTag;
 	 		}
-	 		var the_table_html = '<h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><table><thead><th><h4>Scenario</h4></th><th><h4>ACDNB</h4></th><th><h4>Age adoption pays off</h4></th><th><h4>Last profitable year</h4></th><th><h4>Infection probability threshold</h4></th></thead><tbody>';
+	 		var the_table_html = '<h2>Results</h2>' + missingValsAlert + '<section class="figure-area"></section><h3>Output table</h3><table class="outputTable"><thead><th>Scenario</th><th>ACDNB</th><th>Age adoption pays off</th><th>Last profitable year</th><th>Infection probability threshold</th></thead><tbody>';
+			the_table_html += '<tr><td colspan="5" class="untreated scenarioGroup">Untreated vineyard</td></tr>';
 			the_table_html += '<tr><td>' + scenarios.healthy + '</td><td>' + healthyACDNBnaDisplay + '</td><td>' + healthyBEAnaDisplay + '</td><td>' + healthyLPY + '</td><td>' + 0 + '</td></tr>';
 			the_table_html += '<tr><td>' + scenarios.untreated + '</td><td>' + '-' + '</td><td>' + '-' + '</td><td>' + untreatedLPY + '</td><td>' + 1 + '</td></tr>';
 
 	 		for (var a=2; a<scenarioKeys.length; a++) {
+
+	 			if (a===2 || a===5 || a===8) {
+	 				the_table_html += '<tr><td colspan="5" class="scenarioGroup dce' + scenarioKeys[a].substr(0,2) + '">Preventative management results in ' + scenarioKeys[a].substr(0,2) + '% disease control efficacy</td></tr>';
+	 			}
 
 	 			var selectCol = scenarioKeys[a];
 
@@ -466,11 +429,15 @@ function the_table(inputObject) {
 		 		bep[selectCol] = bep[selectCol].toFixed(3);
 
 		 		var acdnbDisplay = (acdnb[25] !== null ) ? acdnb[25].toFixed(2) : '-';
-		 		if (acdnbDisplay !== '-' && acdnbDisplay < 0) {
+		 		if (acdnbDisplay !== '-') {
+		 			acdnbDisplay = currencyFormat(acdnbDisplay);
+		 		}
+
+		 			/*&& acdnbDisplay < 0) {
 	 				acdnbDisplay = '-$' + parseFloat(-1*acdnbDisplay).toFixed(2);
 	 			} else if (acdnbDisplay !== '-') {
 	 				acdnbDisplay = '$' + parseFloat(acdnbDisplay).toFixed(2);
-	 			}
+	 			}*/
 
 				the_table_html += '<tr><td>' + scenarios[selectCol] + '</td><td>' + acdnbDisplay + '</td><td>' + bea[selectCol] + '</td><td>' + lpy[selectCol] + '</td><td>' + bep[selectCol] + '</td></tr>';
 
@@ -479,11 +446,41 @@ function the_table(inputObject) {
 		 	/***** Generate assumptions table
 				------------------------------------ */
 
-				var assumptionsHeaders = ['Region', 'Price per ton ($)', 'Discount Rate', 'Additional Annual Cost per acre from Preventative Practice', 'Annual Cultural Cost per acre &#8211; Year 0 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 1 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 2 &#8211; Establishing Vineyard', 'Annual Cultural Cost per acre &#8211; Year 3+ Established Vineyard', 'Annual yield per acre (Tons) &#8211; Year 0', 'Annual yield per acre (Tons) &#8211; Year 1', 'Annual yield per acre (Tons) &#8211; Year 2', 'Annual yield per acre (Tons) &#8211; Year 3', 'Annual yield per acre (Tons) &#8211; Year 4', 'Annual yield per acre (Tons) &#8211; Year 5+'];
-	            var assumptionsContent = [regionSwitch(inputObject.regionBasis, 'friendly'), inputObject.price, inputObject.discount + '%', inputObject.pc, inputObject.cost0, inputObject.cost1, inputObject.cost2, inputObject.cost3, inputObject.yield0, inputObject.yield1, inputObject.yield2, inputObject.yield3, inputObject.yield4, inputObject.yield5];
-	            var assumptionstable = '<section class="assumptions-wrap"><h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
+				var assumptionsHeaders = ['Price per ton', 'Discount rate', 'Additional annual cost per acre of preventative practice', 'Year 0: Establishing vineyard', 'Year 1: Establishing vineyard', 'Year 2: Establishing vineyard', 'Year 3+: Established vineyard', 'Year 0', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5+'];
+	            var assumptionsContent = [inputObject.price, inputObject.discount + '%', inputObject.pc, inputObject.cost0, inputObject.cost1, inputObject.cost2, inputObject.cost3, inputObject.yield0, inputObject.yield1, inputObject.yield2, inputObject.yield3, inputObject.yield4, inputObject.yield5];
+	            var assumptionstable = '<section class="assumptions-wrap"><h3>Parameter Values Used in Calculations</h3>';
+	            if (inputObject.regionBasis !== 'custom') {
+	            	assumptionstable += '<p class="parameterSetDescription">All parameters are set to ' + regionSwitch(inputObject.regionBasis, 'friendly') + ' regional default values in the present set of calculations.';
+	            } else if (missingVals.length === 0) {
+	            	assumptionstable += '<p class="parameterSetDescription">These values describe a custom scenario designed by the user of this tool.</p>';
+	            } else {
+	            	assumptionstable += '<p class="parameterSetDescription">These values describe a custom scenario, designed by the user of this tool, except where ' + regionSwitch(inputObject.regionAssumed, 'friendly') + ' regional defaults have been incorporated for unspecified values: ';
+	            	for(i=0; i<missingVals.length; i++) {
+	            		assumptionstable += valueSwitch(missingVals[i]);
+	            		if (missingVals.length>2 && i!==missingVals.length-1) {
+		 					assumptionstable += ', ';
+		 				}
+		 				if (i===missingVals.length-2) {
+		 					assumptionstable += ' and ';
+		 				}
+		 				if (i===missingVals.length-1) {
+		 					assumptionstable += '.</p>'
+		 				}
+	            	}
+	            	if (missingVals.indexOf('pc')!==-1) {
+	            		assumptionstable += '<p class="parameterSetDescription">The default preventative practice cost is zero, as with delayed pruning.</p>';
+	            	}
+				}
+	            assumptionstable += '<table class="assumptionstable">';
 	            for (var i=0; i<assumptionsHeaders.length; i++) {
-	                    assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + assumptionsContent[i] + '</td></tr>';
+	            		var friendlyAssumptionsContent = (i===0 || i===2 || i===3 || i===4 || i===5 || i===6) ? currencyFormat(assumptionsContent[i]) : assumptionsContent[i];
+	            		if (i===3) {
+	            			assumptionstable += '<tr><td colspan="2" class="variableGroup">Annual cultural cost per acre</td></tr>';
+	            		}
+	            		if (i===7) {
+	            			assumptionstable += '<tr><td colspan="2" class="variableGroup">Annual yield per acre in tons</td></tr>';
+	            		}
+	                    assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + friendlyAssumptionsContent + '</td></tr>';
 	            };
 	            assumptionstable += '</table></section>';
 

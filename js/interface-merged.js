@@ -16,6 +16,21 @@ function activateCloseTabLinks() {
 	})
 }
 
+function addThousandsComma(d) {
+	return d.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function currencyFormat(d) {
+	var currencyVal;
+	if (d>0) 
+		currencyVal = '$' + addThousandsComma(d);
+	else if (d<0)
+		currencyVal = '-$' + addThousandsComma(parseInt(-1*d));
+	else if (d==0)
+		currencyVal = '0';
+	return currencyVal;
+}
+
 function focusCustomParameters() {
 	$('.param-row').each(function() {
 		$(this).click(function() {
@@ -206,6 +221,52 @@ function checkRegionDisplay(region, discount, cost0, cost1, cost2, cost3, pc, pr
 		setRegionDisplay(regionKey);
 	});
 } 
+
+function valueSwitch(value) {
+	var valueFriendly;
+	switch (value) {
+		case 'price':
+			valueFriendly =  'price per ton';
+			break;
+		case 'discount':
+			valueFriendly =  'discount rate';
+			break;
+		case 'pc':
+			valueFriendly =  'preventative practice cost';
+			break;
+		case 'cost0':
+			valueFriendly =  'year 0 cultural cost';
+			break;
+		case 'cost1':
+			valueFriendly =  'year 1 cultural cost';
+			break;
+		case 'cost2':
+			valueFriendly =  'year 2 cultural cost';
+			break;
+		case 'cost3':
+			valueFriendly =  'year 3 cultural cost';
+			break;
+		case 'yield0':
+			valueFriendly =  'year 0 yield';
+			break;
+		case 'yield1':
+			valueFriendly =  'year 1 yield';
+			break;
+		case 'yield2':
+			valueFriendly =  'year 2 yield';
+			break;
+		case 'yield3':
+			valueFriendly =  'year 3 yield';
+			break;
+		case 'yield4':
+			valueFriendly =  'year 4 yield';
+			break;
+		case 'yield5':
+			valueFriendly =  'year 5+ yield';
+			break;
+	}
+	return valueFriendly;
+}
 
 function regionSwitch(region, returnType) {
 	var regionIndex,

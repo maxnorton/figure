@@ -376,26 +376,68 @@ table.form {
 		text-align: left;
 	}
 	th {
-		border-bottom: 1px solid #ccc;
-		background-color: #eee;
 	}
 }
 
 .results table {
 	border: 1px solid #ccc;
+	font-family: sans-serif;
 
-	td {
+	td,
+	th {
 		padding: .5em;
 	}
-	th:not(:first-of-type) h4 {
-		margin: auto;
-		width: 75%;
-	}
+	th {}
 	tr:nth-of-type(even) {
 		background-color: #eee;
 	}
 }
 
+.results .outputTable {
+	th {
+		vertical-align: bottom;
+	}
+	th:not(:first-of-type) {
+		width: 18%;
+	}
+	th:not(:first-of-type),
+	td:not(:first-of-type) {
+		border-left: 1px dashed #ccc;
+	}
+}
+
+.parameterSetDescription {
+	font-style: italic;
+}
+
+.scenarioGroup {
+	border-top: 1px solid #999;
+	color: white;
+	font-weight: bold;
+
+	&.untreated {
+		background-color: blue;
+	}
+
+	&.dce75 {
+		background-color: lightskyblue;
+	}
+
+	&.dce50 {
+		background-color: darkorchid;
+	}
+
+	&.dce25 {
+		background-color: yellowgreen;
+	}
+}
+
+.variableGroup {
+	background-color: #666;
+	border-top: 1px solid #999;
+	color: white;
+	font-weight: bold;
+}
 table.form {
 	border: 0 none;
 	cursor: pointer;
@@ -425,9 +467,9 @@ table.form {
 }
 
 .assumptionstable {
-	tr td:first-of-type {
-		font-weight: bold;
-		border-right: 1px solid #ccc;
+	tr td:not(:first-of-type) {
+		x-font-weight: bold;
+		border-left: 1px dashed #ccc;
 	}
 }
 

@@ -1,19 +1,4 @@
 
-function addThousandsComma(d) {
-	return d.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function currencyFormat(d) {
-	var currencyVal;
-	if (d>0) 
-		currencyVal = '$' + addThousandsComma(d);
-	else if (d<0)
-		currencyVal = '-$' + addThousandsComma(parseInt(-1*d));
-	else if (d==0)
-		currencyVal = '0';
-	return currencyVal;
-}
-
 function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObject, scenarioCDNRObject) {
 
 	var dependentVariable,
