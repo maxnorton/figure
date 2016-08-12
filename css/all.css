@@ -268,6 +268,65 @@ fieldset ul {
     min-width: 50% !important; } }
 /* SECONDARY LAYOUT
 ------------------------------ */
+.quick-submit {
+  x-float: right;
+  width: 60%;
+  text-align: center; }
+  .quick-submit a,
+  .quick-submit .orDivider {
+    display: inline-block;
+    x-padding: 1em; }
+  .quick-submit .orDivider {
+    width: 30%; }
+    .quick-submit .orDivider h5 {
+      font-style: italic; }
+
+.collapse-parameters .collapse-trigger a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer; }
+.collapse-parameters .collapse-trigger button {
+  background: #eee;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  width: 30%;
+  margin: 1em 2em;
+  width: 200px;
+  text-decoration: none;
+  outline: 0; }
+.collapse-parameters .collapse-trigger button:hover,
+.collapse-parameters .collapse-trigger button.active:hover {
+  background: #dfdfdf; }
+.collapse-parameters .collapse-trigger button:hover {
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2); }
+.collapse-parameters .collapse-trigger button.active {
+  background: #e9e9e9;
+  box-shadow: inset -2px -1px 10px 3px rgba(235, 235, 235, 0.5), -1px -1px 3px 1px rgba(0, 0, 0, 0.2);
+  outline: 0; }
+
+button {
+  background: #eee;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  outline: 0; }
+
+button:hover,
+button.active:hover {
+  background: #dfdfdf; }
+
+button:hover {
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2); }
+
+button.active {
+  background: #e9e9e9;
+  box-shadow: inset -2px -1px 10px 3px rgba(235, 235, 235, 0.5), -1px -1px 3px 1px rgba(0, 0, 0, 0.2);
+  outline: 0; }
+
 .sectionBanner {
   padding: .5em;
   width: 100%;
@@ -396,6 +455,7 @@ table.form {
   .scenarioGroup.dce25 {
     background-color: yellowgreen; }
 
+.paramGroupShadow,
 .scenarioGroupShadow,
 .variableGroupShadow {
   display: table-cell;
@@ -405,10 +465,12 @@ table.form {
   position: relative;
   z-index: -9; }
 
+.paramGroup,
 .variableGroup {
   background-color: #666;
   border-top: 1px solid #999;
   color: white;
+  font-family: sans-serif;
   font-weight: bold;
   left: 0;
   padding: .5em;
@@ -526,7 +588,8 @@ label[for=actualRegion] {
       background-color: #ccc; }
 
 .assumptions-table,
-.output-table {
+.output-table,
+.param-table {
   display: table;
   position: relative; }
 
@@ -633,7 +696,9 @@ label[for=actualRegion] {
       border-top: 0 none;
       position: static; }
     .param-table .param-row.regionalDefaultSelector .param-deadcell {
-      padding-left: 0; }
+      x-padding-left: 0; }
+      .param-table .param-row.regionalDefaultSelector .param-deadcell label {
+        line-height: 1em; }
   .param-table .param-row.focused,
   .param-table .param-row:hover {
     background-color: #eee; }
@@ -669,6 +734,10 @@ table.form .subselect > td {
   max-width: 420px;
   padding-left: 30px; }
 
+.subselect:first-of-type .param-label {
+  font-family: sans-serif;
+  padding-left: 0; }
+
 /* MISCELLANEOUS
 ------------------------------ */
 .disable-on-yield-alert {
@@ -681,26 +750,28 @@ table.form .subselect > td {
   background-color: #fff;
   x-padding-left: 1em; }
 
-a#submit {
+a.submit {
   text-decoration: none; }
-  a#submit button {
+  a.submit button {
     background: #06c;
-    border: 2px solid #ccc;
+    x-border: 2px solid #ccc;
     color: #fff;
-    cursor: pointer;
+    x-cursor: pointer;
     display: block;
-    margin: 1em auto;
+    margin: 1em 0;
     width: 200px;
     text-decoration: none; }
+  a.submit button:hover {
+    background: #05b; }
+
+.endsubmit {
+  float: right; }
 
 #regionalDefaults {
-  background: #d00;
-  border: 2px solid #ccc;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  margin: 1em auto;
-  width: 80%; }
+  background: #ff2f00;
+  color: #fff; }
+  #regionalDefaults:hover {
+    background: #dd2000; }
 
 .swipebox-inline-container .hide-on-print {
   visibility: hidden; }
@@ -709,3 +780,23 @@ a#submit {
 .merged input,
 .merged select {
   font-size: 16px; }
+
+.param-table {
+  x-display: none; }
+
+/* Smartphones (portrait) and down ----------- */
+@media only screen and (max-width: 421px) {
+  .not-portrait-phone {
+    display: none; }
+
+  .only-portrait-phone.quick-submit {
+    width: 200px;
+    margin: .5em auto;
+    text-align: center; }
+
+  .param-table .param-row.regionalDefaultSelector,
+  .param-table .param-row.subselect {
+    top: 0; } }
+@media only screen and (min-width: 421px) {
+  .only-portrait-phone {
+    display: none; } }

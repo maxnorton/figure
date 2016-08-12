@@ -276,177 +276,201 @@
 
 <p class="sectionBanner customize">Customize scenario paramaters</p>
 	<fieldset>
-		<h4>Customize parameter values:</h4>
+		<p>The scenario parameters are currently set to <span class="currentRegion"><span class="regionName">Northern San Joaquin</span> default values.</span><input type="hidden" id="region-basis" name="region-basis" value="nsj"> From here you can:</p>
 
-		<div class="param-table form" id="form">
-			<div class="param-row regionalDefaultSelector">
-				<div class="param-deadcell">
-					<label for="backupRegion">Displaying <span class="currentRegion"><span class="regionName">Northern San Joaquin</span> default values.</span><input type="hidden" id="region-basis" name="region-basis" value="nsj"><br />
-					<em>For missing values, perform calculations with </em><select name="backupRegion" id="backupRegion">
-						<option value="nsj">Northern San Joaquin</option>
-						<option value="napa">Napa</option>
-						<option value="lake">Lake</option>
-						<option value="sonoma">Sonoma</option>
-						<option value="cc">Central Coast</option>
-					</select><em> default values.</em><br />
-					<button id="regionalDefaults">Reset all values to this region's defaults</button></label>	
+			<div class="only-portrait-phone quick-submit"><!--div class="orDivider"><h5>or</h5></div--><a href="results.html" target="_blank" class="submit"><button>Run this scenario now with the current settings</button></a>
+				<p style="text-align: center;">or</p></div>
+
+			<div class="param-table form" id="form">
+				<div class="param-row subselect">
+					<div class="param-label"><strong>Customize the scenario:</strong><br />
+						Set prices and yields specific to your vineyard</div>
+					<div class="not-portrait-phone param-input quick-submit"><!--div class="orDivider"><h5>or</h5></div--><a href="results.html" target="_blank" class="submit"><button>Run this scenario now with the current settings</button></a></div>
 				</div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="price">Price per ton ($)</label></div>
-				<div class="param-input dollar"><input type="text" name="price" id="price" value="650" tabindex="1" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="discount">Discount rate (%)</label></div>
-				<div class="param-input percentage"><input type="text" name="discount" id="discount" value="3" tabindex="2" /></div>
-			</div>
-			<div class="param-row subselect discount">
-				<div class="param-deadcell"><div class="glossary-link glossary-link-inline-child"><a href="#" class="glossary-inline-link">Discount rate definition</a>
-					<p class="glossary-inline">The value of a payoff, or cost, expected on some given future date is diminished by the discount rate for each year intervening between the date of payoff and the present. To assume a discount rate of 0% would imply, unrealistically, total indifference between receiving a payoff now and at any other time; in the U.S. a more suitable assumption is 3%, a benchmark found in typical studies of government-financed projects. At this rate, the expectation of receiving $100 in one year has a value approximately equivalent to $97 today.</p>
-				</div></div>
-				<div class="param-deadcell"></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="pc">Additional annual cost per acre of preventative practice ($)</label></div>
-				<div class="param-input dollar"><input type="text" name="pc" id="pc" value="175" tabindex="3" /></div>
-			</div>
-			<div class="param-row subselect pc">
-				<div  class="param-deadcell">
-					<p><em>Using default annual cost per acre for</em> <select tabindex="14" id="practice" name="practice"><option value="dp">Delayed pruning (zero cost)</option><option value="hp">Hand-painted TopsinM</option><option value="dbp" selected="selected">Double pruning</option><option value="custom">Custom practice</option></select></p>
+				<div class="param-row">
+					<div class="paramGroupShadow">&nbsp;</div>
+					<div class="paramGroup baselines">Baseline settings</div>
 				</div>
-			</div>
-			<div class="param-row subselect pc preventative-slideout">
-				<div class="param-deadcell">
-					<div class="glossary-link glossary-link-inline-child">Preventative <a href="practice-definitions.html">practice definitions</a> and <a href="#" class="glossary-inline-link"> cost information</a><br /><section class="glossary-inline">
-
-					<p>The additional cost of delayed pruning is assumed to be zero as it does not cost more to shift when this practice is performed. The additional cost per acre for hand-painting TopsinM and double pruning are shown in the tables below. </p>
-
-					<table>
-					<colgroup>
-					<col style="text-align:left;"/>
-					<col style="text-align:center;"/>
-					</colgroup>
-
-					<thead>
-					<tr>
-						<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Handpainting TopsinM</strong></th>
-					</tr>
-					</thead>
-
-					<tbody>
-					<tr>
-						<td style="text-align:left;">Napa (4)</td>
-						<td style="text-align:center;">$71</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Northern San Joaquin (11)</td>
-						<td style="text-align:center;">$90</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Central Coast (8)</td>
-						<td style="text-align:center;">$117</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Lake (2)</td>
-						<td style="text-align:center;">$90</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Sonoma (3)</td>
-						<td style="text-align:center;">$74</td>
-					</tr>
-					</tbody>
-					</table>
-
-					<table>
-					<colgroup>
-					<col style="text-align:left;"/>
-					<col style="text-align:center;"/>
-					</colgroup>
-
-					<thead>
-					<tr>
-						<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Double Pruning</strong></th>
-					</tr>
-					</thead>
-
-					<tbody>
-					<tr>
-						<td style="text-align:left;">Napa (4)</td>
-						<td style="text-align:center;">$478</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Northern San Joaquin (11)</td>
-						<td style="text-align:center;">$243</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Central Coast (8)</td>
-						<td style="text-align:center;">$268</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Lake (2)</td>
-						<td style="text-align:center;">$279</td>
-					</tr>
-					<tr>
-						<td style="text-align:left;">Sonoma (3)</td>
-						<td style="text-align:center;">$335</td>
-					</tr>
-					</tbody>
-					</table>
-
-					</section></div>
-
-					<p class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></p>
-
+				<div class="param-row regionalDefaultSelector">
+					<div class="param-deadcell"><p>Values left blank in this table will be handled as follows:</p>
+						<label for="backupRegion"><em>For missing values, perform calculations with </em><select name="backupRegion" id="backupRegion">
+							<option value="nsj">Northern San Joaquin</option>
+							<option value="napa">Napa</option>
+							<option value="lake">Lake</option>
+							<option value="sonoma">Sonoma</option>
+							<option value="cc">Central Coast</option>
+						</select><em> default values.</em>
+						</label>
+					</div>
+					<div class="param-input"><button id="regionalDefaults">Reset all values to this region's defaults</button></div>
 				</div>
-				<div class="param-deadcell"></div>
+				<div class="param-row">
+					<div class="param-label"><label for="price">Price per ton ($)</label></div>
+					<div class="param-input dollar"><input type="text" name="price" id="price" value="650" tabindex="1" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="discount">Discount rate (%)</label></div>
+					<div class="param-input percentage"><input type="text" name="discount" id="discount" value="3" tabindex="2" /></div>
+				</div>
+				<div class="param-row subselect discount">
+					<div class="param-deadcell"><div class="glossary-link glossary-link-inline-child"><a href="#" class="glossary-inline-link">Discount rate definition</a>
+						<p class="glossary-inline">The value of a payoff, or cost, expected on some given future date is diminished by the discount rate for each year intervening between the date of payoff and the present. To assume a discount rate of 0% would imply, unrealistically, total indifference between receiving a payoff now and at any other time; in the U.S. a more suitable assumption is 3%, a benchmark found in typical studies of government-financed projects. At this rate, the expectation of receiving $100 in one year has a value approximately equivalent to $97 today.</p>
+					</div></div>
+					<div class="param-deadcell"></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="pc">Additional annual cost per acre of preventative practice ($)</label></div>
+					<div class="param-input dollar"><input type="text" name="pc" id="pc" value="175" tabindex="3" /></div>
+				</div>
+				<div class="param-row subselect pc">
+					<div  class="param-deadcell">
+						<p><em>Using default annual cost per acre for</em> <select tabindex="14" id="practice" name="practice"><option value="dp">Delayed pruning (zero cost)</option><option value="hp">Hand-painted TopsinM</option><option value="dbp" selected="selected">Double pruning</option><option value="custom">Custom practice</option></select></p>
+					</div>
+				</div>
+				<div class="param-row subselect pc preventative-slideout">
+					<div class="param-deadcell">
+						<div class="glossary-link glossary-link-inline-child">Preventative <a href="practice-definitions.html">practice definitions</a> and <a href="#" class="glossary-inline-link"> cost information</a><br /><section class="glossary-inline">
+
+						<p>The additional cost of delayed pruning is assumed to be zero as it does not cost more to shift when this practice is performed. The additional cost per acre for hand-painting TopsinM and double pruning are shown in the tables below. </p>
+
+						<table>
+						<colgroup>
+						<col style="text-align:left;"/>
+						<col style="text-align:center;"/>
+						</colgroup>
+
+						<thead>
+						<tr>
+							<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Handpainting TopsinM</strong></th>
+						</tr>
+						</thead>
+
+						<tbody>
+						<tr>
+							<td style="text-align:left;">Napa (4)</td>
+							<td style="text-align:center;">$71</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Northern San Joaquin (11)</td>
+							<td style="text-align:center;">$90</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Central Coast (8)</td>
+							<td style="text-align:center;">$117</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Lake (2)</td>
+							<td style="text-align:center;">$90</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Sonoma (3)</td>
+							<td style="text-align:center;">$74</td>
+						</tr>
+						</tbody>
+						</table>
+
+						<table>
+						<colgroup>
+						<col style="text-align:left;"/>
+						<col style="text-align:center;"/>
+						</colgroup>
+
+						<thead>
+						<tr>
+							<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Double Pruning</strong></th>
+						</tr>
+						</thead>
+
+						<tbody>
+						<tr>
+							<td style="text-align:left;">Napa (4)</td>
+							<td style="text-align:center;">$478</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Northern San Joaquin (11)</td>
+							<td style="text-align:center;">$243</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Central Coast (8)</td>
+							<td style="text-align:center;">$268</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Lake (2)</td>
+							<td style="text-align:center;">$279</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;">Sonoma (3)</td>
+							<td style="text-align:center;">$335</td>
+						</tr>
+						</tbody>
+						</table>
+
+						</section></div>
+
+						<p class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></p>
+
+					</div>
+					<div class="param-deadcell"></div>
+				</div>
+				<div class="param-row">
+					<div class="paramGroupShadow">&nbsp;</div>
+					<div class="paramGroup cultural">Annual cultural costs per acre ($)</div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="cost0">Year 0: Establishing Vineyard</label></div>
+					<div class="param-input dollar"><input type="text" name="cost0" id="cost0" value="12213" tabindex="4" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="cost1">Year 1: Establishing Vineyard</label></div>
+					<div class="param-input dollar"><input type="text" name="cost1" id="cost1" value="3370" tabindex="5" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="cost2">Year 2: Establishing Vineyard</label></div>
+					<div class="param-input dollar"><input type="text" name="cost2" id="cost2" value="1004" tabindex="6" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="cost3">Year 3+: Established Vineyard</label></div>
+					<div class="param-input dollar"><input type="text" name="cost3" id="cost3" value="3505" tabindex="7" /></div>
+				</div>
+				<div class="param-row">
+					<div class="paramGroupShadow">&nbsp;</div>
+					<div class="paramGroup cultural">Annual yield per acre (in tons)</div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="yield0">Year 0</label></div>
+					<div class="param-input tons"><input type="text" name="yield0" id="yield0" value="0" tabindex="8" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="yield1">Year 1</label></div>
+					<div class="param-input tons"><input type="text" name="yield1" id="yield1" value="0" tabindex="9" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="yield2">Year 2</label></div>
+					<div class="param-input tons"><input type="text" name="yield2" id="yield2" value="5" tabindex="10" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="yield3">Year 3</label></div>
+					<div class="param-input tons"><input type="text" name="yield3" id="yield3" value="10" tabindex="11" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="yield4">Year 4</label></div>
+					<div class="param-input tons"><input type="text" name="yield4" id="yield4" value="10" tabindex="12" /></div>
+				</div>
+				<div class="param-row">
+					<div class="param-label"><label for="yield5">Year 5+</label></div>
+					<div class="param-input tons"><input type="text" name="yield5" id="yield5" value="10" tabindex="13" /></div>
+				</div>
+
 			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></div>
-				<div class="param-input dollar"><input type="text" name="cost0" id="cost0" value="12213" tabindex="4" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="cost1">Annual cultural cost per acre &#8211; Year 1 &#8211; Establishing Vineyard ($)</label></div>
-				<div class="param-input dollar"><input type="text" name="cost1" id="cost1" value="3370" tabindex="5" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="cost2">Annual cultural cost per acre &#8211; Year 2 &#8211; Establishing Vineyard ($)</label></div>
-				<div class="param-input dollar"><input type="text" name="cost2" id="cost2" value="1004" tabindex="6" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="cost3">Annual cultural cost per acre &#8211; Year 3+ &#8211; Established Vineyard ($)</label></div>
-				<div class="param-input dollar"><input type="text" name="cost3" id="cost3" value="3505" tabindex="7" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="yield0">Annual yield per acre (Tons) &#8211; Year 0</label></div>
-				<div class="param-input tons"><input type="text" name="yield0" id="yield0" value="0" tabindex="8" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="yield1">Annual yield per acre (Tons) &#8211; Year 1</label></div>
-				<div class="param-input tons"><input type="text" name="yield1" id="yield1" value="0" tabindex="9" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="yield2">Annual yield per acre (Tons) &#8211; Year 2</label></div>
-				<div class="param-input tons"><input type="text" name="yield2" id="yield2" value="5" tabindex="10" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="yield3">Annual yield per acre (Tons) &#8211; Year 3</label></div>
-				<div class="param-input tons"><input type="text" name="yield3" id="yield3" value="10" tabindex="11" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="yield4">Annual yield per acre (Tons) &#8211; Year 4</label></div>
-				<div class="param-input tons"><input type="text" name="yield4" id="yield4" value="10" tabindex="12" /></div>
-			</div>
-			<div class="param-row">
-				<div class="param-label"><label for="yield5">Annual yield per acre (Tons) &#8211; Year 5+</label></div>
-				<div class="param-input tons"><input type="text" name="yield5" id="yield5" value="10" tabindex="13" /></div>
-			</div>
+
 		</div>
+
+		<p style="text-align: right;"><a href="results.html" target="_blank" class="submit endsubmit"><button>Display returns to this scenario</button></a></p>
+
 
 	</fieldset>
 
 </fieldset>
-
-<a href="results.html" target="_blank" id="submit"><button>Display returns to this scenario</button></a>
 
 </section>
 
@@ -471,29 +495,31 @@
 
 		var storage = $.localStorage;
 
-		$('#submit').click(function() {
-			var theTableInputObject = { 
-				'figuredisplay' : ( $('input#figuredisplay').is(':checked') ) ? 'netreturns' : 'yield',
-				'year3' : $('input[value="Year3"]').is(':checked'),
-				'year5' : $('input[value="Year5"]').is(':checked'),
-				'year10' : $('input[value="Year10"]').is(':checked'),
-				'regionAssumed' : $('select#backupRegion').val(),
-				'regionBasis' : $('input#region-basis').val(),
-				'discount' : $('input#discount').val(),
-				'cost0' : $('input#cost0').val(),
-				'cost1' : $('input#cost1').val(),
-				'cost2' : $('input#cost2').val(),
-				'cost3' : $('input#cost3').val(),
-				'pc' : $('input#pc').val(),
-				'price' : $('input#price').val(),
-				'yield0' : $('input#yield0').val(),
-				'yield1' : $('input#yield1').val(),
-				'yield2' : $('input#yield2').val(),
-				'yield3' : $('input#yield3').val(),
-				'yield4' : $('input#yield4').val(),
-				'yield5' : $('input#yield5').val()
-			}
-			storage.set('run-model', theTableInputObject);
+		$('.submit').each(function() {
+			$(this).click(function() {
+				var theTableInputObject = { 
+					'figuredisplay' : ( $('input#figuredisplay').is(':checked') ) ? 'netreturns' : 'yield',
+					'year3' : $('input[value="Year3"]').is(':checked'),
+					'year5' : $('input[value="Year5"]').is(':checked'),
+					'year10' : $('input[value="Year10"]').is(':checked'),
+					'regionAssumed' : $('select#backupRegion').val(),
+					'regionBasis' : $('input#region-basis').val(),
+					'discount' : $('input#discount').val(),
+					'cost0' : $('input#cost0').val(),
+					'cost1' : $('input#cost1').val(),
+					'cost2' : $('input#cost2').val(),
+					'cost3' : $('input#cost3').val(),
+					'pc' : $('input#pc').val(),
+					'price' : $('input#price').val(),
+					'yield0' : $('input#yield0').val(),
+					'yield1' : $('input#yield1').val(),
+					'yield2' : $('input#yield2').val(),
+					'yield3' : $('input#yield3').val(),
+					'yield4' : $('input#yield4').val(),
+					'yield5' : $('input#yield5').val()
+				}
+				storage.set('run-model', theTableInputObject);
+			});
 		});
 
 		$('#actualRegion').change(function() {
