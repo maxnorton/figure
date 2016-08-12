@@ -55,7 +55,6 @@
 		$(window).resize(function() {
 			clearTimeout(resizeTimer);
 			resizeTimer = setTimeout(function() {
-				console.log('resize');
 				if (storage.isSet('the-figure-parameters')) {
 					var theFigureParameters = storage.get('the-figure-parameters');
 					$('.figure-area').html('');

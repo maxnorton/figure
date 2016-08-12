@@ -86,7 +86,10 @@ function scrollToHash() {
 }
 
 function styleGlossaryLinks() {
-	$('.glossary-link').prepend('<i class="fa fa-question-circle"></i>');
+	$('.glossary-icon').each(function() {
+		$(this).empty();
+	})
+	$('.glossary-link').prepend('<span class="glossary-icon"><i class="fa fa-question-circle"></i></span>');
 	$('.glossary-link-inline-child').click( function(event) {
 		event.preventDefault();
 		$(this).stop().find('.glossary-inline').toggle('fast');
