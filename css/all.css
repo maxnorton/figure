@@ -40,7 +40,10 @@ h1.images img:nth-of-type(1) {
 /* Smartphones (landscape) and up ----------- */
 @media only screen and (min-width: 321px) {
   h1.images img:nth-of-type(1) {
-    display: inline; } }
+    display: inline; }
+
+  .landscape-alert {
+    display: none; } }
 /* Tablets (portrait and landscape) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   h1 {
@@ -256,23 +259,27 @@ fieldset ul {
     top: 150px;
     width: 350px; } }
 .results table,
-.assumptions-table
-.output-table
+.assumptions-table,
+.output-table,
 table.form {
   border-spacing: 0;
   margin-bottom: 10px; }
   .results table td,
   .results table .assumptions-td,
   .results table .output-td,
-  .assumptions-table
-  .output-table
+  .results table .output-th,
+  .assumptions-table td,
+  .assumptions-table .assumptions-td,
+  .assumptions-table .output-td,
+  .assumptions-table .output-th,
+  .output-table td,
+  .output-table .assumptions-td,
+  .output-table .output-td,
+  .output-table .output-th,
   table.form td,
-  .assumptions-table
-  .output-table
   table.form .assumptions-td,
-  .assumptions-table
-  .output-table
-  table.form .output-td {
+  table.form .output-td,
+  table.form .output-th {
     height: 1.5em;
     text-align: center; }
   .results table .assumptions-td:first-of-type,
@@ -280,20 +287,20 @@ table.form {
   .results table .output-th:first-of-type,
   .results table td:first-of-type,
   .results table th:first-of-type,
-  .assumptions-table
-  .output-table
+  .assumptions-table .assumptions-td:first-of-type,
+  .assumptions-table .output-td:first-of-type,
+  .assumptions-table .output-th:first-of-type,
+  .assumptions-table td:first-of-type,
+  .assumptions-table th:first-of-type,
+  .output-table .assumptions-td:first-of-type,
+  .output-table .output-td:first-of-type,
+  .output-table .output-th:first-of-type,
+  .output-table td:first-of-type,
+  .output-table th:first-of-type,
   table.form .assumptions-td:first-of-type,
-  .assumptions-table
-  .output-table
   table.form .output-td:first-of-type,
-  .assumptions-table
-  .output-table
   table.form .output-th:first-of-type,
-  .assumptions-table
-  .output-table
   table.form td:first-of-type,
-  .assumptions-table
-  .output-table
   table.form th:first-of-type {
     text-align: left; }
 

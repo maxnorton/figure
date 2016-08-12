@@ -48,11 +48,13 @@ h1.images img:nth-of-type(1) {
 	display: none;
 }
 
-
 /* Smartphones (landscape) and up ----------- */
 @media only screen and (min-width : 321px) {
 	h1.images img:nth-of-type(1) {
 		display: inline;
+	}
+	.landscape-alert {
+		display: none;
 	}
 }
 
@@ -363,15 +365,16 @@ fieldset ul {
 
 
 .results table,
-.assumptions-table
-.output-table
+.assumptions-table,
+.output-table,
 table.form {
 	border-spacing: 0;
 	margin-bottom: 10px;
 
 	td,
 	.assumptions-td,
-	.output-td {
+	.output-td ,
+	.output-th{
 		height: 1.5em;
 		text-align: center;
 	}
