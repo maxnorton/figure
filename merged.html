@@ -131,7 +131,6 @@
 <fieldset class="custom-instructions">
 <hr class="mission-rule" />
 
-<h2 id="introduction">Introduction</h2>
 
 <p>Grapevine trunk diseases (aka wood-canker diseases) are widespread throughout all of California’s grape-growing regions. This disease complex includes: Botryosphaeria dieback (aka Bot canker), Eutypa dieback, Phomopsis dieback, and Esca (aka Measles, Young vine decline, Petri disease). </p>
 
@@ -150,7 +149,7 @@ This research is part of a <a href="http://treeandvinetrunkdiseases.org">trunk d
 
 <p><em>Partial support for this site is provided through grants from the California Department of Agriculture’s Specialty Crop Block Grant program in partnership with <a href="http://sustainablewinegrowing.org">the California Sustainable Winegrowing Alliance</a> and the Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture. <a href="http://treeandvinetrunkdiseases.org">For more information on trunk disease research, please visit the SCRI Trunk Disease Project Page.</a></em></p>
 
-<h3 id="instructions">Instructions</h3>
+<h3 id="instructions">How to generate figures and tables</h3>
 
 <p>The <a href="custom-parameters.html">input form</a> below shows the settings for the price per ton for Cabernet Sauvignon grapes, the discount rate, annual additional cost of double pruning per acre, annual cultural cost per acre for selected vineyard ages, and yield per acre for a Northern San Joaquin vineyard. You may use these default values or select another region evaluated in our analysis, and where you vineyard may be is located or is closest in growing conditions to your vineyard. In addition, you can enter your own yield, price, cultural cost, and preventative practice cost information in the <a href="custom-parameters.html">input form</a> and hit submit to generate figures and tables based on your winegrape vineyards and our economic framework.</p>
 
@@ -168,7 +167,7 @@ This research is part of a <a href="http://treeandvinetrunkdiseases.org">trunk d
 <p class="sectionBanner basics">Vineyard basics</p>
 
 	<fieldset>
-		<label for="actualRegion">Select the region where your vineyard is located or is similar to your growing conditions: </label><select name="actualRegion" id="actualRegion">
+		<label for="actualRegion">Select the region where your vineyard is located or one that is similar to your growing conditions: </label><select name="actualRegion" id="actualRegion">
 			<option value="nsj">Northern San Joaquin</option>
 			<option value="napa">Napa</option>
 			<option value="lake">Lake</option>
@@ -191,10 +190,9 @@ This research is part of a <a href="http://treeandvinetrunkdiseases.org">trunk d
 		</section>
 	</fieldset>
 
-<p class="sectionBanner independentVar">What to visualize</p>
+<p class="sectionBanner independentVar">Select figures to display</p>
 	<fieldset>
-		<h4>[Alternative: Create time-series figures showing:] Display output as:</h4>
-		<!--ul>
+			<!--ul>
 			<li>
 				<label><input type="radio" name="figuredisplay" value="netreturns" checked />Cumulative discounted net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
 				<label><input type="radio" name="figuredisplay" value="yield" />Annual yield <span class="show-for-medium-up">(tons per acre)</span></label>
