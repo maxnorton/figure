@@ -11,13 +11,13 @@
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 <script src="js/jquery.swipebox.js"></script>
 <link rel="stylesheet" href="css/swipebox.css">
-<link rel="stylesheet" href="css/jquery.switchButton.css">
+<!--link rel="stylesheet" href="css/jquery.switchButton.css"-->
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="js/interface-merged.js" type="text/javascript"></script>
 <script src="js/table-merged.js" type="text/javascript"></script>
 <script src="js/figure-merged.js" type="text/javascript"></script>
 <script src="js/min/jquery.storageapi.min.js" type="text/javascript"></script>
-<script src="js/jquery.switchButton.js"></script>
+<!--script src="js/jquery.switchButton.js"></script-->
 </head>
 
 <body id="page" class="merged">
@@ -64,19 +64,24 @@
 
 <p class="sectionBanner independentVar">Select figures to display</p>
 	<fieldset>
-		<h4>[Alternative: Create time-series figures showing:] Display output as:</h4>
-		<!--ul>
+		<ul class="figuredisplay">
 			<li>
-				<label><input type="radio" name="figuredisplay" value="netreturns" checked />Cumulative discounted net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
-				<label><input type="radio" name="figuredisplay" value="yield" />Annual yield <span class="show-for-medium-up">(tons per acre)</span></label>
+				<input type="radio" name="figuredisplay" id="yield" value="yield" checked /><label for="yield">Yield (in tons per acre) over the vineyard's 25-year lifespan, at various disease control efficacy rates.</span></label>
 			</li>
-			<li class="glossary-link"><a href="variable-definitions.html">Variable definitions</a></li>
-			<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></li>
-		</ul-->
+			<li>
+				<input type="radio" name="figuredisplay" id="netreturns" value="netreturns" /><label for="netreturns">Cumulative discounted net returns (in thousands of dollars per acre) across each year of the vineyard's 25-year lifespan, at various disease control efficacy rates.</label>
+			</li>
+			<li class="glossary-link">
+				<a href="variable-definitions.html">Variable definitions</a>
+			</li>
+			<li class="glossary-link">
+				<a href="efficacy-information.html">Disease control efficacy rate information</a>
+			</li>
+		</ul>
 
-		<div class="switch-wrapper">
+		<!--div class="switch-wrapper">
 			<input type="checkbox" name="figuredisplay" id="figuredisplay" value="1" checked />
-		</div>
+		</div-->
 	</fieldset>
 
 <p class="sectionBanner customize">Customize scenario paramaters</p>
@@ -291,13 +296,13 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		$('input#figuredisplay').switchButton({
+		/*$('input#figuredisplay').switchButton({
 			on_label: 'Cumulative discounted net returns, in thousands of dollars per acre, across each year of the vineyard\'s lifetime',
 			off_label: 'Yields, in tons per acre, across each year of the vineyard\'s lifetime',
 			width: 70,
 			height: 20,
 			button_width: 40
-		});
+		});*/
 
 		var storage = $.localStorage;
 
@@ -309,7 +314,7 @@
 					return false;
 				} else {
 					var theTableInputObject = { 
-						'figuredisplay' : ( $('input#figuredisplay').is(':checked') ) ? 'netreturns' : 'yield',
+						'figuredisplay' : $('input[name=figuredisplay]:checked').val(),
 						'year3' : $('input[value="Year3"]').is(':checked'),
 						'year5' : $('input[value="Year5"]').is(':checked'),
 						'year10' : $('input[value="Year10"]').is(':checked'),

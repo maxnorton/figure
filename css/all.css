@@ -338,6 +338,8 @@ button.active {
 /* Sidebar ---------- */
 .sidebar {
   display: none; }
+  .sidebar .glossary-icon {
+    display: none; }
 
 @media only screen and (min-width: 1320px) {
   .sidebar {
@@ -576,6 +578,17 @@ label[for=actualRegion] {
   display: inline-block;
   font-weight: bold;
   padding-right: 1em; }
+
+.figuredisplay input, .figuredisplay label {
+  display: inline-block;
+  vertical-align: middle; }
+.figuredisplay input[type=radio] {
+  margin-left: 0; }
+.figuredisplay label {
+  padding-left: 2em;
+  width: 60%; }
+.figuredisplay li {
+  padding: .5em 0; }
 
 .selectlist {
   margin: 0;
