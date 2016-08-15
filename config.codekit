@@ -626,6 +626,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/figures\/legend.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 51948,
+		"inputAbbreviatedPath": "\/img\/figures\/legend.png",
+		"outputAbbreviatedPath": "\/img\/figures\/legend.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/figures\/NAPA-DBP25.png": {
 		"fileType": 32768,
 		"ignore": 0,

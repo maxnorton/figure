@@ -715,7 +715,7 @@ label[for=actualRegion] {
     position: relative;
     top: -2px; }
   .param-table .param-row.regionalDefaultSelector .param-deadcell {
-    line-height: 2em; }
+    x-line-height: 2em; }
   .param-table .param-row.subselect.discount .glossary-link {
     margin-bottom: 1em; }
 
