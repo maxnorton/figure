@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Trunk disease management options decision tool</title>
+<title>Trunk disease management tool</title>
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/all.css" />
@@ -20,7 +20,7 @@
 
 <header>
 	<div class="header-wrap">
-		<h1 class="title"><a href="index.html">Trunk disease management options decision tool</a></h1>
+		<h1 class="title"><a href="index.html">Trunk disease management tool</a></h1>
 		<h1 class="images">
 			<img src="img/header-photo-center.jpg" alt="Photo: Esca" />
 			<img src="img/header-photo-right.jpg" alt="Photo: Eutypa dieback" />
@@ -34,104 +34,29 @@
 <section class="content-wrap">
 
 <fieldset class="custom-instructions">
-<hr class="mission-rule" />
+<p>Grapevine trunk diseases (aka wood-canker diseases) are widespread throughout all of California’s grape-growing regions. This disease complex includes: Botryosphaeria dieback (aka Bot canker), Eutypa dieback, Phomopsis dieback, and Esca (aka Measles, Young vine decline, Petri disease). </p>
 
+<p>Every California vineyard is eventually infected by one predominant trunk disease or a combination. These diseases significantly reduce yields in mature vineyards by either killing fruiting positions (main impact of the dieback-type diseases) or decreasing vine vigor (main impact of Esca). These impacts accumulate each year, as there are no effective methods to eradicate the wood infections. As such, diseased vineyards must be replanted prematurely. If adopted in young vineyards, preventative practices can reduce these negative effects. </p>
+
+<p>On this site you will find useful figures and tables from an economic analysis of early adoption of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant) that will help you understand the potential costs and benefits from adopting trunk disease preventative practices in young winegrape vineyards. You will also be able to enter economic and yield data for your operation to see how trunk diseases and these preventative practices might affect your vineyard. </p>
+
+<!--hr class="mission-rule" />
 <p class="mission-statement">This decision support tool, especially designed for California growers, creates useful figures and tables that will help you understand the costs and benefits of using disease-prevention management practices in your winegrape vineyard.  
-</p>
+</p-->
 
 <p class="mission-samples"><img src="http://maxnorton.github.io/figure/img/sample-table.png" alt="Sample table" width="83" height="100" /><img src="http://maxnorton.github.io/figure/img/sample-fig-yield.png" alt="Sample figure" width="196" height="83" /></p>
 
 <hr class="mission-rule" />
 
-<h2 id="instructions">Instructions</h2>
+<p>This research is part of a <a href="http://treeandvinetrunkdiseases.org">trunk disease project</a> funded by a Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture grant. For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact <a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x6b;&#x61;&#112;&#x6c;&#x61;&#x6e;&#x6a;&#64;&#99;&#115;&#117;&#115;&#46;&#101;&#100;&#x75;">&#107;&#97;&#x70;&#x6c;&#x61;&#x6e;&#106;&#x40;&#x63;&#115;&#117;&#115;&#x2e;&#101;&#x64;&#x75;</a>. </p>
 
-<p>The input form below shows the settings for the price per ton for Cabernet Sauvignon grapes, the discount rate, annual additional cost of double pruning per acre, annual cultural cost per acre for selected vineyard ages, and yield per acre for a Northern San Joaquin vineyard, unless another region was selected above. As a reference, the additional cost of delayed pruning is assumed to be zero as it does not cost more to shift when this practice is performed. The additional cost per acre for hand-painting TopsinM and double pruning are shown in the tables below. </p>
+<p><em>Partial support for this site is provided through grants from the California Department of Agriculture’s Specialty Crop Block Grant program in partnership with <a href="http://sustainablewinegrowing.org">the California Sustainable Winegrowing Alliance</a> and the Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture. <a href="http://treeandvinetrunkdiseases.org">For more information on trunk disease research, please visit the SCRI Trunk Disease Project Page.</a></em> </p>
 
-<table>
-<colgroup>
-<col style="text-align:left;"/>
-<col style="text-align:center;"/>
-</colgroup>
+<h3 id="howtogeneratefiguresandtables">How to generate figures and tables</h3>
 
-<thead>
-<tr>
-	<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Handpainting TopsinM</strong></th>
-</tr>
-</thead>
+<p>The <a href="#figureparameters" onclick="$('body,html').stop(true,true).animate({scrollTop: $('#figureparameters').offset().top - $('header').height()}, '500', 'swing');">input form</a> below shows the settings for the price per ton for Cabernet Sauvignon grapes, the discount rate, annual additional cost of double pruning per acre, annual cultural cost per acre for selected vineyard ages, and yield per acre for a Northern San Joaquin vineyard. You may use these default values or select another region evaluated in our analysis, and where you vineyard may be is located or is closest in growing conditions to your vineyard. In addition, you can enter your own yield, price, cultural cost, and preventative practice cost information in the <a href="#figureparameters" onclick="$('body,html').stop(true,true).animate({scrollTop: $('#figureparameters').offset().top - $('header').height()}, '500', 'swing');">input form</a> and hit submit to generate figures and tables based on your winegrape vineyards and our economic framework.</p>
 
-<tbody>
-<tr>
-	<td style="text-align:left;" colspan="2"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">Napa (4)</td>
-	<td style="text-align:center;">$71</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Northern San Joaquin (11)</td>
-	<td style="text-align:center;">$90</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Central Coast (8)</td>
-	<td style="text-align:center;">$117</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Lake (2)</td>
-	<td style="text-align:center;">$90</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Sonoma (3)</td>
-	<td style="text-align:center;">$74</td>
-</tr>
-</tbody>
-</table>
-
-<p><a href="img/custom-instructions-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
-
-<table>
-<colgroup>
-<col style="text-align:left;"/>
-<col style="text-align:center;"/>
-</colgroup>
-
-<thead>
-<tr>
-	<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Double Pruning</strong></th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-	<td style="text-align:left;" colspan="2"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">Napa (4)</td>
-	<td style="text-align:center;">$478</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Northern San Joaquin (11)</td>
-	<td style="text-align:center;">$243</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Central Coast (8)</td>
-	<td style="text-align:center;">$268</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Lake (2)</td>
-	<td style="text-align:center;">$279</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Sonoma (3)</td>
-	<td style="text-align:center;">$335</td>
-</tr>
-</tbody>
-</table>
-
-<p><a href="img/custom-instructions-table02.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>
-
-<p>Change to another regions to see the default settings from the economic analysis here or enter your own numbers in the table below and hit submit to generate results based on our economic analysis of early adoption of trunk disease preventative practices in winegrape vineyards. </p>
-
-<p><a href="index.html">Return to front page</a> </p>
+<p>Links throughout the site provide additional information about the preventative practices, disease control efficacy rates, and definitions of the variables displayed in the figures and tables.</p>
 </fieldset>
 
 <h3 id="figureparameters">Figure parameters</h3>
