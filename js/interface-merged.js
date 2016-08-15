@@ -105,9 +105,14 @@ function styleGlossaryLinks() {
 		$(this).empty();
 	})
 	$('.glossary-link').prepend('<span class="glossary-icon"><i class="fa fa-question-circle"></i></span>');
+	$('.glossary-link-family').prepend('<span class="glossary-icon"><i class="fa fa-question-circle"></i></span>');
 	$('.glossary-link-inline-child').click( function(event) {
 		event.preventDefault();
 		$(this).stop().find('.glossary-inline').toggle('fast');
+	});
+	$('.glossary-link-inline-sibling').click( function(event) {
+		event.preventDefault();
+		$(this).stop().parents('.glossary-link-family').find('.glossary-inline').toggle('fast');
 	});
 }
 
@@ -123,7 +128,7 @@ function toggleFormOptions() {
 				$(this).prop('disabled', true);
 				$(this).parents('tr').css('background-color','#ffffff');
 			});
-			$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount td').add('.subselect.pc td').css('color', '#999999');
+			$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.pc .glossary-inline').add('.subselect.pc .glossary-link-family').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount .param-deadcell').add('.subselect.pc .param-deadcell').css('color', '#999999');
 			$('.subselect.pc select').prop('disabled', true);
 		} 
 
@@ -134,7 +139,7 @@ function toggleFormOptions() {
 					$(this).prop('disabled', true);
 					$(this).parents('tr').css('background-color','#ffffff');
 				});
-				$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount td').add('.subselect.pc td').css('color', '#999999');
+				$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.pc .glossary-inline').add('.subselect.pc .glossary-link-family').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount .param-deadcell').add('.subselect.pc .param-deadcell').css('color', '#999999');
 				$('.subselect.pc select').prop('disabled', true);
 			} else {
 				$('.disable-on-yield-alert').slideUp('fast');
@@ -142,7 +147,7 @@ function toggleFormOptions() {
 					$(this).prop('disabled', false);
 					$(this).parents('tr').css('background-color','auto');
 				});
-				$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount td').add('.subselect.pc td').css('color', '');
+				$('.disable-on-yield').add('.disable-on-yield a').add('.disable-on-yield i').add('label[for=pc]').add('input[name=pc]').add('label[for^=cost]').add('input[name^=cost]').add('label[for=price]').add('input[name=price]').add('label[for=discount]').add('input[name=discount]').add('.subselect.discount a').add('.subselect.pc a').add('.subselect.pc .glossary-inline').add('.subselect.pc .glossary-link-family').add('.subselect.discount i').add('.subselect.pc i').add('.subselect.discount .param-deadcell').add('.subselect.pc .param-deadcell').css('color', '');
 				$('.subselect.pc select').prop('disabled', false);
 			}
 		});

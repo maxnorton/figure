@@ -73,16 +73,24 @@ h1.title a {
   h1.title a:hover {
     text-decoration: underline; }
 
+h3 {
+  margin-top: 2em; }
+
 .glossary-inline,
 .glossary-link,
 .hover-info .info {
   color: black;
   display: block;
   padding: 0; }
-  .glossary-inline i,
-  .glossary-link i,
-  .hover-info .info i {
-    padding-right: 1em; }
+
+.glossary-inline i,
+.glossary-link i,
+.glossary-link-family i,
+.hover-info .info i {
+  padding-right: 1em; }
+
+.glossary-link-family a {
+  color: black; }
 
 .glossary-link a {
   color: black;
@@ -94,7 +102,8 @@ h1.title a {
   padding-left: 2em; }
 
 .glossary-link:hover,
-.glossary-link:hover a {
+.glossary-link:hover a,
+.glossary-link-family a:hover {
   color: green;
   cursor: pointer; }
 
