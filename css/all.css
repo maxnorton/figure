@@ -763,7 +763,7 @@ table.form .subselect > td {
   .disable-on-yield-alert a {
     color: black; }
 
-.figure-wrapper {
+.figure-wrap {
   background-color: #fff;
   x-padding-left: 1em; }
 
@@ -784,12 +784,12 @@ a.submit {
     background: #05b;
     box-shadow: inset -2px -1px 10px 3px rgba(235, 235, 235, 0.5), -1px -1px 3px 1px rgba(0, 0, 0, 0.2); }
 
-.endsubmit-wrapper {
+.endsubmit-wrap {
   margin: 0 auto;
   width: 200px; }
 
 @media only screen and (min-width: 768px) {
-  .endsubmit-wrapper {
+  .endsubmit-wrap {
     float: right;
     margin-right: 0; } }
 #regionalDefaults {

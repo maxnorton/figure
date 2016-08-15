@@ -24,6 +24,8 @@ header {
   border-bottom: 1px solid #ccc; }
 
 .assumptions-wrap,
+.figure-wrap,
+.output-wrap,
 .table-wrap {
   page-break-inside: avoid; }
 

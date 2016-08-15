@@ -998,7 +998,7 @@ table.form .subselect > td {
 	}
 }
 
-.figure-wrapper {
+.figure-wrap {
 	background-color: #fff;
 	x-padding-left: 1em;
 }
@@ -1025,13 +1025,13 @@ a.submit {
 	}
 }
 
-.endsubmit-wrapper {
+.endsubmit-wrap {
 	margin: 0 auto;
 	width: 200px;
 }
 
 @media only screen and (min-width : 768px) {
-	.endsubmit-wrapper {
+	.endsubmit-wrap {
 		float: right;
 		margin-right: 0;
 	}

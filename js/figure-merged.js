@@ -71,7 +71,7 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 		 		.y(function(d) { return y(d.y); })
 		 		.interpolate("linear");
 
-			$('.figure-area').append('<section class="figure-wrapper" id="figure' + parameterValue + '"><h4 class="figTitle">' + figureTitle + '</h4><h4 class="figSubhead">' + figureSubhead + '</h4></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
+			$('.figure-area').append('<section class="figure-wrap" id="figure' + parameterValue + '"><h4 class="figTitle">' + figureTitle + '</h4><h4 class="figSubhead">' + figureSubhead + '</h4></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
 
 			var svg = d3.select("#figure" + parameterValue).append("svg")
 				.attr("width", svgWidth)
