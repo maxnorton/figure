@@ -177,6 +177,9 @@ svg {
   font-family: sans-serif;
   font-size: 0.85em; }
 
+.yearfig-wrap h4 {
+  margin-top: 1.5em; }
+
 /* MAIN LAYOUT
 ------------------------------ */
 header {
@@ -660,6 +663,10 @@ label[for=actualRegion] {
   .param-label {
     text-align: left; } }
 /* All devices ------- */
+#actualRegion {
+  display: block;
+  margin: 1em 40px; }
+
 .param-deadcell {
   padding-left: 1em; }
 

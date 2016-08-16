@@ -235,6 +235,10 @@ svg {
 	font-size: 0.85em;
 }
 
+.yearfig-wrap h4 {
+	margin-top: 1.5em;
+}
+
 /* MAIN LAYOUT
 ------------------------------ */
 
@@ -855,6 +859,11 @@ label[for=actualRegion] {
 		}
 
 		/* All devices ------- */
+		#actualRegion {
+			display: block;
+			margin: 1em 40px;
+		}
+
 		.param-deadcell {
 			padding-left: 1em;
 		}
