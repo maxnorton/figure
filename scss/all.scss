@@ -178,6 +178,21 @@ h3 {
 	padding-top: 1em;
 }
 
+@media only screen and (max-height: 320px) {
+	.figSubhead,
+	.figTitle {
+		font-size: 12px;
+		padding: 0 1em;
+	}
+	.figTitle {
+		padding-top: .5em;
+	}
+	svg {
+		display: block;
+		margin: 0 auto;
+	}
+}
+
 .mission-samples {
 	text-align: center;
 
