@@ -518,6 +518,9 @@ button.active {
 }
 
 @media only screen and (min-width : 1234px) {
+	.hide-on-widescreen {
+		display: none;
+	}
 	.content-wrap {
 		margin: 0 1em;
 	}
@@ -828,6 +831,7 @@ table.form .preventative-slideout,
 	}
 }
 
+.figure-area .figure-bottom-link,
 .figure-area .legend,
 .figure-area p {
 	text-align: center;
@@ -838,6 +842,10 @@ table.form .preventative-slideout,
 		width: 690px;
 		max-width: 90%;
 	}
+}
+
+.figure-bottom-link {
+	padding-bottom: 2em;
 }
 
 

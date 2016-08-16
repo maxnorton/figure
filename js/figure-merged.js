@@ -82,7 +82,7 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 		 		.y(function(d) { return y(d.y); })
 		 		.interpolate("linear");
 
-			$('.figure-area').append('<section class="figure-wrap" id="figure' + parameterValue + '"><h4 class="figTitle">' + figureTitle + '</h4><h4 class="figSubhead">' + figureSubhead + '</h4></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
+			$('.figure-area').append('<section class="figure-wrap" id="figure' + parameterValue + '"><h4 class="figTitle">' + figureTitle + '</h4><h4 class="figSubhead">' + figureSubhead + '</h4></section><div class="legend"><img src="img/figures/legend.png" /></div><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p><div class="figure-bottom-link"><span class="glossary-link hide-on-print hide-on-widescreen"><a href="efficacy-information.html">Disease control efficacy rate information</a></span></div>');
 
 			var svg = d3.select("#figure" + parameterValue).append("svg")
 				.attr("width", svgWidth)
@@ -133,9 +133,9 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 		}
 	}
 
-	$('.figure-area svg').each(function() {
-		$(this).after('<div class="legend"><img src="img/figures/legend.png" /><br /><span class="glossary-link hide-on-print"><a href="efficacy-information.html">Disease control efficacy rate information</a></span></div>');
-	})
+	/*$('.figure-area svg').each(function() {
+		$(this).after('<div class="figure-bottom-link"><br /><span class="glossary-link hide-on-print hide-on-widescreen"><a href="efficacy-information.html">Disease control efficacy rate information</a></span></div>');
+	})*/
 
 	if (figureCount===0) {
 		$('.figure-area').prepend('<p class="alert">To generate a figure, <a href="#" class="close-tab">close this tab</a> or return to the figure parameters form tab and select at least one year of practice adoption.</p>');

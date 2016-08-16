@@ -371,6 +371,9 @@ button.active {
     display: none; }
 
 @media only screen and (min-width: 1234px) {
+  .hide-on-widescreen {
+    display: none; }
+
   .content-wrap {
     margin: 0 1em; }
 
@@ -652,15 +655,20 @@ table.form .preventative-slideout th,
 .variable-definitions table:nth-of-type(2) th {
   border-bottom: 1px solid #000; }
 
+.figure-area .figure-bottom-link,
 .figure-area .legend,
 .figure-area p {
   text-align: center;
   width: 960px;
   max-width: 100%; }
+  .figure-area .figure-bottom-link img,
   .figure-area .legend img,
   .figure-area p img {
     width: 690px;
     max-width: 90%; }
+
+.figure-bottom-link {
+  padding-bottom: 2em; }
 
 /* FORM ELEMENTS
 ------------------------------ */
