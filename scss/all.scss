@@ -178,7 +178,7 @@ h3 {
 	padding-top: 1em;
 }
 
-@media only screen and (max-height: 320px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px) {
 	.figSubhead,
 	.figTitle {
 		font-size: 12px;
@@ -191,6 +191,8 @@ h3 {
 		display: block;
 		margin: 0 auto;
 	}
+
+
 }
 
 .mission-samples {
@@ -229,6 +231,12 @@ h3 {
 		line-height: 1em;
 		text-align: left;
 		white-space: normal;
+	}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px) {
+	#swipebox-slider .slide .figTitle {
+		display: none;
 	}
 }
 

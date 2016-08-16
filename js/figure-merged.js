@@ -15,7 +15,7 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 		console.log('first set set');
 	if ($(window).height() / $(window).width() < .56 ) {
 		console.log('<.56');
-		var height = ( $(window).height() < 486 ) ? $(window).height() - margin.top - margin.bottom - 100 - padding.top - padding.bottom : 486 - margin.top - margin.bottom - 100 - padding.top - padding.bottom,
+		var height = ( $(window).height() < 486 ) ? $(window).height() - margin.top - margin.bottom - 50 - padding.top - padding.bottom : 486 - margin.top - margin.bottom - 100 - padding.top - padding.bottom,
 		width = height/0.506;
 		console.log('height=' + height + ', width=' + width);
 	} else {
