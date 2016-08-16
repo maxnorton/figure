@@ -417,7 +417,7 @@ fieldset ul {
 
 .quick-submit {
 	x-float: right;
-	width: 60%;
+	width: 100%;
 	text-align: center;
 
 	a,
@@ -921,6 +921,13 @@ label[for=actualRegion] {
 
 
 	/* .param-table ---------- */
+
+		.param-table-title {
+			display: inline-block;
+			padding-bottom: 0.5em;
+			text-align: center;
+			width: 100%;
+		}
 
 		/* Landscape smartphones and up ----------- */
 		@media only screen and (min-width : 431px) { // what's the right value?

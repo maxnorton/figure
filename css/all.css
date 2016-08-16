@@ -297,7 +297,7 @@ fieldset ul {
 ------------------------------ */
 .quick-submit {
   x-float: right;
-  width: 60%;
+  width: 100%;
   text-align: center; }
   .quick-submit a,
   .quick-submit .orDivider {
@@ -714,6 +714,12 @@ label[for=actualRegion] {
   display: table-cell; }
 
 /* .param-table ---------- */
+.param-table-title {
+  display: inline-block;
+  padding-bottom: 0.5em;
+  text-align: center;
+  width: 100%; }
+
 /* Landscape smartphones and up ----------- */
 @media only screen and (min-width: 431px) {
   .param-table {
