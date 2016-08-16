@@ -16,6 +16,16 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 		years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
 		yTicks = (svgHeight/50 > 4) ? parseInt(svgHeight/50) : 5;
 
+	if ($(window).height() / $(window).width() < .56 ) {
+		var height = ( $(window).height() < 486 ) ? $(window).height() - margin.top - margin.bottom - padding.top - padding.bottom : 486 - margin.top - margin.bottom - padding.top - padding.bottom,
+		width = height/0.506;
+	} else {
+		var width = ($(window).width() < 960) ? $('body').width() - margin.left - margin.right - padding.left - padding.right : 960 - margin.left - margin.right- padding.left - padding.right,
+			height = width*0.506;
+	}
+	var svgWidth = parseInt(width + margin.left + padding.left + margin.right),
+		svgHeight = parseInt(height + margin.top + padding.top + margin.bottom + padding.bottom);
+
 	
 	if ( figuredisplay === 'yield' ) {
 		scenarioObject = scenarioYieldObject;
