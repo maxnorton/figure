@@ -511,6 +511,7 @@ function the_table(inputObject) {
 			var storage = $.localStorage,
 				theFigureParameters = [whichYears, moreParameters, inputObject.figuredisplay, scenarioYieldObject, scenarioCDNRObject];
 			storage.set('the-figure-parameters', theFigureParameters);
+			console.log('about to call');
 			the_figure(theFigureParameters[0], theFigureParameters[1], theFigureParameters[2], theFigureParameters[3], theFigureParameters[4]);
 
 			$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');

@@ -657,6 +657,10 @@ table.form .preventative-slideout th,
   text-align: center;
   width: 960px;
   max-width: 100%; }
+  .figure-area .legend img,
+  .figure-area p img {
+    width: 690px;
+    max-width: 90%; }
 
 /* FORM ELEMENTS
 ------------------------------ */
