@@ -78,6 +78,13 @@ function goBack(e) {
     return false; // stop event propagation and browser default event
 }
 
+function checkHash() {
+	var theHash = (window.location.hash) ? window.location.hash : false;
+	if (theHash) {
+		$('body,html').stop(true,true).animate({scrollTop: $(theHash).offset().top}, '1000', 'swing');
+	}
+}
+
 function mobileSubstitutions() {
 	if ($(window).width() < 1023) {
 		$('.efficacy-info .table-style').html('<a href="img/efficacy-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table');
