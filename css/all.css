@@ -363,13 +363,13 @@ button.active {
   .sidebar .glossary-icon {
     display: none; }
 
-@media only screen and (min-width: 1320px) {
+@media only screen and (min-width: 1234px) {
   .content-wrap {
     margin: 0 1em; }
 
   .flyout-wrap {
     position: fixed;
-    right: 461px;
+    right: 336px;
     top: 0;
     width: 0;
     height: 100%;
@@ -391,12 +391,12 @@ button.active {
     position: fixed;
     right: 0;
     top: 0;
-    width: 350px; }
+    width: 225px; }
     .sidebar ul {
       position: absolute;
       top: 137px;
       right: .5em;
-      width: 350px; }
+      width: 225px; }
     .sidebar li {
       padding-top: .5em; }
     .sidebar .glossary-inline {
@@ -425,7 +425,7 @@ iframe {
   position: absolute;
   left: 0;
   top: 140px;
-  width: 910px;
+  width: 850px;
   padding: 2em;
   z-index: 99; }
 
@@ -590,7 +590,8 @@ table.form {
 .sidebar table,
 .variable-definitions table,
 .param-table .preventative-slideout table,
-table.form .preventative-slideout table {
+table.form .preventative-slideout table,
+.practice-costs table {
   border-bottom: 2px solid #000;
   border-collapse: collapse;
   border-top: 2px solid #000;
@@ -603,7 +604,8 @@ table.form .preventative-slideout table {
   .sidebar table th,
   .variable-definitions table th,
   .param-table .preventative-slideout table th,
-  table.form .preventative-slideout table th {
+  table.form .preventative-slideout table th,
+  .practice-costs table th {
     font-weight: normal;
     min-width: 12rem; }
   .custom-instructions table td:first-of-type,
@@ -611,19 +613,23 @@ table.form .preventative-slideout table {
   .sidebar table td:first-of-type,
   .variable-definitions table td:first-of-type,
   .param-table .preventative-slideout table td:first-of-type,
-  table.form .preventative-slideout table td:first-of-type {
+  table.form .preventative-slideout table td:first-of-type,
+  .practice-costs table td:first-of-type {
     min-width: 16rem; }
 
 table.form .preventative-slideout table td,
-.param-table .preventative-slideout table td {
+.param-table .preventative-slideout table td,
+.practice-costs table td {
   padding: 0; }
 table.form .preventative-slideout table tr:hover,
-.param-table .preventative-slideout table tr:hover {
+.param-table .preventative-slideout table tr:hover,
+.practice-costs table tr:hover {
   background-color: #fff; }
 
 .custom-instructions th,
 table.form .preventative-slideout th,
-.param-table .preventative-slideout th {
+.param-table .preventative-slideout th,
+.practice-costs th {
   border-bottom: 1px solid #999;
   background-color: #fff; }
 

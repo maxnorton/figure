@@ -25,6 +25,20 @@
 	</div>
 </header>
 
+<section class="flyout-wrap"></section>
+<div class="sidebar">
+	<ul>
+		<li class="glossary-title"><h4>Definitions</h4></li>
+		<li class="glossary-link"><a href="_variables.html" class="frame-link">Variables</a></li>
+		<li class="glossary-link"><a href="_practices.html" class="frame-link">Practices</a></li>
+		<li class="glossary-link"><a href="_discount.html" class="frame-link">Discount rate</a></li>
+		<li class="glossary-title"><h4>Information</h4></li>
+		<li class="glossary-link"><a href="_efficacy.html" class="frame-link">Disease control efficacy rates</a></li>
+		<li class="glossary-link"><a href="_age-of-adoption.html" class="frame-link">Age of practice adoption</a></li>
+		<li class="glossary-link"><a href="_practice-costs.html" class="frame-link">Preventative practice costs</a></li>
+		<li class="glossary-title"><h4>Navigate:</h4>&nbsp;&nbsp;&nbsp;<a href="merged.html#figureparameters">Input form</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#page">Top</a></li>
+	</ul>
+</div>
 <section class="content-wrap">
 
 <section id="results" class="results"></section>
@@ -61,6 +75,23 @@
 		styleGlossaryLinks();
 		mobileSubstitutions();
 		$( '.swipebox' ).swipebox();
+
+		$('.frame-link').click(function(e) {
+			openFrame(e, $(this));
+		});
+
+		$('.glossary-title a').each(function() {
+			$(this).click(function(e) {
+				if ($('iframe').size() !== 0) {
+					var theLinkHref = $('iframe').attr('src');
+					console.log(theLinkHref);
+					var theLinkObject = $('.sidebar a[href="' + theLinkHref + '"]');;
+					openFrame(e, theLinkObject);;
+				}
+				var theHash = $(this).attr('href').substring( $(this).attr('href').indexOf('#') );
+				$('body,html').stop(true,true).animate({scrollTop: $(theHash).offset().top - $('header').height()}, '500', 'swing');
+			});
+		});
 	
 	});
 </script>

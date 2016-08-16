@@ -507,13 +507,13 @@ button.active {
 	}
 }
 
-@media only screen and (min-width : 1320px) {
+@media only screen and (min-width : 1234px) {
 	.content-wrap {
 		margin: 0 1em;
 	}
 	.flyout-wrap {
 		position: fixed;
-		right: 461px;
+		right: 336px;
 		top: 0;
 		width: 0;
 		height: 100%;
@@ -535,13 +535,13 @@ button.active {
 		position: fixed;
 		right: 0;
 		top: 0;
-		width: 350px;
+		width: 225px;
 
 		ul {
 			position: absolute;
 			top: 137px;
 			right: .5em;
-			width: 350px
+			width: 225px
 		}
 
 		li {
@@ -586,7 +586,7 @@ iframe {
 	position: absolute;
 	left: 0;
 	top: 140px;
-	width: 910px;
+	width: 850px;
 	padding: 2em;
 	z-index: 99;
 }
@@ -750,7 +750,8 @@ table.form {
 .sidebar,
 .variable-definitions,
 .param-table .preventative-slideout,
-table.form .preventative-slideout {
+table.form .preventative-slideout,
+.practice-costs {
 	table {
 		border-bottom: 2px solid #000;
 		border-collapse: collapse;
@@ -772,7 +773,8 @@ table.form .preventative-slideout {
 }
 
 table.form .preventative-slideout table,
-.param-table .preventative-slideout table {
+.param-table .preventative-slideout table,
+.practice-costs table {
 	td {
 		padding: 0;
 	}
@@ -784,7 +786,8 @@ table.form .preventative-slideout table,
 
 .custom-instructions,
 table.form .preventative-slideout,
-.param-table .preventative-slideout {
+.param-table .preventative-slideout,
+.practice-costs {
 	th {
 		border-bottom: 1px solid #999;
 		background-color: #fff;

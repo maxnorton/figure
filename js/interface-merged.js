@@ -115,15 +115,20 @@ function openFrame(e, link) {
             e.preventPropagation();
         }
     }
-    if ( $('iframe').size() !== 0 ) {
+    if ( $('iframe').size() !== 0 && $('iframe').attr('src') === link.attr('href') ) {
 		$('.content-wrap').animate({opacity: 1}, '200');
 		$('iframe').fadeToggle('200').delay('200', document.getElementById('iframe0').remove());
 		$('#closingX').remove();
+		$('.flyout-wrap').css('width', '0');
 	} else {
+		if ( $('iframe').size() !== 0 ) {
+			$('iframe').fadeToggle('200').delay('200', document.getElementById('iframe0').remove());
+			$('#closingX').remove();
+		}
 		$('body, html').stop(true,true);
 		var frame = '<iframe id="iframe0" src="' + link.attr('href') + '"></iframe>';
 		$('.flyout-wrap').prepend(frame);
-		$('.flyout-wrap').css('width', '910px');
+		$('.flyout-wrap').css('width', '850px');
 		$('iframe').fadeToggle('200');
 		$('.content-wrap').animate({opacity: 0}, '200');
 		$('iframe').height(parseInt(window.innerHeight - 300));
