@@ -238,7 +238,8 @@ header {
       height: 128px; }
 
   .content-wrap {
-    margin: 0 1em; } }
+    margin: 0 1em;
+    position: relative; } }
 @media only screen and (max-width: 431px) {
   .merged .content-wrap {
     margin: 0; } }
@@ -366,23 +367,43 @@ button.active {
   .content-wrap {
     margin: 0 1em; }
 
+  .flyout-wrap {
+    position: fixed;
+    right: 461px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 19; }
+
+  #closingX {
+    color: #000;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none; }
+
   .sidebar {
     background: #eee;
     bottom: 0;
     display: block;
     font-family: Calibri, sans-serif;
     font-size: .9em;
-    padding: 137px 2em 1em 1em;
+    padding: 137px 29px 1em 14px;
     position: fixed;
     right: 0;
     top: 0;
     width: 350px; }
+    .sidebar ul {
+      position: absolute;
+      top: 137px;
+      right: .5em;
+      width: 350px; }
     .sidebar li {
-      padding-top: 1em; }
+      padding-top: .5em; }
     .sidebar .glossary-inline {
       padding-left: 0; }
     .sidebar .glossary-title h4 {
-      display: inline-block; }
+      display: inline-block;
+      margin-bottom: 0; }
     .sidebar .glossary-title a {
       color: black; }
     .sidebar .glossary-title a:hover {
@@ -396,6 +417,18 @@ button.active {
       height: 128px;
       position: absolute;
       right: 218px; } }
+iframe {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-right: none;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 140px;
+  width: 910px;
+  padding: 2em;
+  z-index: 99; }
+
 .results table,
 .assumptions-table,
 .output-table,

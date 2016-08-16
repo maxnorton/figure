@@ -383,6 +383,10 @@
 		$( '.swipebox' ).swipebox();
 		checkHash();
 
+		$('.frame-link').click(function(e) {
+			openFrame(e, $(this));
+		});
+
 		//$("input, select").mouseover(zoomDisable).mousedown(zoomEnable); 
 
 	

@@ -20,6 +20,13 @@ function addThousandsComma(d) {
 	return d.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+function checkHash() {
+	var theHash = (window.location.hash) ? window.location.hash : false;
+	if (theHash) {
+		$('body,html').stop(true,true).animate({scrollTop: $(theHash).offset().top}, '1000', 'swing');
+	}
+}
+
 function currencyFormat(d) {
 	var currencyVal;
 	if (d>0) 
@@ -78,11 +85,10 @@ function goBack(e) {
     return false; // stop event propagation and browser default event
 }
 
-function checkHash() {
-	var theHash = (window.location.hash) ? window.location.hash : false;
-	if (theHash) {
-		$('body,html').stop(true,true).animate({scrollTop: $(theHash).offset().top}, '1000', 'swing');
-	}
+function hideSpecialLinks() {
+	$('.glossary-icon').add('.glossary-link').add('.swipebox').each(function() {
+		$(this).empty();
+	})
 }
 
 function mobileSubstitutions() {
@@ -97,6 +103,31 @@ function mobileSubstitutions() {
 		$('.custom-instructions table:nth-of-type(1)').html('<a href="img/custom-instructions-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
  		$('.custom-instructions table:nth-of-type(2)').html('<a href="img/custom-instructions-table02.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
 		$('.hide-for-phones').css('display', 'none').removeClass('swipebox');
+	}
+}
+
+function openFrame(e, link) {
+	if(e){
+        if(e.preventDefault) {
+            e.preventDefault();
+        }
+        if(e.preventPropagation) {
+            e.preventPropagation();
+        }
+    }
+    if ( $('iframe').size() !== 0 ) {
+		$('.content-wrap').animate({opacity: 1}, '200');
+		$('iframe').fadeToggle('200').delay('200', document.getElementById('iframe0').remove());
+		$('#closingX').remove();
+	} else {
+		$('body, html').stop(true,true);
+		var frame = '<iframe id="iframe0" src="' + link.attr('href') + '"></iframe>';
+		$('.flyout-wrap').prepend(frame);
+		$('.flyout-wrap').css('width', '910px');
+		$('iframe').fadeToggle('200');
+		$('.content-wrap').animate({opacity: 0}, '200');
+		$('iframe').height(parseInt(window.innerHeight - 300));
+		link.append('<span id="closingX">&nbsp;&nbsp;&nbsp;&times;</span>');
 	}
 }
 
