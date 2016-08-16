@@ -80,6 +80,10 @@ h1.images img:nth-of-type(1) {
 /* LINKS AND TYPE
 ------------------------------ */
 
+body {
+	font-family:  $sans-stack;
+}
+
 a i {
 	color: black;
 }
@@ -90,7 +94,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 }
 
 h1.title a {
@@ -152,7 +156,7 @@ h3 {
 
 .figSubhead,
 .figTitle {
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 	margin: 0;
 	padding-left: 84px;
 
@@ -183,10 +187,16 @@ h3 {
 }
 
 .mission-statement {
-	font-family: 'Calibri', sans-serif;
-	font-weight: bold;
-	margin: 1em auto;
-	width: 85%;
+	border-left: 3px solid #eee;
+	border-right: 3px solid #eee;
+	font-family: $sans-stack;
+	margin: 3em auto;
+	padding: 0 1.5em;
+	width: 75%;
+
+	p {
+		margin: 1em auto;
+	}
 }
 
 .mission-rule {
@@ -195,7 +205,7 @@ h3 {
 	border-right: 0;
 	border-bottom: 0;
 	width: 320px;
-	margin: 1em auto;
+	margin: 2em auto;
 }
 
 #swipebox-slider .slide {
@@ -226,12 +236,12 @@ h3 {
 }
 
 svg {
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 	font-size: .9em;
 }
 
 .table-style {
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 	font-size: 0.85em;
 }
 
@@ -489,7 +499,7 @@ button.active {
 	padding: .5em;
 	width: 100%;
 	color: white;
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 	font-weight: bold;
 	background-color: darkorchid;
 }
@@ -529,7 +539,7 @@ button.active {
 		background: #eee;
 		bottom: 0;
 		display: block;
-		font-family: 'Calibri', sans-serif;
+		font-family: $sans-stack;
 		font-size: .9em;
 		padding: 137px 29px 1em 14px;
 		position: fixed;
@@ -574,7 +584,7 @@ button.active {
 			display: inline-block;
 			height: 128px;
 			position: absolute;
-			right: 218px;
+			right: 93px;
 		}
 	}
 }
@@ -622,7 +632,7 @@ table.form {
 .assumptions-table,
 .output-table {
 	border: 1px solid #ccc;
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 
 	.assumptions-td,
 	.output-td,
@@ -702,7 +712,7 @@ table.form {
 	background-color: #666;
 	border-top: 1px solid #999;
 	color: white;
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 	font-weight: bold;
 	left: 0;
 	padding: .5em;
@@ -756,7 +766,7 @@ table.form .preventative-slideout,
 		border-bottom: 2px solid #000;
 		border-collapse: collapse;
 		border-top: 2px solid #000;
-		font-family: 'Calibri', sans-serif;
+		font-family: $sans-stack;
 		font-size: 0.85em;
 		margin: 1em 0;
 		max-width: 100%;
@@ -979,7 +989,7 @@ label[for=actualRegion] {
 			/*.param-input.dollar:before {
 				color: #666;
 				content: '$';
-				font-family: 'Calibri', sans-serif;
+				font-family: $sans-stack;
 				font-size: 1em;
 				position: relative;
 				left: 1em;
@@ -989,7 +999,7 @@ label[for=actualRegion] {
 			.param-input.percentage:after {
 				color: #666;
 				content: '%';
-				font-family: 'Calibri', sans-serif;
+				font-family: $sans-stack;
 				font-size: 1em;
 				position: relative;
 				right: 1em;
@@ -1004,7 +1014,7 @@ label[for=actualRegion] {
 			.param-input.tons:after {
 				color: #666;
 				content: 'Tons';
-				font-family: 'Calibri', sans-serif;
+				font-family: $sans-stack;
 				font-size: 1em;
 				position: relative;
 				right: 3em;
@@ -1123,7 +1133,7 @@ table.form .subselect > td {
 }
 
 .subselect:first-of-type .param-label {
-	font-family: 'Calibri', sans-serif;
+	font-family: $sans-stack;
 	padding-left: 0;
 }
 

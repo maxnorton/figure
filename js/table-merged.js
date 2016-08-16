@@ -236,7 +236,9 @@ function the_table(inputObject) {
 	 			healthyACDNBnaDisplay = '$' + parseFloat(healthyACDNBnaDisplay).toFixed(2);
 	 		}*/
 
-	 		var healthyBEAnaDisplay = -1;
+	 		var healthyBEAnaDisplay = '-';
+
+	 		/*var healthyBEAnaDisplay = -1;
 	 		for (i in healthyCDNRna) {
 	 			if (healthyCDNRna[i+1] > 0) {
 	 				healthyBEAnaDisplay = i;
@@ -246,7 +248,7 @@ function the_table(inputObject) {
 	 		if (healthyBEAnaDisplay === -1) {
 	 			healthyBEAnaDisplay  = 'Never breaks even';
 	 			healthyLPY = '-';
-	 		}
+	 		}*/
 
 	 		healthyACDNBna = [];
 	 		for (i in healthyCDNRna) {

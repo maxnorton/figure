@@ -1,17 +1,14 @@
-<hr class="mission-rule" />
-
 Grapevine trunk diseases (aka wood-canker diseases) are widespread throughout all of California’s grape-growing regions. This disease complex includes: Botryosphaeria dieback (aka Bot canker), Eutypa dieback, Phomopsis dieback, and Esca (aka Measles, Young vine decline, Petri disease).  
  
  Every California vineyard is eventually infected by one predominant trunk disease or a combination. These diseases significantly reduce yields in mature vineyards by either killing fruiting positions (main impact of the dieback-type diseases) or decreasing vine vigor (main impact of Esca). These impacts accumulate each year, as there are no effective methods to eradicate the wood infections. As such, diseased vineyards must be replanted prematurely. If adopted in young vineyards, preventative practices can reduce these negative effects.  
  
- On this site you will find useful figures and tables from an economic analysis of early adoption of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant) that will help you understand the potential costs and benefits from adopting trunk disease preventative practices in young winegrape vineyards. You will also be able to enter economic and yield data for your operation to see how trunk diseases and these preventative practices might affect your vineyard.  
-
-<!--hr class="mission-rule" />
-<p class="mission-statement">This decision support tool, especially designed for California growers, creates useful figures and tables that will help you understand the costs and benefits of using disease-prevention management practices in your winegrape vineyard.  
-</p-->
+<section class="mission-statement">
 
 <p class="mission-samples"><img src="http://maxnorton.github.io/figure/img/sample-table.png" alt="Sample table" width="83" height="100" /><img src="http://maxnorton.github.io/figure/img/sample-fig-yield.png" alt="Sample figure" width="196" height="83" /></p>
-<hr class="mission-rule" />
+
+<p>On this site you will find useful figures and tables from an economic analysis of early adoption of three field-tested, preventative practices (delayed pruning, double pruning, and application of pruning wound protectant) that will help you understand the potential costs and benefits from adopting trunk disease preventative practices in young winegrape vineyards. You will also be able to enter economic and yield data for your operation to see how trunk diseases and these preventative practices might affect your vineyard.</p>
+
+</section>
 
 This research is part of a [trunk disease project](http://treeandvinetrunkdiseases.org)  funded by a Specialty Crop Research Initiative (SCRI) USDA, National Institute of Food &amp; Agriculture grant. For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact [kaplanj@csus.edu](mailto:kaplanj@csus.edu).  
  
