@@ -2102,7 +2102,7 @@
 		},
 	"\/markdown\/compiled\/instructions.html": {
 		"fileType": 8192,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/markdown\/compiled\/instructions.html",
 		"outputAbbreviatedPath": "No Output Path",
