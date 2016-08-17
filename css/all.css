@@ -135,6 +135,9 @@ h3 {
   padding-top: 1em; }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 736px) {
+  .hide-on-landscape {
+    display: none; }
+
   .figSubhead,
   .figTitle {
     font-size: 12px;
@@ -222,7 +225,7 @@ header {
     color: white;
     background-color: #555;
     display: inline-block;
-    font-family: 'Arial Black', san-serif;
+    font-family: 'Arial Black', sans-serif;
     height: 3em;
     margin: 0;
     max-width: 12em;

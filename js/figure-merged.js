@@ -15,7 +15,7 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 		console.log('first set set');
 	if ($(window).height() / $(window).width() < .56 ) {
 		console.log('<.56');
-		var height = ( $(window).height() < 486 ) ? $(window).height() - margin.top - margin.bottom - 50 - padding.top - padding.bottom : 486 - margin.top - margin.bottom - 100 - padding.top - padding.bottom,
+		var height = ( $(window).height() < 486 ) ? $(window).height() - margin.top - margin.bottom - 100 - padding.top - padding.bottom : 486 - margin.top - margin.bottom - 100 - padding.top - padding.bottom,
 		width = height/0.506;
 		console.log('height=' + height + ', width=' + width);
 	} else {
@@ -45,9 +45,9 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 				figureTitle = (figuredisplay === 'yield') ? 'Figure ' + parseInt(k+1) + '&#8212;Vineyard Yield (Tons per Acre) at Various Disease Control Efficacy Rates' : 'Figure ' + parseInt(k+1) + '&#8212;Cumulative Discounted Net Returns per Acre at Various Disease Control Efficacy Rates';
 
 			if (figuredisplay === 'netreturns') {
-				figureSubhead += ' Adoption of $' + friendlyPCValue + ' per Acre-Year Preventative Practice';
+				figureSubhead += ' Adoption <span class="hide-on-landscape">of $' + friendlyPCValue + ' per Acre-Year Preventative Practice</span>';
 			} else {
-				figureSubhead += ' Preventative Practice Adoption';
+				figureSubhead += '<span class="hide-on-landscape"> Preventative Practice</span> Adoption';
 			}
 
 			if (moreParameters.friendlyRegion !== 'Custom')
