@@ -973,7 +973,7 @@ a.submit {
     position: relative; }
   .param-table .paramGroup {
     top: 0;
-    bottom: 0;
+    height: 1em;
     padding: 1em .5em; } }
 @media only screen and (min-width: 421px) {
   .only-portrait-phone {
