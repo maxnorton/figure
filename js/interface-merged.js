@@ -57,15 +57,6 @@ function focusCustomParameters() {
 }
 
 function goBack(e) {
-    if(e){
-        if(e.preventDefault) {
-            e.preventDefault();
-        }
-        if(e.preventPropagation) {
-            e.preventPropagation();
-        }
-    }
-    return false; // stop event propagation and browser default event
 	console.log('trying to go back');
     var defaultLocation = "http://maxnorton.github.io/figure";
     var oldHash = window.location.hash;
@@ -83,6 +74,15 @@ function goBack(e) {
             window.location.href = defaultLocation;
         },1000); // set timeout in ms
     }
+    if(e){
+        if(e.preventDefault) {
+            e.preventDefault();
+        }
+        if(e.preventPropagation) {
+            e.preventPropagation();
+        }
+    }
+    return false; // stop event propagation and browser default event
 }
 
 function hideSpecialLinks() {
