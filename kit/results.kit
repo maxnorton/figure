@@ -76,7 +76,10 @@
 				$('body,html').stop(true,true).animate({scrollTop: $(theHash).offset().top - $('header').height()}, '500', 'swing');
 			});
 		});
-	
+
+		$('.backlink').click(function(e) {
+			goBack(e);
+		});
 	});
 </script>
 

@@ -90,7 +90,7 @@
 	<fieldset>
 		<p>The scenario parameters are currently set to <span class="currentRegion"><span class="regionName">Northern San Joaquin</span> default values.</span><input type="hidden" id="region-basis" name="region-basis" value="nsj"> From here you can:</p>
 
-			<div class="quick-submit"><!--div class="orDivider"><h5>or</h5></div--><a href="results.html" target="_blank" class="submit"><button>Run this scenario now with the current settings</button></a>
+			<div class="quick-submit"><!--div class="orDivider"><h5>or</h5></div--><a href="results.html" class="submit"><button>Run this scenario now with the current settings</button></a>
 				<p style="text-align: center;">or</p></div>
 
 			<span class="param-table-title"><strong>Customize the scenario:</strong><br />
@@ -280,14 +280,12 @@
 
 		</div>
 
-		<p class="endsubmit-wrap"><a href="results.html" target="_blank" class="submit endsubmit"><button>Display returns to this scenario</button></a></p>
+		<p class="endsubmit-wrap"><a href="results.html" class="submit endsubmit"><button>Display returns to this scenario</button></a></p>
 
 
 	</fieldset>
 
 </fieldset>
-
-</section>
 
 <section id="results" class="results"></section>
 
@@ -309,6 +307,35 @@
 		});*/
 
 		var storage = $.localStorage;
+
+		if (window.location.hash !== '#fresh') {
+			if (storage.isSet('run-model')) {
+				var theTableInputObject = storage.get('run-model');
+				$('input#region-basis').val(theTableInputObject.regionBasis);
+				$('input#' + theTableInputObject.figuredisplay).attr('checked', 'checked');
+				if (theTableInputObject.year3)
+					$('input[value="Year3"]').attr('checked', 'checked');
+				if (theTableInputObject.year5)
+					$('input[value="Year5"]').attr('checked', 'checked');
+				if (theTableInputObject.year10)
+					$('input[value="Year10"]').attr('checked', 'checked');
+				$('select#backupRegion').val(theTableInputObject.regionAssumed);
+				$('input#discount').val(theTableInputObject.discount);
+				$('input#cost0').val(theTableInputObject.cost0);
+				$('input#cost1').val(theTableInputObject.cost1);
+				$('input#cost2').val(theTableInputObject.cost2);
+				$('input#cost3').val(theTableInputObject.cost3);
+				$('input#pc').val(theTableInputObject.pc);
+				$('input#price').val(theTableInputObject.price);
+				$('input#yield0').val(theTableInputObject.yield0);
+				$('input#yield1').val(theTableInputObject.yield1);
+				$('input#yield2').val(theTableInputObject.yield2);
+				$('input#yield3').val(theTableInputObject.yield3);
+				$('input#yield4').val(theTableInputObject.yield4);
+				$('input#yield5').val(theTableInputObject.yield5);
+			}
+		}
+	
 
 		$('.submit').each(function() {
 			$(this).click(function() {
