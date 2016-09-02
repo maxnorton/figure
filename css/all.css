@@ -314,13 +314,11 @@ fieldset ul {
 /* SECONDARY LAYOUT
 ------------------------------ */
 .quick-submit {
-  x-float: right;
   width: 100%;
   text-align: center; }
   .quick-submit a,
   .quick-submit .orDivider {
-    display: inline-block;
-    x-padding: 1em; }
+    display: inline-block; }
   .quick-submit .orDivider {
     width: 30%; }
     .quick-submit .orDivider h5 {
@@ -610,7 +608,6 @@ table.form {
     line-height: 2em; }
 
 .assumptions-table .assumptions-tr .assumptions-td:not(:first-of-type) {
-  x-font-weight: bold;
   border-left: 1px dashed #ccc; }
 
 .custom-instructions table,
@@ -793,50 +790,14 @@ label[for=actualRegion] {
   width: 80%; }
 
 .param-table {
-  cursor: pointer;
-  			/*.param-input.dollar:before {
-  				color: #666;
-  				content: '$';
-  				font-family: $sans-stack;
-  				font-size: 1em;
-  				position: relative;
-  				left: 1em;
-  				z-index: 5;
-  			}
-  			
-  			.param-input.percentage:after {
-  				color: #666;
-  				content: '%';
-  				font-family: $sans-stack;
-  				font-size: 1em;
-  				position: relative;
-  				right: 1em;
-  				z-index: 5;
-  			}
-  
-  			.param-input.tons {
-  				input {
-  					x-padding: 0 3em 0 0;
-  				}
-  			}
-  			.param-input.tons:after {
-  				color: #666;
-  				content: 'Tons';
-  				font-family: $sans-stack;
-  				font-size: 1em;
-  				position: relative;
-  				right: 3em;
-  				z-index: 5;
-  			}*/ }
+  cursor: pointer; }
   .param-table input {
-    cursor: text;
-    x-font-size: 1em; }
+    cursor: text; }
   .param-table label {
     cursor: pointer; }
   .param-table .param-input input {
     text-align: right;
-    width: 6em;
-    x-padding: 0 1.5em; }
+    width: 6em; }
   .param-table .param-row {
     border-top: 1px solid #ccc;
     height: auto;
@@ -845,10 +806,8 @@ label[for=actualRegion] {
     .param-table .param-row:first-of-type, .param-table .param-row:first-of-type:hover, .param-table .param-row.regionalDefaultSelector:first-of-type:hover {
       border-top: 0 none;
       position: static; }
-    .param-table .param-row.regionalDefaultSelector .param-deadcell {
-      x-padding-left: 0; }
-      .param-table .param-row.regionalDefaultSelector .param-deadcell label {
-        line-height: 1em; }
+    .param-table .param-row.regionalDefaultSelector .param-deadcell label {
+      line-height: 1em; }
   .param-table .param-row.focused,
   .param-table .param-row:hover {
     background-color: #eee; }
@@ -859,8 +818,6 @@ label[for=actualRegion] {
     border-top: 0 none;
     position: relative;
     top: -2px; }
-  .param-table .param-row.regionalDefaultSelector .param-deadcell {
-    x-line-height: 2em; }
   .param-table .param-row.subselect.discount .glossary-link {
     margin-bottom: 1em; }
 
@@ -879,8 +836,7 @@ label[for=actualRegion] {
     border: 0;
     margin: 1em auto;
     padding: 0.5em;
-    text-align: center;
-    x-width: 100%; }
+    text-align: center; }
     .param-table .param-input input:focus {
       outline: 0; }
   .param-table #regionalDefaults {
@@ -909,16 +865,13 @@ table.form .subselect > td {
     color: black; }
 
 .figure-wrap {
-  background-color: #fff;
-  x-padding-left: 1em; }
+  background-color: #fff; }
 
 a.submit {
   text-decoration: none; }
   a.submit button {
     background: #06c;
-    x-border: 2px solid #ccc;
     color: #fff;
-    x-cursor: pointer;
     display: block;
     margin: 1em 0;
     width: 200px;
@@ -952,9 +905,6 @@ a.submit {
 .merged input,
 .merged select {
   font-size: 16px; }
-
-.param-table {
-  x-display: none; }
 
 /* Smartphones (portrait) and down ----------- */
 @media only screen and (max-width: 421px) {
