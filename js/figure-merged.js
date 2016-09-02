@@ -141,7 +141,7 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 	}
 
 	$('.figure-area svg').each(function() {
-		$(this).after('<div class="legend"><img src="img/figures/legend.png" /></div>');
+		$(this).after('<div class="legend"><img src="img/legend.png" /></div>');
 	})
 
 	if (figureCount===0) {
