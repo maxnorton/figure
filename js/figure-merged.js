@@ -71,11 +71,18 @@ function the_figure(whichYears, moreParameters, figuredisplay, scenarioYieldObje
 			    .ticks(5)
 			    .orient("bottom");
 
-			var yAxis = d3.svg.axis()
-			    .scale(y)
-			    .ticks(yTicks)
-			    .tickFormat(function(d) { return currencyFormat(d); })
-			    .orient("left");
+			if (figuredisplay==='yield') {
+				var yAxis = d3.svg.axis()
+				    .scale(y)
+				    .ticks(yTicks)
+				    .orient("left");
+			} else {
+				var yAxis = d3.svg.axis()
+				    .scale(y)
+				    .ticks(yTicks)
+				    .tickFormat(function(d) { return currencyFormat(d); })
+				    .orient("left");
+			}
 
 			var line = d3.svg.line()
 			    .x(function(d) { return x(d.x); })
