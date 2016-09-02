@@ -259,23 +259,23 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/js\/figure-merged.js": {
+	"\/js\/figure.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/figure-merged.js",
-		"outputAbbreviatedPath": "\/js\/min\/figure-merged-min.js",
+		"inputAbbreviatedPath": "\/js\/figure.js",
+		"outputAbbreviatedPath": "\/js\/min\/figure-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/interface-merged.js": {
+	"\/js\/interface.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/interface-merged.js",
-		"outputAbbreviatedPath": "\/js\/min\/interface-merged-min.js",
+		"inputAbbreviatedPath": "\/js\/interface.js",
+		"outputAbbreviatedPath": "\/js\/min\/interface-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -292,23 +292,23 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/min\/figure-merged-min.js": {
+	"\/js\/min\/figure-min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/figure-merged-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/figure-merged-min-min.js",
+		"inputAbbreviatedPath": "\/js\/min\/figure-min.js",
+		"outputAbbreviatedPath": "\/js\/min\/min\/figure-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/min\/interface-merged-min.js": {
+	"\/js\/min\/interface-min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/interface-merged-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/interface-merged-min-min.js",
+		"inputAbbreviatedPath": "\/js\/min\/interface-min.js",
+		"outputAbbreviatedPath": "\/js\/min\/min\/interface-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -347,23 +347,23 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/min\/table-merged-min.js": {
+	"\/js\/min\/table-min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/table-merged-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/table-merged-min-min.js",
+		"inputAbbreviatedPath": "\/js\/min\/table-min.js",
+		"outputAbbreviatedPath": "\/js\/min\/min\/table-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/table-merged.js": {
+	"\/js\/table.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/table-merged.js",
-		"outputAbbreviatedPath": "\/js\/min\/table-merged-min.js",
+		"inputAbbreviatedPath": "\/js\/table.js",
+		"outputAbbreviatedPath": "\/js\/min\/table-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
