@@ -230,25 +230,8 @@ function the_table(inputObject) {
 	 			}
 	 		}
 	 		var healthyACDNBnaDisplay = currencyFormat(parseFloat(healthyCDNRna[25] - untreatedCDNR[25]).toFixed(2));
-	 		/*if (healthyACDNBnaDisplay < 0) {
-	 			healthyACDNBnaDisplay = '-$' + parseFloat(-1*healthyACDNBnaDisplay).toFixed(2);
-	 		} else {
-	 			healthyACDNBnaDisplay = '$' + parseFloat(healthyACDNBnaDisplay).toFixed(2);
-	 		}*/
 
 	 		var healthyBEAnaDisplay = '-';
-
-	 		/*var healthyBEAnaDisplay = -1;
-	 		for (i in healthyCDNRna) {
-	 			if (healthyCDNRna[i+1] > 0) {
-	 				healthyBEAnaDisplay = i;
-	 				break;
-	 			}
-	 		}
-	 		if (healthyBEAnaDisplay === -1) {
-	 			healthyBEAnaDisplay  = 'Never breaks even';
-	 			healthyLPY = '-';
-	 		}*/
 
 	 		healthyACDNBna = [];
 	 		for (i in healthyCDNRna) {
@@ -434,12 +417,6 @@ function the_table(inputObject) {
 		 		if (acdnbDisplay !== '-') {
 		 			acdnbDisplay = currencyFormat(acdnbDisplay);
 		 		}
-
-		 			/*&& acdnbDisplay < 0) {
-	 				acdnbDisplay = '-$' + parseFloat(-1*acdnbDisplay).toFixed(2);
-	 			} else if (acdnbDisplay !== '-') {
-	 				acdnbDisplay = '$' + parseFloat(acdnbDisplay).toFixed(2);
-	 			}*/
 
 				the_table_html += '<div class="output-tr"><div class="output-td">' + scenarios[selectCol] + '</div><div class="output-td">' + acdnbDisplay + '</div><div class="output-td">' + bea[selectCol] + '</div><div class="output-td">' + lpy[selectCol] + '</div><div class="output-td">' + bep[selectCol] + '</div></div>';
 

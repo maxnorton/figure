@@ -442,14 +442,12 @@ fieldset ul {
 ------------------------------ */
 
 .quick-submit {
-	x-float: right;
 	width: 100%;
 	text-align: center;
 
 	a,
 	.orDivider {
 		display: inline-block;
-		x-padding: 1em;
 	}
 
 	.orDivider {
@@ -779,7 +777,6 @@ table.form {
 
 .assumptions-table {
 	.assumptions-tr .assumptions-td:not(:first-of-type) {
-		x-font-weight: bold;
 		border-left: 1px dashed #ccc;
 	}
 }
@@ -1029,43 +1026,7 @@ label[for=actualRegion] {
 
 			input {
 				cursor: text;
-				x-font-size: 1em;
 			}
-
-			/*.param-input.dollar:before {
-				color: #666;
-				content: '$';
-				font-family: $sans-stack;
-				font-size: 1em;
-				position: relative;
-				left: 1em;
-				z-index: 5;
-			}
-			
-			.param-input.percentage:after {
-				color: #666;
-				content: '%';
-				font-family: $sans-stack;
-				font-size: 1em;
-				position: relative;
-				right: 1em;
-				z-index: 5;
-			}
-
-			.param-input.tons {
-				input {
-					x-padding: 0 3em 0 0;
-				}
-			}
-			.param-input.tons:after {
-				color: #666;
-				content: 'Tons';
-				font-family: $sans-stack;
-				font-size: 1em;
-				position: relative;
-				right: 3em;
-				z-index: 5;
-			}*/
 
 			label {
 				cursor: pointer;
@@ -1075,7 +1036,6 @@ label[for=actualRegion] {
 				input {
 					text-align: right;
 					width: 6em;
-					x-padding: 0 1.5em;
 				}
 			}
 
@@ -1093,7 +1053,6 @@ label[for=actualRegion] {
 				}
 
 				&.regionalDefaultSelector .param-deadcell {
-					x-padding-left: 0;
 					label {
 						line-height: 1em;
 					}
@@ -1114,11 +1073,6 @@ label[for=actualRegion] {
 				border-top: 0 none;
 				position: relative;
 				top: -2px;
-			}
-
-
-			.param-row.regionalDefaultSelector .param-deadcell {
-				x-line-height: 2em;
 			}
 
 			.param-row.subselect.discount .glossary-link {
@@ -1146,7 +1100,6 @@ label[for=actualRegion] {
 					margin: 1em auto;
 					padding: 0.5em;
 					text-align: center;
-					x-width: 100%;
 
 					&:focus {
 						outline: 0;
@@ -1197,7 +1150,6 @@ table.form .subselect > td {
 
 .figure-wrap {
 	background-color: #fff;
-	x-padding-left: 1em;
 }
 
 a.submit {
@@ -1205,9 +1157,7 @@ a.submit {
 
 	button {
 		background: #06c;
-		x-border: 2px solid #ccc;
 		color: #fff;
-		x-cursor: pointer;
 		display: block;
 		margin: 1em 0;
 		width: 200px;
@@ -1257,10 +1207,6 @@ a.submit {
 	select {
 		font-size: 16px;
 	}
-}
-
-.param-table {
-	x-display: none;
 }
 
 /* Smartphones (portrait) and down ----------- */
