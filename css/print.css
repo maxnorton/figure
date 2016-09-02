@@ -5,6 +5,7 @@ hr,
 .landscape-alert,
 .print-link,
 #theform,
+.sidebar,
 .top-link {
   display: none; }
 
@@ -12,6 +13,7 @@ hr,
   padding-top: 20px; }
 
 header {
+  background-color: #fff;
   border-bottom: 0;
   position: static;
   text-align: center; }
@@ -24,6 +26,8 @@ header {
   border-bottom: 1px solid #ccc; }
 
 .assumptions-wrap,
+.figure-wrap,
+.output-wrap,
 .table-wrap {
   page-break-inside: avoid; }
 
@@ -35,3 +39,8 @@ header {
 
 .varDefs-printable {
   display: block; }
+
+header h1.title a,
+.scenarioGroup,
+.variableGroup {
+  color: #000; }

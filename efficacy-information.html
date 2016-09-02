@@ -2,33 +2,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Disease control efficacy rates | Canker disease management options decision tool</title>
+<title>Disease control efficacy rates | Trunk disease management tool</title>
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/all.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/jquery.swipebox.js"></script>
 <link rel="stylesheet" href="css/swipebox.css">
-<script type="text/javascript" src = "js/interface.js"></script>
+<script type="text/javascript" src = "js/interface-merged.js"></script>
 </head>
 
 <body>
 
 <header>
 	<div class="header-wrap">
-		<h1 class="title"><a href="index.html">Trunk disease management options decision tool</a></h1>
-		<h1 class="images">
-			<img src="img/header-photo-center.jpg" alt="Photo: Esca" />
-			<img src="img/header-photo-right.jpg" alt="Photo: Eutypa dieback" />
-			<img src="img/header-photo-extended01.jpg" alt="Photo: Phomopsis dieback" />
-			<img src="img/header-photo-extended02.jpg" alt="Photo: Eutypa dieback" />
-			<img src="img/header-photo-extended03.jpg" alt="Photo: Bot dieback" />
-		</h1>
+		<h1 class="title"><a href="index.html">Trunk disease management tool</a></h1><div class="images"><img src="img/header-photo-center.jpg" alt="Photo: Esca" /><img src="img/header-photo-right.jpg" alt="Photo: Eutypa dieback" /><img src="img/header-photo-extended01.jpg" alt="Photo: Phomopsis dieback" /><img src="img/header-photo-extended02.jpg" alt="Photo: Eutypa dieback" /><!--img src="img/header-photo-extended03.jpg" alt="Photo: Bot dieback" /--></div>
 	</div>
 </header>
 
+<section class="flyout-wrap"></section>
+<div class="sidebar">
+	<ul>
+		<li class="glossary-title"><h4>Definitions</h4></li>
+		<li class="glossary-link"><a href="variables.html" class="frame-link">Variables</a></li>
+		<li class="glossary-link"><a href="practices.html" class="frame-link">Practices</a></li>
+		<li class="glossary-link"><a href="discount.html" class="frame-link">Discount rate</a></li>
+		<li class="glossary-title"><h4>Information</h4></li>
+		<li class="glossary-link"><a href="efficacy.html" class="frame-link">Disease control efficacy rates</a></li>
+		<li class="glossary-link"><a href="age-of-adoption.html" class="frame-link">Age of practice adoption</a></li>
+		<li class="glossary-link"><a href="practice-costs.html" class="frame-link">Preventative practice costs</a></li>
+		<li class="glossary-title"><h4>Navigate:</h4>&nbsp;&nbsp;&nbsp;<a href="index.html#figureparameters">Input form</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#page">Top</a></li>
+	</ul>
+</div>
 <section class="content-wrap efficacy-info">
-<h1 id="diseasecontrolefficacyrates">Disease control efficacy rates</h1>
+<h3 id="diseasecontrolefficacyrates">Disease control efficacy rates</h3>
 
 <p>A survey of the scientific literature on preventative practices provided a range of disease-control efficacies (DCEs), which were calculated from multiple experimental trials on different trunk diseases (see table below). DCE is the proportion of pruning wounds which do not become infected as a result of a preventative practice. In the empirical analysis, DCEs of 25, 50, and 75% were used, which reflect the range of natural variation across study years [e.g., DCEs ranging from 29 to 88% for delayed pruning against Phaeoacremonium minimum (Larignon and Dubos, 2000)] or across pathogens [e.g., DCE of 52% for Topsin against Phaeomoniella chlamydospora vs. DCE of 80% against Lasiodiplodia sp. (Rolshausen et al., 2010)]. The high extreme of the range in DCEs is truncated at 75% to reflect that all infections may not arise through pruning wounds. For example, planting material may be infected in the nursery (Gramaje and Armengol, 2011) and, thus, it is unrealistic to assume a practice can prevent 100% of infections.</p>
 
@@ -160,6 +167,7 @@ $(document).ready(function() {
 	$('.backlink').click(function(e) {
 		goBack(e);
 	});
+	styleGlossaryLinks();
 });
 </script>
 </body>

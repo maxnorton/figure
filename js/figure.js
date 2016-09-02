@@ -51,7 +51,7 @@ function the_figure(scenarioYieldObject, scenarioCDNRObject) {
 		 		.y(function(d) { return y(d.y); })
 		 		.interpolate("linear");
 
-			$('.figure-area').append('<section class="figure-wrapper" id="figure' + parameterValue + '"></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
+			$('.figure-area').append('<section class="figure-wrap" id="figure' + parameterValue + '"></section><p><a class="swipebox" href="#figure' + parameterValue + '"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a></p>');
 
 			var svg = d3.select("#figure" + parameterValue).append("svg")
 				.attr("width", width + margin.left + padding.left + margin.right)
