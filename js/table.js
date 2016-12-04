@@ -1,5 +1,6 @@
 function the_table(inputObject) {
 	var missingVals = [];
+	console.log(inputObject);
 
 	d3.tsv("regional-assumptions.tsv", function(assumptions) {
 		var regionIndex = regionSwitch(inputObject.regionAssumed, 'index');
@@ -56,7 +57,7 @@ function the_table(inputObject) {
 			inputObject.yield5 = assumptions[regionIndex]['yield5'];
 			missingVals.push('yield5');
 		}
-
+		
 		d3.tsv("yield-rates.tsv", function(yieldRates) {
 			var acdnb25y3 = [],
 				acdnb25y5 = [],
@@ -139,32 +140,32 @@ function the_table(inputObject) {
 			scenarioCDNRObject.untreated = [];
 
 			var healthyYields = [
-					parseInt(inputObject.yield0),
-					parseInt(inputObject.yield1),
-					parseInt(inputObject.yield2),
-					parseInt(inputObject.yield3),
-					parseInt(inputObject.yield4),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5),
-					parseInt(inputObject.yield5)		
+					parseFloat(inputObject.yield0),
+					parseFloat(inputObject.yield1),
+					parseFloat(inputObject.yield2),
+					parseFloat(inputObject.yield3),
+					parseFloat(inputObject.yield4),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5),
+					parseFloat(inputObject.yield5)		
 				],
 				untreatedYields = [];
 
@@ -173,6 +174,8 @@ function the_table(inputObject) {
 				scenarioYieldObject.healthy[i] = {"x": i, "y": healthyYields[i]};
 				scenarioYieldObject.untreated[i] = {"x": i, "y": untreatedYields[i]};
 			}
+			
+			console.log(scenarioYieldObject);
 
 			costs = [
 				inputObject.cost0,
@@ -345,9 +348,9 @@ function the_table(inputObject) {
 					scenarioCDNRObject[thisKey][i] = {"x" : i, "y" : treatedCDNR[i]};
 				}
 
-				ccthv = [ parseInt(pcFtnOfT[0]) ];
+				ccthv = [ parseFloat(pcFtnOfT[0]) ];
 				for (i=1; i<healthyDNR.length; i++) {
-					ccthv[i] = parseInt(pcFtnOfT[i]) + parseInt(ccthv[i-1]);
+					ccthv[i] = parseFloat(pcFtnOfT[i]) + parseFloat(ccthv[i-1]);
 				}
 
 				var acdnb = [];
